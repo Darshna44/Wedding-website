@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Darshna & Michael - Wedding Celebrations</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            line-height: 1.6;
+            color: #5a5a5a;
+            background-color: #fefcfb;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Wedding Selection Screen */
+        .wedding-selector {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #f5e6d3 0%, #f8f4f2 50%, #fdeee6 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .wedding-selector::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="floral" patternUnits="userSpaceOnUse" width="20" height="20"><circle cx="10" cy="10" r="1" fill="%23f4d4ba" opacity="0.3"/></pattern></defs><rect width="100" height="100" fill="url(%23floral)"/></svg>');
+            opacity: 0.4;
+        }
+
+        .selector-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .selector-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 700;
+            color: #8b7355;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .selector-content .ampersand {
+            font-size: 2.5rem;
+            color: #e8a87c;
+            margin: 0 1rem;
+            font-style: italic;
+        }
+
+        .selector-content .subtitle {
+            font-size: 1.4rem;
+            color: #a0896b;
+            margin-bottom: 3rem;
+            font-weight: 300;
+        }
+
+        .selector-content .instructions {
+            font-size: 1.2rem;
+            color: #8b7355;
+            margin-bottom: 3rem;
+            background: rgba(255,255,255,0.9);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 2px solid #f4d4ba;
+        }
+
+        .wedding-buttons {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .wedding-btn {
+            background: white;
+            border: 3px solid #e8a87c;
+            border-radius: 15px;
+            padding: 2rem 3rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: #8b7355;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            min-width: 250px;
+        }
+
+        .wedding-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            border-color: #d4956f;
+        }
+
+        .wedding-btn h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            color: #8b7355;
+        }
+
+        .wedding-btn .date {
+            font-size: 1.2rem;
+            color: #e8a87c;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .wedding-btn .location {
+            font-size: 1rem;
+            color: #a0896b;
+        }
+
+        /* Individual Wedding Pages */
+        .wedding-page {
+            display: none;
+            min-height: 100vh;
+        }
+
+        .wedding-page.active {
+            display: block;
+        }
+
+        /* English Wedding Styles */
+        .english-wedding {
+            --primary-color: #e8a87c;
+            --secondary-color: #f4d4ba;
+            --accent-color: #8b7355;
+            --bg-gradient: linear-gradient(135deg, #f5e6d3 0%, #f8f4f2 50%, #fdeee6 100%);
+            --section-bg: linear-gradient(135deg, #faf7f5 0%, #f8f4f2 100%);
+        }
+
+        /* Indian Wedding Styles */
+        .indian-wedding {
+            --primary-color: #c41e3a;
+            --secondary-color: #d4af37;
+            --accent-color: #008080;
+            --bg-gradient: linear-gradient(135deg, #fdf2f2 0%, #fff8dc 50%, #f0ffff 100%);
+            --section-bg: linear-gradient(135deg, #fef7f7 0%, #fffbf0 100%);
+        }
+
+        /* Header & Navigation */
+        header {
+            background: rgba(248, 244, 242, 0.95);
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        nav li {
+            margin: 0 1rem;
+        }
+
+        nav a, nav button {
+            text-decoration: none;
+            color: #8b7355;
+            font-weight: 400;
+            transition: color 0.3s ease;
+            font-size: 1rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-family: 'Lato', sans-serif;
+        }
+
+        nav a:hover, nav button:hover {
+            color: var(--primary-color, #e8a87c);
+        }
+
+        .back-btn {
+            background: var(--primary-color, #e8a87c) !important;
+            color: white !important;
+            padding: 0.5rem 1rem !important;
+            border-radius: 25px !important;
+            font-weight: 600 !important;
+        }
+
+        .back-btn:hover {
+            background: var(--accent-color, #8b7355) !important;
+            color: white !important;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--bg-gradient);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="floral" patternUnits="userSpaceOnUse" width="20" height="20"><circle cx="10" cy="10" r="1" fill="%23f4d4ba" opacity="0.3"/></pattern></defs><rect width="100" height="100" fill="url(%23floral)"/></svg>');
+            opacity: 0.4;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .hero .ampersand {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin: 0 1rem;
+            font-style: italic;
+        }
+
+        .hero .wedding-type {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .hero .date {
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            font-weight: 300;
+        }
+
+        .hero .venue {
+            font-size: 1.2rem;
+            color: var(--accent-color);
+            font-weight: 400;
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            color: var(--accent-color);
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            margin: 1rem auto;
+            border-radius: 2px;
+        }
+
+        /* Wedding Details */
+        .details-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .detail-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            text-align: center;
+            border: 2px solid var(--secondary-color);
+            margin-bottom: 2rem;
+        }
+
+        .detail-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .detail-card .time {
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .detail-card .location {
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            line-height: 1.4;
+        }
+
+        /* RSVP Section */
+        .rsvp {
+            background: var(--section-bg);
+        }
+
+        .rsvp-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            border: 2px solid var(--secondary-color);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--secondary-color);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+            font-family: 'Lato', sans-serif;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .btn {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Lato', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            width: 100%;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Success/Error Messages */
+        .message {
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .message.success {
+            background-color: #d4f7d4;
+            color: #2d5a2d;
+            border: 2px solid #90d690;
+        }
+
+        .message.error {
+            background-color: #f7d4d4;
+            color: #5a2d2d;
+            border: 2px solid #d69090;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--accent-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .footer-hearts {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .selector-content h1,
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .ampersand {
+                font-size: 1.8rem;
+            }
+
+            .wedding-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .wedding-btn {
+                min-width: 200px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav li {
+                margin: 0.3rem 0;
+            }
+
+            .rsvp-form {
+                padding: 2rem;
+                margin: 0 1rem;
+            }
+
+            section {
+                padding: 3rem 0;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Decorative elements */
+        .decorative-element {
+            position: absolute;
+            opacity: 0.1;
+            pointer-events: none;
+        }
+
+        .decorative-element.top-left {
+            top: 20%;
+            left: 10%;
+            font-size: 8rem;
+            color: var(--primary-color);
+        }
+
+        .decorative-element.bottom-right {
+            bottom: 20%;
+            right: 10%;
+            font-size: 6rem;
+            color: var(--secondary-color);
+        }
+    </style>
+</head>
+<body>
+    <!-- Wedding Selection Screen -->
+    <div id="weddingSelector" class="wedding-selector">
+        <div class="selector-content">
+            <h1>
+                Darshna 
+                <span class="ampersand">&</span> 
+                Michael
+            </h1>
+            <div class="subtitle">Wedding Celebrations 2026</div>
+            <div class="instructions">
+                <p><strong>Welcome!</strong> Please select the wedding celebration you've been invited to. If you're invited to both, you can RSVP to each separately.</p>
+            </div>
+            <div class="wedding-buttons">
+                <a href="#" class="wedding-btn" onclick="showWedding('english')">
+                    <h3>English Wedding</h3>
+                    <div class="date">May 1st, 2026</div>
+                    <div class="location">Elmore Court, Gloucester</div>
+                </a>
+                <a href="#" class="wedding-btn" onclick="showWedding('indian')">
+                    <h3>Indian Wedding</h3>
+                    <div class="date">May 10th, 2026</div>
+                    <div class="location">Oshwal Centre, Potters Bar</div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- English Wedding Page -->
+    <div id="englishWedding" class="wedding-page english-wedding">
+        <header>
+            <nav class="container">
+                <ul>
+                    <li><button class="back-btn" onclick="showSelector()">← Back to Selection</button></li>
+                    <li><a href="#english-home">Home</a></li>
+                    <li><a href="#english-details">Wedding Details</a></li>
+                    <li><a href="#english-rsvp">RSVP</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section id="english-home" class="hero">
+            <div class="decorative-element top-left">❀</div>
+            <div class="decorative-element bottom-right">✿</div>
+            <div class="hero-content">
+                <h1>
+                    Darshna 
+                    <span class="ampersand">&</span> 
+                    Michael
+                </h1>
+                <div class="wedding-type">English Wedding</div>
+                <div class="date">May 1st, 2026</div>
+                <div class="venue">Elmore Court, Gloucester</div>
+            </div>
+        </section>
+
+        <section id="english-details" class="container">
+            <h2 class="section-title">Wedding Details</h2>
+            <div class="details-container">
+                <div class="detail-card">
+                    <h3>Ceremony & Reception</h3>
+                    <div class="time">Time: TBA</div>
+                    <div class="location">
+                        Elmore Court<br>
+                        Weir Lane, Elmore<br>
+                        Gloucester GL2 3NT
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="english-rsvp" class="rsvp">
+            <div class="container">
+                <h2 class="section-title">RSVP</h2>
+                <div class="rsvp-form">
+                    <div id="englishSuccessMessage" class="message success hidden">
+                        <p>🎉 Thank you for your RSVP! We can't wait to celebrate with you at our English wedding!</p>
+                    </div>
+                    <div id="englishErrorMessage" class="message error hidden">
+                        <p>❌ Sorry, there was an error. Please try again or contact us directly.</p>
+                    </div>
+                    
+                    <form id="englishRsvpForm" action="https://formspree.io/f/mqadbbln" method="POST">
+                        <div class="form-group">
+                            <label for="englishName">Full Name(s) *</label>
+                            <input type="text" id="englishName" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="englishEmail">Email Address *</label>
+                            <input type="email" id="englishEmail" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="englishPhone">Phone Number</label>
+                            <input type="tel" id="englishPhone" name="phone">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="englishAttendance">Will you be attending? *</label>
+                            <select id="englishAttendance" name="attendance" required>
+                                <option value="">Please select</option>
+                                <option value="yes">Yes, we'll be there! 🎉</option>
+                                <option value="no">Sorry, can't make it 😢</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group hidden" id="englishGuestGroup">
+                            <label for="englishGuests">Number of Guests *</label>
+                            <select id="englishGuests" name="guests">
+                                <option value="1">1 Guest</option>
+                                <option value="2">2 Guests</option>
+                                <option value="3">3 Guests</option>
+                                <option value="4">4 Guests</option>
+                                <option value="5">5+ Guests</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group hidden" id="englishGuestNamesGroup">
+                            <label for="englishGuestNames">Guest Names</label>
+                            <textarea id="englishGuestNames" name="guestNames" rows="2" placeholder="Please list all guest names..."></textarea>
+                        </div>
+                        
+                        <div class="form-group hidden" id="englishDietaryGroup">
+                            <label for="englishDietary">Dietary Requirements</label>
+                            <textarea id="englishDietary" name="dietary" rows="2" placeholder="Any allergies or dietary requirements..."></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="englishMessage">Message for Us</label>
+                            <textarea id="englishMessage" name="message" rows="3" placeholder="Share your excitement or any message..."></textarea>
+                        </div>
+                        
+                        <input type="hidden" name="_subject" value="English Wedding RSVP - Darshna & Michael">
+                        <input type="hidden" name="wedding_type" value="English Wedding">
+                        <input type="hidden" name="_next" value="#english-rsvp">
+                        <input type="hidden" name="_captcha" value="false">
+                        
+                        <button type="submit" class="btn" id="englishSubmitBtn">
+                            <span class="submit-text">Send RSVP</span>
+                            <span class="loading-text hidden">Sending...</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="container">
+                <div class="footer-hearts">♥ ♥ ♥</div>
+                <p>Darshna & Michael • English Wedding • May 1st, 2026</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Indian Wedding Page -->
+    <div id="indianWedding" class="wedding-page indian-wedding">
+        <header>
+            <nav class="container">
+                <ul>
+                    <li><button class="back-btn" onclick="showSelector()">← Back to Selection</button></li>
+                    <li><a href="#indian-home">Home</a></li>
+                    <li><a href="#indian-details">Wedding Details</a></li>
+                    <li><a href="#indian-rsvp">RSVP</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section id="indian-home" class="hero">
+            <div class="decorative-element top-left">❀</div>
+            <div class="decorative-element bottom-right">✿</div>
+            <div class="hero-content">
+                <h1>
+                    Darshna 
+                    <span class="ampersand">&</span> 
+                    Michael
+                </h1>
+                <div class="wedding-type">Indian Wedding</div>
+                <div class="date">May 10th, 2026</div>
+                <div class="venue">Oshwal Centre, Potters Bar</div>
+            </div>
+        </section>
+
+        <section id="indian-details" class="container">
+            <h2 class="section-title">Wedding Details</h2>
+            <div class="details-container">
+                <div class="detail-card">
+                    <h3>Ceremony</h3>
+                    <div class="time">Time: TBA</div>
+                    <div class="location">
+                        Oshwal Centre<br>
+                        Coopers Lane Road, Northaw<br>
+                        Potters Bar EN6 4DG
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="indian-rsvp" class="rsvp">
+            <div class="container">
+                <h2 class="section-title">RSVP</h2>
+                <div class="rsvp-form">
+                    <div id="indianSuccessMessage" class="message success hidden">
+                        <p>🎉 Thank you for your RSVP! We can't wait to celebrate with you at our Indian wedding!</p>
+                    </div>
+                    <div id="indianErrorMessage" class="message error hidden">
+                        <p>❌ Sorry, there was an error. Please try again or contact us directly.</p>
+                    </div>
+                    
+                    <form id="indianRsvpForm" action="https://formspree.io/f/mldwnnlv" method="POST">
+                        <div class="form-group">
+                            <label for="indianName">Full Name(s) *</label>
+                            <input type="text" id="indianName" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="indianEmail">Email Address *</label>
+                            <input type="email" id="indianEmail" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="indianPhone">Phone Number</label>
+                            <input type="tel" id="indianPhone" name="phone">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="indianAttendance">Will you be attending? *</label>
+                            <select id="indianAttendance" name="attendance" required>
+                                <option value="">Please select</option>
+                                <option value="yes">Yes, we'll be there! 🎉</option>
+                                <option value="no">Sorry, can't make it 😢</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group hidden" id="indianGuestGroup">
+                            <label for="indianGuests">Number of Guests *</label>
+                            <select id="indianGuests" name="guests">
+                                <option value="1">1 Guest</option>
+                                <option value="2">2 Guests</option>
+                                <option value="3">3 Guests</option>
+                                <option value="4">4 Guests</option>
+                                <option value="5">5+ Guests</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group hidden" id="indianGuestNamesGroup">
+                            <label for="indianGuestNames">Guest Names</label>
+                            <textarea id="indianGuestNames" name="guestNames" rows="2" placeholder="Please list all guest names..."></textarea>
+                        </div>
+                        
+                        <div class="form-group hidden" id="indianDietaryGroup">
+                            <label for="indianDietary">Dietary Requirements</label>
+                            <textarea id="indianDietary" name="dietary" rows="2" placeholder="Any allergies or dietary requirements..."></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="indianMessage">Message for Us</label>
+                            <textarea id="indianMessage" name="message" rows="3" placeholder="Share your excitement or any message..."></textarea>
+                        </div>
+                        
+                        <input type="hidden" name="_subject" value="Indian Wedding RSVP - Darshna & Michael">
+                        <input type="hidden" name="wedding_type" value="Indian Wedding">
+                        <input type="hidden" name="_next" value="#indian-rsvp">
+                        <input type="hidden" name="_captcha" value="false">
+                        
+                        <button type="submit" class="btn" id="indianSubmitBtn">
+                            <span class="submit-text">Send RSVP</span>
+                            <span class="loading-text hidden">Sending...</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="container">
+                <div class="footer-hearts">♥ ♥ ♥</div>
+                <p>Darshna & Michael • Indian Wedding • May 10th, 2026</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Wedding selection functionality
+        function showWedding(type) {
+            document.getElementById('weddingSelector').style.display = 'none';
+            if (type === 'english') {
+                document.getElementById('englishWedding').classList.add('active');
+            } else if (type === 'indian') {
+                document.getElementById('indianWedding').classList.add('active');
+            }
+        }
+
+        function showSelector() {
+            document.getElementById('weddingSelector').style.display = 'flex';
+            document.getElementById('englishWedding').classList.remove('active');
+            document.getElementById('indianWedding').classList.remove('active');
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerHeight = document.querySelector('header').offsetHeight;
+                    const targetPosition = target.offsetTop - headerHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Function to handle form field visibility
+        function setupFormLogic(prefix) {
+            const attendanceSelect = document.getElementById(prefix + 'Attendance');
+            const guestGroup = document.getElementById(prefix + 'GuestGroup');
+            const guestNamesGroup = document.getElementById(prefix + 'GuestNamesGroup');
+            const dietaryGroup = document.getElementById(prefix + 'DietaryGroup');
+            const guestsSelect = document.getElementById(prefix + 'Guests');
+            
+            attendanceSelect.addEventListener('change', function() {
+                if (this.value === 'yes') {
+                    guestGroup.classList.remove('hidden');
+                    guestNamesGroup.classList.remove('hidden');
+                    dietaryGroup.classList.remove('hidden');
+                    guestsSelect.required = true;
+                } else {
+                    guestGroup.classList.add('hidden');
+                    guestNamesGroup.classList.add('hidden');
+                    dietaryGroup.classList.add('hidden');
+                    guestsSelect.required = false;
+                }
+            });
+        }
+
+        // Function to handle form submission
+        function setupFormSubmission(formId, successId, errorId, submitBtnId) {
+            const form = document.getElementById(formId);
+            const successMessage = document.getElementById(successId);
+            const errorMessage = document.getElementById(errorId);
+            const submitBtn = document.getElementById(submitBtnId);
+            
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const submitText = submitBtn.querySelector('.submit-text');
+                const loadingText = submitBtn.querySelector('.loading-text');
+                
+                // Show loading state
+                submitBtn.disabled = true;
+                submitText.classList.add('hidden');
+                loadingText.classList.remove('hidden');
+                
+                // Hide previous messages
+                successMessage.classList.add('hidden');
+                errorMessage.classList.add('hidden');
+                
+                // Submit form data
+                const formData = new FormData(this);
+                
+                fetch(this.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                })
+                .then(response => {
+                    if (response.ok) {
+                        successMessage.classList.remove('hidden');
+                        form.reset();
+                        // Hide guest fields after reset
+                        document.getElementById(formId.replace('RsvpForm', 'GuestGroup')).classList.add('hidden');
+                        document.getElementById(formId.replace('RsvpForm', 'GuestNamesGroup')).classList.add('hidden');
+                        document.getElementById(formId.replace('RsvpForm', 'DietaryGroup')).classList.add('hidden');
+                        successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    } else {
+                        throw new Error('Network response was not ok');
+                    }
+                })
+                .catch(error => {
+                    errorMessage.classList.remove('hidden');
+                    errorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                })
+                .finally(() => {
+                    submitBtn.disabled = false;
+                    submitText.classList.remove('hidden');
+                    loadingText.classList.add('hidden');
+                });
+            });
+        }
+
+        // Initialize forms
+        document.addEventListener('DOMContentLoaded', function() {
+            setupFormLogic('english');
+            setupFormLogic('indian');
+            setupFormSubmission('englishRsvpForm', 'englishSuccessMessage', 'englishErrorMessage', 'englishSubmitBtn');
+            setupFormSubmission('indianRsvpForm', 'indianSuccessMessage', 'indianErrorMessage', 'indianSubmitBtn');
+        });
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (header && window.scrollY > 100) {
+                header.style.background = 'rgba(248, 244, 242, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else if (header) {
+                header.style.background = 'rgba(248, 244, 242, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            }
+        });
+    </script>
+</body>
+</html>
