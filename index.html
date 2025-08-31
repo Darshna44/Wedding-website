@@ -171,6 +171,16 @@
             font-style: italic;
         }
 
+        .wedding-btn .url-preview {
+            font-size: 0.85rem;
+            color: #a0896b;
+            margin-top: 1rem;
+            font-family: monospace;
+            background: rgba(0,0,0,0.05);
+            padding: 0.5rem;
+            border-radius: 5px;
+        }
+
         /* Individual Wedding Pages */
         .wedding-page {
             display: none;
@@ -544,8 +554,8 @@
             margin-bottom: 1rem;
         }
 
-        /* URL-based direct access styles */
-        .direct-access {
+        /* URL Display */
+        .url-display {
             position: fixed;
             top: 20px;
             right: 20px;
@@ -553,10 +563,11 @@
             background: rgba(255,255,255,0.9);
             padding: 0.5rem 1rem;
             border-radius: 25px;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: #8b7355;
             backdrop-filter: blur(10px);
             border: 1px solid #f4d4ba;
+            font-family: monospace;
         }
 
         /* Responsive Design */
@@ -606,7 +617,7 @@
                 font-size: 2rem;
             }
 
-            .direct-access {
+            .url-display {
                 position: static;
                 margin: 1rem;
                 text-align: center;
@@ -641,6 +652,9 @@
     </style>
 </head>
 <body>
+    <!-- URL Display -->
+    <div id="urlDisplay" class="url-display hidden"></div>
+
     <!-- Wedding Selection Screen -->
     <div id="weddingSelector" class="wedding-selector">
         <div class="selector-content">
@@ -659,12 +673,14 @@
                     <div class="date">May 1st, 2026</div>
                     <div class="location">Elmore Court, Gloucester</div>
                     <div class="details">Ceremony & Reception</div>
+                    <div class="url-preview">shahrosewedding.co.uk/1stMay2026</div>
                 </a>
                 <a href="#" class="wedding-btn indian" onclick="showWedding('indian')">
                     <h3>Indian Wedding</h3>
                     <div class="date">May 10th, 2026</div>
                     <div class="location">Oshwal Centre, Potters Bar</div>
                     <div class="details">Traditional Ceremony</div>
+                    <div class="url-preview">shahrosewedding.co.uk/10thMay2026</div>
                 </a>
             </div>
         </div>
@@ -970,14 +986,26 @@
     <script>
         // URL-based direct access
         function checkURLForDirectAccess() {
+            const path = window.location.pathname;
             const params = new URLSearchParams(window.location.search);
-            const wedding = params.get('wedding');
             
-            if (wedding === 'english') {
+            // Check for path-based access
+            if (path.includes('/1stMay2026') || params.get('path') === '1stMay2026') {
                 showWedding('english');
-            } else if (wedding === 'indian') {
+                updateURLDisplay('shahrosewedding.co.uk/1stMay2026');
+            } else if (path.includes('/10thMay2026') || params.get('path') === '10thMay2026') {
                 showWedding('indian');
+                updateURLDisplay('shahrosewedding.co.uk/10thMay2026');
+            } else {
+                updateURLDisplay('shahrosewedding.co.uk');
             }
+        }
+
+        // Update URL display
+        function updateURLDisplay(url) {
+            const urlDisplay = document.getElementById('urlDisplay');
+            urlDisplay.textContent = url;
+            urlDisplay.classList.remove('hidden');
         }
 
         // Wedding selection functionality
@@ -987,21 +1015,24 @@
                 document.getElementById('englishWedding').classList.add('active');
                 document.getElementById('indianWedding').classList.remove('active');
                 updateCountdown('english');
+                updateURLDisplay('shahrosewedding.co.uk/1stMay2026');
+                // Update URL without page reload
+                window.history.pushState({}, '', '?path=1stMay2026');
             } else if (type === 'indian') {
                 document.getElementById('indianWedding').classList.add('active');
                 document.getElementById('englishWedding').classList.remove('active');
                 updateCountdown('indian');
+                updateURLDisplay('shahrosewedding.co.uk/10thMay2026');
+                // Update URL without page reload
+                window.history.pushState({}, '', '?path=10thMay2026');
             }
-            
-            // Update URL without page reload
-            const newURL = `${window.location.pathname}?wedding=${type}`;
-            window.history.pushState({}, '', newURL);
         }
 
         function showSelector() {
             document.getElementById('weddingSelector').style.display = 'flex';
             document.getElementById('englishWedding').classList.remove('active');
             document.getElementById('indianWedding').classList.remove('active');
+            updateURLDisplay('shahrosewedding.co.uk');
             
             // Clear URL parameter
             window.history.pushState({}, '', window.location.pathname);
