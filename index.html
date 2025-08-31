@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Darshna & Michael - Wedding Celebrations</title>
+    <title>Darshna & Michael - Wedding Celebrations 2026</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -51,13 +51,13 @@
         .selector-content {
             position: relative;
             z-index: 2;
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
         }
 
         .selector-content h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 4rem;
+            font-size: 4.5rem;
             font-weight: 700;
             color: #8b7355;
             margin-bottom: 1rem;
@@ -65,14 +65,14 @@
         }
 
         .selector-content .ampersand {
-            font-size: 2.5rem;
+            font-size: 3rem;
             color: #e8a87c;
             margin: 0 1rem;
             font-style: italic;
         }
 
         .selector-content .subtitle {
-            font-size: 1.4rem;
+            font-size: 1.6rem;
             color: #a0896b;
             margin-bottom: 3rem;
             font-weight: 300;
@@ -90,48 +90,85 @@
         }
 
         .wedding-buttons {
-            display: flex;
-            gap: 2rem;
-            justify-content: center;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 2rem;
         }
 
         .wedding-btn {
             background: white;
             border: 3px solid #e8a87c;
-            border-radius: 15px;
-            padding: 2rem 3rem;
+            border-radius: 20px;
+            padding: 3rem 2rem;
             cursor: pointer;
             transition: all 0.3s ease;
             text-decoration: none;
             color: #8b7355;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            min-width: 250px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
         }
 
         .wedding-btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
             border-color: #d4956f;
+        }
+
+        .wedding-btn.english {
+            border-color: #e8a87c;
+        }
+
+        .wedding-btn.english:hover {
+            border-color: #d4956f;
+            background: linear-gradient(135deg, #faf7f5 0%, #f8f4f2 100%);
+        }
+
+        .wedding-btn.indian {
+            border-color: #c41e3a;
+        }
+
+        .wedding-btn.indian:hover {
+            border-color: #a01729;
+            background: linear-gradient(135deg, #fef7f7 0%, #fffbf0 100%);
         }
 
         .wedding-btn h3 {
             font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            margin-bottom: 0.5rem;
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
             color: #8b7355;
         }
 
+        .wedding-btn.indian h3 {
+            color: #c41e3a;
+        }
+
         .wedding-btn .date {
-            font-size: 1.2rem;
-            color: #e8a87c;
+            font-size: 1.4rem;
             font-weight: 600;
-            margin-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .wedding-btn.english .date {
+            color: #e8a87c;
+        }
+
+        .wedding-btn.indian .date {
+            color: #d4af37;
         }
 
         .wedding-btn .location {
-            font-size: 1rem;
+            font-size: 1.1rem;
             color: #a0896b;
+            margin-bottom: 1rem;
+        }
+
+        .wedding-btn .details {
+            font-size: 0.95rem;
+            color: #8b7355;
+            font-style: italic;
         }
 
         /* Individual Wedding Pages */
@@ -202,7 +239,7 @@
             color: var(--primary-color, #e8a87c);
         }
 
-        .back-btn {
+        .back-btn, .other-wedding-link {
             background: var(--primary-color, #e8a87c) !important;
             color: white !important;
             padding: 0.5rem 1rem !important;
@@ -210,7 +247,7 @@
             font-weight: 600 !important;
         }
 
-        .back-btn:hover {
+        .back-btn:hover, .other-wedding-link:hover {
             background: var(--accent-color, #8b7355) !important;
             color: white !important;
         }
@@ -245,7 +282,7 @@
 
         .hero h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 4rem;
+            font-size: 4.5rem;
             font-weight: 700;
             color: var(--accent-color);
             margin-bottom: 1rem;
@@ -253,30 +290,54 @@
         }
 
         .hero .ampersand {
-            font-size: 2.5rem;
+            font-size: 3rem;
             color: var(--primary-color);
             margin: 0 1rem;
             font-style: italic;
         }
 
         .hero .wedding-type {
-            font-size: 1.8rem;
+            font-size: 2rem;
             color: var(--primary-color);
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
         .hero .date {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             color: var(--accent-color);
             margin-bottom: 1rem;
             font-weight: 300;
         }
 
         .hero .venue {
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             color: var(--accent-color);
             font-weight: 400;
+            margin-bottom: 2rem;
+        }
+
+        .hero .countdown {
+            background: rgba(255,255,255,0.9);
+            padding: 1.5rem 2rem;
+            border-radius: 15px;
+            display: inline-block;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            border: 2px solid var(--secondary-color);
+        }
+
+        .countdown-text {
+            font-size: 1.2rem;
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .countdown-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
         }
 
         /* Sections */
@@ -305,43 +366,76 @@
 
         /* Wedding Details */
         .details-container {
-            max-width: 800px;
-            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
         }
 
         .detail-card {
             background: white;
             padding: 3rem;
-            border-radius: 15px;
+            border-radius: 20px;
             box-shadow: 0 15px 35px rgba(0,0,0,0.1);
             text-align: center;
             border: 2px solid var(--secondary-color);
-            margin-bottom: 2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .detail-card:hover {
+            transform: translateY(-5px);
         }
 
         .detail-card h3 {
             font-family: 'Playfair Display', serif;
-            font-size: 2rem;
+            font-size: 2.2rem;
             color: var(--accent-color);
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
         }
 
         .detail-card .time {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             color: var(--primary-color);
             font-weight: 700;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
         }
 
         .detail-card .location {
             color: var(--accent-color);
             font-size: 1.2rem;
-            line-height: 1.4;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .detail-card .dress-code {
+            background: var(--section-bg);
+            padding: 1rem;
+            border-radius: 10px;
+            font-style: italic;
+            color: var(--accent-color);
         }
 
         /* RSVP Section */
         .rsvp {
             background: var(--section-bg);
+        }
+
+        .rsvp-intro {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 3rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 2px solid var(--secondary-color);
+        }
+
+        .rsvp-intro h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
         }
 
         .rsvp-form {
@@ -387,10 +481,10 @@
         .btn {
             background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
             color: white;
-            padding: 1rem 2rem;
+            padding: 1.2rem 2.5rem;
             border: none;
             border-radius: 50px;
-            font-size: 1rem;
+            font-size: 1.1rem;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -441,7 +535,7 @@
             background: var(--accent-color);
             color: white;
             text-align: center;
-            padding: 2rem 0;
+            padding: 3rem 0;
         }
 
         .footer-hearts {
@@ -450,24 +544,39 @@
             margin-bottom: 1rem;
         }
 
+        /* URL-based direct access styles */
+        .direct-access {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1001;
+            background: rgba(255,255,255,0.9);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            color: #8b7355;
+            backdrop-filter: blur(10px);
+            border: 1px solid #f4d4ba;
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .selector-content h1,
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2.8rem;
             }
 
             .hero .ampersand {
-                font-size: 1.8rem;
+                font-size: 2rem;
             }
 
             .wedding-buttons {
-                flex-direction: column;
-                align-items: center;
+                grid-template-columns: 1fr;
+                gap: 2rem;
             }
 
             .wedding-btn {
-                min-width: 200px;
+                padding: 2rem 1.5rem;
             }
 
             nav ul {
@@ -479,6 +588,11 @@
                 margin: 0.3rem 0;
             }
 
+            .details-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
             .rsvp-form {
                 padding: 2rem;
                 margin: 0 1rem;
@@ -486,6 +600,16 @@
 
             section {
                 padding: 3rem 0;
+            }
+
+            .countdown-number {
+                font-size: 2rem;
+            }
+
+            .direct-access {
+                position: static;
+                margin: 1rem;
+                text-align: center;
             }
         }
 
@@ -525,20 +649,22 @@
                 <span class="ampersand">&</span> 
                 Michael
             </h1>
-            <div class="subtitle">Wedding Celebrations 2026</div>
+            <div class="subtitle">Two Celebrations, One Love Story</div>
             <div class="instructions">
                 <p><strong>Welcome!</strong> Please select the wedding celebration you've been invited to. If you're invited to both, you can RSVP to each separately.</p>
             </div>
             <div class="wedding-buttons">
-                <a href="#" class="wedding-btn" onclick="showWedding('english')">
+                <a href="#" class="wedding-btn english" onclick="showWedding('english')">
                     <h3>English Wedding</h3>
                     <div class="date">May 1st, 2026</div>
                     <div class="location">Elmore Court, Gloucester</div>
+                    <div class="details">Ceremony & Reception</div>
                 </a>
-                <a href="#" class="wedding-btn" onclick="showWedding('indian')">
+                <a href="#" class="wedding-btn indian" onclick="showWedding('indian')">
                     <h3>Indian Wedding</h3>
                     <div class="date">May 10th, 2026</div>
                     <div class="location">Oshwal Centre, Potters Bar</div>
+                    <div class="details">Traditional Ceremony</div>
                 </a>
             </div>
         </div>
@@ -550,8 +676,9 @@
             <nav class="container">
                 <ul>
                     <li><button class="back-btn" onclick="showSelector()">← Back to Selection</button></li>
+                    <li><button class="other-wedding-link" onclick="showWedding('indian')">Indian Wedding →</button></li>
                     <li><a href="#english-home">Home</a></li>
-                    <li><a href="#english-details">Wedding Details</a></li>
+                    <li><a href="#english-details">Details</a></li>
                     <li><a href="#english-rsvp">RSVP</a></li>
                 </ul>
             </nav>
@@ -569,6 +696,10 @@
                 <div class="wedding-type">English Wedding</div>
                 <div class="date">May 1st, 2026</div>
                 <div class="venue">Elmore Court, Gloucester</div>
+                <div class="countdown">
+                    <div class="countdown-text">Days until our wedding</div>
+                    <div class="countdown-number" id="englishCountdown">Loading...</div>
+                </div>
             </div>
         </section>
 
@@ -576,12 +707,28 @@
             <h2 class="section-title">Wedding Details</h2>
             <div class="details-container">
                 <div class="detail-card">
-                    <h3>Ceremony & Reception</h3>
+                    <h3>Ceremony</h3>
                     <div class="time">Time: TBA</div>
                     <div class="location">
                         Elmore Court<br>
                         Weir Lane, Elmore<br>
                         Gloucester GL2 3NT
+                    </div>
+                    <div class="dress-code">
+                        <strong>Dress Code:</strong> Formal attire requested
+                    </div>
+                </div>
+                
+                <div class="detail-card">
+                    <h3>Reception</h3>
+                    <div class="time">Immediately following ceremony</div>
+                    <div class="location">
+                        Elmore Court<br>
+                        Weir Lane, Elmore<br>
+                        Gloucester GL2 3NT
+                    </div>
+                    <div class="dress-code">
+                        <strong>Evening:</strong> Dancing, dinner & celebration
                     </div>
                 </div>
             </div>
@@ -590,6 +737,12 @@
         <section id="english-rsvp" class="rsvp">
             <div class="container">
                 <h2 class="section-title">RSVP</h2>
+                
+                <div class="rsvp-intro">
+                    <h3>Please Respond by March 1st, 2026</h3>
+                    <p>We're so excited to celebrate our English wedding with you! Please let us know if you'll be joining us for this special day.</p>
+                </div>
+
                 <div class="rsvp-form">
                     <div id="englishSuccessMessage" class="message success hidden">
                         <p>🎉 Thank you for your RSVP! We can't wait to celebrate with you at our English wedding!</p>
@@ -667,6 +820,7 @@
             <div class="container">
                 <div class="footer-hearts">♥ ♥ ♥</div>
                 <p>Darshna & Michael • English Wedding • May 1st, 2026</p>
+                <p style="margin-top: 1rem; opacity: 0.8;">Elmore Court, Gloucester</p>
             </div>
         </footer>
     </div>
@@ -677,8 +831,9 @@
             <nav class="container">
                 <ul>
                     <li><button class="back-btn" onclick="showSelector()">← Back to Selection</button></li>
+                    <li><button class="other-wedding-link" onclick="showWedding('english')">English Wedding →</button></li>
                     <li><a href="#indian-home">Home</a></li>
-                    <li><a href="#indian-details">Wedding Details</a></li>
+                    <li><a href="#indian-details">Details</a></li>
                     <li><a href="#indian-rsvp">RSVP</a></li>
                 </ul>
             </nav>
@@ -696,6 +851,10 @@
                 <div class="wedding-type">Indian Wedding</div>
                 <div class="date">May 10th, 2026</div>
                 <div class="venue">Oshwal Centre, Potters Bar</div>
+                <div class="countdown">
+                    <div class="countdown-text">Days until our wedding</div>
+                    <div class="countdown-number" id="indianCountdown">Loading...</div>
+                </div>
             </div>
         </section>
 
@@ -703,12 +862,15 @@
             <h2 class="section-title">Wedding Details</h2>
             <div class="details-container">
                 <div class="detail-card">
-                    <h3>Ceremony</h3>
+                    <h3>Traditional Ceremony</h3>
                     <div class="time">Time: TBA</div>
                     <div class="location">
                         Oshwal Centre<br>
                         Coopers Lane Road, Northaw<br>
                         Potters Bar EN6 4DG
+                    </div>
+                    <div class="dress-code">
+                        <strong>Dress Code:</strong> Traditional Indian attire preferred
                     </div>
                 </div>
             </div>
@@ -717,6 +879,12 @@
         <section id="indian-rsvp" class="rsvp">
             <div class="container">
                 <h2 class="section-title">RSVP</h2>
+                
+                <div class="rsvp-intro">
+                    <h3>Please Respond by March 10th, 2026</h3>
+                    <p>We're so excited to celebrate our Indian wedding with you! Please let us know if you'll be joining us for this special day.</p>
+                </div>
+
                 <div class="rsvp-form">
                     <div id="indianSuccessMessage" class="message success hidden">
                         <p>🎉 Thank you for your RSVP! We can't wait to celebrate with you at our Indian wedding!</p>
@@ -794,25 +962,67 @@
             <div class="container">
                 <div class="footer-hearts">♥ ♥ ♥</div>
                 <p>Darshna & Michael • Indian Wedding • May 10th, 2026</p>
+                <p style="margin-top: 1rem; opacity: 0.8;">Oshwal Centre, Potters Bar</p>
             </div>
         </footer>
     </div>
 
     <script>
+        // URL-based direct access
+        function checkURLForDirectAccess() {
+            const params = new URLSearchParams(window.location.search);
+            const wedding = params.get('wedding');
+            
+            if (wedding === 'english') {
+                showWedding('english');
+            } else if (wedding === 'indian') {
+                showWedding('indian');
+            }
+        }
+
         // Wedding selection functionality
         function showWedding(type) {
             document.getElementById('weddingSelector').style.display = 'none';
             if (type === 'english') {
                 document.getElementById('englishWedding').classList.add('active');
+                document.getElementById('indianWedding').classList.remove('active');
+                updateCountdown('english');
             } else if (type === 'indian') {
                 document.getElementById('indianWedding').classList.add('active');
+                document.getElementById('englishWedding').classList.remove('active');
+                updateCountdown('indian');
             }
+            
+            // Update URL without page reload
+            const newURL = `${window.location.pathname}?wedding=${type}`;
+            window.history.pushState({}, '', newURL);
         }
 
         function showSelector() {
             document.getElementById('weddingSelector').style.display = 'flex';
             document.getElementById('englishWedding').classList.remove('active');
             document.getElementById('indianWedding').classList.remove('active');
+            
+            // Clear URL parameter
+            window.history.pushState({}, '', window.location.pathname);
+        }
+
+        // Countdown Timer
+        function updateCountdown(type) {
+            const englishDate = new Date('2026-05-01T00:00:00');
+            const indianDate = new Date('2026-05-10T00:00:00');
+            const now = new Date();
+            
+            let targetDate = type === 'english' ? englishDate : indianDate;
+            let elementId = type === 'english' ? 'englishCountdown' : 'indianCountdown';
+            
+            const difference = targetDate - now;
+            const days = Math.ceil(difference / (1000 * 60 * 60 * 24));
+            
+            const element = document.getElementById(elementId);
+            if (element) {
+                element.textContent = days > 0 ? days : '0';
+            }
         }
 
         // Smooth scrolling for navigation links
@@ -840,19 +1050,21 @@
             const dietaryGroup = document.getElementById(prefix + 'DietaryGroup');
             const guestsSelect = document.getElementById(prefix + 'Guests');
             
-            attendanceSelect.addEventListener('change', function() {
-                if (this.value === 'yes') {
-                    guestGroup.classList.remove('hidden');
-                    guestNamesGroup.classList.remove('hidden');
-                    dietaryGroup.classList.remove('hidden');
-                    guestsSelect.required = true;
-                } else {
-                    guestGroup.classList.add('hidden');
-                    guestNamesGroup.classList.add('hidden');
-                    dietaryGroup.classList.add('hidden');
-                    guestsSelect.required = false;
-                }
-            });
+            if (attendanceSelect) {
+                attendanceSelect.addEventListener('change', function() {
+                    if (this.value === 'yes') {
+                        guestGroup.classList.remove('hidden');
+                        guestNamesGroup.classList.remove('hidden');
+                        dietaryGroup.classList.remove('hidden');
+                        guestsSelect.required = true;
+                    } else {
+                        guestGroup.classList.add('hidden');
+                        guestNamesGroup.classList.add('hidden');
+                        dietaryGroup.classList.add('hidden');
+                        guestsSelect.required = false;
+                    }
+                });
+            }
         }
 
         // Function to handle form submission
@@ -862,73 +1074,93 @@
             const errorMessage = document.getElementById(errorId);
             const submitBtn = document.getElementById(submitBtnId);
             
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                const submitText = submitBtn.querySelector('.submit-text');
-                const loadingText = submitBtn.querySelector('.loading-text');
-                
-                // Show loading state
-                submitBtn.disabled = true;
-                submitText.classList.add('hidden');
-                loadingText.classList.remove('hidden');
-                
-                // Hide previous messages
-                successMessage.classList.add('hidden');
-                errorMessage.classList.add('hidden');
-                
-                // Submit form data
-                const formData = new FormData(this);
-                
-                fetch(this.action, {
-                    method: 'POST',
-                    body: formData,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                })
-                .then(response => {
-                    if (response.ok) {
-                        successMessage.classList.remove('hidden');
-                        form.reset();
-                        // Hide guest fields after reset
-                        document.getElementById(formId.replace('RsvpForm', 'GuestGroup')).classList.add('hidden');
-                        document.getElementById(formId.replace('RsvpForm', 'GuestNamesGroup')).classList.add('hidden');
-                        document.getElementById(formId.replace('RsvpForm', 'DietaryGroup')).classList.add('hidden');
-                        successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    } else {
-                        throw new Error('Network response was not ok');
-                    }
-                })
-                .catch(error => {
-                    errorMessage.classList.remove('hidden');
-                    errorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                })
-                .finally(() => {
-                    submitBtn.disabled = false;
-                    submitText.classList.remove('hidden');
-                    loadingText.classList.add('hidden');
+            if (form && successMessage && errorMessage && submitBtn) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const submitText = submitBtn.querySelector('.submit-text');
+                    const loadingText = submitBtn.querySelector('.loading-text');
+                    
+                    // Show loading state
+                    submitBtn.disabled = true;
+                    submitText.classList.add('hidden');
+                    loadingText.classList.remove('hidden');
+                    
+                    // Hide previous messages
+                    successMessage.classList.add('hidden');
+                    errorMessage.classList.add('hidden');
+                    
+                    // Submit form data
+                    const formData = new FormData(this);
+                    
+                    fetch(this.action, {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    })
+                    .then(response => {
+                        if (response.ok) {
+                            successMessage.classList.remove('hidden');
+                            form.reset();
+                            // Hide guest fields after reset
+                            const prefix = formId.replace('RsvpForm', '');
+                            document.getElementById(prefix + 'GuestGroup').classList.add('hidden');
+                            document.getElementById(prefix + 'GuestNamesGroup').classList.add('hidden');
+                            document.getElementById(prefix + 'DietaryGroup').classList.add('hidden');
+                            successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        } else {
+                            throw new Error('Network response was not ok');
+                        }
+                    })
+                    .catch(error => {
+                        errorMessage.classList.remove('hidden');
+                        errorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    })
+                    .finally(() => {
+                        submitBtn.disabled = false;
+                        submitText.classList.remove('hidden');
+                        loadingText.classList.add('hidden');
+                    });
                 });
-            });
+            }
         }
 
-        // Initialize forms
+        // Initialize everything
         document.addEventListener('DOMContentLoaded', function() {
+            // Check for direct URL access
+            checkURLForDirectAccess();
+            
+            // Set up forms
             setupFormLogic('english');
             setupFormLogic('indian');
             setupFormSubmission('englishRsvpForm', 'englishSuccessMessage', 'englishErrorMessage', 'englishSubmitBtn');
             setupFormSubmission('indianRsvpForm', 'indianSuccessMessage', 'indianErrorMessage', 'indianSubmitBtn');
+            
+            // Update countdowns
+            updateCountdown('english');
+            updateCountdown('indian');
+            
+            // Set up daily countdown updates
+            setInterval(() => {
+                updateCountdown('english');
+                updateCountdown('indian');
+            }, 86400000); // Update daily
+        });
+
+        // Handle browser back/forward buttons
+        window.addEventListener('popstate', function() {
+            checkURLForDirectAccess();
         });
 
         // Add scroll effect to header
         window.addEventListener('scroll', function() {
             const header = document.querySelector('header');
             if (header && window.scrollY > 100) {
-                header.style.background = 'rgba(248, 244, 242, 0.95)';
-                header.style.backdropFilter = 'blur(10px)';
+                header.style.background = 'rgba(248, 244, 242, 0.98)';
             } else if (header) {
                 header.style.background = 'rgba(248, 244, 242, 0.95)';
-                header.style.backdropFilter = 'blur(10px)';
             }
         });
     </script>
