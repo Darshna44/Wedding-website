@@ -230,7 +230,7 @@
         }
 
         nav li {
-            margin: 0 1rem;
+            margin: 0 0.8rem;
         }
 
         nav a, nav button {
@@ -372,6 +372,149 @@
             background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
             margin: 1rem auto;
             border-radius: 2px;
+        }
+
+        /* Content Cards */
+        .content-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            border: 2px solid var(--secondary-color);
+            margin-bottom: 3rem;
+            line-height: 1.8;
+        }
+
+        .content-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--accent-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .content-card p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        /* Story Section */
+        .story-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        /* Accommodations */
+        .accommodation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .accommodation-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border: 2px solid var(--secondary-color);
+            text-align: center;
+        }
+
+        .accommodation-card h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .accommodation-card .price {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .accommodation-card .details {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .accommodation-card .contact {
+            font-size: 0.9rem;
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        /* Registry */
+        .registry-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .registry-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border: 2px solid var(--secondary-color);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .registry-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .registry-card h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .registry-link {
+            background: var(--primary-color);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .registry-link:hover {
+            background: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        /* Q&A */
+        .qa-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border: 2px solid var(--secondary-color);
+            margin-bottom: 2rem;
+        }
+
+        .qa-question {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .qa-answer {
+            font-size: 1.1rem;
+            line-height: 1.6;
         }
 
         /* Wedding Details */
@@ -593,18 +736,23 @@
             nav ul {
                 flex-direction: column;
                 text-align: center;
+                gap: 0.5rem;
             }
 
             nav li {
-                margin: 0.3rem 0;
+                margin: 0.2rem 0;
             }
 
-            .details-container {
+            .details-container,
+            .story-grid,
+            .accommodation-grid,
+            .registry-grid {
                 grid-template-columns: 1fr;
                 gap: 2rem;
             }
 
-            .rsvp-form {
+            .rsvp-form,
+            .content-card {
                 padding: 2rem;
                 margin: 0 1rem;
             }
@@ -691,11 +839,14 @@
         <header>
             <nav class="container">
                 <ul>
-                    <li><button class="back-btn" onclick="showSelector()">← Back to Selection</button></li>
+                    <li><button class="back-btn" onclick="showSelector()">← Back</button></li>
                     <li><button class="other-wedding-link" onclick="showWedding('indian')">Indian Wedding →</button></li>
                     <li><a href="#english-home">Home</a></li>
-                    <li><a href="#english-details">Details</a></li>
                     <li><a href="#english-rsvp">RSVP</a></li>
+                    <li><a href="#english-story">Story</a></li>
+                    <li><a href="#english-accommodations">Accommodations</a></li>
+                    <li><a href="#english-registry">Registry</a></li>
+                    <li><a href="#english-qa">Q & A</a></li>
                 </ul>
             </nav>
         </header>
@@ -719,34 +870,110 @@
             </div>
         </section>
 
-        <section id="english-details" class="container">
-            <h2 class="section-title">Wedding Details</h2>
-            <div class="details-container">
-                <div class="detail-card">
-                    <h3>Ceremony</h3>
-                    <div class="time">Time: TBA</div>
-                    <div class="location">
-                        Elmore Court<br>
-                        Weir Lane, Elmore<br>
-                        Gloucester GL2 3NT
-                    </div>
-                    <div class="dress-code">
-                        <strong>Dress Code:</strong> Formal attire requested
-                    </div>
+        <section id="english-story" class="container">
+            <h2 class="section-title">Our Story</h2>
+            <div class="story-grid">
+                <div class="content-card">
+                    <h3>How We Met</h3>
+                    <p>Share the story of how you first met - was it through friends, at work, online, or perhaps a chance encounter? This is where your love story begins!</p>
+                    <p>Add details about your first impressions, what drew you to each other, and any funny or memorable moments from your early days together.</p>
                 </div>
-                
-                <div class="detail-card">
-                    <h3>Reception</h3>
-                    <div class="time">Immediately following ceremony</div>
-                    <div class="location">
-                        Elmore Court<br>
-                        Weir Lane, Elmore<br>
-                        Gloucester GL2 3NT
-                    </div>
-                    <div class="dress-code">
-                        <strong>Evening:</strong> Dancing, dinner & celebration
-                    </div>
+                <div class="content-card">
+                    <h3>The Proposal</h3>
+                    <p>Tell the story of your engagement - how did Michael propose? Was it a surprise, or something you planned together?</p>
+                    <p>Include details about the location, the moment, and how you felt. Your guests will love hearing about this special milestone in your relationship.</p>
                 </div>
+            </div>
+        </section>
+
+        <section id="english-accommodations" class="container">
+            <h2 class="section-title">Accommodations</h2>
+            <div class="content-card">
+                <p>We've arranged special rates at these nearby hotels for our wedding guests. Please mention "Shah-Rose Wedding" when booking.</p>
+            </div>
+            <div class="accommodation-grid">
+                <div class="accommodation-card">
+                    <h4>Premier Inn Gloucester</h4>
+                    <div class="price">£89/night</div>
+                    <div class="details">
+                        15 minutes from venue<br>
+                        Includes breakfast<br>
+                        Free parking
+                    </div>
+                    <div class="contact">Book: 0333 003 8101</div>
+                </div>
+                <div class="accommodation-card">
+                    <h4>Travelodge Gloucester</h4>
+                    <div class="price">£65/night</div>
+                    <div class="details">
+                        20 minutes from venue<br>
+                        Budget-friendly option<br>
+                        Free WiFi
+                    </div>
+                    <div class="contact">Book: travelodge.co.uk</div>
+                </div>
+                <div class="accommodation-card">
+                    <h4>The Bell Hotel</h4>
+                    <div class="price">£120/night</div>
+                    <div class="details">
+                        Historic coaching inn<br>
+                        10 minutes from venue<br>
+                        Full English breakfast
+                    </div>
+                    <div class="contact">Book: 01452 700 000</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="english-registry" class="container">
+            <h2 class="section-title">Registry</h2>
+            <div class="content-card">
+                <p>Your presence at our wedding is the greatest gift of all! However, if you'd like to help us start our married life together, we've registered at the following stores:</p>
+            </div>
+            <div class="registry-grid">
+                <div class="registry-card">
+                    <h4>John Lewis</h4>
+                    <p>For our home essentials and kitchen items</p>
+                    <a href="#" class="registry-link">View Registry</a>
+                </div>
+                <div class="registry-card">
+                    <h4>Amazon</h4>
+                    <p>For a variety of items and experiences</p>
+                    <a href="#" class="registry-link">View Registry</a>
+                </div>
+                <div class="registry-card">
+                    <h4>Honeymoon Fund</h4>
+                    <p>Help us create memories on our honeymoon</p>
+                    <a href="#" class="registry-link">Contribute</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="english-qa" class="container">
+            <h2 class="section-title">Q & A</h2>
+            <div class="qa-item">
+                <div class="qa-question">What time should I arrive?</div>
+                <div class="qa-answer">Please arrive 15-20 minutes before the ceremony start time to allow for seating.</div>
+            </div>
+            <div class="qa-item">
+                <div class="qa-question">What's the dress code?</div>
+                <div class="qa-answer">We're asking for formal attire. Think cocktail dresses, suits, or dressy separates. Please avoid white, ivory, or cream colors.</div>
+            </div>
+            <div class="qa-item">
+                <div class="qa-question">Is the venue wheelchair accessible?</div>
+                <div class="qa-answer">Yes, Elmore Court is fully wheelchair accessible with ramps and accessible facilities.</div>
+            </div>
+            <div class="qa-item">
+                <div class="qa-question">Can I bring a plus-one?</div>
+                <div class="qa-answer">We've tried to accommodate everyone we'd love to celebrate with. If your invitation includes a plus-one, it will be addressed accordingly.</div>
+            </div>
+            <div class="qa-item">
+                <div class="qa-question">Will there be parking available?</div>
+                <div class="qa-answer">Yes, there is ample free parking available at Elmore Court.</div>
+            </div>
+            <div class="qa-item">
+                <div class="qa-question">What if I have dietary restrictions?</div>
+                <div class="qa-answer">Please let us know about any dietary requirements when you RSVP, and we'll make sure you're well taken care of!</div>
             </div>
         </section>
 
@@ -846,11 +1073,14 @@
         <header>
             <nav class="container">
                 <ul>
-                    <li><button class="back-btn" onclick="showSelector()">← Back to Selection</button></li>
+                    <li><button class="back-btn" onclick="showSelector()">← Back</button></li>
                     <li><button class="other-wedding-link" onclick="showWedding('english')">English Wedding →</button></li>
                     <li><a href="#indian-home">Home</a></li>
-                    <li><a href="#indian-details">Details</a></li>
                     <li><a href="#indian-rsvp">RSVP</a></li>
+                    <li><a href="#indian-story">Story</a></li>
+                    <li><a href="#indian-accommodations">Accommodations</a></li>
+                    <li><a href="#indian-registry">Registry</a></li>
+                    <li><a href="#indian-qa">Q & A</a></li>
                 </ul>
             </nav>
         </header>
@@ -874,21 +1104,110 @@
             </div>
         </section>
 
-        <section id="indian-details" class="container">
-            <h2 class="section-title">Wedding Details</h2>
-            <div class="details-container">
-                <div class="detail-card">
-                    <h3>Traditional Ceremony</h3>
-                    <div class="time">Time: TBA</div>
-                    <div class="location">
-                        Oshwal Centre<br>
-                        Coopers Lane Road, Northaw<br>
-                        Potters Bar EN6 4DG
-                    </div>
-                    <div class="dress-code">
-                        <strong>Dress Code:</strong> Traditional Indian attire preferred
-                    </div>
+        <section id="indian-story" class="container">
+            <h2 class="section-title">Our Story</h2>
+            <div class="story-grid">
+                <div class="content-card">
+                    <h3>Two Cultures, One Love</h3>
+                    <p>Our love story is beautifully woven with traditions from both our cultures. Darshna brings the rich heritage of Indian customs, while Michael embraces these traditions with an open heart.</p>
+                    <p>This Indian wedding celebration honors Darshna's family traditions and allows us to share the beauty of Indian customs with all our loved ones.</p>
                 </div>
+                <div class="content-card">
+                    <h3>Why Two Celebrations?</h3>
+                    <p>We chose to have two wedding celebrations to honor both our backgrounds and give our families the opportunity to celebrate in ways that are meaningful to them.</p>
+                    <p>Our Indian wedding will feature traditional ceremonies, vibrant colors, and customs that have been passed down through generations in Darshna's family.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="indian-accommodations" class="container">
+            <h2 class="section-title">Accommodations</h2>
+            <div class="content-card">
+                <p>We've arranged special rates at these nearby hotels for our wedding guests. Please mention "Shah-Rose Wedding" when booking.</p>
+            </div>
+            <div class="accommodation-grid">
+                <div class="accommodation-card">
+                    <h4>Premier Inn Potters Bar</h4>
+                    <div class="price">£75/night</div>
+                    <div class="details">
+                        10 minutes from venue<br>
+                        Includes breakfast<br>
+                        Free parking
+                    </div>
+                    <div class="contact">Book: 0333 003 8101</div>
+                </div>
+                <div class="accommodation-card">
+                    <h4>Holiday Inn Express</h4>
+                    <div class="price">£95/night</div>
+                    <div class="details">
+                        15 minutes from venue<br>
+                        Modern amenities<br>
+                        Fitness center
+                    </div>
+                    <div class="contact">Book: ihg.com</div>
+                </div>
+                <div class="accommodation-card">
+                    <h4>Local B&Bs</h4>
+                    <div class="price">£60-80/night</div>
+                    <div class="details">
+                        Charming local options<br>
+                        Personal service<br>
+                        Traditional breakfast
+                    </div>
+                    <div class="contact">Contact us for recommendations</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="indian-registry" class="container">
+            <h2 class="section-title">Registry</h2>
+            <div class="content-card">
+                <p>Your presence at our Indian wedding celebration is the greatest gift! If you'd like to bless us with a gift, we've registered at these places:</p>
+            </div>
+            <div class="registry-grid">
+                <div class="registry-card">
+                    <h4>John Lewis</h4>
+                    <p>For our home essentials and kitchen items</p>
+                    <a href="#" class="registry-link">View Registry</a>
+                </div>
+                <div class="registry-card">
+                    <h4>Traditional Gifts</h4>
+                    <p>Gold jewelry and traditional items</p>
+                    <a href="#" class="registry-link">View Ideas</a>
+                </div>
+                <div class="registry-card">
+                    <h4>Honeymoon Fund</h4>
+                    <p>Help us explore India together</p>
+                    <a href="#" class="registry-link">Contribute</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="indian-qa" class="container">
+            <h2 class="section-title">Q & A</h2>
+            <div class="qa-item">
+                <div class="qa-question">What should I wear to an Indian wedding?</div>
+                <div class="qa-answer">Traditional Indian attire is preferred and encouraged! Think saris, lehengas, or salwar kameez for women, and kurtas or sherwanis for men. Bright colors are welcome and celebrated.</div>
+            </div>
+            <div class="qa-item">
+                <div class="qa-question">How long will the ceremony be?</div>
+                <div class="qa-answer">Indian wedding ceremonies typically last 2-3 hours with various rituals and traditions. There will be explanations provided for those unfamiliar with the customs.</div>
+            </div>
+            <div class="qa-item">
+                <div class="qa-question">Will there be vegetarian food?</div>
+                <div class="qa-answer">Yes! The entire menu will be vegetarian, following traditional Indian wedding customs. There will be a wide variety of delicious dishes to enjoy.</div>
+            </div>
+            <div class="qa-item">
+                <div class="qa-question">Do I need to remove my shoes?</div>
+                <div class="qa-answer">You may need to remove shoes when entering certain areas of the ceremony space. We'll provide clear guidance on the day.</div>
+            </div>
+            <div class="qa-item">
+                <div class="qa-question">Can I take photos during the ceremony?</div>
+                <div class="qa-answer">We'll have a professional photographer, but you're welcome to take photos during most parts of the ceremony. We'll let you know if there are any specific moments when we'd prefer no photos.</div>
+            </div>
+            <div class="qa-item">
+                <div class="qa-question">What if I don't understand the rituals?</div>
+                <div class="qa-answer">Don't worry! We'll have someone explaining the significance of different rituals throughout the ceremony so everyone can appreciate the beautiful traditions.</div>
             </div>
         </section>
 
