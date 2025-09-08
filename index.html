@@ -4,1096 +4,1047 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Darshna & Michael - Wedding Website</title>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=SS+Bruney:wght@400;500;600&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&display=swap');
-        
+        :root {
+            --primary-color: #d4af37;
+            --secondary-color: #f5f5f5;
+            --accent-color: #8b4513;
+            --text-dark: #333;
+            --text-light: #666;
+            --gold-gradient: linear-gradient(135deg, #d4af37, #ffd700);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: 'Raleway', sans-serif;
             line-height: 1.6;
-            color: #333;
-            background-color: #fefcf8;
+            color: var(--text-dark);
+            background-color: #fafafa;
         }
-        
+
         h1, h2, h3, h4, h5, h6 {
-            font-family: 'Crimson Text', serif;
-            font-weight: 600;
+            font-family: 'SS Bruney', serif;
+            font-weight: 500;
         }
-        
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
-        
-        /* Password Protection */
+
+        /* Password Screen */
         .password-screen {
+            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            min-height: 100vh;
-            background: linear-gradient(135deg, #f5f1eb 0%, #e8ddd4 100%);
+            background: var(--gold-gradient);
         }
-        
-        .password-container {
+
+        .password-form {
             background: white;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
             text-align: center;
-            max-width: 400px;
-            width: 100%;
+            min-width: 400px;
         }
-        
-        .password-title {
-            font-size: 2.5rem;
-            color: #d4844a;
-            margin-bottom: 20px;
-        }
-        
-        .password-subtitle {
+
+        .password-form h1 {
+            font-size: 2.5em;
             margin-bottom: 30px;
-            color: #666;
+            color: var(--accent-color);
         }
-        
+
         .password-input {
             width: 100%;
             padding: 15px;
+            margin: 20px 0;
             border: 2px solid #ddd;
-            border-radius: 8px;
-            font-size: 1rem;
-            margin-bottom: 20px;
+            border-radius: 10px;
+            font-size: 16px;
+            font-family: 'Raleway', sans-serif;
         }
-        
-        .password-btn {
-            background: #d4844a;
+
+        .password-button {
+            background: var(--gold-gradient);
             color: white;
-            border: none;
             padding: 15px 30px;
-            border-radius: 8px;
-            font-size: 1rem;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
             cursor: pointer;
-            transition: background 0.3s ease;
+            width: 100%;
+            font-family: 'Raleway', sans-serif;
+            font-weight: 500;
+            transition: transform 0.3s ease;
         }
-        
-        .password-btn:hover {
-            background: #c17a42;
+
+        .password-button:hover {
+            transform: translateY(-2px);
         }
-        
+
         .error-message {
             color: #e74c3c;
             margin-top: 15px;
             display: none;
+            font-weight: 500;
         }
-        
-        /* Wedding Selection */
-        .wedding-selection {
-            display: none;
+
+        /* Wedding Selection Screen */
+        .selection-screen {
             min-height: 100vh;
-            background: linear-gradient(135deg, #f5f1eb 0%, #e8ddd4 100%);
-            padding: 40px 0;
+            background: var(--gold-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
         }
-        
-        .selection-header {
+
+        .selection-container {
+            background: white;
+            border-radius: 25px;
+            padding: 60px 40px;
             text-align: center;
-            margin-bottom: 60px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+            max-width: 800px;
+            width: 100%;
         }
-        
+
         .selection-title {
-            font-size: 3rem;
-            color: #d4844a;
+            font-size: 3em;
             margin-bottom: 20px;
+            color: var(--accent-color);
         }
-        
+
         .selection-subtitle {
-            font-size: 1.3rem;
-            color: #666;
-            max-width: 600px;
-            margin: 0 auto;
+            font-size: 1.2em;
+            color: var(--text-light);
+            margin-bottom: 50px;
+            line-height: 1.8;
         }
-        
+
         .wedding-options {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            grid-template-columns: 1fr 1fr;
             gap: 40px;
             margin-top: 40px;
         }
-        
+
         .wedding-card {
-            background: white;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: linear-gradient(135deg, #fff, #f8f8f8);
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
             cursor: pointer;
+            border: 3px solid transparent;
         }
-        
+
         .wedding-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+            border-color: var(--primary-color);
         }
-        
+
         .wedding-card h3 {
-            font-size: 2rem;
+            font-size: 1.8em;
             margin-bottom: 15px;
-            color: #d4844a;
+            color: var(--accent-color);
         }
-        
+
         .wedding-card .date {
-            font-size: 1.2rem;
-            color: #8b6f47;
+            font-size: 1.1em;
+            color: var(--primary-color);
+            font-weight: 600;
             margin-bottom: 10px;
         }
-        
+
         .wedding-card .venue {
-            color: #666;
+            color: var(--text-light);
             margin-bottom: 15px;
         }
-        
-        .wedding-card .description {
-            color: #888;
-            margin-bottom: 20px;
+
+        .wedding-card .url {
+            font-size: 0.9em;
+            color: var(--accent-color);
+            font-style: italic;
         }
-        
-        .wedding-card .link {
-            display: inline-block;
-            background: #d4844a;
+
+        /* Main Website Styles */
+        .main-site {
+            display: none;
+        }
+
+        .main-site.active {
+            display: block;
+        }
+
+        header {
+            background: var(--gold-gradient);
             color: white;
-            padding: 12px 25px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: background 0.3s ease;
-        }
-        
-        .wedding-card .link:hover {
-            background: #c17a42;
-        }
-        
-        /* Main Wedding Pages */
-        .wedding-page {
-            display: none;
-            min-height: 100vh;
-        }
-        
-        .wedding-page.active {
-            display: block;
-        }
-        
-        .page-content {
-            display: none;
-        }
-        
-        .page-content.active {
-            display: block;
-        }
-        
-        /* Header */
-        .header {
+            padding: 80px 0;
             text-align: center;
-            padding: 60px 0 40px;
-            background: linear-gradient(135deg, #f5f1eb 0%, #e8ddd4 100%);
+            position: relative;
+            overflow: hidden;
         }
-        
-        .couple-names {
-            font-size: 3.5rem;
-            margin-bottom: 15px;
+
+        .header-content h1 {
+            font-size: 4em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
-        
-        .english-theme .couple-names {
-            color: #d4844a;
-        }
-        
-        .indian-theme .couple-names {
-            color: #c41e3a;
-        }
-        
-        .wedding-type {
-            font-size: 1.8rem;
+
+        .header-content .wedding-type {
+            font-size: 1.5em;
             margin-bottom: 10px;
+            font-weight: 500;
         }
-        
-        .english-theme .wedding-type {
-            color: #8b6f47;
+
+        .header-content .wedding-date {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            font-weight: 600;
         }
-        
-        .indian-theme .wedding-type {
-            color: #8b2635;
+
+        .header-content .wedding-venue {
+            font-size: 1.2em;
+            opacity: 0.9;
         }
-        
-        .wedding-date {
-            font-size: 1.3rem;
-            color: #666;
-            margin-bottom: 8px;
-        }
-        
-        .wedding-venue {
-            font-size: 1.1rem;
-            color: #888;
-        }
-        
+
         /* Navigation */
-        .nav {
+        nav {
             background: white;
-            padding: 15px 0;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             position: sticky;
             top: 0;
             z-index: 100;
         }
-        
-        .nav-menu {
+
+        .nav-container {
             display: flex;
             justify-content: center;
-            gap: 30px;
+            padding: 0;
+        }
+
+        .nav-menu {
+            display: flex;
             list-style: none;
-            flex-wrap: wrap;
+            margin: 0;
+            padding: 0;
         }
-        
-        .nav-menu li a {
+
+        .nav-menu li {
+            margin: 0;
+        }
+
+        .nav-menu a {
+            display: block;
+            padding: 20px 30px;
             text-decoration: none;
-            color: #333;
+            color: var(--text-dark);
             font-weight: 500;
-            padding: 12px 20px;
-            border-radius: 8px;
+            font-family: 'SS Bruney', serif;
             transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
         }
-        
-        .english-theme .nav-menu li a:hover,
-        .english-theme .nav-menu li a.active {
-            background: #d4844a;
-            color: white;
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: var(--primary-color);
+            border-bottom-color: var(--primary-color);
+            background-color: #fafafa;
         }
-        
-        .indian-theme .nav-menu li a:hover,
-        .indian-theme .nav-menu li a.active {
-            background: #c41e3a;
-            color: white;
-        }
-        
+
         /* Content Sections */
         .content-section {
+            display: none;
+            padding: 80px 0;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        .section-title {
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--accent-color);
+        }
+
+        /* Countdown */
+        .countdown-container {
+            text-align: center;
+            margin: 60px 0;
+            padding: 40px;
             background: white;
-            padding: 50px;
-            margin: 30px 0;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
-        
-        .content-section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 30px;
-            text-align: center;
-        }
-        
-        .english-theme .content-section h2 {
-            color: #d4844a;
-        }
-        
-        .indian-theme .content-section h2 {
-            color: #c41e3a;
-        }
-        
-        .countdown {
-            text-align: center;
-            font-size: 2.5rem;
-            font-weight: 600;
-            margin: 30px 0;
-            padding: 30px;
-            background: #f8f9fa;
-            border-radius: 10px;
-        }
-        
-        .english-theme .countdown {
-            color: #d4844a;
-        }
-        
-        .indian-theme .countdown {
-            color: #c41e3a;
-        }
-        
-        /* Story Sections */
-        .story-section {
-            margin-bottom: 40px;
-        }
-        
-        .story-section h3 {
-            font-size: 1.8rem;
+
+        .countdown-title {
+            font-size: 1.5em;
             margin-bottom: 20px;
+            color: var(--accent-color);
         }
-        
-        .english-theme .story-section h3 {
-            color: #8b6f47;
+
+        .countdown {
+            font-size: 2em;
+            font-weight: 600;
+            color: var(--primary-color);
         }
-        
-        .indian-theme .story-section h3 {
-            color: #8b2635;
+
+        /* Story Section */
+        .story-section {
+            background: white;
+            margin: 40px 0;
+            padding: 60px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
         }
-        
+
+        .story-section h3 {
+            font-size: 2em;
+            margin-bottom: 30px;
+            color: var(--accent-color);
+        }
+
         .story-section p {
-            font-size: 1.1rem;
-            margin-bottom: 15px;
-            text-align: justify;
+            font-size: 1.1em;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: var(--text-light);
         }
-        
-        /* Accommodation Cards */
-        .accommodation-grid {
+
+        /* Accommodations */
+        .accommodations-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
-            margin-top: 30px;
+            margin-top: 40px;
         }
-        
+
         .accommodation-card {
-            background: #f8f9fa;
-            padding: 30px;
-            border-radius: 10px;
+            background: white;
+            padding: 40px 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
             text-align: center;
-            border-left: 4px solid #d4844a;
+            transition: transform 0.3s ease;
         }
-        
-        .indian-theme .accommodation-card {
-            border-left-color: #c41e3a;
+
+        .accommodation-card:hover {
+            transform: translateY(-5px);
         }
-        
+
         .accommodation-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            color: var(--accent-color);
         }
-        
+
         .accommodation-card .price {
-            font-size: 1.3rem;
+            font-size: 1.3em;
+            color: var(--primary-color);
             font-weight: 600;
-            margin-bottom: 15px;
-        }
-        
-        .english-theme .accommodation-card .price {
-            color: #d4844a;
-        }
-        
-        .indian-theme .accommodation-card .price {
-            color: #c41e3a;
-        }
-        
-        .accommodation-card .details {
             margin-bottom: 20px;
         }
-        
-        .accommodation-card .details div {
-            margin-bottom: 8px;
-            color: #666;
+
+        .accommodation-card .details {
+            color: var(--text-light);
+            margin-bottom: 10px;
         }
-        
-        .accommodation-card .book-info {
-            font-weight: 500;
-        }
-        
-        .english-theme .accommodation-card .book-info {
-            color: #8b6f47;
-        }
-        
-        .indian-theme .accommodation-card .book-info {
-            color: #8b2635;
-        }
-        
-        /* Registry Section */
+
+        /* Registry */
         .registry-intro {
             text-align: center;
-            font-size: 1.2rem;
-            margin-bottom: 40px;
-            padding: 30px;
-            background: #f8f9fa;
-            border-radius: 10px;
+            font-size: 1.2em;
+            margin-bottom: 50px;
+            line-height: 1.8;
+            color: var(--text-light);
         }
-        
-        .registry-link {
-            display: inline-block;
-            background: #d4844a;
+
+        .registry-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .registry-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .registry-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .registry-card h3 {
+            font-size: 1.4em;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+        }
+
+        /* Q&A */
+        .qa-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .qa-item {
+            background: white;
+            margin-bottom: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .qa-question {
+            padding: 25px 30px;
+            background: var(--gold-gradient);
             color: white;
-            padding: 15px 30px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 500;
-            margin-top: 20px;
+            font-weight: 600;
+            cursor: pointer;
             transition: background 0.3s ease;
         }
-        
-        .indian-theme .registry-link {
-            background: #c41e3a;
+
+        .qa-answer {
+            padding: 25px 30px;
+            color: var(--text-light);
+            line-height: 1.7;
         }
-        
-        .registry-link:hover {
-            background: #c17a42;
-        }
-        
-        .indian-theme .registry-link:hover {
-            background: #a91729;
-        }
-        
-        /* Q&A Section */
-        .qa-item {
-            margin-bottom: 30px;
-            padding: 25px;
-            background: #f8f9fa;
-            border-radius: 10px;
-        }
-        
-        .qa-item h3 {
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-        }
-        
-        .english-theme .qa-item h3 {
-            color: #8b6f47;
-        }
-        
-        .indian-theme .qa-item h3 {
-            color: #8b2635;
-        }
-        
+
         /* RSVP Form */
         .rsvp-form {
             max-width: 600px;
             margin: 0 auto;
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
         }
-        
+
         .form-group {
-            margin-bottom: 25px;
+            margin-bottom: 30px;
         }
-        
+
         .form-group label {
             display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: var(--accent-color);
         }
-        
+
         .form-group input,
         .form-group select,
         .form-group textarea {
             width: 100%;
-            padding: 12px;
+            padding: 15px;
             border: 2px solid #ddd;
-            border-radius: 8px;
-            font-size: 1rem;
+            border-radius: 10px;
+            font-size: 16px;
             font-family: 'Raleway', sans-serif;
+            transition: border-color 0.3s ease;
         }
-        
-        .form-group textarea {
-            height: 100px;
-            resize: vertical;
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
         }
-        
-        .submit-btn {
-            background: #d4844a;
+
+        .submit-button {
+            background: var(--gold-gradient);
             color: white;
-            border: none;
             padding: 15px 40px;
-            border-radius: 8px;
-            font-size: 1.1rem;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
             cursor: pointer;
-            transition: background 0.3s ease;
+            font-family: 'Raleway', sans-serif;
+            font-weight: 600;
+            transition: transform 0.3s ease;
             width: 100%;
         }
-        
-        .indian-theme .submit-btn {
-            background: #c41e3a;
+
+        .submit-button:hover {
+            transform: translateY(-2px);
         }
-        
-        .submit-btn:hover {
-            background: #c17a42;
-        }
-        
-        .indian-theme .submit-btn:hover {
-            background: #a91729;
-        }
-        
-        .rsvp-success,
-        .rsvp-error {
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            text-align: center;
-            display: none;
-        }
-        
-        .rsvp-success {
-            background: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
-        }
-        
-        .rsvp-error {
-            background: #f8d7da;
-            color: #721c24;
-            border: 1px solid #f5c6cb;
-        }
-        
+
         /* Footer */
-        .footer {
+        footer {
+            background: var(--accent-color);
+            color: white;
             text-align: center;
             padding: 40px 0;
-            background: #f8f9fa;
-            margin-top: 50px;
+            margin-top: 80px;
         }
-        
-        .footer-text {
-            font-size: 1.2rem;
+
+        .footer-content {
+            font-size: 1.1em;
             font-weight: 500;
         }
-        
-        .english-theme .footer-text {
-            color: #d4844a;
-        }
-        
-        .indian-theme .footer-text {
-            color: #c41e3a;
-        }
-        
-        /* Responsive Design */
+
+        /* Mobile Responsiveness */
         @media (max-width: 768px) {
-            .couple-names {
-                font-size: 2.5rem;
-            }
-            
-            .wedding-type {
-                font-size: 1.4rem;
-            }
-            
-            .nav-menu {
-                gap: 15px;
-            }
-            
-            .nav-menu li a {
-                padding: 8px 12px;
-                font-size: 0.9rem;
-            }
-            
-            .content-section {
-                padding: 30px 20px;
-            }
-            
-            .content-section h2 {
-                font-size: 2rem;
-            }
-            
-            .countdown {
-                font-size: 1.8rem;
-            }
-            
             .wedding-options {
                 grid-template-columns: 1fr;
+                gap: 30px;
             }
-            
-            .accommodation-grid {
+
+            .header-content h1 {
+                font-size: 2.5em;
+            }
+
+            .nav-menu {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .nav-menu a {
+                padding: 15px 20px;
+            }
+
+            .accommodations-grid,
+            .registry-grid {
                 grid-template-columns: 1fr;
             }
+
+            .selection-container {
+                padding: 40px 30px;
+            }
+
+            .password-form {
+                min-width: auto;
+                margin: 20px;
+                padding: 40px 30px;
+            }
+        }
+
+        /* Hidden class */
+        .hidden {
+            display: none !important;
         }
     </style>
 </head>
 <body>
-    <!-- Password Protection Screen -->
+    <!-- Password Screen -->
     <div id="passwordScreen" class="password-screen">
-        <div class="password-container">
-            <h1 class="password-title">Darshna & Michael</h1>
-            <p class="password-subtitle">Please enter the password to access our wedding website</p>
+        <div class="password-form">
+            <h1>Darshna & Michael</h1>
+            <p>Please enter the password to access our wedding website</p>
             <input type="password" id="passwordInput" class="password-input" placeholder="Enter password">
-            <button onclick="checkPassword()" class="password-btn">Enter</button>
+            <button onclick="checkPassword()" class="password-button">Enter</button>
             <div id="errorMessage" class="error-message">Incorrect password. Please try again.</div>
         </div>
     </div>
 
     <!-- Wedding Selection Screen -->
-    <div id="weddingSelection" class="wedding-selection">
-        <div class="container">
-            <div class="selection-header">
-                <h1 class="selection-title">Darshna & Michael</h1>
-                <h2 style="font-size: 1.5rem; color: #8b6f47; margin-bottom: 20px;">Two Celebrations, One Love Story</h2>
-                <p class="selection-subtitle">Welcome! Please select the wedding celebration you've been invited to. If you're invited to both, you can RSVP to each separately.</p>
-            </div>
+    <div id="selectionScreen" class="selection-screen hidden">
+        <div class="selection-container">
+            <h1 class="selection-title">Darshna<br>& <br>Michael</h1>
+            <p class="selection-subtitle">Two Celebrations, One Love Story<br><br>Welcome! Please select the wedding celebration you've been invited to. If you're invited to both, you can RSVP to each separately.</p>
             
             <div class="wedding-options">
-                <div class="wedding-card" onclick="showWedding('english')">
+                <div class="wedding-card" onclick="showEnglishWedding()">
                     <h3>English Wedding</h3>
                     <div class="date">May 1st, 2026</div>
                     <div class="venue">Elmore Court, Gloucester</div>
-                    <div class="description">Ceremony & Reception</div>
-                    <span class="link">Enter English Wedding Site</span>
+                    <div class="venue">Ceremony & Reception</div>
+                    <div class="url">shahrosewedding.co.uk/1stMay2026</div>
                 </div>
                 
-                <div class="wedding-card" onclick="showWedding('indian')">
+                <div class="wedding-card" onclick="showIndianWedding()">
                     <h3>Indian Wedding</h3>
                     <div class="date">May 10th, 2026</div>
                     <div class="venue">Oshwal Centre, Potters Bar</div>
-                    <div class="description">Traditional Ceremony</div>
-                    <span class="link">Enter Indian Wedding Site</span>
+                    <div class="venue">Traditional Ceremony</div>
+                    <div class="url">shahrosewedding.co.uk/10thMay2026</div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- English Wedding Page -->
-    <div id="englishWedding" class="wedding-page english-theme">
-        <div class="header">
+    <!-- English Wedding Site -->
+    <div id="englishSite" class="main-site">
+        <header>
             <div class="container">
-                <h1 class="couple-names">Darshna & Michael</h1>
-                <h2 class="wedding-type">English Wedding</h2>
-                <div class="wedding-date">May 1st, 2026</div>
-                <div class="wedding-venue">Elmore Court, Gloucester</div>
-                <div class="countdown" id="englishCountdown">Loading...</div>
+                <div class="header-content">
+                    <h1>Darshna<br>& <br>Michael</h1>
+                    <div class="wedding-type">English Wedding</div>
+                    <div class="wedding-date">May 1st, 2026</div>
+                    <div class="wedding-venue">Elmore Court, Gloucester</div>
+                </div>
             </div>
-        </div>
+        </header>
 
-        <nav class="nav">
-            <div class="container">
+        <nav>
+            <div class="nav-container">
                 <ul class="nav-menu">
-                    <li><a href="#" onclick="showPage('english', 'home')" class="nav-link active">Home</a></li>
-                    <li><a href="#" onclick="showPage('english', 'story')" class="nav-link">Story</a></li>
-                    <li><a href="#" onclick="showPage('english', 'accommodations')" class="nav-link">Accommodations</a></li>
-                    <li><a href="#" onclick="showPage('english', 'registry')" class="nav-link">Registry</a></li>
-                    <li><a href="#" onclick="showPage('english', 'qa')" class="nav-link">Q & A</a></li>
-                    <li><a href="#" onclick="showPage('english', 'rsvp')" class="nav-link">RSVP</a></li>
+                    <li><a href="#" onclick="showSection('home-english')" class="active">Home</a></li>
+                    <li><a href="#" onclick="showSection('rsvp-english')">RSVP</a></li>
+                    <li><a href="#" onclick="showSection('story-english')">Story</a></li>
+                    <li><a href="#" onclick="showSection('accommodations-english')">Accommodations</a></li>
+                    <li><a href="#" onclick="showSection('registry-english')">Registry</a></li>
+                    <li><a href="#" onclick="showSection('qa-english')">Q & A</a></li>
                 </ul>
             </div>
         </nav>
 
-        <div class="container">
-            <!-- Home Page -->
-            <div id="english-home" class="page-content active">
-                <div class="content-section">
-                    <h2>Welcome to Our Wedding</h2>
-                    <p style="text-align: center; font-size: 1.2rem; margin-bottom: 30px;">We're so excited to celebrate our special day with you at Elmore Court, Gloucester on May 1st, 2026.</p>
-                    <p style="text-align: center; font-size: 1.1rem;">Please use the navigation above to find all the information you need about our wedding day, including our story, accommodations, and RSVP details.</p>
+        <!-- Home Section -->
+        <section id="home-english" class="content-section active">
+            <div class="container">
+                <div class="countdown-container">
+                    <h2 class="countdown-title">Days until our wedding</h2>
+                    <div id="countdown-english" class="countdown">Loading...</div>
                 </div>
             </div>
+        </section>
 
-            <!-- Story Page -->
-            <div id="english-story" class="page-content">
-                <div class="content-section">
-                    <h2>Our Story</h2>
-                    
-                    <div class="story-section">
-                        <h3>How We Met</h3>
-                        <p>Michael spotted Darshna at a summer house party and did... absolutely nothing. Lucky for them, fast forward four months to a NYE house party (that neither of them planned to attend), their paths crossed again and they spent hours talking away.</p>
-                        <p>Like a true gentleman, he walked her to the station. And like a true millennial, he didn't ask for her number but slid into her Instagram DMs the next day.</p>
-                    </div>
+        <!-- Story Section -->
+        <section id="story-english" class="content-section">
+            <div class="container">
+                <h2 class="section-title">Our Story</h2>
+                
+                <div class="story-section">
+                    <h3>How We Met</h3>
+                    <p>Michael spotted Darshna at a summer house party and did... absolutely nothing. Lucky for them, fast forward four months to a NYE house party (that neither of them planned to attend), their paths crossed again and they spent hours talking away.</p>
+                    <p>Like a true gentleman, he walked her to the station. And like a true millennial, he didn't ask for her number but slid into her Instagram DMs the next day.</p>
+                </div>
 
-                    <div class="story-section">
-                        <h3>The First Date</h3>
-                        <p>Michael chose the elegant Bluebird Chelsea for their first date, clearly pulling out all the stops! Still recovering from the flu, Darshna kept disappearing to the ladies' room—apparently blowing your nose on a first date isn't very romantic. After the 10th time, Michael, with his signature dry humor, told her she may as well take her bag with her if she was planning to make a run for it.</p>
-                        <p>That has since changed and now he holds the tissue box for her ❤️</p>
-                    </div>
+                <div class="story-section">
+                    <h3>The First Date</h3>
+                    <p>Michael chose the elegant Bluebird Chelsea for their first date, clearly pulling out all the stops! Still recovering from the flu, Darshna kept disappearing to the ladies' room—apparently blowing your nose on a first date isn't very romantic. After the 10th time, Michael, with his signature dry humor, told her she may as well take her bag with her if she was planning to make a run for it.</p>
+                    <p>That has since changed and now he holds the tissue box for her ❤️</p>
+                </div>
 
-                    <div class="story-section">
-                        <h3>The Proposal</h3>
-                        <p>Tell us about your engagement story! How did Michael propose? Was it a surprise, or something you planned together?</p>
-                        <p>Include details about the location, the moment, and how you felt. Your guests will love hearing about this special milestone in your relationship.</p>
-                    </div>
+                <div class="story-section">
+                    <h3>The Proposal</h3>
+                    <p>Tell us about your engagement story! How did Michael propose? Was it a surprise, or something you planned together?</p>
+                    <p>Include details about the location, the moment, and how you felt. Your guests will love hearing about this special milestone in your relationship.</p>
+                </div>
 
-                    <div class="story-section">
-                        <h3>Building Our Life Together</h3>
-                        <p>From Instagram DMs to wedding planning - share more about your journey together, the adventures you've had, and what you're most excited about for your future as husband and wife.</p>
-                    </div>
+                <div class="story-section">
+                    <h3>Building Our Life Together</h3>
+                    <p>From Instagram DMs to wedding planning - share more about your journey together, the adventures you've had, and what you're most excited about for your future as husband and wife.</p>
                 </div>
             </div>
+        </section>
 
-            <!-- Accommodations Page -->
-            <div id="english-accommodations" class="page-content">
-                <div class="content-section">
-                    <h2>Accommodations</h2>
-                    <p style="text-align: center; margin-bottom: 40px;">Here are some nearby hotels for our wedding guests:</p>
+        <!-- Accommodations Section -->
+        <section id="accommodations-english" class="content-section">
+            <div class="container">
+                <h2 class="section-title">Accommodations</h2>
+                
+                <div class="accommodations-grid">
+                    <div class="accommodation-card">
+                        <h3>Premier Inn Gloucester</h3>
+                        <div class="price">£89/night</div>
+                        <div class="details">15 minutes from venue</div>
+                        <div class="details">Includes breakfast</div>
+                        <div class="details">Free parking</div>
+                        <div class="details"><strong>Book:</strong> 0333 003 8101</div>
+                    </div>
                     
-                    <div class="accommodation-grid">
-                        <div class="accommodation-card">
-                            <h3>Premier Inn Gloucester</h3>
-                            <div class="price">£89/night</div>
-                            <div class="details">
-                                <div>15 minutes from venue</div>
-                                <div>Includes breakfast</div>
-                                <div>Free parking</div>
-                            </div>
-                            <div class="book-info">Book: 0333 003 8101</div>
-                        </div>
-
-                        <div class="accommodation-card">
-                            <h3>Travelodge Gloucester</h3>
-                            <div class="price">£65/night</div>
-                            <div class="details">
-                                <div>20 minutes from venue</div>
-                                <div>Budget-friendly option</div>
-                                <div>Free WiFi</div>
-                            </div>
-                            <div class="book-info">Book: travelodge.co.uk</div>
-                        </div>
-
-                        <div class="accommodation-card">
-                            <h3>The Bell Hotel</h3>
-                            <div class="price">£120/night</div>
-                            <div class="details">
-                                <div>Historic coaching inn</div>
-                                <div>10 minutes from venue</div>
-                                <div>Full English breakfast</div>
-                            </div>
-                            <div class="book-info">Book: 01452 700 000</div>
-                        </div>
+                    <div class="accommodation-card">
+                        <h3>Travelodge Gloucester</h3>
+                        <div class="price">£65/night</div>
+                        <div class="details">20 minutes from venue</div>
+                        <div class="details">Budget-friendly option</div>
+                        <div class="details">Free WiFi</div>
+                        <div class="details"><strong>Book:</strong> travelodge.co.uk</div>
+                    </div>
+                    
+                    <div class="accommodation-card">
+                        <h3>The Bell Hotel</h3>
+                        <div class="price">£120/night</div>
+                        <div class="details">Historic coaching inn</div>
+                        <div class="details">10 minutes from venue</div>
+                        <div class="details">Full English breakfast</div>
+                        <div class="details"><strong>Book:</strong> 01452 700 000</div>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <!-- Registry Page -->
-            <div id="english-registry" class="page-content">
-                <div class="content-section">
-                    <h2>Registry</h2>
-                    <div class="registry-intro">
-                        <p>Your presence at our wedding is the greatest gift of all 🧡</p>
-                        <p>If you would like to give us a gift, we are saving for our honeymoon and would be delighted with a contribution. Please use the following link to join us in creating these memories:</p>
-                        <a href="#" class="registry-link">Contribute to Our Honeymoon</a>
+        <!-- Registry Section -->
+        <section id="registry-english" class="content-section">
+            <div class="container">
+                <h2 class="section-title">Registry</h2>
+                
+                <div class="registry-intro">
+                    Your presence at our wedding is the greatest gift of all 🧡<br>
+                    If you would like to give us a gift, we are saving for our honeymoon and would be delighted with a contribution. Please use the following link to join us in creating these memories:
+                </div>
+                
+                <div class="registry-grid">
+                    <div class="registry-card">
+                        <h3>John Lewis</h3>
+                        <p>For our home essentials and kitchen items</p>
+                        <button class="submit-button" style="margin-top: 20px; width: auto; padding: 10px 20px;">View Registry</button>
+                    </div>
+                    
+                    <div class="registry-card">
+                        <h3>Amazon</h3>
+                        <p>For a variety of items and experiences</p>
+                        <button class="submit-button" style="margin-top: 20px; width: auto; padding: 10px 20px;">View Registry</button>
+                    </div>
+                    
+                    <div class="registry-card">
+                        <h3>Honeymoon Fund</h3>
+                        <p>Help us create memories on our honeymoon</p>
+                        <button class="submit-button" style="margin-top: 20px; width: auto; padding: 10px 20px;">Contribute</button>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <!-- Q&A Page -->
-            <div id="english-qa" class="page-content">
-                <div class="content-section">
-                    <h2>Q & A</h2>
+        <!-- Q&A Section -->
+        <section id="qa-english" class="content-section">
+            <div class="container">
+                <h2 class="section-title">Q & A</h2>
+                
+                <div class="qa-container">
+                    <div class="qa-item">
+                        <div class="qa-question">What time should I arrive?</div>
+                        <div class="qa-answer">Please arrive 15-20 minutes before the ceremony start time to allow for seating.</div>
+                    </div>
                     
                     <div class="qa-item">
-                        <h3>What time should I arrive?</h3>
-                        <p>Please arrive 15-20 minutes before the ceremony start time to allow for seating.</p>
+                        <div class="qa-question">What's the dress code?</div>
+                        <div class="qa-answer">We're asking for formal attire. Think cocktail dresses, suits, or dressy separates. Please avoid white, ivory, or cream colors.</div>
                     </div>
-
+                    
                     <div class="qa-item">
-                        <h3>What's the dress code?</h3>
-                        <p>We're asking for formal attire. Think cocktail dresses, suits, or dressy separates. Please avoid white, ivory, or cream colors.</p>
+                        <div class="qa-question">Is the venue wheelchair accessible?</div>
+                        <div class="qa-answer">Yes, Elmore Court is fully wheelchair accessible with ramps and accessible facilities.</div>
                     </div>
-
+                    
                     <div class="qa-item">
-                        <h3>Is the venue wheelchair accessible?</h3>
-                        <p>Yes, Elmore Court is fully wheelchair accessible with ramps and accessible facilities.</p>
+                        <div class="qa-question">Can I bring a plus-one?</div>
+                        <div class="qa-answer">We've tried to accommodate everyone we'd love to celebrate with. If your invitation includes a plus-one, it will be addressed accordingly.</div>
                     </div>
-
+                    
                     <div class="qa-item">
-                        <h3>Can I bring a plus-one?</h3>
-                        <p>We've tried to accommodate everyone we'd love to celebrate with. If your invitation includes a plus-one, it will be addressed accordingly.</p>
+                        <div class="qa-question">Will there be parking available?</div>
+                        <div class="qa-answer">Yes, there is ample free parking available at Elmore Court.</div>
                     </div>
-
+                    
                     <div class="qa-item">
-                        <h3>Will there be parking available?</h3>
-                        <p>Yes, there is ample free parking available at Elmore Court.</p>
-                    </div>
-
-                    <div class="qa-item">
-                        <h3>What if I have dietary restrictions?</h3>
-                        <p>Please let us know about any dietary requirements when you RSVP, and we'll make sure you're well taken care of!</p>
+                        <div class="qa-question">What if I have dietary restrictions?</div>
+                        <div class="qa-answer">Please let us know about any dietary requirements when you RSVP, and we'll make sure you're well taken care of!</div>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <!-- RSVP Page -->
-            <div id="english-rsvp" class="page-content">
-                <div class="content-section">
-                    <h2>RSVP</h2>
+        <!-- RSVP Section -->
+        <section id="rsvp-english" class="content-section">
+            <div class="container">
+                <h2 class="section-title">RSVP</h2>
+                
+                <div class="rsvp-form">
+                    <h3 style="text-align: center; margin-bottom: 30px;">Welcome to our RSVP</h3>
                     
-                    <div id="englishRsvpSuccess" class="rsvp-success">
-                        🎉 Thank you for your RSVP! We can't wait to celebrate with you at our English wedding!
-                    </div>
-                    
-                    <div id="englishRsvpError" class="rsvp-error">
-                        ❌ Sorry, there was an error. Please try again or contact us directly.
-                    </div>
-
-                    <form class="rsvp-form" onsubmit="submitRSVP(event, 'english')">
+                    <form id="rsvpFormEnglish">
                         <div class="form-group">
-                            <label for="englishName">Full Name *</label>
-                            <input type="text" id="englishName" name="name" required>
+                            <label for="name-english">Full Name *</label>
+                            <input type="text" id="name-english" name="name" required>
                         </div>
-
+                        
                         <div class="form-group">
-                            <label for="englishEmail">Email Address *</label>
-                            <input type="email" id="englishEmail" name="email" required>
+                            <label for="email-english">Email Address *</label>
+                            <input type="email" id="email-english" name="email" required>
                         </div>
-
+                        
                         <div class="form-group">
-                            <label for="englishAttending">Will you be attending? *</label>
-                            <select id="englishAttending" name="attending" required>
+                            <label for="attending-english">Will you be attending? *</label>
+                            <select id="attending-english" name="attending" required>
                                 <option value="">Please select</option>
                                 <option value="yes">Yes, I'll be there!</option>
                                 <option value="no">Sorry, I can't make it</option>
                             </select>
                         </div>
-
+                        
                         <div class="form-group">
-                            <label for="englishGuests">Number of guests (including yourself) *</label>
-                            <select id="englishGuests" name="guests" required>
-                                <option value="">Please select</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                            </select>
+                            <label for="dietary-english">Dietary Requirements</label>
+                            <textarea id="dietary-english" name="dietary" rows="3" placeholder="Please let us know about any dietary restrictions or allergies"></textarea>
                         </div>
-
+                        
                         <div class="form-group">
-                            <label for="englishDietary">Dietary Requirements</label>
-                            <textarea id="englishDietary" name="dietary" placeholder="Please let us know about any dietary requirements or allergies"></textarea>
+                            <label for="message-english">Special Message (Optional)</label>
+                            <textarea id="message-english" name="message" rows="4" placeholder="Any special message for us?"></textarea>
                         </div>
-
-                        <div class="form-group">
-                            <label for="englishMessage">Special Message (Optional)</label>
-                            <textarea id="englishMessage" name="message" placeholder="Any special message for the happy couple"></textarea>
-                        </div>
-
-                        <button type="submit" class="submit-btn">Submit RSVP</button>
+                        
+                        <button type="submit" class="submit-button">Submit RSVP</button>
                     </form>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <footer class="footer">
+        <footer>
             <div class="container">
-                <div class="footer-text">Darshna & Michael 🧡 1st May 2026</div>
+                <div class="footer-content">
+                    Darshna & Michael 🧡 1st May 2026<br>
+                    Elmore Court, Gloucester
+                </div>
             </div>
         </footer>
     </div>
 
-    <!-- Indian Wedding Page -->
-    <div id="indianWedding" class="wedding-page indian-theme">
-        <div class="header">
+    <!-- Indian Wedding Site -->
+    <div id="indianSite" class="main-site">
+        <header>
             <div class="container">
-                <h1 class="couple-names">Darshna & Michael</h1>
-                <h2 class="wedding-type">Indian Wedding</h2>
-                <div class="wedding-date">May 10th, 2026</div>
-                <div class="wedding-venue">Oshwal Centre, Potters Bar</div>
-                <div class="countdown" id="indianCountdown">Loading...</div>
+                <div class="header-content">
+                    <h1>Darshna<br>& <br>Michael</h1>
+                    <div class="wedding-type">Indian Wedding</div>
+                    <div class="wedding-date">May 10th, 2026</div>
+                    <div class="wedding-venue">Oshwal Centre, Potters Bar</div>
+                </div>
             </div>
-        </div>
+        </header>
 
-        <nav class="nav">
-            <div class="container">
+        <nav>
+            <div class="nav-container">
                 <ul class="nav-menu">
-                    <li><a href="#" onclick="showPage('indian', 'home')" class="nav-link active">Home</a></li>
-                    <li><a href="#" onclick="showPage('indian', 'story')" class="nav-link">Story</a></li>
-                    <li><a href="#" onclick="showPage('indian', 'accommodations')" class="nav-link">Accommodations</a></li>
-                    <li><a href="#" onclick="showPage('indian', 'registry')" class="nav-link">Registry</a></li>
-                    <li><a href="#" onclick="showPage('indian', 'qa')" class="nav-link">Q & A</a></li>
-                    <li><a href="#" onclick="showPage('indian', 'rsvp')" class="nav-link">RSVP</a></li>
+                    <li><a href="#" onclick="showSection('home-indian')" class="active">Home</a></li>
+                    <li><a href="#" onclick="showSection('rsvp-indian')">RSVP</a></li>
+                    <li><a href="#" onclick="showSection('story-indian')">Story</a></li>
+                    <li><a href="#" onclick="showSection('accommodations-indian')">Accommodations</a></li>
+                    <li><a href="#" onclick="showSection('registry-indian')">Registry</a></li>
+                    <li><a href="#" onclick="showSection('qa-indian')">Q & A</a></li>
                 </ul>
             </div>
         </nav>
 
-        <div class="container">
-            <!-- Home Page -->
-            <div id="indian-home" class="page-content active">
-                <div class="content-section">
-                    <h2>Welcome to Our Indian Wedding</h2>
-                    <p style="text-align: center; font-size: 1.2rem; margin-bottom: 30px;">We're so excited to celebrate our traditional Indian wedding ceremony with you at Oshwal Centre, Potters Bar on May 10th, 2026.</p>
-                    <p style="text-align: center; font-size: 1.1rem;">Please use the navigation above to find all the information you need about our wedding day, including our story, accommodations, and RSVP details.</p>
+        <!-- Home Section -->
+        <section id="home-indian" class="content-section active">
+            <div class="container">
+                <div class="countdown-container">
+                    <h2 class="countdown-title">Days until our wedding</h2>
+                    <div id="countdown-indian" class="countdown">Loading...</div>
                 </div>
             </div>
+        </section>
 
-            <!-- Story Page -->
-            <div id="indian-story" class="page-content">
-                <div class="content-section">
-                    <h2>Our Story</h2>
-                    
-                    <div class="story-section">
-                        <h3>How We Met</h3>
-                        <p>Michael spotted Darshna at a summer house party and did... absolutely nothing. Lucky for them, fast forward four months to a NYE house party (that neither of them planned to attend), their paths crossed again and they spent hours talking away.</p>
-                        <p>Like a true gentleman, he walked her to the station. And like a true millennial, he didn't ask for her number but slid into her Instagram DMs the next day.</p>
-                    </div>
+        <!-- Story Section -->
+        <section id="story-indian" class="content-section">
+            <div class="container">
+                <h2 class="section-title">Our Story</h2>
+                
+                <div class="story-section">
+                    <h3>How We Met</h3>
+                    <p>Michael spotted Darshna at a summer house party and did... absolutely nothing. Lucky for them, fast forward four months to a NYE house party (that neither of them planned to attend), their paths crossed again and they spent hours talking away.</p>
+                    <p>Like a true gentleman, he walked her to the station. And like a true millennial, he didn't ask for her number but slid into her Instagram DMs the next day.</p>
+                </div>
 
-                    <div class="story-section">
-                        <h3>The First Date</h3>
-                        <p>Michael chose the elegant Bluebird Chelsea for their first date, clearly pulling out all the stops! Still recovering from the flu, Darshna kept disappearing to the ladies' room—apparently blowing your nose on a first date isn't very romantic. After the 10th time, Michael, with his signature dry humor, told her she may as well take her bag with her if she was planning to make a run for it.</p>
-                        <p>That has since changed and now he holds the tissue box for her ❤️</p>
-                    </div>
+                <div class="story-section">
+                    <h3>The First Date</h3>
+                    <p>Michael chose the elegant Bluebird Chelsea for their first date, clearly pulling out all the stops! Still recovering from the flu, Darshna kept disappearing to the ladies' room—apparently blowing your nose on a first date isn't very romantic. After the 10th time, Michael, with his signature dry humor, told her she may as well take her bag with her if she was planning to make a run for it.</p>
+                    <p>That has since changed and now he holds the tissue box for her ❤️</p>
+                </div>
 
-                    <div class="story-section">
-                        <h3>Two Cultures, One Love</h3>
-                        <p>Our love story is beautifully woven with traditions from both our cultures. Darshna brings the rich heritage of Indian customs, while Michael embraces these traditions with an open heart.</p>
-                        <p>This Indian wedding celebration honors Darshna's family traditions and allows us to share the beauty of Indian customs with all our loved ones.</p>
-                    </div>
+                <div class="story-section">
+                    <h3>Two Cultures, One Love</h3>
+                    <p>Our love story is beautifully woven with traditions from both our cultures. Darshna brings the rich heritage of Indian customs, while Michael embraces these traditions with an open heart.</p>
+                    <p>This Indian wedding celebration honors Darshna's family traditions and allows us to share the beauty of Indian customs with all our loved ones.</p>
+                </div>
 
-                    <div class="story-section">
-                        <h3>Why Two Celebrations?</h3>
-                        <p>We chose to have two wedding celebrations to honor both our backgrounds and give our families the opportunity to celebrate in ways that are meaningful to them.</p>
-                        <p>Our Indian wedding will feature traditional ceremonies, vibrant colors, and customs that have been passed down through generations in Darshna's family.</p>
-                    </div>
+                <div class="story-section">
+                    <h3>Why Two Celebrations?</h3>
+                    <p>We chose to have two wedding celebrations to honor both our backgrounds and give our families the opportunity to celebrate in ways that are meaningful to them.</p>
+                    <p>Our Indian wedding will feature traditional ceremonies, vibrant colors, and customs that have been passed down through generations in Darshna's family.</p>
                 </div>
             </div>
+        </section>
 
-            <!-- Accommodations Page -->
-            <div id="indian-accommodations" class="page-content">
-                <div class="content-section">
-                    <h2>Accommodations</h2>
-                    <p style="text-align: center; margin-bottom: 40px;">Here are some nearby hotels for our wedding guests:</p>
+        <!-- Accommodations Section -->
+        <section id="accommodations-indian" class="content-section">
+            <div class="container">
+                <h2 class="section-title">Accommodations</h2>
+                
+                <div class="accommodations-grid">
+                    <div class="accommodation-card">
+                        <h3>Premier Inn Potters Bar</h3>
+                        <div class="price">£75/night</div>
+                        <div class="details">10 minutes from venue</div>
+                        <div class="details">Includes breakfast</div>
+                        <div class="details">Free parking</div>
+                        <div class="details"><strong>Book:</strong> 0333 003 8101</div>
+                    </div>
                     
-                    <div class="accommodation-grid">
-                        <div class="accommodation-card">
-                            <h3>Premier Inn Potters Bar</h3>
-                            <div class="price">£75/night</div>
-                            <div class="details">
-                                <div>10 minutes from venue</div>
-                                <div>Includes breakfast</div>
-                                <div>Free parking</div>
-                            </div>
-                            <div class="book-info">Book: 0333 003 8101</div>
-                        </div>
-
-                        <div class="accommodation-card">
-                            <h3>Holiday Inn Express</h3>
-                            <div class="price">£95/night</div>
-                            <div class="details">
-                                <div>15 minutes from venue</div>
-                                <div>Modern amenities</div>
-                                <div>Fitness center</div>
-                            </div>
-                            <div class="book-info">Book: ihg.com</div>
-                        </div>
-
-                        <div class="accommodation-card">
-                            <h3>Local B&Bs</h3>
-                            <div class="price">£60-80/night</div>
-                            <div class="details">
-                                <div>Charming local options</div>
-                                <div>Personal service</div>
-                                <div>Traditional breakfast</div>
-                            </div>
-                            <div class="book-info">Contact us for recommendations</div>
-                        </div>
+                    <div class="accommodation-card">
+                        <h3>Holiday Inn Express</h3>
+                        <div class="price">£95/night</div>
+                        <div class="details">15 minutes from venue</div>
+                        <div class="details">Modern amenities</div>
+                        <div class="details">Fitness center</div>
+                        <div class="details"><strong>Book:</strong> ihg.com</div>
+                    </div>
+                    
+                    <div class="accommodation-card">
+                        <h3>Local B&Bs</h3>
+                        <div class="price">£60-80/night</div>
+                        <div class="details">Charming local options</div>
+                        <div class="details">Personal service</div>
+                        <div class="details">Traditional breakfast</div>
+                        <div class="details"><strong>Contact us for recommendations</strong></div>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <!-- Registry Page -->
-            <div id="indian-registry" class="page-content">
-                <div class="content-section">
-                    <h2>Registry</h2>
-                    <div class="registry-intro">
-                        <p>Your presence at our wedding is the greatest gift of all ❤️</p>
-                        <p>If you would like to give us a gift, we are saving for our honeymoon and would be delighted with a contribution. Please use the following link to join us in creating these memories: LINK. No box gifts please.</p>
-                        <a href="#" class="registry-link">Contribute to Our Honeymoon</a>
+        <!-- Registry Section -->
+        <section id="registry-indian" class="content-section">
+            <div class="container">
+                <h2 class="section-title">Registry</h2>
+                
+                <div class="registry-intro">
+                    Your presence at our wedding is the greatest gift of all ❤️<br>
+                    If you would like to give us a gift, we are saving for our honeymoon and would be delighted with a contribution. Please use the following link to join us in creating these memories: LINK. No box gifts please.
+                </div>
+                
+                <div class="registry-grid">
+                    <div class="registry-card">
+                        <h3>John Lewis</h3>
+                        <p>For our home essentials and kitchen items</p>
+                        <button class="submit-button" style="margin-top: 20px; width: auto; padding: 10px 20px;">View Registry</button>
+                    </div>
+                    
+                    <div class="registry-card">
+                        <h3>Traditional Gifts</h3>
+                        <p>Gold jewelry and traditional items</p>
+                        <button class="submit-button" style="margin-top: 20px; width: auto; padding: 10px 20px;">View Ideas</button>
+                    </div>
+                    
+                    <div class="registry-card">
+                        <h3>Honeymoon Fund</h3>
+                        <p>Help us explore India together</p>
+                        <button class="submit-button" style="margin-top: 20px; width: auto; padding: 10px 20px;">Contribute</button>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <!-- Q&A Page -->
-            <div id="indian-qa" class="page-content">
-                <div class="content-section">
-                    <h2>Q & A</h2>
+        <!-- Q&A Section -->
+        <section id="qa-indian" class="content-section">
+            <div class="container">
+                <h2 class="section-title">Q & A</h2>
+                
+                <div class="qa-container">
+                    <div class="qa-item">
+                        <div class="qa-question">What should I wear to an Indian wedding?</div>
+                        <div class="qa-answer">Traditional Indian attire is preferred and encouraged! Think saris, lehengas, or salwar kameez for women, and kurtas or sherwanis for men. Bright colors are welcome and celebrated.</div>
+                    </div>
                     
                     <div class="qa-item">
-                        <h3>What should I wear to an Indian wedding?</h3>
-                        <p>Traditional Indian attire is preferred and encouraged! Think saris, lehengas, or salwar kameez for women, and kurtas or sherwanis for men. Bright colors are welcome and celebrated.</p>
+                        <div class="qa-question">How long will the ceremony be?</div>
+                        <div class="qa-answer">Indian wedding ceremonies typically last 2-3 hours with various rituals and traditions. There will be explanations provided for those unfamiliar with the customs.</div>
                     </div>
-
+                    
                     <div class="qa-item">
-                        <h3>How long will the ceremony be?</h3>
-                        <p>Indian wedding ceremonies typically last 2-3 hours with various rituals and traditions. There will be explanations provided for those unfamiliar with the customs.</p>
+                        <div class="qa-question">Will there be vegetarian food?</div>
+                        <div class="qa-answer">Yes! The entire menu will be vegetarian, following traditional Indian wedding customs. There will be a wide variety of delicious dishes to enjoy.</div>
                     </div>
-
+                    
                     <div class="qa-item">
-                        <h3>Will there be vegetarian food?</h3>
-                        <p>Yes! The entire menu will be vegetarian, following traditional Indian wedding customs. There will be a wide variety of delicious dishes to enjoy.</p>
+                        <div class="qa-question">Do I need to remove my shoes?</div>
+                        <div class="qa-answer">You may need to remove shoes when entering certain areas of the ceremony space. We'll provide clear guidance on the day.</div>
                     </div>
-
+                    
                     <div class="qa-item">
-                        <h3>Do I need to remove my shoes?</h3>
-                        <p>You may need to remove shoes when entering certain areas of the ceremony space. We'll provide clear guidance on the day.</p>
+                        <div class="qa-question">Can I take photos during the ceremony?</div>
+                        <div class="qa-answer">We'll have a professional photographer, but you're welcome to take photos during most parts of the ceremony. We'll let you know if there are any specific moments when we'd prefer no photos.</div>
                     </div>
-
+                    
                     <div class="qa-item">
-                        <h3>Can I take photos during the ceremony?</h3>
-                        <p>We'll have a professional photographer, but you're welcome to take photos during most parts of the ceremony. We'll let you know if there are any specific moments when we'd prefer no photos.</p>
-                    </div>
-
-                    <div class="qa-item">
-                        <h3>What if I don't understand the rituals?</h3>
-                        <p>Don't worry! We'll have someone explaining the significance of different rituals throughout the ceremony so everyone can appreciate the beautiful traditions.</p>
+                        <div class="qa-question">What if I don't understand the rituals?</div>
+                        <div class="qa-answer">Don't worry! We'll have someone explaining the significance of different rituals throughout the ceremony so everyone can appreciate the beautiful traditions.</div>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <!-- RSVP Page -->
-            <div id="indian-rsvp" class="page-content">
-                <div class="content-section">
-                    <h2>RSVP</h2>
+        <!-- RSVP Section -->
+        <section id="rsvp-indian" class="content-section">
+            <div class="container">
+                <h2 class="section-title">RSVP</h2>
+                
+                <div class="rsvp-form">
+                    <h3 style="text-align: center; margin-bottom: 30px;">Welcome to our RSVP</h3>
                     
-                    <div id="indianRsvpSuccess" class="rsvp-success">
-                        🎉 Thank you for your RSVP! We can't wait to celebrate with you at our Indian wedding!
-                    </div>
-                    
-                    <div id="indianRsvpError" class="rsvp-error">
-                        ❌ Sorry, there was an error. Please try again or contact us directly.
-                    </div>
-
-                    <form class="rsvp-form" onsubmit="submitRSVP(event, 'indian')">
+                    <form id="rsvpFormIndian">
                         <div class="form-group">
-                            <label for="indianName">Full Name *</label>
-                            <input type="text" id="indianName" name="name" required>
+                            <label for="name-indian">Full Name *</label>
+                            <input type="text" id="name-indian" name="name" required>
                         </div>
-
+                        
                         <div class="form-group">
-                            <label for="indianEmail">Email Address *</label>
-                            <input type="email" id="indianEmail" name="email" required>
+                            <label for="email-indian">Email Address *</label>
+                            <input type="email" id="email-indian" name="email" required>
                         </div>
-
+                        
                         <div class="form-group">
-                            <label for="indianAttending">Will you be attending? *</label>
-                            <select id="indianAttending" name="attending" required>
+                            <label for="attending-indian">Will you be attending? *</label>
+                            <select id="attending-indian" name="attending" required>
                                 <option value="">Please select</option>
                                 <option value="yes">Yes, I'll be there!</option>
                                 <option value="no">Sorry, I can't make it</option>
                             </select>
                         </div>
-
+                        
                         <div class="form-group">
-                            <label for="indianGuests">Number of guests (including yourself) *</label>
-                            <select id="indianGuests" name="guests" required>
-                                <option value="">Please select</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                            </select>
+                            <label for="dietary-indian">Dietary Requirements</label>
+                            <textarea id="dietary-indian" name="dietary" rows="3" placeholder="Please let us know about any dietary restrictions or allergies"></textarea>
                         </div>
-
+                        
                         <div class="form-group">
-                            <label for="indianDietary">Dietary Requirements</label>
-                            <textarea id="indianDietary" name="dietary" placeholder="Please let us know about any dietary requirements or allergies"></textarea>
+                            <label for="message-indian">Special Message (Optional)</label>
+                            <textarea id="message-indian" name="message" rows="4" placeholder="Any special message for us?"></textarea>
                         </div>
-
-                        <div class="form-group">
-                            <label for="indianMessage">Special Message (Optional)</label>
-                            <textarea id="indianMessage" name="message" placeholder="Any special message for the happy couple"></textarea>
-                        </div>
-
-                        <button type="submit" class="submit-btn">Submit RSVP</button>
+                        
+                        <button type="submit" class="submit-button">Submit RSVP</button>
                     </form>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <footer class="footer">
+        <footer>
             <div class="container">
-                <div class="footer-text">Darshna & Michael ❤️ 10th May 2026</div>
+                <div class="footer-content">
+                    Darshna & Michael ❤️ 10th May 2026<br>
+                    Oshwal Centre, Potters Bar
+                </div>
             </div>
         </footer>
     </div>
 
     <script>
-        // Password protection
+        // Password functionality
         function checkPassword() {
             const password = document.getElementById('passwordInput').value;
-            const correctPassword = 'wedding2026'; // Change this to your desired password
+            const errorMessage = document.getElementById('errorMessage');
             
-            if (password === correctPassword) {
-                document.getElementById('passwordScreen').style.display = 'none';
-                document.getElementById('weddingSelection').style.display = 'block';
+            if (password === 'yourpassword') { // Change this to your desired password
+                document.getElementById('passwordScreen').classList.add('hidden');
+                document.getElementById('selectionScreen').classList.remove('hidden');
             } else {
-                document.getElementById('errorMessage').style.display = 'block';
+                errorMessage.style.display = 'block';
                 document.getElementById('passwordInput').value = '';
             }
         }
@@ -1105,84 +1056,89 @@
             }
         });
 
-        // Show specific wedding page
-        function showWedding(type) {
-            document.getElementById('weddingSelection').style.display = 'none';
-            
-            if (type === 'english') {
-                document.getElementById('englishWedding').classList.add('active');
-                document.getElementById('indianWedding').classList.remove('active');
-                updateCountdown('english');
-            } else {
-                document.getElementById('indianWedding').classList.add('active');
-                document.getElementById('englishWedding').classList.remove('active');
-                updateCountdown('indian');
-            }
+        // Wedding selection functions
+        function showEnglishWedding() {
+            document.getElementById('selectionScreen').classList.add('hidden');
+            document.getElementById('englishSite').classList.add('active');
+            startCountdown('2026-05-01', 'countdown-english');
         }
 
-        // Show specific page within wedding site
-        function showPage(weddingType, page) {
-            // Hide all page contents for this wedding type
-            const pages = document.querySelectorAll(`#${weddingType}Wedding .page-content`);
-            pages.forEach(p => p.classList.remove('active'));
+        function showIndianWedding() {
+            document.getElementById('selectionScreen').classList.add('hidden');
+            document.getElementById('indianSite').classList.add('active');
+            startCountdown('2026-05-10', 'countdown-indian');
+        }
+
+        // Section navigation
+        let currentSite = '';
+        
+        function showSection(sectionId) {
+            // Determine which site we're on
+            currentSite = sectionId.includes('english') ? 'english' : 'indian';
             
-            // Show selected page
-            document.getElementById(`${weddingType}-${page}`).classList.add('active');
+            // Hide all sections for current site
+            const sections = document.querySelectorAll(`#${currentSite}Site .content-section`);
+            sections.forEach(section => section.classList.remove('active'));
             
-            // Update navigation
-            const navLinks = document.querySelectorAll(`#${weddingType}Wedding .nav-link`);
+            // Show selected section
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Update nav active state
+            const navLinks = document.querySelectorAll(`#${currentSite}Site .nav-menu a`);
             navLinks.forEach(link => link.classList.remove('active'));
             event.target.classList.add('active');
         }
 
-        // Countdown timer
-        function updateCountdown(type) {
-            const weddingDate = type === 'english' ? 
-                new Date('2026-05-01T14:00:00') : 
-                new Date('2026-05-10T11:00:00');
+        // Countdown functionality
+        function startCountdown(targetDate, elementId) {
+            const countDownDate = new Date(targetDate).getTime();
             
-            const countdownElement = document.getElementById(`${type}Countdown`);
-            
-            function updateTimer() {
+            const timer = setInterval(function() {
                 const now = new Date().getTime();
-                const timeLeft = weddingDate.getTime() - now;
+                const distance = countDownDate - now;
                 
-                if (timeLeft > 0) {
-                    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-                    
-                    countdownElement.innerHTML = `${days} days, ${hours} hours, ${minutes} minutes until our wedding`;
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                
+                if (distance < 0) {
+                    clearInterval(timer);
+                    document.getElementById(elementId).innerHTML = "The big day is here! 🎉";
                 } else {
-                    countdownElement.innerHTML = "It's our wedding day! 🎉";
+                    document.getElementById(elementId).innerHTML = days + " days";
                 }
-            }
-            
-            updateTimer();
-            setInterval(updateTimer, 60000); // Update every minute
-        }
-
-        // RSVP form submission
-        function submitRSVP(event, type) {
-            event.preventDefault();
-            
-            // Simulate form submission
-            setTimeout(() => {
-                document.getElementById(`${type}RsvpSuccess`).style.display = 'block';
-                document.getElementById(`${type}RsvpError`).style.display = 'none';
-                event.target.reset();
-                
-                // Hide success message after 5 seconds
-                setTimeout(() => {
-                    document.getElementById(`${type}RsvpSuccess`).style.display = 'none';
-                }, 5000);
             }, 1000);
         }
 
-        // Initialize the page
+        // RSVP form handling
+        document.getElementById('rsvpFormEnglish').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('🎉 Thank you for your RSVP! We can\'t wait to celebrate with you at our English wedding!');
+        });
+
+        document.getElementById('rsvpFormIndian').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('🎉 Thank you for your RSVP! We can\'t wait to celebrate with you at our Indian wedding!');
+        });
+
+        // Q&A toggle functionality
         document.addEventListener('DOMContentLoaded', function() {
-            // Show password screen initially
-            document.getElementById('passwordScreen').style.display = 'flex';
+            const qaQuestions = document.querySelectorAll('.qa-question');
+            
+            qaQuestions.forEach(question => {
+                question.addEventListener('click', function() {
+                    const answer = this.nextElementSibling;
+                    const isVisible = answer.style.display === 'block';
+                    
+                    // Hide all answers
+                    document.querySelectorAll('.qa-answer').forEach(ans => {
+                        ans.style.display = 'none';
+                    });
+                    
+                    // Show clicked answer if it wasn't visible
+                    if (!isVisible) {
+                        answer.style.display = 'block';
+                    }
+                });
+            });
         });
     </script>
 </body>
