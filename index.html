@@ -1297,36 +1297,46 @@
         <!-- URL Display -->
         <div id="urlDisplay" class="url-display hidden"></div>
 
-        <!-- Wedding Selection Screen -->
-        <div id="weddingSelector" class="wedding-selector">
-            <div class="selector-content">
-                <h1>
-                    Darshna 
-                    <span class="ampersand">&</span> 
-                    Michael
-                </h1>
-                <div class="subtitle">Two Celebrations, One Love Story</div>
-                <div class="instructions">
-                    <p><strong>Welcome!</strong> Please select the wedding celebration you've been invited to. If you're invited to both, you can RSVP to each separately.</p>
-                </div>
-                <div class="wedding-buttons">
-                    <a href="#" class="wedding-btn english" onclick="showWedding('english')">
-                        <h3>English Wedding</h3>
-                        <div class="date">May 1st, 2026</div>
-                        <div class="location">Elmore Court, Gloucester</div>
-                        <div class="details">Ceremony & Reception</div>
-                        <div class="url-preview">shahrosewedding.co.uk/1stMay2026</div>
-                    </a>
-                    <a href="#" class="wedding-btn indian" onclick="showWedding('indian')">
-                        <h3>Indian Wedding</h3>
-                        <div class="date">May 10th, 2026</div>
-                        <div class="location">Oshwal Centre, Potters Bar</div>
-                        <div class="details">Traditional Ceremony</div>
-                        <div class="url-preview">shahrosewedding.co.uk/10thMay2026</div>
-                    </a>
-                </div>
-            </div>
+       <!-- Wedding Selection Screen -->
+<div id="weddingSelector" class="wedding-selector">
+    <div class="selector-content">
+        <h1>
+            Darshna 
+            <span class="ampersand">&</span> 
+            Michael
+        </h1>
+        <div class="subtitle">Two Celebrations, One Love Story</div>
+        <div class="instructions">
+            <p><strong>Welcome!</strong> Please select the wedding celebration you've been invited to. If you're invited to both, you can RSVP to each separately.</p>
         </div>
+        <div class="wedding-buttons">
+            <a href="#" class="wedding-btn english" onclick="showWedding('english')">
+                <h3>English Wedding</h3>
+                <div class="date">May 1st, 2026</div>
+                <div class="location">Elmore Court, Gloucester</div>
+                <div class="details">Ceremony & Reception</div>
+                <div class="url-preview">shahrosewedding.co.uk/1stMay2026</div>
+            </a>
+            <a href="#" class="wedding-btn indian" onclick="showWedding('indian')">
+                <h3>Indian Wedding</h3>
+                <div class="date">May 10th, 2026</div>
+                <div class="location">Oshwal Centre, Potters Bar</div>
+                <div class="details">Traditional Ceremony</div>
+                <div class="url-preview">shahrosewedding.co.uk/10thMay2026</div>
+            </a>
+            
+            <!-- Dashboard Access Button -->
+            <a href="#" class="wedding-btn dashboard" onclick="showDashboard()" 
+               style="border-color: #8b7355; grid-column: 1 / -1; max-width: 400px; margin: 2rem auto 0 auto;">
+                <h3 style="color: #8b7355;">📊 Dashboard</h3>
+                <div class="date" style="color: #8b7355;">Admin Access</div>
+                <div class="location">RSVP Tracking & Planning</div>
+                <div class="details">Real-time wedding data</div>
+                <div class="url-preview">shahrosewedding.co.uk/dashboard</div>
+            </a>
+        </div>
+    </div>
+</div>
 
         <!-- Dashboard Page -->
         <div id="dashboardPage" class="dashboard-page">
@@ -2564,3 +2574,4 @@
     </script>
 </body>
 </html>
+
