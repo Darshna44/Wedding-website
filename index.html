@@ -37,7 +37,7 @@
         .accommodation-card h4,
         .registry-card h4,
         .qa-question {
-            font-family: 'Alex Brush', serif;
+            font-family: 'SS Bruney', serif;
         }
 
         /* Password Protection Screen */
@@ -65,7 +65,7 @@
         }
 
         .password-form h2 {
-            font-family: 'Alex Brush', serif;
+            font-family: 'SS Bruney', serif;
             color: #8b7355;
             margin-bottom: 1rem;
         }
@@ -131,7 +131,7 @@
         }
 
         .selector-content h1 {
-            font-family: 'Alex Brush', serif;
+            font-family: 'SS Bruney', serif;
             font-size: 4.5rem;
             font-weight: 700;
             color: #8b7355;
@@ -222,7 +222,7 @@
         }
 
         .wedding-btn h3 {
-            font-family: 'Alex Brush', serif;
+            font-family: 'SS Bruney', serif;
             font-size: 2.2rem;
             margin-bottom: 1rem;
             color: #8b7355;
@@ -324,7 +324,7 @@
         }
 
         .dashboard-title {
-            font-family: 'Alex Brush', serif;
+            font-family: 'SS Bruney', serif;
             font-size: 2.5rem;
             color: #8b7355;
             text-align: center;
@@ -354,7 +354,7 @@
         }
 
         .stat-card h3 {
-            font-family: 'Alex Brush', serif;
+            font-family: 'SS Bruney', serif;
             font-size: 1.8rem;
             color: #8b7355;
             margin-bottom: 1rem;
@@ -592,7 +592,7 @@
         }
 
         .hero h1 {
-            font-family: 'Alex Brush', serif;
+            font-family: 'SS Bruney', serif;
             font-size: 4.5rem;
             font-weight: 700;
             color: var(--accent-color);
@@ -662,13 +662,100 @@
             display: block;
         }
 
+        /* Photo Layout System - 60/40 Split */
+        .photo-layout {
+            display: grid;
+            grid-template-columns: 60% 40%;
+            min-height: calc(100vh - 80px);
+            align-items: stretch;
+        }
+
+        .photo-section {
+            position: relative;
+            overflow: hidden;
+            background: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .photo-section img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.3s ease;
+        }
+
+        .photo-section:hover img {
+            transform: scale(1.02);
+        }
+
+        .content-section {
+            padding: 4rem 3rem;
+            background: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            overflow-y: auto;
+            max-height: calc(100vh - 80px);
+        }
+
+        .content-section h2 {
+            font-family: 'SS Bruney', serif;
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 2rem;
+        }
+
+        .content-section h3 {
+            font-family: 'SS Bruney', serif;
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin: 2rem 0 1rem 0;
+        }
+
+        .content-section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: #666;
+        }
+
+        /* Menu Layout - Special styling for menu pages */
+        .menu-layout {
+            display: grid;
+            grid-template-columns: 60% 40%;
+            min-height: calc(100vh - 80px);
+        }
+
+        .menu-photo {
+            position: relative;
+            overflow: hidden;
+            background: #f0f0f0;
+        }
+
+        .menu-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .menu-content {
+            padding: 3rem;
+            background: white;
+            overflow-y: auto;
+            max-height: calc(100vh - 80px);
+        }
+
         /* Sections */
         section {
             padding: 5rem 0;
         }
 
         .section-title {
-            font-family: 'Alex Brush', serif;
+            font-family: 'SS Bruney', serif;
             font-size: 2.5rem;
             text-align: center;
             color: var(--accent-color);
@@ -686,57 +773,17 @@
             border-radius: 2px;
         }
 
-        /* Story Hero Section */
+        /* Story Hero Section - Updated for new layout */
         .story-hero {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            margin-bottom: 4rem;
-            align-items: center;
+            /* Now using photo-layout class instead */
         }
 
         .story-image {
-            position: relative;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-        }
-
-        .story-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-            border-radius: 20px;
-            transition: transform 0.3s ease;
-        }
-
-        .story-image:hover img {
-            transform: scale(1.05);
+            /* Moved to photo-section */
         }
 
         .story-content {
-            padding: 2rem;
-        }
-
-        .story-content h3 {
-            font-family: 'Alex Brush', serif;
-            font-size: 2.5rem;
-            color: var(--accent-color);
-            margin-bottom: 1.5rem;
-        }
-
-        .story-content h4 {
-            font-family: 'Alex Brush', serif;
-            font-size: 1.8rem;
-            color: var(--primary-color);
-            margin: 2rem 0 1rem 0;
-        }
-
-        .story-content p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-            color: #666;
+            /* Moved to content-section */
         }
 
         .story-ending {
@@ -762,7 +809,7 @@
         }
 
         .content-card h3 {
-            font-family: 'Alex Brush', serif;
+            font-family: 'SS Bruney', serif;
             font-size: 2rem;
             color: var(--accent-color);
             margin-bottom: 1.5rem;
@@ -799,7 +846,7 @@
         }
 
         .accommodation-card h4 {
-            font-family: 'Alex Brush', serif;
+            font-family: 'SS Bruney', serif;
             font-size: 1.5rem;
             color: var(--accent-color);
             margin-bottom: 1rem;
@@ -871,7 +918,7 @@
         }
 
         .qa-question {
-            font-family: 'Alex Brush', serif;
+            font-family: 'SS Bruney', serif;
             font-size: 1.4rem;
             color: #F47A43;
             margin-bottom: 1rem;
@@ -917,7 +964,7 @@
         }
 
         .timeline-content h4 {
-            font-family: 'Alex Brush', serif;
+            font-family: 'SS Bruney', serif;
             font-size: 1.4rem;
             color: var(--accent-color);
             margin-bottom: 0.5rem;
@@ -960,7 +1007,7 @@
         }
 
         .step-title {
-            font-family: 'Alex Brush', serif;
+            font-family: 'SS Bruney', serif;
             font-size: 2rem;
             color: var(--accent-color);
             text-align: center;
@@ -1207,31 +1254,35 @@
 
         /* Mobile Responsive */
         @media (max-width: 768px) {
-            .story-hero {
+            /* Mobile: Stack vertically with photo on top */
+            .photo-layout,
+            .menu-layout {
                 grid-template-columns: 1fr;
-                gap: 2rem;
-                text-align: center;
+                grid-template-rows: 50vh auto;
             }
-            
-            .story-image {
-                order: -1;
-                max-width: 350px;
-                margin: 0 auto;
+
+            .photo-section,
+            .menu-photo {
+                height: 50vh;
+                min-height: 300px;
             }
-            
-            .story-content {
-                padding: 1rem;
+
+            .content-section,
+            .menu-content {
+                padding: 2rem 1.5rem;
+                max-height: none;
+                min-height: 50vh;
             }
-            
-            .story-content h3 {
+
+            .content-section h2 {
                 font-size: 2rem;
             }
-            
-            .story-content h4 {
+
+            .content-section h3 {
                 font-size: 1.5rem;
             }
-            
-            .story-content p {
+
+            .content-section p {
                 font-size: 1rem;
             }
 
@@ -1317,14 +1368,19 @@
         }
 
         @media (max-width: 480px) {
-            .story-content h3 {
+            .content-section,
+            .menu-content {
+                padding: 1.5rem 1rem;
+            }
+
+            .content-section h2 {
                 font-size: 1.8rem;
             }
-            
-            .story-content h4 {
+
+            .content-section h3 {
                 font-size: 1.3rem;
             }
-            
+
             .story-ending {
                 font-size: 1rem !important;
                 padding: 0.8rem;
@@ -1573,25 +1629,26 @@
 
             <!-- Story Page -->
             <div id="englishStory" class="page-container">
-                <section class="container">
-                    <h2 class="section-title">Our Story</h2>
-                    <div class="story-hero">
-                        <div class="story-image">
-                            <img src="images/Engagement photo.jpg" alt="Darshna and Michael in Italy" id="couplePhoto">
-                        </div>
-                        <div class="story-content">
-                            <h3>How We Met</h3>
-                            <p>Michael spotted Darshna at a summer house party and did... absolutely nothing. Lucky for them, fast forward four months to a NYE house party (that neither of them planned to attend), their paths crossed again and they spent hours talking away.</p>
-                            
-                            <p>Like a true gentleman, he walked her to the station. And like a true millennial, he didn't ask for her number but slid into her Instagram DMs the next day.</p>
-                            
-                            <h4>The First Date</h4>
-                            <p>Michael chose the elegant Bluebird Chelsea for their first date, clearly pulling out all the stops! Still recovering from the flu, Darshna kept disappearing to the ladies' room—apparently blowing your nose on a first date isn't very romantic. After the 10th time, Michael, with his signature dry humor, told her she may as well take her bag with her if she was planning to make a run for it.</p>
-                            
-                            <p class="story-ending">That has since changed and now he holds the tissue box for her ❤️</p>
-                        </div>
+                <div class="photo-layout">
+                    <div class="photo-section">
+                        <img src="images/english-story.jpg" alt="Darshna and Michael - English Wedding Story" 
+                             onerror="this.src='images/engagement-photo.jpg'">
                     </div>
-                    
+                    <div class="content-section">
+                        <h2>Our Story</h2>
+                        <h3>How We Met</h3>
+                        <p>Michael spotted Darshna at a summer house party and did... absolutely nothing. Lucky for them, fast forward four months to a NYE house party (that neither of them planned to attend), their paths crossed again and they spent hours talking away.</p>
+                        
+                        <p>Like a true gentleman, he walked her to the station. And like a true millennial, he didn't ask for her number but slid into her Instagram DMs the next day.</p>
+                        
+                        <h3>The First Date</h3>
+                        <p>Michael chose the elegant Bluebird Chelsea for their first date, clearly pulling out all the stops! Still recovering from the flu, Darshna kept disappearing to the ladies' room—apparently blowing your nose on a first date isn't very romantic. After the 10th time, Michael, with his signature dry humor, told her she may as well take her bag with her if she was planning to make a run for it.</p>
+                        
+                        <div class="story-ending">That has since changed and now he holds the tissue box for her ❤️</div>
+                    </div>
+                </div>
+                
+                <section class="container">
                     <div class="story-grid">
                         <div class="content-card">
                             <h3>The Proposal</h3>
@@ -1608,238 +1665,267 @@
 
             <!-- Order of the Day Page -->
             <div id="englishOrderofday" class="page-container">
-                <section class="container">
-                    <h2 class="section-title">Order of the Day</h2>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-emoji">✨</div>
-                        <div class="timeline-content">
-                            <h4>12:30 PM - Guests Arrive</h4>
-                            <p>The bar will be open from 12:30pm. Please take your seats by 1pm.</p>
-                        </div>
+                <div class="photo-layout">
+                    <div class="photo-section">
+                        <img src="images/english-orderofday.jpg" alt="English Wedding Order of the Day" 
+                             onerror="this.src='images/elmore-court.jpg'">
                     </div>
+                    <div class="content-section">
+                        <h2>Order of the Day</h2>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-emoji">✨</div>
+                            <div class="timeline-content">
+                                <h4>12:30 PM - Guests Arrive</h4>
+                                <p>The bar will be open from 12:30pm. Please take your seats by 1pm.</p>
+                            </div>
+                        </div>
 
-                    <div class="timeline-item">
-                        <div class="timeline-emoji">💍</div>
-                        <div class="timeline-content">
-                            <h4>1:30 PM - Ceremony</h4>
-                            <p>Join us for an unplugged ceremony; kindly keep phones on silent and tucked away</p>
+                        <div class="timeline-item">
+                            <div class="timeline-emoji">💍</div>
+                            <div class="timeline-content">
+                                <h4>1:30 PM - Ceremony</h4>
+                                <p>Join us for an unplugged ceremony; kindly keep phones on silent and tucked away</p>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="timeline-item">
-                        <div class="timeline-emoji">🥂</div>
-                        <div class="timeline-content">
-                            <h4>2:00 PM - Reception Drinks & Canapes</h4>
+                        <div class="timeline-item">
+                            <div class="timeline-emoji">🥂</div>
+                            <div class="timeline-content">
+                                <h4>2:00 PM - Reception Drinks & Canapes</h4>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="timeline-item">
-                        <div class="timeline-emoji">🍽️🎤</div>
-                        <div class="timeline-content">
-                            <h4>4:00 PM - Wedding Breakfast & Speeches</h4>
+                        <div class="timeline-item">
+                            <div class="timeline-emoji">🍽️🎤</div>
+                            <div class="timeline-content">
+                                <h4>4:00 PM - Wedding Breakfast & Speeches</h4>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="timeline-item">
-                        <div class="timeline-emoji">🎉</div>
-                        <div class="timeline-content">
-                            <h4>7:30 PM onwards - The Party Begins!</h4>
-                            <p>After our first dance, meet us under the disco ball to celebrate!</p>
+                        <div class="timeline-item">
+                            <div class="timeline-emoji">🎉</div>
+                            <div class="timeline-content">
+                                <h4>7:30 PM onwards - The Party Begins!</h4>
+                                <p>After our first dance, meet us under the disco ball to celebrate!</p>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="timeline-item">
-                        <div class="timeline-emoji">🍔</div>
-                        <div class="timeline-content">
-                            <h4>9:00 PM - Evening Food</h4>
+                        <div class="timeline-item">
+                            <div class="timeline-emoji">🍔</div>
+                            <div class="timeline-content">
+                                <h4>9:00 PM - Evening Food</h4>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="timeline-item">
-                        <div class="timeline-emoji">🚕</div>
-                        <div class="timeline-content">
-                            <h4>11:59 PM - Farewell & Carriages</h4>
-                            <p>The bar closes at XXX. Please arrange transport by XXX, we recommend pre-booking a <a href="#" onclick="showPage('english', 'accommodations')">taxi</a></p>
+                        <div class="timeline-item">
+                            <div class="timeline-emoji">🚕</div>
+                            <div class="timeline-content">
+                                <h4>11:59 PM - Farewell & Carriages</h4>
+                                <p>The bar closes at XXX. Please arrange transport by XXX, we recommend pre-booking a <a href="#" onclick="showPage('english', 'accommodations')">taxi</a></p>
+                            </div>
                         </div>
                     </div>
-                </section>
+                </div>
             </div>
 
             <!-- Accommodations Page -->
             <div id="englishAccommodations" class="page-container">
-                <section class="container">
-                    <h2 class="section-title">Accommodations</h2>
-                    <div class="content-card">
+                <div class="photo-layout">
+                    <div class="photo-section">
+                        <img src="images/english-accommodations.jpg" alt="English Wedding Accommodations" 
+                             onerror="this.src='images/cotswolds-hotel.jpg'">
+                    </div>
+                    <div class="content-section">
+                        <h2>Accommodations</h2>
                         <p>Here are some nearby hotel options for our wedding guests:</p>
-                    </div>
-                    <div class="accommodation-grid">
-                        <div class="accommodation-card">
-                            <h4>Premier Inn Gloucester</h4>
-                            <div class="price">£89/night</div>
-                            <div class="details">
-                                15 minutes from venue<br>
-                                Includes breakfast<br>
-                                Free parking
+                        
+                        <div class="accommodation-grid">
+                            <div class="accommodation-card">
+                                <h4>Premier Inn Gloucester</h4>
+                                <div class="price">£89/night</div>
+                                <div class="details">
+                                    15 minutes from venue<br>
+                                    Includes breakfast<br>
+                                    Free parking
+                                </div>
+                                <div class="contact">Book: 0333 003 8101</div>
                             </div>
-                            <div class="contact">Book: 0333 003 8101</div>
-                        </div>
-                        <div class="accommodation-card">
-                            <h4>Travelodge Gloucester</h4>
-                            <div class="price">£65/night</div>
-                            <div class="details">
-                                20 minutes from venue<br>
-                                Budget-friendly option<br>
-                                Free WiFi
+                            <div class="accommodation-card">
+                                <h4>Travelodge Gloucester</h4>
+                                <div class="price">£65/night</div>
+                                <div class="details">
+                                    20 minutes from venue<br>
+                                    Budget-friendly option<br>
+                                    Free WiFi
+                                </div>
+                                <div class="contact">Book: travelodge.co.uk</div>
                             </div>
-                            <div class="contact">Book: travelodge.co.uk</div>
-                        </div>
-                        <div class="accommodation-card">
-                            <h4>The Bell Hotel</h4>
-                            <div class="price">£120/night</div>
-                            <div class="details">
-                                Historic coaching inn<br>
-                                10 minutes from venue<br>
-                                Full English breakfast
+                            <div class="accommodation-card">
+                                <h4>The Bell Hotel</h4>
+                                <div class="price">£120/night</div>
+                                <div class="details">
+                                    Historic coaching inn<br>
+                                    10 minutes from venue<br>
+                                    Full English breakfast
+                                </div>
+                                <div class="contact">Book: 01452 700 000</div>
                             </div>
-                            <div class="contact">Book: 01452 700 000</div>
+                        </div>
+                        
+                        <div style="margin-top: 3rem;">
+                            <h3>Local Taxi Services</h3>
+                            <p>We recommend pre-booking your taxi for the end of the evening:</p>
+                            <ul style="margin-top: 1rem; padding-left: 2rem;">
+                                <li><strong>Gloucester Taxis:</strong> 01452 123 456</li>
+                                <li><strong>Cotswold Cars:</strong> 01452 789 012</li>
+                                <li><strong>Elite Travel:</strong> 01452 345 678</li>
+                            </ul>
                         </div>
                     </div>
-                    
-                    <div class="content-card" style="margin-top: 3rem;">
-                        <h3>Local Taxi Services</h3>
-                        <p>We recommend pre-booking your taxi for the end of the evening:</p>
-                        <ul style="margin-top: 1rem; padding-left: 2rem;">
-                            <li><strong>Gloucester Taxis:</strong> 01452 123 456</li>
-                            <li><strong>Cotswold Cars:</strong> 01452 789 012</li>
-                            <li><strong>Elite Travel:</strong> 01452 345 678</li>
-                        </ul>
-                    </div>
-                </section>
+                </div>
             </div>
 
             <!-- Registry Page -->
             <div id="englishRegistry" class="page-container">
-                <section class="container">
-                    <h2 class="section-title">Registry</h2>
-                    <div class="registry-content">
-                        <p>Your presence at our wedding is the greatest gift of all 🧡</p>
-                        <p>If you would like to give us a gift, we are saving for our honeymoon and would be delighted with a contribution. Please use the following link to join us in creating these memories:</p>
-                        <a href="#" class="registry-link">Contribute to Our Honeymoon</a>
+                <div class="photo-layout">
+                    <div class="photo-section">
+                        <img src="images/english-registry.jpg" alt="English Wedding Registry" 
+                             onerror="this.src='images/honeymoon-destination.jpg'">
                     </div>
-                </section>
+                    <div class="content-section">
+                        <h2>Registry</h2>
+                        <div class="registry-content">
+                            <p>Your presence at our wedding is the greatest gift of all 🧡</p>
+                            <p>If you would like to give us a gift, we are saving for our honeymoon and would be delighted with a contribution. Please use the following link to join us in creating these memories:</p>
+                            <a href="#" class="registry-link">Contribute to Our Honeymoon</a>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- Q&A Page -->
             <div id="englishQa" class="page-container">
-                <section class="container">
-                    <h2 class="section-title">Q & A</h2>
-                    
-                    <div class="qa-item">
-                        <div class="qa-question">What is the RSVP deadline?</div>
-                        <div class="qa-answer">Please RSVP by 1st February 2026</div>
+                <div class="photo-layout">
+                    <div class="photo-section">
+                        <img src="images/english-qa.jpg" alt="English Wedding Q&A" 
+                             onerror="this.src='images/elmore-court-exterior.jpg'">
                     </div>
+                    <div class="content-section">
+                        <h2>Q & A</h2>
+                        
+                        <div class="qa-item">
+                            <div class="qa-question">What is the RSVP deadline?</div>
+                            <div class="qa-answer">Please RSVP by 1st February 2026</div>
+                        </div>
 
-                    <div class="qa-item">
-                        <div class="qa-question">What time should I arrive?</div>
-                        <div class="qa-answer">Please join us from 12:30 PM (the bar will be open!) and be seated for 1:00PM. The ceremony will begin at 1:30 PM.</div>
-                    </div>
+                        <div class="qa-item">
+                            <div class="qa-question">What time should I arrive?</div>
+                            <div class="qa-answer">Please join us from 12:30 PM (the bar will be open!) and be seated for 1:00PM. The ceremony will begin at 1:30 PM.</div>
+                        </div>
 
-                    <div class="qa-item">
-                        <div class="qa-question">Can I bring a plus-one?</div>
-                        <div class="qa-answer">We have tried to include everyone we would love to celebrate with and unfortunately we can't accommodate plus-ones</div>
-                    </div>
+                        <div class="qa-item">
+                            <div class="qa-question">Can I bring a plus-one?</div>
+                            <div class="qa-answer">We have tried to include everyone we would love to celebrate with and unfortunately we can't accommodate plus-ones</div>
+                        </div>
 
-                    <div class="qa-item">
-                        <div class="qa-question">Are children welcome?</div>
-                        <div class="qa-answer">We're only including children who are part of the wedding party. While we adore your little ones, we hope you understand and can enjoy a well-deserved night off!</div>
-                    </div>
+                        <div class="qa-item">
+                            <div class="qa-question">Are children welcome?</div>
+                            <div class="qa-answer">We're only including children who are part of the wedding party. While we adore your little ones, we hope you understand and can enjoy a well-deserved night off!</div>
+                        </div>
 
-                    <div class="qa-item">
-                        <div class="qa-question">What if I have dietary restrictions?</div>
-                        <div class="qa-answer">Please let us know about any dietary requirements when you RSVP, and we'll make sure you're well taken care of!</div>
-                    </div>
+                        <div class="qa-item">
+                            <div class="qa-question">What if I have dietary restrictions?</div>
+                            <div class="qa-answer">Please let us know about any dietary requirements when you RSVP, and we'll make sure you're well taken care of!</div>
+                        </div>
 
-                    <div class="qa-item">
-                        <div class="qa-question">Can we take pictures with our phones and cameras during the wedding?</div>
-                        <div class="qa-answer">We kindly request an unplugged ceremony so please keep phones and cameras tucked away. We will have a professional photographer and videographer throughout the day.<br><br>You are more than welcome to take your own photos and videos before and after the ceremony.<br><br><em>For privacy reasons, some children cannot be shared online. Please refrain from posting any photos of children on social media unless you have parental consent.</em></div>
-                    </div>
+                        <div class="qa-item">
+                            <div class="qa-question">Can we take pictures with our phones and cameras during the wedding?</div>
+                            <div class="qa-answer">We kindly request an unplugged ceremony so please keep phones and cameras tucked away. We will have a professional photographer and videographer throughout the day.<br><br>You are more than welcome to take your own photos and videos before and after the ceremony.<br><br><em>For privacy reasons, some children cannot be shared online. Please refrain from posting any photos of children on social media unless you have parental consent.</em></div>
+                        </div>
 
-                    <div class="qa-item">
-                        <div class="qa-question">What is the dress code?</div>
-                        <div class="qa-answer">Formal wedding attire please; elegant dresses and sharp suits are perfect! Please avoid white, ivory, or cream colours. Heels are very welcome - bring some flats too if you plan to dance the night away!</div>
-                    </div>
+                        <div class="qa-item">
+                            <div class="qa-question">What is the dress code?</div>
+                            <div class="qa-answer">Formal wedding attire please; elegant dresses and sharp suits are perfect! Please avoid white, ivory, or cream colours. Heels are very welcome - bring some flats too if you plan to dance the night away!</div>
+                        </div>
 
-                    <div class="qa-item">
-                        <div class="qa-question">Where should I stay?</div>
-                        <div class="qa-answer">See <a href="#" onclick="showPage('english', 'accommodations')">Accommodations</a> for hotel suggestions. There are also plenty of Airbnbs available which we especially recommend if you would like to make a long weekend of it in the Cotswolds</div>
-                    </div>
+                        <div class="qa-item">
+                            <div class="qa-question">Where should I stay?</div>
+                            <div class="qa-answer">See <a href="#" onclick="showPage('english', 'accommodations')">Accommodations</a> for hotel suggestions. There are also plenty of Airbnbs available which we especially recommend if you would like to make a long weekend of it in the Cotswolds</div>
+                        </div>
 
-                    <div class="qa-item">
-                        <div class="qa-question">Will there be parking available?</div>
-                        <div class="qa-answer">Yes, there is plenty of free parking available at Elmore Court. Cars can be left overnight in a designated area and collected the following morning by 11am.</div>
-                    </div>
+                        <div class="qa-item">
+                            <div class="qa-question">Will there be parking available?</div>
+                            <div class="qa-answer">Yes, there is plenty of free parking available at Elmore Court. Cars can be left overnight in a designated area and collected the following morning by 11am.</div>
+                        </div>
 
-                    <div class="qa-item">
-                        <div class="qa-question">Do I need to book a taxi?</div>
-                        <div class="qa-answer">Yes, a taxi should be pre-booked. A list of local taxis can be found on <a href="#" onclick="showPage('english', 'accommodations')">Accommodations</a></div>
-                    </div>
+                        <div class="qa-item">
+                            <div class="qa-question">Do I need to book a taxi?</div>
+                            <div class="qa-answer">Yes, a taxi should be pre-booked. A list of local taxis can be found on <a href="#" onclick="showPage('english', 'accommodations')">Accommodations</a></div>
+                        </div>
 
-                    <div class="qa-item">
-                        <div class="qa-question">Is the venue wheelchair accessible?</div>
-                        <div class="qa-answer">Yes, Elmore Court is fully wheelchair accessible with ramps and accessible facilities.</div>
-                    </div>
+                        <div class="qa-item">
+                            <div class="qa-question">Is the venue wheelchair accessible?</div>
+                            <div class="qa-answer">Yes, Elmore Court is fully wheelchair accessible with ramps and accessible facilities.</div>
+                        </div>
 
-                    <div class="qa-item">
-                        <div class="qa-question">Whom should I contact with questions?</div>
-                        <div class="qa-answer">If you have any questions that haven't been answered here, please call/text Darshna or Michael or email us at shahrosewedding@gmail.com</div>
+                        <div class="qa-item">
+                            <div class="qa-question">Whom should I contact with questions?</div>
+                            <div class="qa-answer">If you have any questions that haven't been answered here, please call/text Darshna or Michael or email us at shahrosewedding@gmail.com</div>
+                        </div>
                     </div>
-                </section>
+                </div>
             </div>
 
             <!-- RSVP Page -->
             <div id="englishRsvp" class="page-container">
-                <section class="container">
-                    <h2 class="section-title">RSVP</h2>
-                    <div class="rsvp-wizard" id="englishRsvpWizard">
-                        <div id="englishSuccessMessage" class="message success hidden">
-                            <p>🎉 Thank you for your RSVP! We can't wait to celebrate with you at our English wedding!</p>
-                        </div>
-                        <div id="englishErrorMessage" class="message error hidden">
-                            <p>❌ Sorry, there was an error. Please try again or contact us directly.</p>
-                        </div>
-
-                        <!-- Step 1: Name and Email -->
-                        <div class="wizard-step active" id="englishStep1">
-                            <div class="step-title">Welcome to our RSVP</div>
-                            <div class="form-group">
-                                <label for="englishSubmitterName">Your Name *</label>
-                                <input type="text" id="englishSubmitterName" required>
+                <div class="photo-layout">
+                    <div class="photo-section">
+                        <img src="images/english-rsvp.jpg" alt="English Wedding RSVP" 
+                             onerror="this.src='images/wedding-invitation.jpg'">
+                    </div>
+                    <div class="content-section">
+                        <h2>RSVP</h2>
+                        <div class="rsvp-wizard" id="englishRsvpWizard">
+                            <div id="englishSuccessMessage" class="message success hidden">
+                                <p>🎉 Thank you for your RSVP! We can't wait to celebrate with you at our English wedding!</p>
                             </div>
-                            <div class="form-group">
-                                <label for="englishSubmitterEmail">Your Email Address *</label>
-                                <input type="email" id="englishSubmitterEmail" required>
+                            <div id="englishErrorMessage" class="message error hidden">
+                                <p>❌ Sorry, there was an error. Please try again or contact us directly.</p>
                             </div>
-                            <div class="wizard-buttons">
-                                <div></div>
-                                <button class="btn" onclick="englishNextStep(1)">Next</button>
+
+                            <!-- Step 1: Name and Email -->
+                            <div class="wizard-step active" id="englishStep1">
+                                <div class="step-title">Welcome to our RSVP</div>
+                                <div class="form-group">
+                                    <label for="englishSubmitterName">Your Name *</label>
+                                    <input type="text" id="englishSubmitterName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="englishSubmitterEmail">Your Email Address *</label>
+                                    <input type="email" id="englishSubmitterEmail" required>
+                                </div>
+                                <div class="wizard-buttons">
+                                    <div></div>
+                                    <button class="btn" onclick="englishNextStep(1)">Next</button>
+                                </div>
                             </div>
-                        </div>
 
-                        <!-- Dynamic person steps will be inserted here -->
-                        <div id="englishPersonSteps"></div>
+                            <!-- Dynamic person steps will be inserted here -->
+                            <div id="englishPersonSteps"></div>
 
-                        <!-- Final step -->
-                        <div class="wizard-step" id="englishFinalStep">
-                            <div class="step-title">Review & Submit</div>
-                            <div id="englishRsvpSummary"></div>
-                            <div class="wizard-buttons">
-                                <button class="btn btn-secondary" onclick="englishPrevStep()">Previous</button>
-                                <button class="btn" onclick="submitEnglishRSVP()">Submit RSVP</button>
+                            <!-- Final step -->
+                            <div class="wizard-step" id="englishFinalStep">
+                                <div class="step-title">Review & Submit</div>
+                                <div id="englishRsvpSummary"></div>
+                                <div class="wizard-buttons">
+                                    <button class="btn btn-secondary" onclick="englishPrevStep()">Previous</button>
+                                    <button class="btn" onclick="submitEnglishRSVP()">Submit RSVP</button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </section>
+                </div>
             </div>
 
             <footer>
@@ -1892,169 +1978,187 @@
 
             <!-- Story Page -->
             <div id="indianStory" class="page-container">
-                <section class="container">
-                    <h2 class="section-title">Our Story</h2>
-                    <div class="story-hero">
-                        <div class="story-image">
-                            <img src="images/Engagement photo.jpg" alt="Darshna and Michael in Italy" id="couplePhotoIndian">
-                        </div>
-                        <div class="story-content">
-                            <h3>How We Met</h3>
-                            <p>Michael spotted Darshna at a summer house party and did... absolutely nothing. Lucky for them, fast forward four months to a NYE house party (that neither of them planned to attend), their paths crossed again and they spent hours talking away.</p>
-                            
-                            <p>Like a true gentleman, he walked her to the station. And like a true millennial, he didn't ask for her number but slid into her Instagram DMs the next day.</p>
-                            
-                            <h4>The First Date</h4>
-                            <p>Michael chose the elegant Bluebird Chelsea for their first date, clearly pulling out all the stops! Still recovering from the flu, Darshna kept disappearing to the ladies' room—apparently blowing your nose on a first date isn't very romantic. After the 10th time, Michael, with his signature dry humor, told her she may as well take her bag with her if she was planning to make a run for it.</p>
-                            
-                            <p class="story-ending">That has since changed and now he holds the tissue box for her ❤️</p>
-                        </div>
+                <div class="photo-layout">
+                    <div class="photo-section">
+                        <img src="images/indian-story.jpg" alt="Darshna and Michael - Indian Wedding Story" 
+                             onerror="this.src='images/engagement-photo.jpg'">
                     </div>
-                    
-                    <div class="story-grid">
-                        <div class="content-card">
-                            <h3>Two Cultures, One Love</h3>
-                            <p>Our love story is beautifully woven with traditions from both our cultures. Darshna brings the rich heritage of Indian customs, while Michael embraces these traditions with an open heart.</p>
-                            <p>This Indian wedding celebration honors Darshna's family traditions and allows us to share the beauty of Indian customs with all our loved ones.</p>
-                        </div>
-                        <div class="content-card">
-                            <h3>Why Two Celebrations?</h3>
-                            <p>We chose to have two wedding celebrations to honor both our backgrounds and give our families the opportunity to celebrate in ways that are meaningful to them.</p>
-                            <p>Our Indian wedding will feature traditional ceremonies, vibrant colors, and customs that have been passed down through generations in Darshna's family.</p>
-                        </div>
+                    <div class="content-section">
+                        <h2>Our Story</h2>
+                        <h3>How We Met</h3>
+                        <p>Michael spotted Darshna at a summer house party and did... absolutely nothing. Lucky for them, fast forward four months to a NYE house party (that neither of them planned to attend), their paths crossed again and they spent hours talking away.</p>
+                        
+                        <p>Like a true gentleman, he walked her to the station. And like a true millennial, he didn't ask for her number but slid into her Instagram DMs the next day.</p>
+                        
+                        <h3>The First Date</h3>
+                        <p>Michael chose the elegant Bluebird Chelsea for their first date, clearly pulling out all the stops! Still recovering from the flu, Darshna kept disappearing to the ladies' room—apparently blowing your nose on a first date isn't very romantic. After the 10th time, Michael, with his signature dry humor, told her she may as well take her bag with her if she was planning to make a run for it.</p>
+                        
+                        <div class="story-ending">That has since changed and now he holds the tissue box for her ❤️</div>
+                        
+                        <h3>Two Cultures, One Love</h3>
+                        <p>Our love story is beautifully woven with traditions from both our cultures. Darshna brings the rich heritage of Indian customs, while Michael embraces these traditions with an open heart.</p>
+                        <p>This Indian wedding celebration honors Darshna's family traditions and allows us to share the beauty of Indian customs with all our loved ones.</p>
+                        
+                        <h3>Why Two Celebrations?</h3>
+                        <p>We chose to have two wedding celebrations to honor both our backgrounds and give our families the opportunity to celebrate in ways that are meaningful to them.</p>
+                        <p>Our Indian wedding will feature traditional ceremonies, vibrant colors, and customs that have been passed down through generations in Darshna's family.</p>
                     </div>
-                </section>
+                </div>
             </div>
 
             <!-- Accommodations Page -->
             <div id="indianAccommodations" class="page-container">
-                <section class="container">
-                    <h2 class="section-title">Accommodations</h2>
-                    <div class="content-card">
+                <div class="photo-layout">
+                    <div class="photo-section">
+                        <img src="images/indian-accommodations.jpg" alt="Indian Wedding Accommodations" 
+                             onerror="this.src='images/potters-bar-hotel.jpg'">
+                    </div>
+                    <div class="content-section">
+                        <h2>Accommodations</h2>
                         <p>Here are some nearby hotel options for our wedding guests:</p>
+                        
+                        <div class="accommodation-grid">
+                            <div class="accommodation-card">
+                                <h4>Premier Inn Potters Bar</h4>
+                                <div class="price">£75/night</div>
+                                <div class="details">
+                                    10 minutes from venue<br>
+                                    Includes breakfast<br>
+                                    Free parking
+                                </div>
+                                <div class="contact">Book: 0333 003 8101</div>
+                            </div>
+                            <div class="accommodation-card">
+                                <h4>Holiday Inn Express</h4>
+                                <div class="price">£95/night</div>
+                                <div class="details">
+                                    15 minutes from venue<br>
+                                    Modern amenities<br>
+                                    Fitness center
+                                </div>
+                                <div class="contact">Book: ihg.com</div>
+                            </div>
+                            <div class="accommodation-card">
+                                <h4>Local B&Bs</h4>
+                                <div class="price">£60-80/night</div>
+                                <div class="details">
+                                    Charming local options<br>
+                                    Personal service<br>
+                                    Traditional breakfast
+                                </div>
+                                <div class="contact">Contact us for recommendations</div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="accommodation-grid">
-                        <div class="accommodation-card">
-                            <h4>Premier Inn Potters Bar</h4>
-                            <div class="price">£75/night</div>
-                            <div class="details">
-                                10 minutes from venue<br>
-                                Includes breakfast<br>
-                                Free parking
-                            </div>
-                            <div class="contact">Book: 0333 003 8101</div>
-                        </div>
-                        <div class="accommodation-card">
-                            <h4>Holiday Inn Express</h4>
-                            <div class="price">£95/night</div>
-                            <div class="details">
-                                15 minutes from venue<br>
-                                Modern amenities<br>
-                                Fitness center
-                            </div>
-                            <div class="contact">Book: ihg.com</div>
-                        </div>
-                        <div class="accommodation-card">
-                            <h4>Local B&Bs</h4>
-                            <div class="price">£60-80/night</div>
-                            <div class="details">
-                                Charming local options<br>
-                                Personal service<br>
-                                Traditional breakfast
-                            </div>
-                            <div class="contact">Contact us for recommendations</div>
-                        </div>
-                    </div>
-                </section>
+                </div>
             </div>
 
             <!-- Registry Page -->
             <div id="indianRegistry" class="page-container">
-                <section class="container">
-                    <h2 class="section-title">Registry</h2>
-                    <div class="registry-content">
-                        <p>Your presence at our wedding is the greatest gift of all ❤️</p>
-                        <p>If you would like to give us a gift, we are saving for our honeymoon and would be delighted with a contribution. Please use the following link to join us in creating these memories: <strong>LINK</strong></p>
-                        <p><strong>No box gifts please.</strong></p>
-                        <a href="#" class="registry-link">Contribute to Our Honeymoon</a>
+                <div class="photo-layout">
+                    <div class="photo-section">
+                        <img src="images/indian-registry.jpg" alt="Indian Wedding Registry" 
+                             onerror="this.src='images/indian-honeymoon.jpg'">
                     </div>
-                </section>
+                    <div class="content-section">
+                        <h2>Registry</h2>
+                        <div class="registry-content">
+                            <p>Your presence at our wedding is the greatest gift of all ❤️</p>
+                            <p>If you would like to give us a gift, we are saving for our honeymoon and would be delighted with a contribution. Please use the following link to join us in creating these memories: <strong>LINK</strong></p>
+                            <p><strong>No box gifts please.</strong></p>
+                            <a href="#" class="registry-link">Contribute to Our Honeymoon</a>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- Q&A Page -->
             <div id="indianQa" class="page-container">
-                <section class="container">
-                    <h2 class="section-title">Q & A</h2>
-                    <div class="qa-item">
-                        <div class="qa-question">What should I wear to an Indian wedding?</div>
-                        <div class="qa-answer">Traditional Indian attire is preferred and encouraged! Think saris, lehengas, or salwar kameez for women, and kurtas or sherwanis for men. Bright colors are welcome and celebrated.</div>
+                <div class="photo-layout">
+                    <div class="photo-section">
+                        <img src="images/indian-qa.jpg" alt="Indian Wedding Q&A" 
+                             onerror="this.src='images/oshwal-centre.jpg'">
                     </div>
-                    <div class="qa-item">
-                        <div class="qa-question">How long will the ceremony be?</div>
-                        <div class="qa-answer">Indian wedding ceremonies typically last 2-3 hours with various rituals and traditions. There will be explanations provided for those unfamiliar with the customs.</div>
+                    <div class="content-section">
+                        <h2>Q & A</h2>
+                        
+                        <div class="qa-item">
+                            <div class="qa-question">What should I wear to an Indian wedding?</div>
+                            <div class="qa-answer">Traditional Indian attire is preferred and encouraged! Think saris, lehengas, or salwar kameez for women, and kurtas or sherwanis for men. Bright colors are welcome and celebrated.</div>
+                        </div>
+                        <div class="qa-item">
+                            <div class="qa-question">How long will the ceremony be?</div>
+                            <div class="qa-answer">Indian wedding ceremonies typically last 2-3 hours with various rituals and traditions. There will be explanations provided for those unfamiliar with the customs.</div>
+                        </div>
+                        <div class="qa-item">
+                            <div class="qa-question">Will there be vegetarian food?</div>
+                            <div class="qa-answer">Yes! The entire menu will be vegetarian, following traditional Indian wedding customs. There will be a wide variety of delicious dishes to enjoy.</div>
+                        </div>
+                        <div class="qa-item">
+                            <div class="qa-question">Do I need to remove my shoes?</div>
+                            <div class="qa-answer">You may need to remove shoes when entering certain areas of the ceremony space. We'll provide clear guidance on the day.</div>
+                        </div>
+                        <div class="qa-item">
+                            <div class="qa-question">Can I take photos during the ceremony?</div>
+                            <div class="qa-answer">We'll have a professional photographer, but you're welcome to take photos during most parts of the ceremony. We'll let you know if there are any specific moments when we'd prefer no photos.</div>
+                        </div>
+                        <div class="qa-item">
+                            <div class="qa-question">What if I don't understand the rituals?</div>
+                            <div class="qa-answer">Don't worry! We'll have someone explaining the significance of different rituals throughout the ceremony so everyone can appreciate the beautiful traditions.</div>
+                        </div>
                     </div>
-                    <div class="qa-item">
-                        <div class="qa-question">Will there be vegetarian food?</div>
-                        <div class="qa-answer">Yes! The entire menu will be vegetarian, following traditional Indian wedding customs. There will be a wide variety of delicious dishes to enjoy.</div>
-                    </div>
-                    <div class="qa-item">
-                        <div class="qa-question">Do I need to remove my shoes?</div>
-                        <div class="qa-answer">You may need to remove shoes when entering certain areas of the ceremony space. We'll provide clear guidance on the day.</div>
-                    </div>
-                    <div class="qa-item">
-                        <div class="qa-question">Can I take photos during the ceremony?</div>
-                        <div class="qa-answer">We'll have a professional photographer, but you're welcome to take photos during most parts of the ceremony. We'll let you know if there are any specific moments when we'd prefer no photos.</div>
-                    </div>
-                    <div class="qa-item">
-                        <div class="qa-question">What if I don't understand the rituals?</div>
-                        <div class="qa-answer">Don't worry! We'll have someone explaining the significance of different rituals throughout the ceremony so everyone can appreciate the beautiful traditions.</div>
-                    </div>
-                </section>
+                </div>
             </div>
 
             <!-- RSVP Page -->
             <div id="indianRsvp" class="page-container">
-                <section class="container">
-                    <h2 class="section-title">RSVP</h2>
-                    <div class="rsvp-wizard" id="indianRsvpWizard">
-                        <div id="indianSuccessMessage" class="message success hidden">
-                            <p>🎉 Thank you for your RSVP! We can't wait to celebrate with you at our Indian wedding!</p>
-                        </div>
-                        <div id="indianErrorMessage" class="message error hidden">
-                            <p>❌ Sorry, there was an error. Please try again or contact us directly.</p>
-                        </div>
-
-                        <!-- Step 1: Name and Email -->
-                        <div class="wizard-step active" id="indianStep1">
-                            <div class="step-title">Welcome to our RSVP</div>
-                            <div class="form-group">
-                                <label for="indianSubmitterName">Your Name *</label>
-                                <input type="text" id="indianSubmitterName" required>
+                <div class="photo-layout">
+                    <div class="photo-section">
+                        <img src="images/indian-rsvp.jpg" alt="Indian Wedding RSVP" 
+                             onerror="this.src='images/indian-invitation.jpg'">
+                    </div>
+                    <div class="content-section">
+                        <h2>RSVP</h2>
+                        <div class="rsvp-wizard" id="indianRsvpWizard">
+                            <div id="indianSuccessMessage" class="message success hidden">
+                                <p>🎉 Thank you for your RSVP! We can't wait to celebrate with you at our Indian wedding!</p>
                             </div>
-                            <div class="form-group">
-                                <label for="indianSubmitterEmail">Your Email Address *</label>
-                                <input type="email" id="indianSubmitterEmail" required>
+                            <div id="indianErrorMessage" class="message error hidden">
+                                <p>❌ Sorry, there was an error. Please try again or contact us directly.</p>
                             </div>
-                            <div class="wizard-buttons">
-                                <div></div>
-                                <button class="btn" onclick="indianNextStep(1)">Next</button>
+
+                            <!-- Step 1: Name and Email -->
+                            <div class="wizard-step active" id="indianStep1">
+                                <div class="step-title">Welcome to our RSVP</div>
+                                <div class="form-group">
+                                    <label for="indianSubmitterName">Your Name *</label>
+                                    <input type="text" id="indianSubmitterName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="indianSubmitterEmail">Your Email Address *</label>
+                                    <input type="email" id="indianSubmitterEmail" required>
+                                </div>
+                                <div class="wizard-buttons">
+                                    <div></div>
+                                    <button class="btn" onclick="indianNextStep(1)">Next</button>
+                                </div>
                             </div>
-                        </div>
 
-                        <!-- Dynamic person steps will be inserted here -->
-                        <div id="indianPersonSteps"></div>
+                            <!-- Dynamic person steps will be inserted here -->
+                            <div id="indianPersonSteps"></div>
 
-                        <!-- Final step -->
-                        <div class="wizard-step" id="indianFinalStep">
-                            <div class="step-title">Review & Submit</div>
-                            <div id="indianRsvpSummary"></div>
-                            <div class="wizard-buttons">
-                                <button class="btn btn-secondary" onclick="indianPrevStep()">Previous</button>
-                                <button class="btn" onclick="submitIndianRSVP()">Submit RSVP</button>
+                            <!-- Final step -->
+                            <div class="wizard-step" id="indianFinalStep">
+                                <div class="step-title">Review & Submit</div>
+                                <div id="indianRsvpSummary"></div>
+                                <div class="wizard-buttons">
+                                    <button class="btn btn-secondary" onclick="indianPrevStep()">Previous</button>
+                                    <button class="btn" onclick="submitIndianRSVP()">Submit RSVP</button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </section>
+                </div>
             </div>
 
             <footer>
@@ -2767,4 +2871,3 @@
     </script>
 </body>
 </html>
-
