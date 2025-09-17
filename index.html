@@ -201,12 +201,14 @@
         }
 
         .wedding-btn.indian {
-            border-color: #c41e3a;
+            border-color: #B22222;
+            background: linear-gradient(135deg, #fef7f7 0%, #fff8dc 100%);
         }
 
         .wedding-btn.indian:hover {
-            border-color: #a01729;
-            background: linear-gradient(135deg, #fef7f7 0%, #fffbf0 100%);
+            border-color: #8B0000;
+            background: linear-gradient(135deg, #fdf2f2 0%, #fffbf0 100%);
+            box-shadow: 0 20px 50px rgba(178, 34, 34, 0.2);
         }
 
         .wedding-btn.dashboard {
@@ -229,7 +231,7 @@
         }
 
         .wedding-btn.indian h3 {
-            color: #c41e3a;
+            color: #B22222;
         }
 
         .wedding-btn.dashboard h3 {
@@ -247,7 +249,7 @@
         }
 
         .wedding-btn.indian .date {
-            color: #d4af37;
+            color: #DAA520;
         }
 
         .wedding-btn.dashboard .date {
@@ -295,13 +297,153 @@
             --section-bg: linear-gradient(135deg, #faf7f5 0%, #f8f4f2 100%);
         }
 
-        /* Indian Wedding Styles */
+        /* Indian Wedding Styles - Rich Palace Theme */
         .indian-wedding {
-            --primary-color: #c41e3a;
-            --secondary-color: #d4af37;
-            --accent-color: #008080;
-            --bg-gradient: linear-gradient(135deg, #fdf2f2 0%, #fff8dc 50%, #f0ffff 100%);
-            --section-bg: linear-gradient(135deg, #fef7f7 0%, #fffbf0 100%);
+            --primary-color: #B22222;
+            --secondary-color: #DAA520;
+            --accent-color: #8B0000;
+            --teal-color: #20B2AA;
+            --bronze-color: #CD7F32;
+            --bg-gradient: radial-gradient(ellipse at center, #8B0000 0%, #B22222 25%, #20B2AA 50%, #DAA520 75%, #CD7F32 100%);
+            --section-bg: linear-gradient(135deg, #fdf2f2 0%, #fff8dc 50%, #f0ffff 100%);
+            --palace-bg: linear-gradient(135deg, #8B0000 0%, #B22222 30%, #20B2AA 60%, #DAA520 100%);
+        }
+
+        /* Indian Wedding Decorative Elements */
+        .indian-wedding::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(218, 165, 32, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(178, 34, 34, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 60%, rgba(32, 178, 170, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* Hanging Lanterns Animation */
+        .indian-wedding .decorative-lanterns {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 200px;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .lantern {
+            position: absolute;
+            width: 40px;
+            height: 60px;
+            background: linear-gradient(135deg, #DAA520 0%, #CD7F32 100%);
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            box-shadow: 
+                inset 0 0 20px rgba(255, 215, 0, 0.5),
+                0 0 30px rgba(218, 165, 32, 0.3);
+            animation: sway 4s ease-in-out infinite;
+            transform-origin: top center;
+        }
+
+        .lantern::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 20px;
+            background: #8B4513;
+        }
+
+        .lantern::after {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background: radial-gradient(circle, #FFD700 0%, #DAA520 100%);
+            border-radius: 50%;
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
+        }
+
+        .lantern:nth-child(1) { left: 10%; animation-delay: 0s; }
+        .lantern:nth-child(2) { left: 25%; animation-delay: -1s; }
+        .lantern:nth-child(3) { left: 40%; animation-delay: -2s; }
+        .lantern:nth-child(4) { left: 60%; animation-delay: -0.5s; }
+        .lantern:nth-child(5) { left: 75%; animation-delay: -1.5s; }
+        .lantern:nth-child(6) { left: 90%; animation-delay: -2.5s; }
+
+        @keyframes sway {
+            0%, 100% { transform: rotate(-3deg); }
+            50% { transform: rotate(3deg); }
+        }
+
+        /* Elephant Decorative Elements */
+        .elephant-border {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .elephant-border::before {
+            content: '🐘';
+            position: absolute;
+            left: 2rem;
+            bottom: 1rem;
+            font-size: 2rem;
+            opacity: 0.3;
+            color: var(--bronze-color);
+            animation: gentle-bounce 6s ease-in-out infinite;
+        }
+
+        .elephant-border::after {
+            content: '🐘';
+            position: absolute;
+            right: 2rem;
+            bottom: 1rem;
+            font-size: 2rem;
+            opacity: 0.3;
+            color: var(--bronze-color);
+            animation: gentle-bounce 6s ease-in-out infinite reverse;
+        }
+
+        @keyframes gentle-bounce {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Mandala Pattern Background */
+        .mandala-bg {
+            background-image: 
+                radial-gradient(circle at 25% 25%, transparent 20%, rgba(218, 165, 32, 0.1) 21%, rgba(218, 165, 32, 0.1) 30%, transparent 31%),
+                radial-gradient(circle at 75% 75%, transparent 20%, rgba(178, 34, 34, 0.1) 21%, rgba(178, 34, 34, 0.1) 30%, transparent 31%);
+            background-size: 100px 100px;
+        }
+
+        /* Ornate Borders */
+        .ornate-border {
+            border: 3px solid;
+            border-image: linear-gradient(45deg, var(--primary-color), var(--secondary-color), var(--teal-color)) 1;
+            position: relative;
+        }
+
+        .ornate-border::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: linear-gradient(45deg, transparent, rgba(218, 165, 32, 0.1), transparent);
+            border-radius: 15px;
+            z-index: -1;
         }
 
         /* Dashboard Styles */
@@ -407,7 +549,7 @@
         }
 
         .wedding-stat-card.indian {
-            border-left: 5px solid #c41e3a;
+            border-left: 5px solid #B22222;
         }
 
         .meal-planning {
@@ -498,6 +640,42 @@
             backdrop-filter: blur(10px);
         }
 
+        /* Indian Wedding Header Styling */
+        .indian-wedding header {
+            background: linear-gradient(135deg, rgba(139, 0, 0, 0.95) 0%, rgba(178, 34, 34, 0.95) 50%, rgba(218, 165, 32, 0.95) 100%);
+            box-shadow: 0 2px 20px rgba(178, 34, 34, 0.3);
+        }
+
+        .indian-wedding header .menu-toggle {
+            background: var(--secondary-color);
+            color: var(--accent-color);
+            border: 2px solid var(--bronze-color);
+            box-shadow: 0 0 15px rgba(218, 165, 32, 0.3);
+        }
+
+        .indian-wedding header .menu-toggle:hover {
+            background: var(--bronze-color);
+            color: white;
+            box-shadow: 0 0 25px rgba(218, 165, 32, 0.5);
+        }
+
+        .indian-wedding nav {
+            background: linear-gradient(135deg, rgba(139, 0, 0, 0.98) 0%, rgba(178, 34, 34, 0.98) 50%, rgba(218, 165, 32, 0.98) 100%);
+            box-shadow: 0 5px 25px rgba(178, 34, 34, 0.2);
+        }
+
+        .indian-wedding nav a, 
+        .indian-wedding nav button {
+            color: #FFD700;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        .indian-wedding nav a:hover, 
+        .indian-wedding nav button:hover {
+            color: white;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+
         .nav-container {
             display: flex;
             justify-content: center;
@@ -573,6 +751,63 @@
             text-align: center;
             position: relative;
             overflow: hidden;
+        }
+
+        /* Indian Wedding Hero Enhancements */
+        .indian-wedding .hero {
+            background: 
+                linear-gradient(135deg, rgba(139, 0, 0, 0.8) 0%, rgba(178, 34, 34, 0.6) 30%, rgba(32, 178, 170, 0.6) 60%, rgba(218, 165, 32, 0.8) 100%),
+                radial-gradient(ellipse at center, #8B0000 0%, #B22222 25%, #20B2AA 50%, #DAA520 75%, #CD7F32 100%);
+        }
+
+        .indian-wedding .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(178, 34, 34, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(32, 178, 170, 0.1) 0%, transparent 50%);
+            animation: shimmer 8s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.6; }
+        }
+
+        .indian-wedding .hero-content h1 {
+            color: #FFD700;
+            text-shadow: 
+                0 0 20px rgba(255, 215, 0, 0.5),
+                0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .indian-wedding .hero-content .ampersand {
+            color: #FF6347;
+            text-shadow: 0 0 15px rgba(255, 99, 71, 0.5);
+        }
+
+        .indian-wedding .hero-content .wedding-type {
+            color: #FFD700;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+        }
+
+        .indian-wedding .hero-content .date,
+        .indian-wedding .hero-content .venue {
+            color: #F0E68C;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        .indian-wedding .countdown {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 248, 220, 0.95) 100%);
+            border: 3px solid #DAA520;
+            box-shadow: 
+                0 0 30px rgba(218, 165, 32, 0.3),
+                inset 0 0 20px rgba(255, 215, 0, 0.1);
         }
 
         .hero::before {
@@ -701,6 +936,35 @@
             max-height: calc(100vh - 80px);
         }
 
+        /* Indian Wedding Content Section Styling */
+        .indian-wedding .content-section {
+            background: linear-gradient(135deg, #fdf2f2 0%, #fff8dc 50%, #f0ffff 100%);
+            border-left: 5px solid var(--secondary-color);
+            position: relative;
+        }
+
+        .indian-wedding .content-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: 
+                radial-gradient(circle, rgba(218, 165, 32, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .indian-wedding .content-section h2 {
+            color: var(--accent-color);
+            text-shadow: 0 1px 3px rgba(139, 0, 0, 0.2);
+        }
+
+        .indian-wedding .content-section h3 {
+            color: var(--primary-color);
+            text-shadow: 0 1px 2px rgba(178, 34, 34, 0.2);
+        }
+
         .content-section h2 {
             font-family: 'SS Bruney', serif;
             font-size: 2.5rem;
@@ -773,19 +1037,7 @@
             border-radius: 2px;
         }
 
-        /* Story Hero Section - Updated for new layout */
-        .story-hero {
-            /* Now using photo-layout class instead */
-        }
-
-        .story-image {
-            /* Moved to photo-section */
-        }
-
-        .story-content {
-            /* Moved to content-section */
-        }
-
+        /* Story ending */
         .story-ending {
             font-size: 1.2rem !important;
             color: var(--primary-color) !important;
@@ -806,6 +1058,26 @@
             border: 2px solid var(--secondary-color);
             margin-bottom: 3rem;
             line-height: 1.8;
+        }
+
+        /* Indian Wedding Content Cards */
+        .indian-wedding .content-card {
+            background: linear-gradient(135deg, #fdf2f2 0%, #fff8dc 100%);
+            border: 3px solid var(--secondary-color);
+            box-shadow: 
+                0 15px 35px rgba(178, 34, 34, 0.1),
+                0 0 20px rgba(218, 165, 32, 0.1);
+            position: relative;
+        }
+
+        .indian-wedding .content-card::before {
+            content: '✦';
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            color: var(--secondary-color);
+            font-size: 1.5rem;
+            opacity: 0.7;
         }
 
         .content-card h3 {
@@ -843,6 +1115,13 @@
             box-shadow: 0 10px 25px rgba(0,0,0,0.1);
             border: 2px solid var(--secondary-color);
             text-align: center;
+        }
+
+        /* Indian Wedding Accommodation Cards */
+        .indian-wedding .accommodation-card {
+            background: linear-gradient(135deg, #fdf2f2 0%, #fff8dc 100%);
+            border: 2px solid var(--secondary-color);
+            box-shadow: 0 10px 25px rgba(178, 34, 34, 0.1);
         }
 
         .accommodation-card h4 {
@@ -883,6 +1162,15 @@
             border: 2px solid var(--secondary-color);
         }
 
+        /* Indian Wedding Registry */
+        .indian-wedding .registry-content {
+            background: linear-gradient(135deg, #fdf2f2 0%, #fff8dc 100%);
+            border: 3px solid var(--secondary-color);
+            box-shadow: 
+                0 15px 35px rgba(178, 34, 34, 0.1),
+                0 0 20px rgba(218, 165, 32, 0.1);
+        }
+
         .registry-content p {
             font-size: 1.2rem;
             line-height: 1.8;
@@ -907,6 +1195,17 @@
             transform: translateY(-2px);
         }
 
+        /* Indian Wedding Registry Link */
+        .indian-wedding .registry-link {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+            box-shadow: 0 5px 15px rgba(178, 34, 34, 0.3);
+        }
+
+        .indian-wedding .registry-link:hover {
+            background: linear-gradient(135deg, var(--accent-color) 0%, var(--bronze-color) 100%);
+            box-shadow: 0 8px 25px rgba(178, 34, 34, 0.4);
+        }
+
         /* Q&A - Updated Styles */
         .qa-item {
             background: #FDE8D7;
@@ -915,6 +1214,28 @@
             box-shadow: 0 10px 25px rgba(0,0,0,0.1);
             border: 2px solid #FDE8D7;
             margin-bottom: 2rem;
+        }
+
+        /* Indian Wedding Q&A Styling */
+        .indian-wedding .qa-item {
+            background: linear-gradient(135deg, #fdf2f2 0%, #fff8dc 100%);
+            border: 2px solid var(--secondary-color);
+            box-shadow: 0 10px 25px rgba(178, 34, 34, 0.1);
+            position: relative;
+        }
+
+        .indian-wedding .qa-item::before {
+            content: '❋';
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+            opacity: 0.6;
+        }
+
+        .indian-wedding .qa-question {
+            color: var(--primary-color);
         }
 
         .qa-question {
@@ -943,6 +1264,15 @@
 
         .qa-answer a:hover {
             color: #d4642f;
+        }
+
+        /* Indian Wedding Q&A Links */
+        .indian-wedding .qa-answer a {
+            color: var(--primary-color);
+        }
+
+        .indian-wedding .qa-answer a:hover {
+            color: var(--accent-color);
         }
 
         /* Order of the Day Styles */
@@ -996,6 +1326,15 @@
             max-width: 600px;
             margin: 0 auto;
             border: 2px solid var(--secondary-color);
+        }
+
+        /* Indian Wedding RSVP Wizard */
+        .indian-wedding .rsvp-wizard {
+            background: linear-gradient(135deg, #fdf2f2 0%, #fff8dc 100%);
+            border: 3px solid var(--secondary-color);
+            box-shadow: 
+                0 20px 40px rgba(178, 34, 34, 0.1),
+                0 0 30px rgba(218, 165, 32, 0.1);
         }
 
         .wizard-step {
@@ -1231,9 +1570,29 @@
             padding: 3rem 0;
         }
 
+        /* Indian Wedding Footer */
+        .indian-wedding footer {
+            background: linear-gradient(135deg, var(--accent-color) 0%, var(--primary-color) 50%, var(--bronze-color) 100%);
+            position: relative;
+        }
+
+        .indian-wedding footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 30% 30%, rgba(218, 165, 32, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 70% 70%, rgba(32, 178, 170, 0.2) 0%, transparent 50%);
+        }
+
         .footer-content {
             font-size: 1.2rem;
             font-weight: 500;
+            position: relative;
+            z-index: 1;
         }
 
         /* URL Display */
@@ -1254,6 +1613,11 @@
 
         /* Mobile Responsive */
         @media (max-width: 768px) {
+            /* Hide lanterns on mobile for performance */
+            .decorative-lanterns {
+                display: none;
+            }
+
             /* Mobile: Stack vertically with photo on top */
             .photo-layout,
             .menu-layout {
@@ -1420,6 +1784,17 @@
             right: 10%;
             font-size: 6rem;
             color: var(--secondary-color);
+        }
+
+        /* Indian Wedding Decorative Elements */
+        .indian-wedding .decorative-element.top-left {
+            color: var(--secondary-color);
+            text-shadow: 0 0 20px rgba(218, 165, 32, 0.3);
+        }
+
+        .indian-wedding .decorative-element.bottom-right {
+            color: var(--teal-color);
+            text-shadow: 0 0 20px rgba(32, 178, 170, 0.3);
         }
     </style>
 </head>
@@ -1938,6 +2313,16 @@
 
         <!-- Indian Wedding Page -->
         <div id="indianWedding" class="wedding-page indian-wedding">
+            <!-- Animated Hanging Lanterns -->
+            <div class="decorative-lanterns">
+                <div class="lantern"></div>
+                <div class="lantern"></div>
+                <div class="lantern"></div>
+                <div class="lantern"></div>
+                <div class="lantern"></div>
+                <div class="lantern"></div>
+            </div>
+
             <header>
                 <div class="container nav-container">
                     <button class="menu-toggle" onclick="toggleMenu('indian')">Menu</button>
@@ -1977,13 +2362,13 @@
             </div>
 
             <!-- Story Page -->
-            <div id="indianStory" class="page-container">
+            <div id="indianStory" class="page-container elephant-border">
                 <div class="photo-layout">
                     <div class="photo-section">
                         <img src="images/indian-story.jpg" alt="Darshna and Michael - Indian Wedding Story" 
                              onerror="this.src='images/engagement-photo.jpg'">
                     </div>
-                    <div class="content-section">
+                    <div class="content-section mandala-bg">
                         <h2>Our Story</h2>
                         <h3>How We Met</h3>
                         <p>Michael spotted Darshna at a summer house party and did... absolutely nothing. Lucky for them, fast forward four months to a NYE house party (that neither of them planned to attend), their paths crossed again and they spent hours talking away.</p>
@@ -2062,7 +2447,7 @@
                     </div>
                     <div class="content-section">
                         <h2>Registry</h2>
-                        <div class="registry-content">
+                        <div class="registry-content ornate-border">
                             <p>Your presence at our wedding is the greatest gift of all ❤️</p>
                             <p>If you would like to give us a gift, we are saving for our honeymoon and would be delighted with a contribution. Please use the following link to join us in creating these memories: <strong>LINK</strong></p>
                             <p><strong>No box gifts please.</strong></p>
@@ -2119,7 +2504,7 @@
                     </div>
                     <div class="content-section">
                         <h2>RSVP</h2>
-                        <div class="rsvp-wizard" id="indianRsvpWizard">
+                        <div class="rsvp-wizard ornate-border" id="indianRsvpWizard">
                             <div id="indianSuccessMessage" class="message success hidden">
                                 <p>🎉 Thank you for your RSVP! We can't wait to celebrate with you at our Indian wedding!</p>
                             </div>
