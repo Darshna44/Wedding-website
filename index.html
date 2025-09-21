@@ -2351,23 +2351,35 @@ function setupPhotoChanging(wedding) {
     }
 }
 
-        // Scroll to section functionality
-        function scrollToSection(sectionId) {
-            const element = document.getElementById(sectionId);
-            if (element) {
-                const headerHeight = document.querySelector('header').offsetHeight;
-                const targetPosition = element.offsetTop - headerHeight;
-                
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
+// Scroll to section functionality
+function scrollToSection(sectionId) {
+    const element = document.getElementById(sectionId);
+    if (element) {
+        const headerHeight = document.querySelector('header').offsetHeight;
+        const targetPosition = element.offsetTop - headerHeight;
+        
+        window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+        });
+        
+        // Manually update photo when navigating
+        const photoElement = element.getAttribute('data-photo');
+        if (photoElement) {
+            const wedding = currentWedding;
+            const photoImg = document.getElementById(wedding + 'Photo');
+            if (photoImg) {
+                setTimeout(() => {
+                    photoImg.src = photoElement;
+                }, 300); // Small delay to let scroll start
             }
-            
-            // Close menu
-            document.getElementById('englishNav').classList.remove('active');
-            document.getElementById('indianNav').classList.remove('active');
         }
+    }
+    
+    // Close menu
+    document.getElementById('englishNav').classList.remove('active');
+    document.getElementById('indianNav').classList.remove('active');
+}
 
         // Menu toggle functionality
         function toggleMenu(wedding) {
@@ -2920,4 +2932,5 @@ function setupPhotoChanging(wedding) {
     </script>
 </body>
 </html>
+
 
