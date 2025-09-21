@@ -2301,27 +2301,55 @@
             refreshDashboard();
         }
 
-        // Photo changing functionality
-        function setupPhotoChanging(wedding) {
-            const photoImg = document.getElementById(wedding + 'Photo');
-            const sections = document.querySelectorAll(`#${wedding}Wedding .content-section[data-photo]`);
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const newPhoto = entry.target.getAttribute('data-photo');
-                        if (newPhoto && photoImg.src !== newPhoto) {
-                            photoImg.src = newPhoto;
-                        }
-                    }
-                });
-            }, {
-                threshold: 0.5,
-                rootMargin: '-20% 0px -20% 0px'
-            });
-            
-            sections.forEach(section => observer.observe(section));
+// Photo changing functionality - FIXED VERSION
+function setupPhotoChanging(wedding) {
+    const photoImg = document.getElementById(wedding + 'Photo');
+    const sections = document.querySelectorAll(`#${wedding}Wedding .content-section[data-photo]`);
+    
+    // Clear any existing observers
+    if (window.photoObserver) {
+        window.photoObserver.disconnect();
+    }
+    
+    // Create new observer with better settings
+    window.photoObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && entry.intersectionRatio > 0.3) {
+                const newPhoto = entry.target.getAttribute('data-photo');
+                if (newPhoto && photoImg) {
+                    // Add error handling and force reload
+                    const img = new Image();
+                    img.onload = function() {
+                        photoImg.src = newPhoto;
+                    };
+                    img.onerror = function() {
+                        photoImg.src = 'images/engagement-photo.jpg'; // Fallback
+                    };
+                    img.src = newPhoto;
+                }
+            }
+        });
+    }, {
+        threshold: [0.3, 0.7], // Multiple thresholds for better detection
+        rootMargin: '-10% 0px -10% 0px' // Better margins
+    });
+    
+    // Observe all sections
+    sections.forEach(section => {
+        if (section.getAttribute('data-photo')) {
+            window.photoObserver.observe(section);
         }
+    });
+    
+    // Set initial photo immediately
+    const firstSection = sections[0];
+    if (firstSection && photoImg) {
+        const initialPhoto = firstSection.getAttribute('data-photo');
+        if (initialPhoto) {
+            photoImg.src = initialPhoto;
+        }
+    }
+}
 
         // Scroll to section functionality
         function scrollToSection(sectionId) {
@@ -2892,3 +2920,4 @@
     </script>
 </body>
 </html>
+
