@@ -37,7 +37,7 @@
         .accommodation-card h4,
         .registry-card h4,
         .qa-question {
-            font-family: 'cinzel', cursive;
+            font-family: 'Alex Brush', cursive;
         }
 
         /* Password Protection Screen */
@@ -65,7 +65,7 @@
         }
 
         .password-form h2 {
-            font-family: 'cinzel', cursive;
+            font-family: 'Alex Brush', cursive;
             color: #8b7355;
             margin-bottom: 1rem;
         }
@@ -131,7 +131,7 @@
         }
 
         .selector-content h1 {
-            font-family: 'cinzel', cursive;
+            font-family: 'Alex Brush', cursive;
             font-size: 4.5rem;
             font-weight: 700;
             color: #8b7355;
@@ -222,7 +222,7 @@
         }
 
         .wedding-btn h3 {
-            font-family: 'cinzel', cursive;
+            font-family: 'Alex Brush', cursive;
             font-size: 2.2rem;
             margin-bottom: 1rem;
             color: #8b7355;
@@ -266,16 +266,6 @@
             font-style: italic;
         }
 
-        .wedding-btn .url-preview {
-            font-size: 0.85rem;
-            color: #a0896b;
-            margin-top: 1rem;
-            font-family: monospace;
-            background: rgba(0,0,0,0.05);
-            padding: 0.5rem;
-            border-radius: 5px;
-        }
-
         /* Individual Wedding Pages */
         .wedding-page {
             display: none;
@@ -290,7 +280,7 @@
         .english-wedding {
             --primary-color: #e8a87c;
             --secondary-color: #f4d4ba;
-            --accent-color: #8b7355;
+            --accent-color: #F47A43;
             --bg-gradient: linear-gradient(135deg, #f5e6d3 0%, #f8f4f2 50%, #fdeee6 100%);
             --section-bg: linear-gradient(135deg, #faf7f5 0%, #f8f4f2 100%);
         }
@@ -484,7 +474,7 @@
         }
 
         .dashboard-title {
-            font-family: 'cinzel', cursive;
+            font-family: 'Alex Brush', cursive;
             font-size: 2.5rem;
             color: #8b7355;
             text-align: center;
@@ -514,7 +504,7 @@
         }
 
         .stat-card h3 {
-            font-family: 'cinzel', cursive;
+            font-family: 'Alex Brush', cursive;
             font-size: 1.8rem;
             color: #8b7355;
             margin-bottom: 1rem;
@@ -665,7 +655,7 @@
         }
 
         .menu-toggle {
-            background: var(--primary-color, #e8a87c);
+            background: var(--accent-color, #F47A43);
             color: white;
             border: none;
             padding: 0.5rem 1rem;
@@ -676,7 +666,8 @@
         }
 
         .menu-toggle:hover {
-            background: var(--accent-color, #8b7355);
+            background: var(--accent-color, #F47A43);
+            opacity: 0.9;
         }
 
         nav {
@@ -709,7 +700,7 @@
 
         nav a, nav button {
             text-decoration: none;
-            color: #8b7355;
+            color: var(--accent-color, #F47A43);
             font-weight: 400;
             transition: color 0.3s ease;
             font-size: 1rem;
@@ -720,187 +711,22 @@
         }
 
         nav a:hover, nav button:hover {
-            color: var(--primary-color, #e8a87c);
+            color: var(--accent-color, #F47A43);
+            opacity: 0.8;
         }
 
-        /* Hero Section */
-        .hero {
-            background: var(--bg-gradient);
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="floral" patternUnits="userSpaceOnUse" width="20" height="20"><circle cx="10" cy="10" r="1" fill="%23f4d4ba" opacity="0.3"/></pattern></defs><rect width="100" height="100" fill="url(%23floral)"/></svg>');
-            opacity: 0.4;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero h1 {
-            font-family: 'cinzel', cursive;
-            font-size: 4.5rem;
-            font-weight: 700;
-            color: var(--accent-color);
-            margin-bottom: 1rem;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        .hero .ampersand {
-            font-size: 3rem;
-            color: var(--primary-color);
-            margin: 0 1rem;
-            font-style: italic;
-        }
-
-        .hero .wedding-type {
-            font-size: 2rem;
-            color: var(--primary-color);
-            margin-bottom: 1.5rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .hero .date {
-            font-size: 1.8rem;
-            color: var(--accent-color);
-            margin-bottom: 1rem;
-            font-weight: 300;
-        }
-
-        .hero .venue {
-            font-size: 1.4rem;
-            color: var(--accent-color);
-            font-weight: 400;
-            margin-bottom: 2rem;
-        }
-
-        .hero .countdown {
-            background: rgba(255,255,255,0.9);
-            padding: 1.5rem 2rem;
-            border-radius: 15px;
-            display: inline-block;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-            border: 2px solid var(--secondary-color);
-        }
-
-        .countdown-text {
-            font-size: 1.2rem;
-            color: var(--accent-color);
-            margin-bottom: 0.5rem;
-        }
-
-        .countdown-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--primary-color);
-        }
-
-        /* Menu Hero Section */
-        .menu-hero {
-            position: relative;
-            height: 100vh;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            display: flex;
-            align-items: flex-end;
-            justify-content: center;
-            color: white;
-            text-align: center;
-        }
-
-        .menu-hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(transparent 0%, rgba(0,0,0,0.7) 100%);
-        }
-
-        .menu-hero-content {
-            position: relative;
-            z-index: 2;
-            padding: 3rem 2rem;
-            max-width: 600px;
-        }
-
-        .menu-hero h1 {
-            font-family: 'cinzel', cursive;
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
-        }
-
-        .menu-hero .date {
-            font-size: 1.8rem;
-            margin-bottom: 0.5rem;
-            font-weight: 300;
-        }
-
-        .menu-hero .venue {
-            font-size: 1.4rem;
-            margin-bottom: 2rem;
-            font-weight: 400;
-        }
-
-        .menu-hero .countdown {
-            background: rgba(255,255,255,0.2);
-            padding: 1.5rem 2rem;
-            border-radius: 15px;
-            display: inline-block;
-            backdrop-filter: blur(10px);
-            border: 2px solid rgba(255,255,255,0.3);
-        }
-
-        .menu-hero .countdown-text {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .menu-hero .countdown-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-        }
-
-        /* Page Container */
-        .page-container {
-            display: none;
-            min-height: 100vh;
-            padding-top: 80px;
-        }
-
-        .page-container.active {
-            display: block;
-        }
-
-        /* Photo Layout System - 60/40 Split */
-        .photo-layout {
+        /* Flowing Layout System */
+        .flowing-layout {
             display: grid;
             grid-template-columns: 60% 40%;
-            min-height: calc(100vh - 80px);
+            min-height: 100vh;
             align-items: stretch;
         }
 
         .photo-section {
-            position: relative;
+            position: sticky;
+            top: 0;
+            height: 100vh;
             overflow: hidden;
             background: #f0f0f0;
             display: flex;
@@ -913,32 +739,36 @@
             height: 100%;
             object-fit: cover;
             object-position: center;
-            transition: transform 0.3s ease;
+            transition: opacity 0.5s ease;
         }
 
-        .photo-section:hover img {
-            transform: scale(1.02);
+        .content-flow {
+            background: white;
+            padding-top: 80px;
         }
 
         .content-section {
+            min-height: 100vh;
             padding: 4rem 3rem;
-            background: white;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            overflow-y: auto;
-            max-height: calc(100vh - 80px);
+            border-bottom: 1px solid #eee;
+        }
+
+        .content-section:last-child {
+            border-bottom: none;
         }
 
         .content-section h2 {
-            font-family: 'cinzel', cursive;
+            font-family: 'Alex Brush', cursive;
             font-size: 2.5rem;
             color: var(--accent-color);
             margin-bottom: 2rem;
         }
 
         .content-section h3 {
-            font-family: 'cinzel', cursive;
+            font-family: 'Alex Brush', cursive;
             font-size: 1.8rem;
             color: var(--primary-color);
             margin: 2rem 0 1rem 0;
@@ -951,13 +781,58 @@
             color: #666;
         }
 
-        /* Sections */
-        section {
-            padding: 5rem 0;
+        /* Menu Hero Section */
+        .menu-hero-content {
+            text-align: center;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
         }
 
+        .menu-hero-content h1 {
+            font-family: 'Alex Brush', cursive;
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            white-space: nowrap;
+        }
+
+        .menu-hero-content .date {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            font-weight: 300;
+            color: white;
+        }
+
+        .menu-hero-content .venue {
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+            font-weight: 400;
+            color: white;
+        }
+
+        .menu-hero-content .countdown {
+            background: rgba(255,255,255,0.2);
+            padding: 1.5rem 2rem;
+            border-radius: 15px;
+            display: inline-block;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .menu-hero-content .countdown-text {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+
+        .menu-hero-content .countdown-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        /* Section Titles */
         .section-title {
-            font-family: 'cinzel', cursive;
+            font-family: 'Alex Brush', cursive;
             font-size: 2.5rem;
             text-align: center;
             color: var(--accent-color);
@@ -998,7 +873,7 @@
         }
 
         .content-card h3 {
-            font-family: 'cinzel', cursive;
+            font-family: 'Alex Brush', cursive;
             font-size: 2rem;
             color: var(--accent-color);
             margin-bottom: 1.5rem;
@@ -1035,7 +910,7 @@
         }
 
         .accommodation-card h4 {
-            font-family: 'cinzel', cursive;
+            font-family: 'Alex Brush', cursive;
             font-size: 1.5rem;
             color: var(--accent-color);
             margin-bottom: 1rem;
@@ -1098,18 +973,18 @@
 
         /* Q&A - Updated Styles */
         .qa-item {
-            background: #FDE8D7;
+            background: white;
             padding: 2rem;
             border-radius: 15px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            border: 2px solid #FDE8D7;
+            border: 2px solid var(--accent-color);
             margin-bottom: 2rem;
         }
 
         .qa-question {
-            font-family: 'cinzel', cursive;
+            font-family: 'Alex Brush', cursive;
             font-size: 1.4rem;
-            color: #F47A43;
+            color: var(--accent-color);
             margin-bottom: 1rem;
             font-weight: 600;
         }
@@ -1126,12 +1001,13 @@
         }
 
         .qa-answer a {
-            color: #F47A43;
+            color: var(--accent-color);
             text-decoration: underline;
         }
 
         .qa-answer a:hover {
-            color: #d4642f;
+            color: var(--accent-color);
+            opacity: 0.8;
         }
 
         /* Order of the Day Styles */
@@ -1153,7 +1029,7 @@
         }
 
         .timeline-content h4 {
-            font-family: 'cinzel', cursive;
+            font-family: 'Alex Brush', cursive;
             font-size: 1.4rem;
             color: var(--accent-color);
             margin-bottom: 0.5rem;
@@ -1187,7 +1063,7 @@
         }
 
         .coming-soon h2 {
-            font-family: 'cinzel', cursive;
+            font-family: 'Alex Brush', cursive;
             font-size: 3rem;
             color: var(--primary-color);
             margin-bottom: 1rem;
@@ -1213,7 +1089,7 @@
         }
 
         .step-title {
-            font-family: 'cinzel', cursive;
+            font-family: 'Alex Brush', cursive;
             font-size: 2rem;
             color: var(--accent-color);
             text-align: center;
@@ -1440,44 +1316,34 @@
         .footer-content {
             font-size: 1.2rem;
             font-weight: 500;
+            line-height: 1.6;
         }
 
-        /* URL Display */
-        .url-display {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1001;
-            background: rgba(255,255,255,0.9);
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-            font-size: 0.85rem;
-            color: #8b7355;
-            backdrop-filter: blur(10px);
-            border: 1px solid #f4d4ba;
-            font-family: monospace;
+        .footer-content div {
+            margin-bottom: 0.5rem;
         }
 
         /* Mobile Responsive */
         @media (max-width: 768px) {
             /* Mobile: Stack vertically with photo on top */
-            .photo-layout,
-            .menu-layout {
+            .flowing-layout {
                 grid-template-columns: 1fr;
-                grid-template-rows: 50vh auto;
+                grid-template-rows: auto;
             }
 
-            .photo-section,
-            .menu-photo {
+            .photo-section {
+                position: relative;
                 height: 50vh;
                 min-height: 300px;
             }
 
-            .content-section,
-            .menu-content {
+            .content-flow {
+                padding-top: 0;
+            }
+
+            .content-section {
                 padding: 2rem 1.5rem;
-                max-height: none;
-                min-height: 50vh;
+                min-height: auto;
             }
 
             .content-section h2 {
@@ -1492,14 +1358,9 @@
                 font-size: 1rem;
             }
 
-            .selector-content h1,
-            .hero h1,
-            .menu-hero h1 {
+            .menu-hero-content h1 {
                 font-size: 2.8rem;
-            }
-
-            .hero .ampersand {
-                font-size: 2rem;
+                white-space: normal;
             }
 
             .wedding-buttons {
@@ -1541,20 +1402,6 @@
                 margin: 0 1rem;
             }
 
-            section {
-                padding: 3rem 0;
-            }
-
-            .countdown-number {
-                font-size: 2rem;
-            }
-
-            .url-display {
-                position: static;
-                margin: 1rem;
-                text-align: center;
-            }
-
             .attendance-buttons {
                 grid-template-columns: 1fr;
             }
@@ -1585,8 +1432,7 @@
         }
 
         @media (max-width: 480px) {
-            .content-section,
-            .menu-content {
+            .content-section {
                 padding: 1.5rem 1rem;
             }
 
@@ -1616,7 +1462,7 @@
                 padding: 2rem 1rem;
             }
 
-            .menu-hero h1 {
+            .menu-hero-content h1 {
                 font-size: 2.5rem;
             }
         }
@@ -1662,9 +1508,6 @@
 
     <!-- Main Website Content (hidden until password entered) -->
     <div id="mainContent" class="hidden">
-        <!-- URL Display -->
-        <div id="urlDisplay" class="url-display hidden"></div>
-
         <!-- Wedding Selection Screen -->
         <div id="weddingSelector" class="wedding-selector">
             <div class="selector-content">
@@ -1683,14 +1526,12 @@
                         <div class="date">May 1st, 2026</div>
                         <div class="location">Elmore Court, Gloucester</div>
                         <div class="details">Ceremony & Reception</div>
-                        <div class="url-preview">shahrosewedding.co.uk/1stMay2026</div>
                     </a>
                     <a href="#" class="wedding-btn indian" onclick="showWedding('indian')">
                         <h3>Indian Wedding</h3>
                         <div class="date">May 10th, 2026</div>
                         <div class="location">Oshwal Centre, Potters Bar</div>
                         <div class="details">Traditional Ceremony</div>
-                        <div class="url-preview">shahrosewedding.co.uk/10thMay2026</div>
                     </a>
                     
                     <!-- Dashboard Access Button -->
@@ -1699,7 +1540,6 @@
                         <div class="date">Admin Access</div>
                         <div class="location">RSVP Tracking & Planning</div>
                         <div class="details">Real-time wedding data</div>
-                        <div class="url-preview">shahrosewedding.co.uk/dashboard</div>
                     </a>
                 </div>
             </div>
@@ -1818,42 +1658,43 @@
                     <button class="menu-toggle" onclick="toggleMenu('english')">Menu</button>
                     <nav id="englishNav">
                         <ul>
-                            <li><a href="#" onclick="showPage('english', 'home')">Home</a></li>
-                            <li><a href="#" onclick="showPage('english', 'rsvp')">RSVP</a></li>
-                            <li><a href="#" onclick="showPage('english', 'story')">Story</a></li>
-                            <li><a href="#" onclick="showPage('english', 'orderofday')">Order of the Day</a></li>
-                            <li><a href="#" onclick="showPage('english', 'accommodations')">Accommodations</a></li>
-                            <li><a href="#" onclick="showPage('english', 'travel')">Travel</a></li>
-                            <li><a href="#" onclick="showPage('english', 'registry')">Registry</a></li>
-                            <li><a href="#" onclick="showPage('english', 'qa')">Q & A</a></li>
+                            <li><a href="#englishHome" onclick="scrollToSection('englishHome')">Home</a></li>
+                            <li><a href="#englishStory" onclick="scrollToSection('englishStory')">Story</a></li>
+                            <li><a href="#englishOrderofday" onclick="scrollToSection('englishOrderofday')">Order of the Day</a></li>
+                            <li><a href="#englishTravel" onclick="scrollToSection('englishTravel')">Travel</a></li>
+                            <li><a href="#englishAccommodations" onclick="scrollToSection('englishAccommodations')">Accommodations</a></li>
+                            <li><a href="#englishRegistry" onclick="scrollToSection('englishRegistry')">Registry</a></li>
+                            <li><a href="#englishRsvp" onclick="scrollToSection('englishRsvp')">RSVP</a></li>
+                            <li><a href="#englishQa" onclick="scrollToSection('englishQa')">Q & A</a></li>
                         </ul>
                     </nav>
                 </div>
             </header>
 
-            <!-- Home Page -->
-            <div id="englishHome" class="page-container active">
-                <div class="menu-hero" style="background-image: url('images/english-home.jpg');">
-                    <div class="menu-hero-content">
-                        <h1>Darshna & Michael</h1>
-                        <div class="date">1st May 2026</div>
-                        <div class="venue">Elmore Court, Cotswolds</div>
-                        <div class="countdown">
-                            <div class="countdown-text">Days until our wedding</div>
-                            <div class="countdown-number" id="englishCountdown">Loading...</div>
+            <div class="flowing-layout">
+                <!-- Sticky Photo Section -->
+                <div class="photo-section">
+                    <img id="englishPhoto" src="images/english-home.jpg" alt="English Wedding" 
+                         onerror="this.src='images/engagement-photo.jpg'">
+                </div>
+
+                <!-- Content Flow -->
+                <div class="content-flow">
+                    <!-- Home Section -->
+                    <div id="englishHome" class="content-section" data-photo="images/english-home.jpg">
+                        <div class="menu-hero-content">
+                            <h1>Darshna & Michael</h1>
+                            <div class="date">1st May 2026</div>
+                            <div class="venue">Elmore Court, Cotswolds</div>
+                            <div class="countdown">
+                                <div class="countdown-text">Days until our wedding</div>
+                                <div class="countdown-number" id="englishCountdown">Loading...</div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
 
-            <!-- Story Page -->
-            <div id="englishStory" class="page-container">
-                <div class="photo-layout">
-                    <div class="photo-section">
-                        <img src="images/english-story.jpg" alt="Darshna and Michael - English Wedding Story" 
-                             onerror="this.src='images/engagement-photo.jpg'">
-                    </div>
-                    <div class="content-section">
+                    <!-- Story Section -->
+                    <div id="englishStory" class="content-section" data-photo="images/english-story.jpg">
                         <h2>Our Story</h2>
                         <h3>How We Met</h3>
                         <p>Michael spotted Darshna at a summer house party and did... absolutely nothing. Lucky for them, fast forward four months to a NYE house party (that neither of them planned to attend), their paths crossed again and they spent hours talking away.</p>
@@ -1865,31 +1706,9 @@
                         
                         <div class="story-ending">That has since changed and now he holds the tissue box for her ❤️</div>
                     </div>
-                </div>
-                
-                <section class="container">
-                    <div class="story-grid">
-                        <div class="content-card">
-                            <h3>The Proposal</h3>
-                            <p>Tell us about your engagement story! How did Michael propose? Was it a surprise, or something you planned together?</p>
-                            <p>Include details about the location, the moment, and how you felt. Your guests will love hearing about this special milestone in your relationship.</p>
-                        </div>
-                        <div class="content-card">
-                            <h3>Building Our Life Together</h3>
-                            <p>From Instagram DMs to wedding planning - share more about your journey together, the adventures you've had, and what you're most excited about for your future as husband and wife.</p>
-                        </div>
-                    </div>
-                </section>
-            </div>
 
-            <!-- Order of the Day Page -->
-            <div id="englishOrderofday" class="page-container">
-                <div class="photo-layout">
-                    <div class="photo-section">
-                        <img src="images/english-orderofday.jpg" alt="English Wedding Order of the Day" 
-                             onerror="this.src='images/elmore-court.jpg'">
-                    </div>
-                    <div class="content-section">
+                    <!-- Order of the Day Section -->
+                    <div id="englishOrderofday" class="content-section" data-photo="images/english-orderofday.jpg">
                         <h2>Order of the Day</h2>
                         
                         <div class="timeline-item">
@@ -1941,21 +1760,25 @@
                             <div class="timeline-emoji">🚕</div>
                             <div class="timeline-content">
                                 <h4>11:59 PM - Farewell & Carriages</h4>
-                                <p>The bar closes at XXX. Please arrange transport by XXX, we recommend pre-booking a <a href="#" onclick="showPage('english', 'travel')">taxi</a></p>
+                                <p>The bar closes at XXX. Please arrange transport by XXX, we recommend pre-booking a taxi from our <a href="#englishTravel" onclick="scrollToSection('englishTravel')">Travel</a> page</p>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
 
-            <!-- Accommodations Page -->
-            <div id="englishAccommodations" class="page-container">
-                <div class="photo-layout">
-                    <div class="photo-section">
-                        <img src="images/english-accommodations.jpg" alt="English Wedding Accommodations" 
-                             onerror="this.src='images/cotswolds-hotel.jpg'">
+                    <!-- Travel Section -->
+                    <div id="englishTravel" class="content-section" data-photo="images/english-travel.jpg">
+                        <h2>Travel</h2>
+                        <p>We recommend pre-booking your taxi for the end of the evening:</p>
+                        
+                        <div class="content-card">
+                            <h3>Andy Cars</h3>
+                            <p><strong>Phone:</strong> 01452 523000</p>
+                            <p><strong>Website:</strong> <a href="https://www.andycarsgloucester.co.uk/" target="_blank">https://www.andycarsgloucester.co.uk/</a></p>
+                        </div>
                     </div>
-                    <div class="content-section">
+
+                    <!-- Accommodations Section -->
+                    <div id="englishAccommodations" class="content-section" data-photo="images/english-accommodations.jpg">
                         <h2>Accommodations</h2>
                         <p>Here are some nearby hotel options for our wedding guests:</p>
                         
@@ -1992,37 +1815,9 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
 
-            <!-- Travel Page -->
-            <div id="englishTravel" class="page-container">
-                <div class="photo-layout">
-                    <div class="photo-section">
-                        <img src="images/english-travel.jpg" alt="English Wedding Travel" 
-                             onerror="this.src='images/cotswolds-taxi.jpg'">
-                    </div>
-                    <div class="content-section">
-                        <h2>Local Taxi Services</h2>
-                        <p>We recommend pre-booking your taxi for the end of the evening:</p>
-                        
-                        <div class="content-card">
-                            <h3>Andy Cars</h3>
-                            <p><strong>Phone:</strong> 01452 523000</p>
-                            <p>Reliable local taxi service with experience serving Elmore Court events. We recommend booking in advance, especially for evening pickups.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Registry Page -->
-            <div id="englishRegistry" class="page-container">
-                <div class="photo-layout">
-                    <div class="photo-section">
-                        <img src="images/english-registry.jpg" alt="English Wedding Registry" 
-                             onerror="this.src='images/honeymoon-destination.jpg'">
-                    </div>
-                    <div class="content-section">
+                    <!-- Registry Section -->
+                    <div id="englishRegistry" class="content-section" data-photo="images/english-registry.jpg">
                         <h2>Registry</h2>
                         <div class="registry-content">
                             <p>Your presence at our wedding is the greatest gift of all 🧡</p>
@@ -2030,17 +1825,52 @@
                             <a href="#" class="registry-link">Contribute to Our Honeymoon</a>
                         </div>
                     </div>
-                </div>
-            </div>
 
-            <!-- Q&A Page -->
-            <div id="englishQa" class="page-container">
-                <div class="photo-layout">
-                    <div class="photo-section">
-                        <img src="images/english-qa.jpg" alt="English Wedding Q&A" 
-                             onerror="this.src='images/elmore-court-exterior.jpg'">
+                    <!-- RSVP Section -->
+                    <div id="englishRsvp" class="content-section" data-photo="images/english-rsvp.jpg">
+                        <h2>RSVP</h2>
+                        <div class="rsvp-wizard" id="englishRsvpWizard">
+                            <div id="englishSuccessMessage" class="message success hidden">
+                                <p>🎉 Thank you for your RSVP! We can't wait to celebrate with you at our English wedding!</p>
+                            </div>
+                            <div id="englishErrorMessage" class="message error hidden">
+                                <p>❌ Sorry, there was an error. Please try again or contact us directly.</p>
+                            </div>
+
+                            <!-- Step 1: Name and Email -->
+                            <div class="wizard-step active" id="englishStep1">
+                                <div class="step-title">Enter your details to RSVP</div>
+                                <div class="form-group">
+                                    <label for="englishSubmitterName">Your Name *</label>
+                                    <input type="text" id="englishSubmitterName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="englishSubmitterEmail">Your Email Address *</label>
+                                    <input type="email" id="englishSubmitterEmail" required>
+                                </div>
+                                <div class="wizard-buttons">
+                                    <div></div>
+                                    <button class="btn" onclick="englishNextStep(1)">Next</button>
+                                </div>
+                            </div>
+
+                            <!-- Dynamic person steps will be inserted here -->
+                            <div id="englishPersonSteps"></div>
+
+                            <!-- Final step -->
+                            <div class="wizard-step" id="englishFinalStep">
+                                <div class="step-title">Review & Submit</div>
+                                <div id="englishRsvpSummary"></div>
+                                <div class="wizard-buttons">
+                                    <button class="btn btn-secondary" onclick="englishPrevStep()">Previous</button>
+                                    <button class="btn" onclick="submitEnglishRSVP()">Submit RSVP</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="content-section">
+
+                    <!-- Q&A Section -->
+                    <div id="englishQa" class="content-section" data-photo="images/english-qa.jpg">
                         <h2>Q & A</h2>
                         
                         <div class="qa-item">
@@ -2080,7 +1910,7 @@
 
                         <div class="qa-item">
                             <div class="qa-question">Where should I stay?</div>
-                            <div class="qa-answer">See <a href="#" onclick="showPage('english', 'accommodations')">Accommodations</a> for hotel suggestions. There are also plenty of Airbnbs available which we especially recommend if you would like to make a long weekend of it in the Cotswolds</div>
+                            <div class="qa-answer">See <a href="#englishAccommodations" onclick="scrollToSection('englishAccommodations')">Accommodations</a> for hotel suggestions. There are also plenty of Airbnbs available which we especially recommend if you would like to make a long weekend of it in the Cotswolds</div>
                         </div>
 
                         <div class="qa-item">
@@ -2090,7 +1920,7 @@
 
                         <div class="qa-item">
                             <div class="qa-question">Do I need to book a taxi?</div>
-                            <div class="qa-answer">Yes, a taxi should be pre-booked. A list of local taxis can be found on <a href="#" onclick="showPage('english', 'travel')">Travel</a></div>
+                            <div class="qa-answer">Yes, a taxi should be pre-booked. A list of local taxis can be found on <a href="#englishTravel" onclick="scrollToSection('englishTravel')">Travel</a></div>
                         </div>
 
                         <div class="qa-item">
@@ -2106,61 +1936,13 @@
                 </div>
             </div>
 
-            <!-- RSVP Page -->
-            <div id="englishRsvp" class="page-container">
-                <div class="photo-layout">
-                    <div class="photo-section">
-                        <img src="images/english-rsvp.jpg" alt="English Wedding RSVP" 
-                             onerror="this.src='images/wedding-invitation.jpg'">
-                    </div>
-                    <div class="content-section">
-                        <h2>RSVP</h2>
-                        <div class="rsvp-wizard" id="englishRsvpWizard">
-                            <div id="englishSuccessMessage" class="message success hidden">
-                                <p>🎉 Thank you for your RSVP! We can't wait to celebrate with you at our English wedding!</p>
-                            </div>
-                            <div id="englishErrorMessage" class="message error hidden">
-                                <p>❌ Sorry, there was an error. Please try again or contact us directly.</p>
-                            </div>
-
-                            <!-- Step 1: Name and Email -->
-                            <div class="wizard-step active" id="englishStep1">
-                                <div class="step-title">Welcome to our RSVP</div>
-                                <div class="form-group">
-                                    <label for="englishSubmitterName">Your Name *</label>
-                                    <input type="text" id="englishSubmitterName" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="englishSubmitterEmail">Your Email Address *</label>
-                                    <input type="email" id="englishSubmitterEmail" required>
-                                </div>
-                                <div class="wizard-buttons">
-                                    <div></div>
-                                    <button class="btn" onclick="englishNextStep(1)">Next</button>
-                                </div>
-                            </div>
-
-                            <!-- Dynamic person steps will be inserted here -->
-                            <div id="englishPersonSteps"></div>
-
-                            <!-- Final step -->
-                            <div class="wizard-step" id="englishFinalStep">
-                                <div class="step-title">Review & Submit</div>
-                                <div id="englishRsvpSummary"></div>
-                                <div class="wizard-buttons">
-                                    <button class="btn btn-secondary" onclick="englishPrevStep()">Previous</button>
-                                    <button class="btn" onclick="submitEnglishRSVP()">Submit RSVP</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
             <footer>
                 <div class="container">
-                    <div class="footer-content">Darshna & Michael 🧡 1st May 2026</div>
-                    <p style="margin-top: 1rem; opacity: 0.8;">Elmore Court, Gloucester</p>
+                    <div class="footer-content">
+                        <div>Darshna & Michael</div>
+                        <div>1st May 2026</div>
+                        <div>Elmore Court, Cotswolds</div>
+                    </div>
                 </div>
             </footer>
         </div>
@@ -2182,41 +1964,42 @@
                     <button class="menu-toggle" onclick="toggleMenu('indian')">Menu</button>
                     <nav id="indianNav">
                         <ul>
-                            <li><a href="#" onclick="showPage('indian', 'home')">Home</a></li>
-                            <li><a href="#" onclick="showPage('indian', 'rsvp')">RSVP</a></li>
-                            <li><a href="#" onclick="showPage('indian', 'story')">Story</a></li>
-                            <li><a href="#" onclick="showPage('indian', 'orderofday')">Order of the Day</a></li>
-                            <li><a href="#" onclick="showPage('indian', 'accommodations')">Accommodations</a></li>
-                            <li><a href="#" onclick="showPage('indian', 'registry')">Registry</a></li>
-                            <li><a href="#" onclick="showPage('indian', 'qa')">Q & A</a></li>
+                            <li><a href="#indianHome" onclick="scrollToSection('indianHome')">Home</a></li>
+                            <li><a href="#indianStory" onclick="scrollToSection('indianStory')">Story</a></li>
+                            <li><a href="#indianOrderofday" onclick="scrollToSection('indianOrderofday')">Order of the Day</a></li>
+                            <li><a href="#indianAccommodations" onclick="scrollToSection('indianAccommodations')">Accommodations</a></li>
+                            <li><a href="#indianRegistry" onclick="scrollToSection('indianRegistry')">Registry</a></li>
+                            <li><a href="#indianRsvp" onclick="scrollToSection('indianRsvp')">RSVP</a></li>
+                            <li><a href="#indianQa" onclick="scrollToSection('indianQa')">Q & A</a></li>
                         </ul>
                     </nav>
                 </div>
             </header>
 
-            <!-- Home Page -->
-            <div id="indianHome" class="page-container active">
-                <div class="menu-hero" style="background-image: url('images/indian-home.jpg');">
-                    <div class="menu-hero-content">
-                        <h1>Darshna & Michael</h1>
-                        <div class="date">10th May 2026</div>
-                        <div class="venue">Oshwal Centre, Hertfordshire</div>
-                        <div class="countdown">
-                            <div class="countdown-text">Days until our wedding</div>
-                            <div class="countdown-number" id="indianCountdown">Loading...</div>
+            <div class="flowing-layout">
+                <!-- Sticky Photo Section -->
+                <div class="photo-section">
+                    <img id="indianPhoto" src="images/indian-home.jpg" alt="Indian Wedding" 
+                         onerror="this.src='images/engagement-photo.jpg'">
+                </div>
+
+                <!-- Content Flow -->
+                <div class="content-flow">
+                    <!-- Home Section -->
+                    <div id="indianHome" class="content-section" data-photo="images/indian-home.jpg">
+                        <div class="menu-hero-content">
+                            <h1>Darshna & Michael</h1>
+                            <div class="date">10th May 2026</div>
+                            <div class="venue">Oshwal Centre, Hertfordshire</div>
+                            <div class="countdown">
+                                <div class="countdown-text">Days until our wedding</div>
+                                <div class="countdown-number" id="indianCountdown">Loading...</div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
 
-            <!-- Story Page -->
-            <div id="indianStory" class="page-container">
-                <div class="photo-layout">
-                    <div class="photo-section">
-                        <img src="images/indian-story.jpg" alt="Darshna and Michael - Indian Wedding Story" 
-                             onerror="this.src='images/engagement-photo.jpg'">
-                    </div>
-                    <div class="content-section">
+                    <!-- Story Section -->
+                    <div id="indianStory" class="content-section" data-photo="images/indian-story.jpg">
                         <h2>Our Story</h2>
                         <h3>How We Met</h3>
                         <p>Michael spotted Darshna at a summer house party and did... absolutely nothing. Lucky for them, fast forward four months to a NYE house party (that neither of them planned to attend), their paths crossed again and they spent hours talking away.</p>
@@ -2238,25 +2021,17 @@
                         <p>We chose to have two wedding celebrations to honor both our backgrounds and give our families the opportunity to celebrate in ways that are meaningful to them.</p>
                         <p>Our Indian wedding will feature traditional ceremonies, vibrant colors, and customs that have been passed down through generations in Darshna's family.</p>
                     </div>
-                </div>
-            </div>
 
-            <!-- Order of the Day Page -->
-            <div id="indianOrderofday" class="page-container">
-                <div class="coming-soon">
-                    <h2>Coming Soon ❤️</h2>
-                    <div class="elephant-decoration">🐘</div>
-                </div>
-            </div>
-
-            <!-- Accommodations Page -->
-            <div id="indianAccommodations" class="page-container">
-                <div class="photo-layout">
-                    <div class="photo-section">
-                        <img src="images/indian-accommodations.jpg" alt="Indian Wedding Accommodations" 
-                             onerror="this.src='images/potters-bar-hotel.jpg'">
+                    <!-- Order of the Day Section -->
+                    <div id="indianOrderofday" class="content-section" data-photo="images/indian-orderofday.jpg">
+                        <div class="coming-soon">
+                            <h2>Coming Soon ❤️</h2>
+                            <div class="elephant-decoration">🐘</div>
+                        </div>
                     </div>
-                    <div class="content-section">
+
+                    <!-- Accommodations Section -->
+                    <div id="indianAccommodations" class="content-section" data-photo="images/indian-accommodations.jpg">
                         <h2>Accommodations</h2>
                         <p>Here are some nearby hotel options for our wedding guests:</p>
                         
@@ -2295,17 +2070,9 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
 
-            <!-- Registry Page -->
-            <div id="indianRegistry" class="page-container">
-                <div class="photo-layout">
-                    <div class="photo-section">
-                        <img src="images/indian-registry.jpg" alt="Indian Wedding Registry" 
-                             onerror="this.src='images/indian-honeymoon.jpg'">
-                    </div>
-                    <div class="content-section">
+                    <!-- Registry Section -->
+                    <div id="indianRegistry" class="content-section" data-photo="images/indian-registry.jpg">
                         <h2>Registry</h2>
                         <div class="registry-content">
                             <p>Your presence at our wedding is the greatest gift of all ❤️</p>
@@ -2316,17 +2083,55 @@
                         
                         <div class="elephant-decoration">🐘</div>
                     </div>
-                </div>
-            </div>
 
-            <!-- Q&A Page -->
-            <div id="indianQa" class="page-container">
-                <div class="photo-layout">
-                    <div class="photo-section">
-                        <img src="images/indian-qa.jpg" alt="Indian Wedding Q&A" 
-                             onerror="this.src='images/oshwal-centre.jpg'">
+                    <!-- RSVP Section -->
+                    <div id="indianRsvp" class="content-section" data-photo="images/indian-rsvp.jpg">
+                        <h2>RSVP</h2>
+                        
+                        <div class="elephant-decoration">🐘</div>
+                        
+                        <div class="rsvp-wizard" id="indianRsvpWizard">
+                            <div id="indianSuccessMessage" class="message success hidden">
+                                <p>🎉 Thank you for your RSVP! We can't wait to celebrate with you at our Indian wedding!</p>
+                            </div>
+                            <div id="indianErrorMessage" class="message error hidden">
+                                <p>❌ Sorry, there was an error. Please try again or contact us directly.</p>
+                            </div>
+
+                            <!-- Step 1: Name and Email -->
+                            <div class="wizard-step active" id="indianStep1">
+                                <div class="step-title">Enter your details to RSVP</div>
+                                <div class="form-group">
+                                    <label for="indianSubmitterName">Your Name *</label>
+                                    <input type="text" id="indianSubmitterName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="indianSubmitterEmail">Your Email Address *</label>
+                                    <input type="email" id="indianSubmitterEmail" required>
+                                </div>
+                                <div class="wizard-buttons">
+                                    <div></div>
+                                    <button class="btn" onclick="indianNextStep(1)">Next</button>
+                                </div>
+                            </div>
+
+                            <!-- Dynamic person steps will be inserted here -->
+                            <div id="indianPersonSteps"></div>
+
+                            <!-- Final step -->
+                            <div class="wizard-step" id="indianFinalStep">
+                                <div class="step-title">Review & Submit</div>
+                                <div id="indianRsvpSummary"></div>
+                                <div class="wizard-buttons">
+                                    <button class="btn btn-secondary" onclick="indianPrevStep()">Previous</button>
+                                    <button class="btn" onclick="submitIndianRSVP()">Submit RSVP</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="content-section">
+
+                    <!-- Q&A Section -->
+                    <div id="indianQa" class="content-section" data-photo="images/indian-qa.jpg">
                         <h2>Q & A</h2>
                         
                         <div class="elephant-decoration">🐘</div>
@@ -2359,64 +2164,13 @@
                 </div>
             </div>
 
-            <!-- RSVP Page -->
-            <div id="indianRsvp" class="page-container">
-                <div class="photo-layout">
-                    <div class="photo-section">
-                        <img src="images/indian-rsvp.jpg" alt="Indian Wedding RSVP" 
-                             onerror="this.src='images/indian-invitation.jpg'">
-                    </div>
-                    <div class="content-section">
-                        <h2>RSVP</h2>
-                        
-                        <div class="elephant-decoration">🐘</div>
-                        
-                        <div class="rsvp-wizard" id="indianRsvpWizard">
-                            <div id="indianSuccessMessage" class="message success hidden">
-                                <p>🎉 Thank you for your RSVP! We can't wait to celebrate with you at our Indian wedding!</p>
-                            </div>
-                            <div id="indianErrorMessage" class="message error hidden">
-                                <p>❌ Sorry, there was an error. Please try again or contact us directly.</p>
-                            </div>
-
-                            <!-- Step 1: Name and Email -->
-                            <div class="wizard-step active" id="indianStep1">
-                                <div class="step-title">Welcome to our RSVP</div>
-                                <div class="form-group">
-                                    <label for="indianSubmitterName">Your Name *</label>
-                                    <input type="text" id="indianSubmitterName" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="indianSubmitterEmail">Your Email Address *</label>
-                                    <input type="email" id="indianSubmitterEmail" required>
-                                </div>
-                                <div class="wizard-buttons">
-                                    <div></div>
-                                    <button class="btn" onclick="indianNextStep(1)">Next</button>
-                                </div>
-                            </div>
-
-                            <!-- Dynamic person steps will be inserted here -->
-                            <div id="indianPersonSteps"></div>
-
-                            <!-- Final step -->
-                            <div class="wizard-step" id="indianFinalStep">
-                                <div class="step-title">Review & Submit</div>
-                                <div id="indianRsvpSummary"></div>
-                                <div class="wizard-buttons">
-                                    <button class="btn btn-secondary" onclick="indianPrevStep()">Previous</button>
-                                    <button class="btn" onclick="submitIndianRSVP()">Submit RSVP</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
             <footer>
                 <div class="container">
-                    <div class="footer-content">Darshna & Michael ❤️ 10th May 2026</div>
-                    <p style="margin-top: 1rem; opacity: 0.8;">Oshwal Centre, Potters Bar</p>
+                    <div class="footer-content">
+                        <div>Darshna & Michael</div>
+                        <div>10th May 2026</div>
+                        <div>Oshwal Centre, Hertfordshire</div>
+                    </div>
                 </div>
             </footer>
         </div>
@@ -2508,23 +2262,11 @@
             
             if (path.includes('/1stMay2026') || params.get('path') === '1stMay2026') {
                 showWedding('english');
-                updateURLDisplay('shahrosewedding.co.uk/1stMay2026');
             } else if (path.includes('/10thMay2026') || params.get('path') === '10thMay2026') {
                 showWedding('indian');
-                updateURLDisplay('shahrosewedding.co.uk/10thMay2026');
             } else if (path.includes('/dashboard') || params.get('path') === 'dashboard') {
                 showDashboard();
-                updateURLDisplay('shahrosewedding.co.uk/dashboard');
-            } else {
-                updateURLDisplay('shahrosewedding.co.uk');
             }
-        }
-
-        // Update URL display
-        function updateURLDisplay(url) {
-            const urlDisplay = document.getElementById('urlDisplay');
-            urlDisplay.textContent = url;
-            urlDisplay.classList.remove('hidden');
         }
 
         // Wedding selection functionality
@@ -2536,16 +2278,17 @@
                 document.getElementById('englishWedding').classList.add('active');
                 document.getElementById('indianWedding').classList.remove('active');
                 updateCountdown('english');
-                updateURLDisplay('shahrosewedding.co.uk/1stMay2026');
                 window.history.pushState({}, '', '?path=1stMay2026');
             } else if (type === 'indian') {
                 document.getElementById('indianWedding').classList.add('active');
                 document.getElementById('englishWedding').classList.remove('active');
                 updateCountdown('indian');
-                updateURLDisplay('shahrosewedding.co.uk/10thMay2026');
                 window.history.pushState({}, '', '?path=10thMay2026');
             }
             currentWedding = type;
+            
+            // Set up photo changing on scroll
+            setupPhotoChanging(type);
         }
 
         // Dashboard functionality
@@ -2554,22 +2297,48 @@
             document.getElementById('englishWedding').classList.remove('active');
             document.getElementById('indianWedding').classList.remove('active');
             document.getElementById('dashboardPage').classList.add('active');
-            updateURLDisplay('shahrosewedding.co.uk/dashboard');
             window.history.pushState({}, '', '?path=dashboard');
             refreshDashboard();
         }
 
-        // Page navigation within weddings
-        function showPage(wedding, page) {
-            // Hide all pages for this wedding
-            const pages = document.querySelectorAll(`#${wedding}Wedding .page-container`);
-            pages.forEach(p => p.classList.remove('active'));
+        // Photo changing functionality
+        function setupPhotoChanging(wedding) {
+            const photoImg = document.getElementById(wedding + 'Photo');
+            const sections = document.querySelectorAll(`#${wedding}Wedding .content-section[data-photo]`);
             
-            // Show selected page
-            document.getElementById(`${wedding}${page.charAt(0).toUpperCase() + page.slice(1)}`).classList.add('active');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const newPhoto = entry.target.getAttribute('data-photo');
+                        if (newPhoto && photoImg.src !== newPhoto) {
+                            photoImg.src = newPhoto;
+                        }
+                    }
+                });
+            }, {
+                threshold: 0.5,
+                rootMargin: '-20% 0px -20% 0px'
+            });
+            
+            sections.forEach(section => observer.observe(section));
+        }
+
+        // Scroll to section functionality
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                const headerHeight = document.querySelector('header').offsetHeight;
+                const targetPosition = element.offsetTop - headerHeight;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
             
             // Close menu
-            document.getElementById(`${wedding}Nav`).classList.remove('active');
+            document.getElementById('englishNav').classList.remove('active');
+            document.getElementById('indianNav').classList.remove('active');
         }
 
         // Menu toggle functionality
@@ -3123,4 +2892,3 @@
     </script>
 </body>
 </html>
-
