@@ -3337,17 +3337,18 @@ function findGuestGroup(name, wedding) {
             }
         }
 
-        // Initialize everything
-        document.addEventListener('DOMContentLoaded', function() {
-            updateCountdown('english');
-            updateCountdown('indian');
-            
-            // Set up daily countdown updates
-            setInterval(() => {
-                updateCountdown('english');
-                updateCountdown('indian');
-            }, 86400000); // Update daily
-        });
+// Initialize everything
+document.addEventListener('DOMContentLoaded', function() {
+    updateCountdown('english');
+    updateCountdown('indian');
+    loadSavedGuestLists(); // Add this line
+    
+    // Set up daily countdown updates
+    setInterval(() => {
+        updateCountdown('english');
+        updateCountdown('indian');
+    }, 86400000); // Update daily
+});
 
         // Handle browser back/forward buttons
         window.addEventListener('popstate', function() {
@@ -3358,5 +3359,6 @@ function findGuestGroup(name, wedding) {
     </script>
 </body>
 </html>
+
 
 
