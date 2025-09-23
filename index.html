@@ -1726,7 +1726,42 @@
                 </div>
             </div>
         </div>
-
+<!-- Guest List Management - ADD THIS NEW SECTION -->
+<div class="guest-management" style="background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border: 2px solid #f4d4ba; margin-top: 2rem;">
+    <h3 style="font-family: 'Alex Brush', cursive; font-size: 2rem; color: #8b7355; margin-bottom: 2rem; text-align: center;">Guest List Management</h3>
+    
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem;">
+        <div class="upload-section" style="padding: 1.5rem; border: 2px solid #e8a87c; border-radius: 10px; text-align: center;">
+            <h4 style="color: #F47A43; margin-bottom: 1rem;">English Wedding Guests</h4>
+            <input type="file" id="englishGuestsFile" accept=".csv" style="margin-bottom: 1rem; width: 100%; padding: 0.5rem;">
+            <div style="display: flex; gap: 0.5rem; justify-content: center;">
+                <button onclick="uploadGuestList('english')" style="background: #e8a87c; color: white; padding: 0.5rem 1rem; border: none; border-radius: 5px; cursor: pointer;">Upload CSV</button>
+                <button onclick="downloadTemplate('english')" style="background: #8b7355; color: white; padding: 0.5rem 1rem; border: none; border-radius: 5px; cursor: pointer;">Download Template</button>
+            </div>
+            <div id="englishGuestCount" style="margin-top: 0.5rem; font-size: 0.9rem; color: #666;"></div>
+        </div>
+        
+        <div class="upload-section" style="padding: 1.5rem; border: 2px solid #E72A5C; border-radius: 10px; text-align: center;">
+            <h4 style="color: #E72A5C; margin-bottom: 1rem;">Indian Wedding Guests</h4>
+            <input type="file" id="indianGuestsFile" accept=".csv" style="margin-bottom: 1rem; width: 100%; padding: 0.5rem;">
+            <div style="display: flex; gap: 0.5rem; justify-content: center;">
+                <button onclick="uploadGuestList('indian')" style="background: #E72A5C; color: white; padding: 0.5rem 1rem; border: none; border-radius: 5px; cursor: pointer;">Upload CSV</button>
+                <button onclick="downloadTemplate('indian')" style="background: #704AAF; color: white; padding: 0.5rem 1rem; border: none; border-radius: 5px; cursor: pointer;">Download Template</button>
+            </div>
+            <div id="indianGuestCount" style="margin-top: 0.5rem; font-size: 0.9rem; color: #666;"></div>
+        </div>
+    </div>
+    
+    <div style="background: #f8f9fa; padding: 1rem; border-radius: 8px; border-left: 4px solid #17a2b8;">
+        <h5 style="color: #17a2b8; margin-bottom: 0.5rem;">📋 Instructions:</h5>
+        <ol style="margin: 0; padding-left: 1.5rem; font-size: 0.9rem; color: #666;">
+            <li>Click "Download Template" to get the CSV format</li>
+            <li>Fill in your guest lists (groups can be any size)</li>
+            <li>Save as CSV and upload using "Upload CSV"</li>
+            <li>Test the RSVP system with sample names</li>
+        </ol>
+    </div>
+</div>
         <!-- English Wedding Page -->
         <div id="englishWedding" class="wedding-page english-wedding">
             <header>
@@ -3073,3 +3108,4 @@
     </script>
 </body>
 </html>
+
