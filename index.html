@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Darshna & Michael - Wedding Celebrations 2026</title>
-    <link href="https://fonts.googleapis.com/css2?family=La Luxes Serif:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=La+Luxes+Serif:wght@400;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -14,9 +14,9 @@
         }
 
         body {
-            font-family: 'La Luxes Serif', sans-serif;
+            font-family: 'Lora', serif;
             line-height: 1.6;
-            color: #5a5a5a;
+            color: #000000;
             background-color: #fefcfb;
         }
 
@@ -37,7 +37,7 @@
         .accommodation-card h4,
         .registry-card h4,
         .qa-question {
-            font-family: 'Alex Brush', cursive;
+            font-family: 'La Luxes Serif', serif;
         }
 
         /* Password Protection Screen */
@@ -65,7 +65,7 @@
         }
 
         .password-form h2 {
-            font-family: 'Alex Brush', cursive;
+            font-family: 'La Luxes Serif', serif;
             color: #8b7355;
             margin-bottom: 1rem;
         }
@@ -131,7 +131,7 @@
         }
 
         .selector-content h1 {
-            font-family: 'Alex Brush', cursive;
+            font-family: 'La Luxes Serif', serif;
             font-size: 4.5rem;
             font-weight: 700;
             color: #8b7355;
@@ -222,7 +222,7 @@
         }
 
         .wedding-btn h3 {
-            font-family: 'Alex Brush', cursive;
+            font-family: 'La Luxes Serif', serif;
             font-size: 2.2rem;
             margin-bottom: 1rem;
             color: #8b7355;
@@ -321,9 +321,18 @@
             z-index: 1;
         }
 
-        /* Home page heading - always #E72A5C */
+        /* Home page heading colors */
+        .english-wedding #englishHome h1 {
+            color: #000000 !important;
+        }
+
         .indian-wedding #indianHome h1 {
-            color: #E72A5C !important;
+            color: #000000 !important;
+        }
+
+        /* Menu page heading - Indian should be purple */
+        .indian-wedding #indianHome {
+            background: #704AAF !important;
         }
 
         /* Alternating heading colors for Indian wedding */
@@ -393,35 +402,6 @@
             50% { transform: rotate(3deg); }
         }
 
-        /* Elephant Decorations */
-        .elephant-decoration {
-            position: relative;
-            text-align: center;
-            margin: 2rem 0;
-            font-size: 3rem;
-            background: linear-gradient(45deg, #E72A5C, #704AAF);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .elephant-decoration::before,
-        .elephant-decoration::after {
-            content: '🐘';
-            position: absolute;
-            top: 0;
-            font-size: 2rem;
-            opacity: 0.5;
-        }
-
-        .elephant-decoration::before {
-            left: -4rem;
-        }
-
-        .elephant-decoration::after {
-            right: -4rem;
-        }
-
         /* Indian content sections with soft background */
         .indian-wedding .content-section {
             background: rgba(255, 255, 255, 0.8);
@@ -433,30 +413,15 @@
             z-index: 3;
         }
 
-        /* Indian Ornate Borders */
+        /* Updated box borders - solid purple only for Indian */
         .indian-wedding .content-card,
         .indian-wedding .timeline-item,
         .indian-wedding .accommodation-card,
         .indian-wedding .registry-content,
-        .indian-wedding .rsvp-wizard {
-            border: 3px solid transparent;
-            background: 
-                linear-gradient(white, white) padding-box,
-                linear-gradient(45deg, #E72A5C, #704AAF, #d4af37) border-box;
-            position: relative;
-        }
-
-        .indian-wedding .content-card::before,
-        .indian-wedding .timeline-item::before {
-            content: '';
-            position: absolute;
-            top: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 20px;
-            background: linear-gradient(90deg, #E72A5C, #704AAF);
-            border-radius: 10px;
+        .indian-wedding .rsvp-wizard,
+        .indian-wedding .qa-item {
+            border: 2px solid #704AAF !important;
+            background: white !important;
         }
 
         /* Indian Navigation Styling */
@@ -499,7 +464,7 @@
         }
 
         .indian-wedding .qa-question {
-            font-family: 'Alex Brush', cursive;
+            font-family: 'La Luxes Serif', serif;
             font-size: 1.4rem;
             color: #E72A5C;
             margin-bottom: 1rem;
@@ -546,7 +511,7 @@
         }
 
         .dashboard-title {
-            font-family: 'Alex Brush', cursive;
+            font-family: 'La Luxes Serif', serif;
             font-size: 2.5rem;
             color: #8b7355;
             text-align: center;
@@ -576,7 +541,7 @@
         }
 
         .stat-card h3 {
-            font-family: 'Alex Brush', cursive;
+            font-family: 'La Luxes Serif', serif;
             font-size: 1.8rem;
             color: #8b7355;
             margin-bottom: 1rem;
@@ -708,6 +673,48 @@
             transform: translateY(-2px);
         }
 
+        /* Guest List Management - Only show on dashboard */
+        .guest-management {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 2px solid #f4d4ba;
+            margin-top: 2rem;
+        }
+
+        .guest-management h3 {
+            font-family: 'La Luxes Serif', serif;
+            font-size: 2rem;
+            color: #8b7355;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .upload-section {
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .upload-section h4 {
+            margin-bottom: 1rem;
+        }
+
+        .upload-section input {
+            margin-bottom: 1rem;
+            width: 100%;
+            padding: 0.5rem;
+        }
+
+        .upload-section button {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 0 0.25rem;
+        }
+
         /* Header & Navigation */
         header {
             background: rgba(248, 244, 242, 0.95);
@@ -779,7 +786,7 @@
             background: none;
             border: none;
             cursor: pointer;
-            font-family: 'La Luxes Serif', sans-serif;
+            font-family: 'Lora', serif;
         }
 
         nav a:hover, nav button:hover {
@@ -833,14 +840,14 @@
         }
 
         .content-section h2 {
-            font-family: 'Alex Brush', cursive;
+            font-family: 'La Luxes Serif', serif;
             font-size: 2.5rem;
             color: var(--accent-color);
             margin-bottom: 2rem;
         }
 
         .content-section h3 {
-            font-family: 'Alex Brush', cursive;
+            font-family: 'La Luxes Serif', serif;
             font-size: 1.8rem;
             color: var(--primary-color);
             margin: 2rem 0 1rem 0;
@@ -850,7 +857,7 @@
             font-size: 1.1rem;
             line-height: 1.8;
             margin-bottom: 1.5rem;
-            color: #666;
+            color: #000000;
         }
 
         /* Menu Hero Section */
@@ -861,24 +868,28 @@
         }
 
         .menu-hero-content h1 {
-            font-family: 'Alex Brush', cursive;
+            font-family: 'La Luxes Serif', serif;
             font-size: 4rem;
             margin-bottom: 1rem;
             white-space: nowrap;
+            color: #000000 !important;
+            text-shadow: none !important;
         }
 
         .menu-hero-content .date {
             font-size: 1.8rem;
             margin-bottom: 0.5rem;
             font-weight: 300;
-            color: white;
+            color: #000000;
+            text-shadow: none;
         }
 
         .menu-hero-content .venue {
             font-size: 1.4rem;
             margin-bottom: 2rem;
             font-weight: 400;
-            color: white;
+            color: #000000;
+            text-shadow: none;
         }
 
         .menu-hero-content .countdown {
@@ -893,18 +904,20 @@
         .menu-hero-content .countdown-text {
             font-size: 1.2rem;
             margin-bottom: 0.5rem;
-            color: white;
+            color: #000000;
+            text-shadow: none;
         }
 
         .menu-hero-content .countdown-number {
             font-size: 2.5rem;
             font-weight: 700;
-            color: white;
+            color: #000000;
+            text-shadow: none;
         }
 
         /* Section Titles */
         .section-title {
-            font-family: 'Alex Brush', cursive;
+            font-family: 'La Luxes Serif', serif;
             font-size: 2.5rem;
             text-align: center;
             color: var(--accent-color);
@@ -945,7 +958,7 @@
         }
 
         .content-card h3 {
-            font-family: 'Alex Brush', cursive;
+            font-family: 'La Luxes Serif', serif;
             font-size: 2rem;
             color: var(--accent-color);
             margin-bottom: 1.5rem;
@@ -954,6 +967,7 @@
         .content-card p {
             margin-bottom: 1.5rem;
             font-size: 1.1rem;
+            color: #000000;
         }
 
         /* Story Section */
@@ -982,7 +996,7 @@
         }
 
         .accommodation-card h4 {
-            font-family: 'Alex Brush', cursive;
+            font-family: 'La Luxes Serif', serif;
             font-size: 1.5rem;
             color: var(--accent-color);
             margin-bottom: 1rem;
@@ -997,7 +1011,7 @@
 
         .accommodation-card .details {
             font-size: 1rem;
-            color: #666;
+            color: #000000;
             margin-bottom: 1rem;
         }
 
@@ -1005,6 +1019,11 @@
             font-size: 0.9rem;
             color: var(--accent-color);
             font-weight: 600;
+        }
+
+        .accommodation-card .contact a {
+            color: var(--accent-color);
+            text-decoration: underline;
         }
 
         /* Registry */
@@ -1023,6 +1042,7 @@
             font-size: 1.2rem;
             line-height: 1.8;
             margin-bottom: 2rem;
+            color: #000000;
         }
 
         .registry-link {
@@ -1054,7 +1074,7 @@
         }
 
         .qa-question {
-            font-family: 'Alex Brush', cursive;
+            font-family: 'La Luxes Serif', serif;
             font-size: 1.4rem;
             color: var(--accent-color);
             margin-bottom: 1rem;
@@ -1101,7 +1121,7 @@
         }
 
         .timeline-content h4 {
-            font-family: 'Alex Brush', cursive;
+            font-family: 'La Luxes Serif', serif;
             font-size: 1.4rem;
             color: var(--accent-color);
             margin-bottom: 0.5rem;
@@ -1111,7 +1131,7 @@
         .timeline-content p {
             font-size: 1.1rem;
             line-height: 1.6;
-            color: #666;
+            color: #000000;
             margin: 0;
         }
 
@@ -1135,10 +1155,19 @@
         }
 
         .coming-soon h2 {
-            font-family: 'Alex Brush', cursive;
+            font-family: 'La Luxes Serif', serif;
             font-size: 3rem;
             color: var(--primary-color);
             margin-bottom: 1rem;
+        }
+
+        /* RSVP Deadline Notice */
+        .rsvp-deadline {
+            text-align: center;
+            color: #000000;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            font-weight: 500;
         }
 
         /* RSVP Wizard */
@@ -1161,7 +1190,7 @@
         }
 
         .step-title {
-            font-family: 'Alex Brush', cursive;
+            font-family: 'La Luxes Serif', serif;
             font-size: 2rem;
             color: var(--accent-color);
             text-align: center;
@@ -1189,7 +1218,7 @@
             border-radius: 8px;
             font-size: 1rem;
             transition: border-color 0.3s ease;
-            font-family: 'La Luxes Serif', sans-serif;
+            font-family: 'Lora', serif;
         }
 
         .form-group input:focus,
@@ -1305,7 +1334,7 @@
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
-            font-family: 'La Luxes Serif', sans-serif;
+            font-family: 'Lora', serif;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
@@ -1400,13 +1429,21 @@
             /* Mobile: Stack vertically with photo on top */
             .flowing-layout {
                 grid-template-columns: 1fr;
-                grid-template-rows: auto;
+                grid-template-rows: 50vh auto;
             }
 
             .photo-section {
                 position: relative;
                 height: 50vh;
                 min-height: 300px;
+                display: block !important;
+            }
+
+            .photo-section img {
+                display: block !important;
+                width: 100% !important;
+                height: 100% !important;
+                object-fit: cover !important;
             }
 
             .content-flow {
@@ -1492,11 +1529,6 @@
                 font-size: 2.5rem;
             }
 
-            .elephant-decoration::before,
-            .elephant-decoration::after {
-                display: none;
-            }
-
             .lantern {
                 width: 30px;
                 height: 45px;
@@ -1504,6 +1536,10 @@
 
             .indian-wedding .content-section {
                 margin: 0.5rem;
+            }
+
+            .guest-management {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -1724,44 +1760,46 @@
                         <p>No dietary requirements reported yet.</p>
                     </div>
                 </div>
+
+                <!-- Guest List Management - Only show on dashboard -->
+                <div class="guest-management">
+                    <h3>Guest List Management</h3>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem;">
+                        <div class="upload-section" style="padding: 1.5rem; border: 2px solid #e8a87c; border-radius: 10px; text-align: center;">
+                            <h4 style="color: #F47A43; margin-bottom: 1rem;">English Wedding Guests</h4>
+                            <input type="file" id="englishGuestsFile" accept=".csv" style="margin-bottom: 1rem; width: 100%; padding: 0.5rem;">
+                            <div style="display: flex; gap: 0.5rem; justify-content: center;">
+                                <button onclick="uploadGuestList('english')" style="background: #e8a87c; color: white; padding: 0.5rem 1rem; border: none; border-radius: 5px; cursor: pointer;">Upload CSV</button>
+                                <button onclick="downloadTemplate('english')" style="background: #8b7355; color: white; padding: 0.5rem 1rem; border: none; border-radius: 5px; cursor: pointer;">Download Template</button>
+                            </div>
+                            <div id="englishGuestCount" style="margin-top: 0.5rem; font-size: 0.9rem; color: #666;"></div>
+                        </div>
+                        
+                        <div class="upload-section" style="padding: 1.5rem; border: 2px solid #E72A5C; border-radius: 10px; text-align: center;">
+                            <h4 style="color: #E72A5C; margin-bottom: 1rem;">Indian Wedding Guests</h4>
+                            <input type="file" id="indianGuestsFile" accept=".csv" style="margin-bottom: 1rem; width: 100%; padding: 0.5rem;">
+                            <div style="display: flex; gap: 0.5rem; justify-content: center;">
+                                <button onclick="uploadGuestList('indian')" style="background: #E72A5C; color: white; padding: 0.5rem 1rem; border: none; border-radius: 5px; cursor: pointer;">Upload CSV</button>
+                                <button onclick="downloadTemplate('indian')" style="background: #704AAF; color: white; padding: 0.5rem 1rem; border: none; border-radius: 5px; cursor: pointer;">Download Template</button>
+                            </div>
+                            <div id="indianGuestCount" style="margin-top: 0.5rem; font-size: 0.9rem; color: #666;"></div>
+                        </div>
+                    </div>
+                    
+                    <div style="background: #f8f9fa; padding: 1rem; border-radius: 8px; border-left: 4px solid #17a2b8;">
+                        <h5 style="color: #17a2b8; margin-bottom: 0.5rem;">📋 Instructions:</h5>
+                        <ol style="margin: 0; padding-left: 1.5rem; font-size: 0.9rem; color: #666;">
+                            <li>Click "Download Template" to get the CSV format</li>
+                            <li>Fill in your guest lists (groups can be any size)</li>
+                            <li>Save as CSV and upload using "Upload CSV"</li>
+                            <li>Test the RSVP system with sample names</li>
+                        </ol>
+                    </div>
+                </div>
             </div>
         </div>
-<!-- Guest List Management - ADD THIS NEW SECTION -->
-<div class="guest-management" style="background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border: 2px solid #f4d4ba; margin-top: 2rem;">
-    <h3 style="font-family: 'Alex Brush', cursive; font-size: 2rem; color: #8b7355; margin-bottom: 2rem; text-align: center;">Guest List Management</h3>
-    
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem;">
-        <div class="upload-section" style="padding: 1.5rem; border: 2px solid #e8a87c; border-radius: 10px; text-align: center;">
-            <h4 style="color: #F47A43; margin-bottom: 1rem;">English Wedding Guests</h4>
-            <input type="file" id="englishGuestsFile" accept=".csv" style="margin-bottom: 1rem; width: 100%; padding: 0.5rem;">
-            <div style="display: flex; gap: 0.5rem; justify-content: center;">
-                <button onclick="uploadGuestList('english')" style="background: #e8a87c; color: white; padding: 0.5rem 1rem; border: none; border-radius: 5px; cursor: pointer;">Upload CSV</button>
-                <button onclick="downloadTemplate('english')" style="background: #8b7355; color: white; padding: 0.5rem 1rem; border: none; border-radius: 5px; cursor: pointer;">Download Template</button>
-            </div>
-            <div id="englishGuestCount" style="margin-top: 0.5rem; font-size: 0.9rem; color: #666;"></div>
-        </div>
-        
-        <div class="upload-section" style="padding: 1.5rem; border: 2px solid #E72A5C; border-radius: 10px; text-align: center;">
-            <h4 style="color: #E72A5C; margin-bottom: 1rem;">Indian Wedding Guests</h4>
-            <input type="file" id="indianGuestsFile" accept=".csv" style="margin-bottom: 1rem; width: 100%; padding: 0.5rem;">
-            <div style="display: flex; gap: 0.5rem; justify-content: center;">
-                <button onclick="uploadGuestList('indian')" style="background: #E72A5C; color: white; padding: 0.5rem 1rem; border: none; border-radius: 5px; cursor: pointer;">Upload CSV</button>
-                <button onclick="downloadTemplate('indian')" style="background: #704AAF; color: white; padding: 0.5rem 1rem; border: none; border-radius: 5px; cursor: pointer;">Download Template</button>
-            </div>
-            <div id="indianGuestCount" style="margin-top: 0.5rem; font-size: 0.9rem; color: #666;"></div>
-        </div>
-    </div>
-    
-    <div style="background: #f8f9fa; padding: 1rem; border-radius: 8px; border-left: 4px solid #17a2b8;">
-        <h5 style="color: #17a2b8; margin-bottom: 0.5rem;">📋 Instructions:</h5>
-        <ol style="margin: 0; padding-left: 1.5rem; font-size: 0.9rem; color: #666;">
-            <li>Click "Download Template" to get the CSV format</li>
-            <li>Fill in your guest lists (groups can be any size)</li>
-            <li>Save as CSV and upload using "Upload CSV"</li>
-            <li>Test the RSVP system with sample names</li>
-        </ol>
-    </div>
-</div>
+
         <!-- English Wedding Page -->
         <div id="englishWedding" class="wedding-page english-wedding">
             <header>
@@ -1902,7 +1940,7 @@
                                     Includes breakfast<br>
                                     Free parking
                                 </div>
-                                <div class="contact">Book: 0333 003 8101</div>
+                                <div class="contact">Book: <a href="https://www.premierinn.com/" target="_blank">premierinn.com</a> | 0333 003 8101</div>
                             </div>
                             <div class="accommodation-card">
                                 <h4>Travelodge Gloucester</h4>
@@ -1912,7 +1950,7 @@
                                     Budget-friendly option<br>
                                     Free WiFi
                                 </div>
-                                <div class="contact">Book: travelodge.co.uk</div>
+                                <div class="contact">Book: <a href="https://www.travelodge.co.uk/" target="_blank">travelodge.co.uk</a></div>
                             </div>
                             <div class="accommodation-card">
                                 <h4>The Bell Hotel</h4>
@@ -1940,6 +1978,7 @@
                     <!-- RSVP Section -->
                     <div id="englishRsvp" class="content-section" data-photo="images/english-rsvp.jpg">
                         <h2>RSVP</h2>
+                        <div class="rsvp-deadline">Please RSVP by 1st February</div>
                         <div class="rsvp-wizard" id="englishRsvpWizard">
                             <div id="englishSuccessMessage" class="message success hidden">
                                 <p>🎉 Thank you for your RSVP! We can't wait to celebrate with you at our English wedding!</p>
@@ -2096,8 +2135,8 @@
 
                 <!-- Content Flow -->
                 <div class="content-flow">
-                    <!-- Home Section -->
-                    <div id="indianHome" class="content-section" data-photo="images/indian-home.jpg">
+                    <!-- Home Section with Purple Background -->
+                    <div id="indianHome" class="content-section" data-photo="images/indian-home.jpg" style="background: #704AAF !important;">
                         <div class="menu-hero-content">
                             <h1>Darshna & Michael</h1>
                             <div class="date">10th May 2026</div>
@@ -2121,23 +2160,12 @@
                         <p>Michael chose the elegant Bluebird Chelsea for their first date, clearly pulling out all the stops! Still recovering from the flu, Darshna kept disappearing to the ladies' room—apparently blowing your nose on a first date isn't very romantic. After the 10th time, Michael, with his signature dry humor, told her she may as well take her bag with her if she was planning to make a run for it.</p>
                         
                         <div class="story-ending">That has since changed and now he holds the tissue box for her ❤️</div>
-                        
-                        <div class="elephant-decoration">🐘</div>
-                        
-                        <h3>Two Cultures, One Love</h3>
-                        <p>Our love story is beautifully woven with traditions from both our cultures. Darshna brings the rich heritage of Indian customs, while Michael embraces these traditions with an open heart.</p>
-                        <p>This Indian wedding celebration honors Darshna's family traditions and allows us to share the beauty of Indian customs with all our loved ones.</p>
-                        
-                        <h3>Why Two Celebrations?</h3>
-                        <p>We chose to have two wedding celebrations to honor both our backgrounds and give our families the opportunity to celebrate in ways that are meaningful to them.</p>
-                        <p>Our Indian wedding will feature traditional ceremonies, vibrant colors, and customs that have been passed down through generations in Darshna's family.</p>
                     </div>
 
                     <!-- Order of the Day Section -->
                     <div id="indianOrderofday" class="content-section" data-photo="images/indian-orderofday.jpg">
                         <div class="coming-soon">
                             <h2>Coming Soon ❤️</h2>
-                            <div class="elephant-decoration">🐘</div>
                         </div>
                     </div>
 
@@ -2145,8 +2173,6 @@
                     <div id="indianAccommodations" class="content-section" data-photo="images/indian-accommodations.jpg">
                         <h2>Accommodations</h2>
                         <p>Here are some nearby hotel options for our wedding guests:</p>
-                        
-                        <div class="elephant-decoration">🐘</div>
                         
                         <div class="accommodation-grid">
                             <div class="accommodation-card">
@@ -2157,7 +2183,7 @@
                                     Includes breakfast<br>
                                     Free parking
                                 </div>
-                                <div class="contact">Book: 0333 003 8101</div>
+                                <div class="contact">Book: <a href="https://www.premierinn.com/" target="_blank">premierinn.com</a> | 0333 003 8101</div>
                             </div>
                             <div class="accommodation-card">
                                 <h4>Holiday Inn Express</h4>
@@ -2167,7 +2193,7 @@
                                     Modern amenities<br>
                                     Fitness center
                                 </div>
-                                <div class="contact">Book: ihg.com</div>
+                                <div class="contact">Book: <a href="https://www.ihg.com/" target="_blank">ihg.com</a></div>
                             </div>
                             <div class="accommodation-card">
                                 <h4>Local B&Bs</h4>
@@ -2186,20 +2212,17 @@
                     <div id="indianRegistry" class="content-section" data-photo="images/indian-registry.jpg">
                         <h2>Registry</h2>
                         <div class="registry-content">
-                            <p>Your presence at our wedding is the greatest gift of all ❤️</p>
-                            <p>If you would like to give us a gift, we are saving for our honeymoon and would be delighted with a contribution. Please use the following link to join us in creating these memories: <strong>LINK</strong></p>
+                            <p>Your presence at our wedding is the greatest gift of all 🧡</p>
+                            <p>If you would like to give us a gift, we are saving for our honeymoon and would be delighted with a contribution. Please use the following link to join us in creating these memories.</p>
                             <p><strong>No box gifts please.</strong></p>
                             <a href="#" class="registry-link">Contribute to Our Honeymoon</a>
                         </div>
-                        
-                        <div class="elephant-decoration">🐘</div>
                     </div>
 
                     <!-- RSVP Section -->
                     <div id="indianRsvp" class="content-section" data-photo="images/indian-rsvp.jpg">
                         <h2>RSVP</h2>
-                        
-                        <div class="elephant-decoration">🐘</div>
+                        <div class="rsvp-deadline">Please RSVP by 1st February</div>
                         
                         <div class="rsvp-wizard" id="indianRsvpWizard">
                             <div id="indianSuccessMessage" class="message success hidden">
@@ -2244,8 +2267,6 @@
                     <!-- Q&A Section -->
                     <div id="indianQa" class="content-section" data-photo="images/indian-qa.jpg">
                         <h2>Q & A</h2>
-                        
-                        <div class="elephant-decoration">🐘</div>
                         
                         <div class="qa-item">
                             <div class="qa-question">What is the RSVP deadline?</div>
@@ -2351,271 +2372,271 @@
     </div>
 
     <script>
-// Guest Database - Will be populated from CSV uploads
-let guestDatabase = {
-    english: {
-        // Sample data for testing - will be replaced when you upload CSV
-        "john smith": ["John Smith", "Jane Smith", "Tommy Smith", "Sarah Smith"],
-        "jane smith": ["John Smith", "Jane Smith", "Tommy Smith", "Sarah Smith"],
-        "mike jones": ["Mike Jones", "Lisa Jones"],
-        "lisa jones": ["Mike Jones", "Lisa Jones"],
-        "david brown": ["David Brown"],
-    },
-    indian: {
-        // Sample data for testing - will be replaced when you upload CSV
-        "priya patel": ["Priya Patel", "Raj Patel", "Arjun Patel"],
-        "raj patel": ["Priya Patel", "Raj Patel", "Arjun Patel"],
-        "arjun patel": ["Priya Patel", "Raj Patel", "Arjun Patel"],
-        "anita singh": ["Anita Singh"],
-    }
-};
+        // Guest Database - Will be populated from CSV uploads
+        let guestDatabase = {
+            english: {
+                // Sample data for testing - will be replaced when you upload CSV
+                "john smith": ["John Smith", "Jane Smith", "Tommy Smith", "Sarah Smith"],
+                "jane smith": ["John Smith", "Jane Smith", "Tommy Smith", "Sarah Smith"],
+                "mike jones": ["Mike Jones", "Lisa Jones"],
+                "lisa jones": ["Mike Jones", "Lisa Jones"],
+                "david brown": ["David Brown"],
+            },
+            indian: {
+                // Sample data for testing - will be replaced when you upload CSV
+                "priya patel": ["Priya Patel", "Raj Patel", "Arjun Patel"],
+                "raj patel": ["Priya Patel", "Raj Patel", "Arjun Patel"],
+                "arjun patel": ["Priya Patel", "Raj Patel", "Arjun Patel"],
+                "anita singh": ["Anita Singh"],
+            }
+        };
 
-// CSV Upload Functions
-function downloadTemplate(wedding) {
-    const csvContent = wedding === 'english' ? 
-        "Group Name,Person 1,Person 2,Person 3,Person 4,Person 5,Person 6\n" +
-        "Smith Family,John Smith,Jane Smith,Tommy Smith,Sarah Smith,,\n" +
-        "Jones Couple,Mike Jones,Lisa Jones,,,,\n" +
-        "Brown Single,David Brown,,,,,\n" +
-        "Williams Family,Sarah Williams,Tom Williams,Katie Williams,,,\n" +
-        "Johnson Large Family,Mark Johnson,Emma Johnson,Little Johnson,Grandma Johnson,Uncle Johnson,Cousin Johnson\n" :
-        
-        "Group Name,Person 1,Person 2,Person 3,Person 4,Person 5,Person 6\n" +
-        "Patel Family,Priya Patel,Raj Patel,Arjun Patel,,,\n" +
-        "Kumar Large Family,Vikram Kumar,Sunita Kumar,Rohan Kumar,Kavya Kumar,Grandpa Kumar,\n" +
-        "Singh Single,Anita Singh,,,,,\n" +
-        "Shah Couple,Darshan Shah,Meera Shah,,,,\n" +
-        "Gupta Family,Ravi Gupta,Sita Gupta,Amit Gupta,,,\n";
-    
-    const blob = new Blob([csvContent], { type: 'text/csv' });
-    const url = window.URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `${wedding}_wedding_guests_template.csv`;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    window.URL.revokeObjectURL(url);
-    
-    console.log(`📥 Downloaded ${wedding} wedding template`);
-}
-
-function uploadGuestList(wedding) {
-    const fileInput = document.getElementById(wedding + 'GuestsFile');
-    const file = fileInput.files[0];
-    
-    if (!file) {
-        alert('Please select a CSV file first.');
-        return;
-    }
-    
-    if (!file.name.toLowerCase().endsWith('.csv')) {
-        alert('Please select a CSV file (.csv extension)');
-        return;
-    }
-    
-    const reader = new FileReader();
-    reader.onload = function(e) {
-        try {
-            const csv = e.target.result;
-            const guests = parseCSVToGuestDatabase(csv);
+        // CSV Upload Functions
+        function downloadTemplate(wedding) {
+            const csvContent = wedding === 'english' ? 
+                "Group Name,Person 1,Person 2,Person 3,Person 4,Person 5,Person 6\n" +
+                "Smith Family,John Smith,Jane Smith,Tommy Smith,Sarah Smith,,\n" +
+                "Jones Couple,Mike Jones,Lisa Jones,,,,\n" +
+                "Brown Single,David Brown,,,,,\n" +
+                "Williams Family,Sarah Williams,Tom Williams,Katie Williams,,,\n" +
+                "Johnson Large Family,Mark Johnson,Emma Johnson,Little Johnson,Grandma Johnson,Uncle Johnson,Cousin Johnson\n" :
+                
+                "Group Name,Person 1,Person 2,Person 3,Person 4,Person 5,Person 6\n" +
+                "Patel Family,Priya Patel,Raj Patel,Arjun Patel,,,\n" +
+                "Kumar Large Family,Vikram Kumar,Sunita Kumar,Rohan Kumar,Kavya Kumar,Grandpa Kumar,\n" +
+                "Singh Single,Anita Singh,,,,,\n" +
+                "Shah Couple,Darshan Shah,Meera Shah,,,,\n" +
+                "Gupta Family,Ravi Gupta,Sita Gupta,Amit Gupta,,,\n";
             
-            if (Object.keys(guests).length === 0) {
-                throw new Error('No valid guest data found in CSV');
+            const blob = new Blob([csvContent], { type: 'text/csv' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `${wedding}_wedding_guests_template.csv`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+            
+            console.log(`📥 Downloaded ${wedding} wedding template`);
+        }
+
+        function uploadGuestList(wedding) {
+            const fileInput = document.getElementById(wedding + 'GuestsFile');
+            const file = fileInput.files[0];
+            
+            if (!file) {
+                alert('Please select a CSV file first.');
+                return;
             }
             
-            // Update the guest database
-            guestDatabase[wedding] = guests;
+            if (!file.name.toLowerCase().endsWith('.csv')) {
+                alert('Please select a CSV file (.csv extension)');
+                return;
+            }
             
-            // Save to localStorage for persistence
-            localStorage.setItem(`${wedding}Guests`, JSON.stringify(guests));
-            
-            // Calculate statistics
-            const uniqueGroups = new Set();
-            const allPeople = new Set();
-            
-            Object.entries(guests).forEach(([key, group]) => {
-                if (Array.isArray(group) && group.length > 0) {
-                    // This is a group entry
-                    const groupKey = group.join('|'); // Create unique group identifier
-                    uniqueGroups.add(groupKey);
-                    group.forEach(person => allPeople.add(person));
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const csv = e.target.result;
+                    const guests = parseCSVToGuestDatabase(csv);
+                    
+                    if (Object.keys(guests).length === 0) {
+                        throw new Error('No valid guest data found in CSV');
+                    }
+                    
+                    // Update the guest database
+                    guestDatabase[wedding] = guests;
+                    
+                    // Save to localStorage for persistence
+                    localStorage.setItem(`${wedding}Guests`, JSON.stringify(guests));
+                    
+                    // Calculate statistics
+                    const uniqueGroups = new Set();
+                    const allPeople = new Set();
+                    
+                    Object.entries(guests).forEach(([key, group]) => {
+                        if (Array.isArray(group) && group.length > 0) {
+                            // This is a group entry
+                            const groupKey = group.join('|'); // Create unique group identifier
+                            uniqueGroups.add(groupKey);
+                            group.forEach(person => allPeople.add(person));
+                        }
+                    });
+                    
+                    const groupCount = uniqueGroups.size;
+                    const totalPeople = allPeople.size;
+                    
+                    // Update the count display
+                    const countElement = document.getElementById(`${wedding}GuestCount`);
+                    if (countElement) {
+                        countElement.innerHTML = `✅ ${totalPeople} guests in ${groupCount} groups loaded`;
+                        countElement.style.color = '#28a745';
+                    }
+                    
+                    // Show success message
+                    alert(`✅ ${wedding.charAt(0).toUpperCase() + wedding.slice(1)} wedding guest list uploaded successfully!\n\n📊 Summary:\n• ${totalPeople} total guests\n• ${groupCount} groups\n\n🎯 Ready to test! Try RSVPing with any name from your list.`);
+                    
+                    console.log(`✅ Loaded ${wedding} wedding:`, { totalPeople, groupCount, sampleKeys: Object.keys(guests).slice(0, 5) });
+                    
+                } catch (error) {
+                    console.error('Error parsing CSV:', error);
+                    alert(`❌ Error reading CSV file: ${error.message}\n\nPlease check:\n• First row has headers (Group Name, Person 1, Person 2, etc.)\n• At least one person per group\n• File is saved as CSV format\n• No special characters in names`);
                 }
-            });
+            };
+            reader.readAsText(file);
+        }
+
+        function parseCSVToGuestDatabase(csv) {
+            const lines = csv.trim().split('\n');
+            const guests = {};
             
-            const groupCount = uniqueGroups.size;
-            const totalPeople = allPeople.size;
-            
-            // Update the count display
-            const countElement = document.getElementById(`${wedding}GuestCount`);
-            if (countElement) {
-                countElement.innerHTML = `✅ ${totalPeople} guests in ${groupCount} groups loaded`;
-                countElement.style.color = '#28a745';
+            if (lines.length < 2) {
+                throw new Error('CSV file must have at least a header row and one data row');
             }
             
-            // Show success message
-            alert(`✅ ${wedding.charAt(0).toUpperCase() + wedding.slice(1)} wedding guest list uploaded successfully!\n\n📊 Summary:\n• ${totalPeople} total guests\n• ${groupCount} groups\n\n🎯 Ready to test! Try RSVPing with any name from your list.`);
+            console.log(`📊 Processing ${lines.length - 1} rows from CSV...`);
             
-            console.log(`✅ Loaded ${wedding} wedding:`, { totalPeople, groupCount, sampleKeys: Object.keys(guests).slice(0, 5) });
-            
-        } catch (error) {
-            console.error('Error parsing CSV:', error);
-            alert(`❌ Error reading CSV file: ${error.message}\n\nPlease check:\n• First row has headers (Group Name, Person 1, Person 2, etc.)\n• At least one person per group\n• File is saved as CSV format\n• No special characters in names`);
-        }
-    };
-    reader.readAsText(file);
-}
-
-function parseCSVToGuestDatabase(csv) {
-    const lines = csv.trim().split('\n');
-    const guests = {};
-    
-    if (lines.length < 2) {
-        throw new Error('CSV file must have at least a header row and one data row');
-    }
-    
-    console.log(`📊 Processing ${lines.length - 1} rows from CSV...`);
-    
-    // Skip header row (line 0)
-    for (let i = 1; i < lines.length; i++) {
-        const line = lines[i].trim();
-        if (!line) continue; // Skip empty lines
-        
-        const columns = parseCSVLine(line);
-        
-        if (columns.length < 2) {
-            console.warn(`⚠️ Row ${i + 1} skipped: needs at least group name and one person`);
-            continue;
-        }
-        
-        const groupName = columns[0].trim();
-        if (!groupName) {
-            console.warn(`⚠️ Row ${i + 1} skipped: no group name`);
-            continue;
-        }
-        
-        const members = [];
-        
-        // Get all non-empty person names (columns 1 onwards)
-        for (let j = 1; j < columns.length; j++) {
-            const person = columns[j].trim();
-            if (person) {
-                members.push(person);
-            }
-        }
-        
-        if (members.length === 0) {
-            console.warn(`⚠️ Row ${i + 1} skipped: no people found for group "${groupName}"`);
-            continue;
-        }
-        
-        // Create search keys for the group
-        const searchKeys = [
-            groupName.toLowerCase(),
-            ...members.map(member => member.toLowerCase())
-        ];
-        
-        // Add entry for each search key pointing to the same member list
-        searchKeys.forEach(key => {
-            guests[key] = [...members]; // Create a copy of the array
-        });
-        
-        console.log(`✅ Added group "${groupName}" with ${members.length} members:`, members);
-    }
-    
-    console.log(`🎉 Successfully processed ${Object.keys(guests).length} search keys`);
-    return guests;
-}
-
-// Helper function to properly parse CSV lines (handles commas in quotes)
-function parseCSVLine(line) {
-    const result = [];
-    let current = '';
-    let inQuotes = false;
-    
-    for (let i = 0; i < line.length; i++) {
-        const char = line[i];
-        
-        if (char === '"') {
-            inQuotes = !inQuotes;
-        } else if (char === ',' && !inQuotes) {
-            result.push(current);
-            current = '';
-        } else {
-            current += char;
-        }
-    }
-    
-    result.push(current); // Add the last field
-    return result;
-}
-
-// Load saved guest lists on page load
-function loadSavedGuestLists() {
-    try {
-        const englishGuests = localStorage.getItem('englishGuests');
-        const indianGuests = localStorage.getItem('indianGuests');
-        
-        if (englishGuests) {
-            guestDatabase.english = JSON.parse(englishGuests);
-            console.log('✅ Loaded English wedding guests from storage');
-            
-            // Update count display
-            const uniquePeople = new Set();
-            Object.values(guestDatabase.english).forEach(group => {
-                if (Array.isArray(group)) {
-                    group.forEach(person => uniquePeople.add(person));
+            // Skip header row (line 0)
+            for (let i = 1; i < lines.length; i++) {
+                const line = lines[i].trim();
+                if (!line) continue; // Skip empty lines
+                
+                const columns = parseCSVLine(line);
+                
+                if (columns.length < 2) {
+                    console.warn(`⚠️ Row ${i + 1} skipped: needs at least group name and one person`);
+                    continue;
                 }
-            });
-            const countElement = document.getElementById('englishGuestCount');
-            if (countElement) {
-                countElement.innerHTML = `✅ ${uniquePeople.size} guests loaded from storage`;
-                countElement.style.color = '#28a745';
-            }
-        }
-        
-        if (indianGuests) {
-            guestDatabase.indian = JSON.parse(indianGuests);
-            console.log('✅ Loaded Indian wedding guests from storage');
-            
-            // Update count display
-            const uniquePeople = new Set();
-            Object.values(guestDatabase.indian).forEach(group => {
-                if (Array.isArray(group)) {
-                    group.forEach(person => uniquePeople.add(person));
+                
+                const groupName = columns[0].trim();
+                if (!groupName) {
+                    console.warn(`⚠️ Row ${i + 1} skipped: no group name`);
+                    continue;
                 }
-            });
-            const countElement = document.getElementById('indianGuestCount');
-            if (countElement) {
-                countElement.innerHTML = `✅ ${uniquePeople.size} guests loaded from storage`;
-                countElement.style.color = '#28a745';
+                
+                const members = [];
+                
+                // Get all non-empty person names (columns 1 onwards)
+                for (let j = 1; j < columns.length; j++) {
+                    const person = columns[j].trim();
+                    if (person) {
+                        members.push(person);
+                    }
+                }
+                
+                if (members.length === 0) {
+                    console.warn(`⚠️ Row ${i + 1} skipped: no people found for group "${groupName}"`);
+                    continue;
+                }
+                
+                // Create search keys for the group
+                const searchKeys = [
+                    groupName.toLowerCase(),
+                    ...members.map(member => member.toLowerCase())
+                ];
+                
+                // Add entry for each search key pointing to the same member list
+                searchKeys.forEach(key => {
+                    guests[key] = [...members]; // Create a copy of the array
+                });
+                
+                console.log(`✅ Added group "${groupName}" with ${members.length} members:`, members);
+            }
+            
+            console.log(`🎉 Successfully processed ${Object.keys(guests).length} search keys`);
+            return guests;
+        }
+
+        // Helper function to properly parse CSV lines (handles commas in quotes)
+        function parseCSVLine(line) {
+            const result = [];
+            let current = '';
+            let inQuotes = false;
+            
+            for (let i = 0; i < line.length; i++) {
+                const char = line[i];
+                
+                if (char === '"') {
+                    inQuotes = !inQuotes;
+                } else if (char === ',' && !inQuotes) {
+                    result.push(current);
+                    current = '';
+                } else {
+                    current += char;
+                }
+            }
+            
+            result.push(current); // Add the last field
+            return result;
+        }
+
+        // Load saved guest lists on page load
+        function loadSavedGuestLists() {
+            try {
+                const englishGuests = localStorage.getItem('englishGuests');
+                const indianGuests = localStorage.getItem('indianGuests');
+                
+                if (englishGuests) {
+                    guestDatabase.english = JSON.parse(englishGuests);
+                    console.log('✅ Loaded English wedding guests from storage');
+                    
+                    // Update count display
+                    const uniquePeople = new Set();
+                    Object.values(guestDatabase.english).forEach(group => {
+                        if (Array.isArray(group)) {
+                            group.forEach(person => uniquePeople.add(person));
+                        }
+                    });
+                    const countElement = document.getElementById('englishGuestCount');
+                    if (countElement) {
+                        countElement.innerHTML = `✅ ${uniquePeople.size} guests loaded from storage`;
+                        countElement.style.color = '#28a745';
+                    }
+                }
+                
+                if (indianGuests) {
+                    guestDatabase.indian = JSON.parse(indianGuests);
+                    console.log('✅ Loaded Indian wedding guests from storage');
+                    
+                    // Update count display
+                    const uniquePeople = new Set();
+                    Object.values(guestDatabase.indian).forEach(group => {
+                        if (Array.isArray(group)) {
+                            group.forEach(person => uniquePeople.add(person));
+                        }
+                    });
+                    const countElement = document.getElementById('indianGuestCount');
+                    if (countElement) {
+                        countElement.innerHTML = `✅ ${uniquePeople.size} guests loaded from storage`;
+                        countElement.style.color = '#28a745';
+                    }
+                }
+            } catch (error) {
+                console.error('Error loading saved guest lists:', error);
             }
         }
-    } catch (error) {
-        console.error('Error loading saved guest lists:', error);
-    }
-}
 
-// Enhanced guest search with better feedback
-function findGuestGroup(name, wedding) {
-    const normalizedName = name.toLowerCase().trim();
-    const guests = guestDatabase[wedding];
-    
-    if (!guests) {
-        console.log(`❌ No guest database found for ${wedding} wedding`);
-        return null;
-    }
-    
-    const group = guests[normalizedName];
-    if (group) {
-        console.log(`✅ Found group for "${name}":`, group);
-        return group;
-    }
-    
-    console.log(`❌ No group found for "${name}" in ${wedding} wedding`);
-    console.log('Available names:', Object.keys(guests).slice(0, 10)); // Show first 10 for debugging
-    return null;
-}
+        // Enhanced guest search with better feedback
+        function findGuestGroup(name, wedding) {
+            const normalizedName = name.toLowerCase().trim();
+            const guests = guestDatabase[wedding];
+            
+            if (!guests) {
+                console.log(`❌ No guest database found for ${wedding} wedding`);
+                return null;
+            }
+            
+            const group = guests[normalizedName];
+            if (group) {
+                console.log(`✅ Found group for "${name}":`, group);
+                return group;
+            }
+            
+            console.log(`❌ No group found for "${name}" in ${wedding} wedding`);
+            console.log('Available names:', Object.keys(guests).slice(0, 10)); // Show first 10 for debugging
+            return null;
+        }
 
         // Dashboard data storage
         let dashboardData = {
@@ -2679,7 +2700,7 @@ function findGuestGroup(name, wedding) {
         let groupMembers = [];
         let rsvpResponses = [];
 
-        // URL-based direct access
+        // URL-based direct access with updated URLs
         function checkURLForDirectAccess() {
             const path = window.location.pathname;
             const params = new URLSearchParams(window.location.search);
@@ -2693,7 +2714,7 @@ function findGuestGroup(name, wedding) {
             }
         }
 
-        // Wedding selection functionality
+        // Wedding selection functionality with updated URLs
         function showWedding(type) {
             document.getElementById('weddingSelector').style.display = 'none';
             document.getElementById('dashboardPage').classList.remove('active');
@@ -2702,12 +2723,12 @@ function findGuestGroup(name, wedding) {
                 document.getElementById('englishWedding').classList.add('active');
                 document.getElementById('indianWedding').classList.remove('active');
                 updateCountdown('english');
-                window.history.pushState({}, '', '?path=1stMay2026');
+                window.history.pushState({}, '', '/1stMay2026');
             } else if (type === 'indian') {
                 document.getElementById('indianWedding').classList.add('active');
                 document.getElementById('englishWedding').classList.remove('active');
                 updateCountdown('indian');
-                window.history.pushState({}, '', '?path=10thMay2026');
+                window.history.pushState({}, '', '/10thMay2026');
             }
             currentWedding = type;
             
@@ -2960,12 +2981,6 @@ function findGuestGroup(name, wedding) {
             if (element) {
                 element.textContent = days > 0 ? days : '0';
             }
-        }
-
-        // RSVP Wizard Functions
-        function findGuestGroup(name, wedding) {
-            const normalizedName = name.toLowerCase().trim();
-            return guestDatabase[wedding][normalizedName] || null;
         }
 
         function englishNextStep(step) {
@@ -3337,18 +3352,18 @@ function findGuestGroup(name, wedding) {
             }
         }
 
-// Initialize everything
-document.addEventListener('DOMContentLoaded', function() {
-    updateCountdown('english');
-    updateCountdown('indian');
-    loadSavedGuestLists(); // Add this line
-    
-    // Set up daily countdown updates
-    setInterval(() => {
-        updateCountdown('english');
-        updateCountdown('indian');
-    }, 86400000); // Update daily
-});
+        // Initialize everything
+        document.addEventListener('DOMContentLoaded', function() {
+            updateCountdown('english');
+            updateCountdown('indian');
+            loadSavedGuestLists(); // Load saved guest lists
+            
+            // Set up daily countdown updates
+            setInterval(() => {
+                updateCountdown('english');
+                updateCountdown('indian');
+            }, 86400000); // Update daily
+        });
 
         // Handle browser back/forward buttons
         window.addEventListener('popstate', function() {
@@ -3359,7 +3374,3 @@ document.addEventListener('DOMContentLoaded', function() {
     </script>
 </body>
 </html>
-
-
-
-
