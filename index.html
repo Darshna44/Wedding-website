@@ -2377,15 +2377,66 @@
                 document.getElementById('passwordInput').value = '';
             }
         }
+// Enhanced URL handling for direct access
+function checkURLForDirectAccess() {
+    const path = window.location.pathname;
+    const hash = window.location.hash;
+    
+    console.log('Checking URL access:', path, hash);
+    
+    // Handle direct URL access
+    if (path === '/1stMay2026' || path.includes('1stMay2026') || hash === '#english') {
+        showWedding('english');
+        return true;
+    } else if (path === '/10thMay2026' || path.includes('10thMay2026') || hash === '#indian') {
+        showWedding('indian');
+        return true;
+    } else if (path.includes('/dashboard') || hash === '#dashboard') {
+        showDashboard();
+        return true;
+    }
+    
+    return false;
+}
 
-        // Check if already authenticated
-        window.addEventListener('load', function() {
-            if (sessionStorage.getItem('weddingAccess') === 'true') {
-                document.getElementById('passwordScreen').style.display = 'none';
-                document.getElementById('mainContent').classList.remove('hidden');
-                checkURLForDirectAccess();
-            }
-        });
+// Handle direct access without password for wedding pages
+function handleDirectAccess() {
+    const path = window.location.pathname;
+    
+    // Skip password for direct wedding access
+    if (path.includes('1stMay2026') || path.includes('10thMay2026')) {
+        sessionStorage.setItem('weddingAccess', 'true');
+        document.getElementById('passwordScreen').style.display = 'none';
+        document.getElementById('mainContent').classList.remove('hidden');
+        
+        if (path.includes('1stMay2026')) {
+            showWedding('english');
+        } else if (path.includes('10thMay2026')) {
+            showWedding('indian');
+        }
+        return true;
+    }
+    return false;
+}
+
+// Updated window load event
+window.addEventListener('load', function() {
+    // Try direct access first (bypasses password for wedding pages)
+    if (handleDirectAccess()) {
+        return;
+    }
+    
+    // Otherwise check if already authenticated
+    if (sessionStorage.getItem('weddingAccess') === 'true') {
+        document.getElementById('passwordScreen').style.display = 'none';
+        document.getElementById('mainContent').classList.remove('hidden');
+        
+        // Try to navigate to direct URL, if no match show selector
+        if (!checkURLForDirectAccess()) {
+            document.getElementById('weddingSelector').style.display = 'flex';
+        }
+    }
+});
 
         // Allow Enter key for password
         document.getElementById('passwordInput').addEventListener('keypress', function(e) {
@@ -2394,43 +2445,88 @@
             }
         });
 
-        // URL-based direct access with updated URLs
-        function checkURLForDirectAccess() {
-            const path = window.location.pathname;
-            const params = new URLSearchParams(window.location.search);
-            
-            if (path.includes('/1stMay2026') || params.get('path') === '1stMay2026') {
-                showWedding('english');
-            } else if (path.includes('/10thMay2026') || params.get('path') === '10thMay2026') {
-                showWedding('indian');
-            } else if (path.includes('/dashboard') || params.get('path') === 'dashboard') {
-                showDashboard();
-            }
-        }
+// Enhanced URL handling for direct access
+function checkURLForDirectAccess() {
+    const path = window.location.pathname;
+    const hash = window.location.hash;
+    
+    console.log('Checking URL access:', path, hash);
+    
+    // Handle direct URL access
+    if (path === '/1stMay2026' || path.includes('1stMay2026') || hash === '#english') {
+        showWedding('english');
+        return true;
+    } else if (path === '/10thMay2026' || path.includes('10thMay2026') || hash === '#indian') {
+        showWedding('indian');
+        return true;
+    } else if (path.includes('/dashboard') || hash === '#dashboard') {
+        showDashboard();
+        return true;
+    }
+    
+    return false;
+}
 
-        // Wedding selection functionality with updated URLs
-        function showWedding(type) {
-            document.getElementById('weddingSelector').style.display = 'none';
-            document.getElementById('dashboardPage').classList.remove('active');
-            
-            if (type === 'english') {
-                document.getElementById('englishWedding').classList.add('active');
-                document.getElementById('indianWedding').classList.remove('active');
-                updateCountdown('english');
-                window.history.pushState({}, '', '/1stMay2026');
-            } else if (type === 'indian') {
-                document.getElementById('indianWedding').classList.add('active');
-                document.getElementById('englishWedding').classList.remove('active');
-                updateCountdown('indian');
-                window.history.pushState({}, '', '/10thMay2026');
-            }
-            currentWedding = type;
-            
-            // Set up photo changing with a small delay to ensure DOM is ready
-            setTimeout(() => {
-                setupPhotoChanging(type);
-            }, 100);
+// Handle direct access without password for wedding pages
+function handleDirectAccess() {
+    const path = window.location.pathname;
+    
+    // Skip password for direct wedding access
+    if (path.includes('1stMay2026') || path.includes('10thMay2026')) {
+        sessionStorage.setItem('weddingAccess', 'true');
+        document.getElementById('passwordScreen').style.display = 'none';
+        document.getElementById('mainContent').classList.remove('hidden');
+        
+        if (path.includes('1stMay2026')) {
+            showWedding('english');
+        } else if (path.includes('10thMay2026')) {
+            showWedding('indian');
         }
+        return true;
+    }
+    return false;
+}
+
+// Updated window load event
+window.addEventListener('load', function() {
+    // Try direct access first (bypasses password for wedding pages)
+    if (handleDirectAccess()) {
+        return;
+    }
+    
+    // Otherwise check if already authenticated
+    if (sessionStorage.getItem('weddingAccess') === 'true') {
+        document.getElementById('passwordScreen').style.display = 'none';
+        document.getElementById('mainContent').classList.remove('hidden');
+        
+        // Try to navigate to direct URL, if no match show selector
+        if (!checkURLForDirectAccess()) {
+            document.getElementById('weddingSelector').style.display = 'flex';
+        }
+    }
+});
+        // Wedding selection functionality with updated URLs
+function showWedding(type) {
+    document.getElementById('weddingSelector').style.display = 'none';
+    document.getElementById('dashboardPage').classList.remove('active');
+    
+    if (type === 'english') {
+        document.getElementById('englishWedding').classList.add('active');
+        document.getElementById('indianWedding').classList.remove('active');
+        updateCountdown('english');
+        window.history.replaceState({}, '', '/1stMay2026');
+    } else if (type === 'indian') {
+        document.getElementById('indianWedding').classList.add('active');
+        document.getElementById('englishWedding').classList.remove('active');
+        updateCountdown('indian');
+        window.history.replaceState({}, '', '/10thMay2026');
+    }
+    currentWedding = type;
+    
+    setTimeout(() => {
+        setupPhotoChanging(type);
+    }, 100);
+}
 
         // Dashboard functionality
         function showDashboard() {
@@ -3127,3 +3223,4 @@
     </script>
 </body>
 </html>
+
