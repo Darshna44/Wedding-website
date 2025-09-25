@@ -13,7 +13,6 @@
             box-sizing: border-box;
         }
 
-        
         body {
             font-family: 'Lora', serif;
             line-height: 1.6;
@@ -1674,7 +1673,7 @@
                     <div class="stat-card">
                         <h3>Total Responses</h3>
                         <div class="stat-number" id="totalResponses">0</div>
-                        <div class="stat-label">out of <span id="totalInvited">0</span> invited</div>
+                        <div class="stat-label">RSVP submissions</div>
                         <div class="progress-bar">
                             <div class="progress-fill" id="overallProgress" style="width: 0%"></div>
                         </div>
@@ -1686,8 +1685,8 @@
                     </div>
                     <div class="stat-card">
                         <h3>Response Rate</h3>
-                        <div class="stat-number" id="responseRate">0%</div>
-                        <div class="stat-label">of invites responded</div>
+                        <div class="stat-number" id="responseRate">100%</div>
+                        <div class="stat-label">open RSVP system</div>
                     </div>
                 </div>
 
@@ -1697,7 +1696,7 @@
                         <h3>English Wedding</h3>
                         <p><strong>Attending:</strong> <span id="englishAttending">0</span></p>
                         <p><strong>Declined:</strong> <span id="englishDeclined">0</span></p>
-                        <p><strong>Pending:</strong> <span id="englishPending">0</span></p>
+                        <p><strong>Total RSVPs:</strong> <span id="englishTotal">0</span></p>
                         <div class="progress-bar">
                             <div class="progress-fill" id="englishProgress" style="width: 0%"></div>
                         </div>
@@ -1706,7 +1705,7 @@
                         <h3>Indian Wedding</h3>
                         <p><strong>Attending:</strong> <span id="indianAttending">0</span></p>
                         <p><strong>Declined:</strong> <span id="indianDeclined">0</span></p>
-                        <p><strong>Pending:</strong> <span id="indianPending">0</span></p>
+                        <p><strong>Total RSVPs:</strong> <span id="indianTotal">0</span></p>
                         <div class="progress-bar">
                             <div class="progress-fill" id="indianProgress" style="width: 0%"></div>
                         </div>
@@ -1759,43 +1758,6 @@
                     <h3>Dietary Requirements Summary</h3>
                     <div id="dietaryList">
                         <p>No dietary requirements reported yet.</p>
-                    </div>
-                </div>
-
-                <!-- Guest List Management - Only show on dashboard -->
-                <div class="guest-management">
-                    <h3>Guest List Management</h3>
-                    
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem;">
-                        <div class="upload-section" style="padding: 1.5rem; border: 2px solid #e8a87c; border-radius: 10px; text-align: center;">
-                            <h4 style="color: #F47A43; margin-bottom: 1rem;">English Wedding Guests</h4>
-                            <input type="file" id="englishGuestsFile" accept=".csv" style="margin-bottom: 1rem; width: 100%; padding: 0.5rem;">
-                            <div style="display: flex; gap: 0.5rem; justify-content: center;">
-                                <button onclick="uploadGuestList('english')" style="background: #e8a87c; color: white; padding: 0.5rem 1rem; border: none; border-radius: 5px; cursor: pointer;">Upload CSV</button>
-                                <button onclick="downloadTemplate('english')" style="background: #8b7355; color: white; padding: 0.5rem 1rem; border: none; border-radius: 5px; cursor: pointer;">Download Template</button>
-                            </div>
-                            <div id="englishGuestCount" style="margin-top: 0.5rem; font-size: 0.9rem; color: #666;"></div>
-                        </div>
-                        
-                        <div class="upload-section" style="padding: 1.5rem; border: 2px solid #E72A5C; border-radius: 10px; text-align: center;">
-                            <h4 style="color: #E72A5C; margin-bottom: 1rem;">Indian Wedding Guests</h4>
-                            <input type="file" id="indianGuestsFile" accept=".csv" style="margin-bottom: 1rem; width: 100%; padding: 0.5rem;">
-                            <div style="display: flex; gap: 0.5rem; justify-content: center;">
-                                <button onclick="uploadGuestList('indian')" style="background: #E72A5C; color: white; padding: 0.5rem 1rem; border: none; border-radius: 5px; cursor: pointer;">Upload CSV</button>
-                                <button onclick="downloadTemplate('indian')" style="background: #704AAF; color: white; padding: 0.5rem 1rem; border: none; border-radius: 5px; cursor: pointer;">Download Template</button>
-                            </div>
-                            <div id="indianGuestCount" style="margin-top: 0.5rem; font-size: 0.9rem; color: #666;"></div>
-                        </div>
-                    </div>
-                    
-                    <div style="background: #f8f9fa; padding: 1rem; border-radius: 8px; border-left: 4px solid #17a2b8;">
-                        <h5 style="color: #17a2b8; margin-bottom: 0.5rem;">📋 Instructions:</h5>
-                        <ol style="margin: 0; padding-left: 1.5rem; font-size: 0.9rem; color: #666;">
-                            <li>Click "Download Template" to get the CSV format</li>
-                            <li>Fill in your guest lists (groups can be any size)</li>
-                            <li>Save as CSV and upload using "Upload CSV"</li>
-                            <li>Test the RSVP system with sample names</li>
-                        </ol>
                     </div>
                 </div>
             </div>
@@ -2013,7 +1975,7 @@
                                 <div class="step-title">Review & Submit</div>
                                 <div id="englishRsvpSummary"></div>
                                 <div class="wizard-buttons">
-                                    <button class="btn btn-secondary" onclick="englishPrevStep()">Previous</button>
+                                    <button class="btn btn-secondary" onclick="startNewRSVP('english')">Start Over</button>
                                     <button class="btn" onclick="submitEnglishRSVP()">Submit RSVP</button>
                                 </div>
                             </div>
@@ -2258,7 +2220,7 @@
                                 <div class="step-title">Review & Submit</div>
                                 <div id="indianRsvpSummary"></div>
                                 <div class="wizard-buttons">
-                                    <button class="btn btn-secondary" onclick="indianPrevStep()">Previous</button>
+                                    <button class="btn btn-secondary" onclick="startNewRSVP('indian')">Start Over</button>
                                     <button class="btn" onclick="submitIndianRSVP()">Submit RSVP</button>
                                 </div>
                             </div>
@@ -2373,271 +2335,11 @@
     </div>
 
     <script>
-        // Guest Database - Will be populated from CSV uploads
-        let guestDatabase = {
-            english: {
-                // Sample data for testing - will be replaced when you upload CSV
-                "john smith": ["John Smith", "Jane Smith", "Tommy Smith", "Sarah Smith"],
-                "jane smith": ["John Smith", "Jane Smith", "Tommy Smith", "Sarah Smith"],
-                "mike jones": ["Mike Jones", "Lisa Jones"],
-                "lisa jones": ["Mike Jones", "Lisa Jones"],
-                "david brown": ["David Brown"],
-            },
-            indian: {
-                // Sample data for testing - will be replaced when you upload CSV
-                "priya patel": ["Priya Patel", "Raj Patel", "Arjun Patel"],
-                "raj patel": ["Priya Patel", "Raj Patel", "Arjun Patel"],
-                "arjun patel": ["Priya Patel", "Raj Patel", "Arjun Patel"],
-                "anita singh": ["Anita Singh"],
-            }
-        };
-
-        // CSV Upload Functions
-        function downloadTemplate(wedding) {
-            const csvContent = wedding === 'english' ? 
-                "Group Name,Person 1,Person 2,Person 3,Person 4,Person 5,Person 6\n" +
-                "Smith Family,John Smith,Jane Smith,Tommy Smith,Sarah Smith,,\n" +
-                "Jones Couple,Mike Jones,Lisa Jones,,,,\n" +
-                "Brown Single,David Brown,,,,,\n" +
-                "Williams Family,Sarah Williams,Tom Williams,Katie Williams,,,\n" +
-                "Johnson Large Family,Mark Johnson,Emma Johnson,Little Johnson,Grandma Johnson,Uncle Johnson,Cousin Johnson\n" :
-                
-                "Group Name,Person 1,Person 2,Person 3,Person 4,Person 5,Person 6\n" +
-                "Patel Family,Priya Patel,Raj Patel,Arjun Patel,,,\n" +
-                "Kumar Large Family,Vikram Kumar,Sunita Kumar,Rohan Kumar,Kavya Kumar,Grandpa Kumar,\n" +
-                "Singh Single,Anita Singh,,,,,\n" +
-                "Shah Couple,Darshan Shah,Meera Shah,,,,\n" +
-                "Gupta Family,Ravi Gupta,Sita Gupta,Amit Gupta,,,\n";
-            
-            const blob = new Blob([csvContent], { type: 'text/csv' });
-            const url = window.URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = `${wedding}_wedding_guests_template.csv`;
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            window.URL.revokeObjectURL(url);
-            
-            console.log(`📥 Downloaded ${wedding} wedding template`);
-        }
-
-        function uploadGuestList(wedding) {
-            const fileInput = document.getElementById(wedding + 'GuestsFile');
-            const file = fileInput.files[0];
-            
-            if (!file) {
-                alert('Please select a CSV file first.');
-                return;
-            }
-            
-            if (!file.name.toLowerCase().endsWith('.csv')) {
-                alert('Please select a CSV file (.csv extension)');
-                return;
-            }
-            
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                try {
-                    const csv = e.target.result;
-                    const guests = parseCSVToGuestDatabase(csv);
-                    
-                    if (Object.keys(guests).length === 0) {
-                        throw new Error('No valid guest data found in CSV');
-                    }
-                    
-                    // Update the guest database
-                    guestDatabase[wedding] = guests;
-                    
-                    // Save to localStorage for persistence
-                    localStorage.setItem(`${wedding}Guests`, JSON.stringify(guests));
-                    
-                    // Calculate statistics
-                    const uniqueGroups = new Set();
-                    const allPeople = new Set();
-                    
-                    Object.entries(guests).forEach(([key, group]) => {
-                        if (Array.isArray(group) && group.length > 0) {
-                            // This is a group entry
-                            const groupKey = group.join('|'); // Create unique group identifier
-                            uniqueGroups.add(groupKey);
-                            group.forEach(person => allPeople.add(person));
-                        }
-                    });
-                    
-                    const groupCount = uniqueGroups.size;
-                    const totalPeople = allPeople.size;
-                    
-                    // Update the count display
-                    const countElement = document.getElementById(`${wedding}GuestCount`);
-                    if (countElement) {
-                        countElement.innerHTML = `✅ ${totalPeople} guests in ${groupCount} groups loaded`;
-                        countElement.style.color = '#28a745';
-                    }
-                    
-                    // Show success message
-                    alert(`✅ ${wedding.charAt(0).toUpperCase() + wedding.slice(1)} wedding guest list uploaded successfully!\n\n📊 Summary:\n• ${totalPeople} total guests\n• ${groupCount} groups\n\n🎯 Ready to test! Try RSVPing with any name from your list.`);
-                    
-                    console.log(`✅ Loaded ${wedding} wedding:`, { totalPeople, groupCount, sampleKeys: Object.keys(guests).slice(0, 5) });
-                    
-                } catch (error) {
-                    console.error('Error parsing CSV:', error);
-                    alert(`❌ Error reading CSV file: ${error.message}\n\nPlease check:\n• First row has headers (Group Name, Person 1, Person 2, etc.)\n• At least one person per group\n• File is saved as CSV format\n• No special characters in names`);
-                }
-            };
-            reader.readAsText(file);
-        }
-
-        function parseCSVToGuestDatabase(csv) {
-            const lines = csv.trim().split('\n');
-            const guests = {};
-            
-            if (lines.length < 2) {
-                throw new Error('CSV file must have at least a header row and one data row');
-            }
-            
-            console.log(`📊 Processing ${lines.length - 1} rows from CSV...`);
-            
-            // Skip header row (line 0)
-            for (let i = 1; i < lines.length; i++) {
-                const line = lines[i].trim();
-                if (!line) continue; // Skip empty lines
-                
-                const columns = parseCSVLine(line);
-                
-                if (columns.length < 2) {
-                    console.warn(`⚠️ Row ${i + 1} skipped: needs at least group name and one person`);
-                    continue;
-                }
-                
-                const groupName = columns[0].trim();
-                if (!groupName) {
-                    console.warn(`⚠️ Row ${i + 1} skipped: no group name`);
-                    continue;
-                }
-                
-                const members = [];
-                
-                // Get all non-empty person names (columns 1 onwards)
-                for (let j = 1; j < columns.length; j++) {
-                    const person = columns[j].trim();
-                    if (person) {
-                        members.push(person);
-                    }
-                }
-                
-                if (members.length === 0) {
-                    console.warn(`⚠️ Row ${i + 1} skipped: no people found for group "${groupName}"`);
-                    continue;
-                }
-                
-                // Create search keys for the group
-                const searchKeys = [
-                    groupName.toLowerCase(),
-                    ...members.map(member => member.toLowerCase())
-                ];
-                
-                // Add entry for each search key pointing to the same member list
-                searchKeys.forEach(key => {
-                    guests[key] = [...members]; // Create a copy of the array
-                });
-                
-                console.log(`✅ Added group "${groupName}" with ${members.length} members:`, members);
-            }
-            
-            console.log(`🎉 Successfully processed ${Object.keys(guests).length} search keys`);
-            return guests;
-        }
-
-        // Helper function to properly parse CSV lines (handles commas in quotes)
-        function parseCSVLine(line) {
-            const result = [];
-            let current = '';
-            let inQuotes = false;
-            
-            for (let i = 0; i < line.length; i++) {
-                const char = line[i];
-                
-                if (char === '"') {
-                    inQuotes = !inQuotes;
-                } else if (char === ',' && !inQuotes) {
-                    result.push(current);
-                    current = '';
-                } else {
-                    current += char;
-                }
-            }
-            
-            result.push(current); // Add the last field
-            return result;
-        }
-
-        // Load saved guest lists on page load
-        function loadSavedGuestLists() {
-            try {
-                const englishGuests = localStorage.getItem('englishGuests');
-                const indianGuests = localStorage.getItem('indianGuests');
-                
-                if (englishGuests) {
-                    guestDatabase.english = JSON.parse(englishGuests);
-                    console.log('✅ Loaded English wedding guests from storage');
-                    
-                    // Update count display
-                    const uniquePeople = new Set();
-                    Object.values(guestDatabase.english).forEach(group => {
-                        if (Array.isArray(group)) {
-                            group.forEach(person => uniquePeople.add(person));
-                        }
-                    });
-                    const countElement = document.getElementById('englishGuestCount');
-                    if (countElement) {
-                        countElement.innerHTML = `✅ ${uniquePeople.size} guests loaded from storage`;
-                        countElement.style.color = '#28a745';
-                    }
-                }
-                
-                if (indianGuests) {
-                    guestDatabase.indian = JSON.parse(indianGuests);
-                    console.log('✅ Loaded Indian wedding guests from storage');
-                    
-                    // Update count display
-                    const uniquePeople = new Set();
-                    Object.values(guestDatabase.indian).forEach(group => {
-                        if (Array.isArray(group)) {
-                            group.forEach(person => uniquePeople.add(person));
-                        }
-                    });
-                    const countElement = document.getElementById('indianGuestCount');
-                    if (countElement) {
-                        countElement.innerHTML = `✅ ${uniquePeople.size} guests loaded from storage`;
-                        countElement.style.color = '#28a745';
-                    }
-                }
-            } catch (error) {
-                console.error('Error loading saved guest lists:', error);
-            }
-        }
-
-        // Enhanced guest search with better feedback
-        function findGuestGroup(name, wedding) {
-            const normalizedName = name.toLowerCase().trim();
-            const guests = guestDatabase[wedding];
-            
-            if (!guests) {
-                console.log(`❌ No guest database found for ${wedding} wedding`);
-                return null;
-            }
-            
-            const group = guests[normalizedName];
-            if (group) {
-                console.log(`✅ Found group for "${name}":`, group);
-                return group;
-            }
-            
-            console.log(`❌ No group found for "${name}" in ${wedding} wedding`);
-            console.log('Available names:', Object.keys(guests).slice(0, 10)); // Show first 10 for debugging
-            return null;
-        }
+        // Simplified RSVP Variables - No guest database needed
+        let currentWedding = '';
+        let currentPersonIndex = 0;
+        let allRsvpResponses = []; // Store all people's responses
+        let currentPersonResponse = {}; // Current person being processed
 
         // Dashboard data storage
         let dashboardData = {
@@ -2645,7 +2347,6 @@
                 responses: [],
                 attending: 0,
                 declined: 0,
-                pending: 0,
                 meals: {
                     starter1: 0,
                     starter2: 0,
@@ -2658,7 +2359,6 @@
                 responses: [],
                 attending: 0,
                 declined: 0,
-                pending: 0,
                 dietary: []
             }
         };
@@ -2693,13 +2393,6 @@
                 checkPassword();
             }
         });
-
-        // RSVP Variables
-        let currentWedding = '';
-        let currentStep = 1;
-        let currentPersonIndex = 0;
-        let groupMembers = [];
-        let rsvpResponses = [];
 
         // URL-based direct access with updated URLs
         function checkURLForDirectAccess() {
@@ -2749,7 +2442,7 @@
             refreshDashboard();
         }
 
-        // Photo changing functionality - FIXED VERSION
+        // Photo changing functionality
         function setupPhotoChanging(wedding) {
             const photoImg = document.getElementById(wedding + 'Photo');
             const sections = document.querySelectorAll(`#${wedding}Wedding .content-section[data-photo]`);
@@ -2893,10 +2586,6 @@
             dashboardData[wedding].attending = data.filter(r => r.attendance === 'Joyfully Accept').length;
             dashboardData[wedding].declined = data.filter(r => r.attendance === 'Regretfully Decline').length;
             
-            // Calculate pending (this would come from your guest database)
-            const totalInvited = Object.keys(guestDatabase[wedding]).length * 2; // Rough estimate
-            dashboardData[wedding].pending = totalInvited - data.length;
-            
             if (wedding === 'english') {
                 // Process meal data
                 dashboardData[wedding].meals.starter1 = data.filter(r => r.starter === 'Option 1').length;
@@ -2917,27 +2606,22 @@
             // Overall stats
             const totalResponses = englishData.responses.length + indianData.responses.length;
             const totalAttending = englishData.attending + indianData.attending;
-            const totalInvited = (Object.keys(guestDatabase.english).length + Object.keys(guestDatabase.indian).length) * 2;
-            const responseRate = totalInvited > 0 ? Math.round((totalResponses / totalInvited) * 100) : 0;
             
             document.getElementById('totalResponses').textContent = totalResponses;
-            document.getElementById('totalInvited').textContent = totalInvited;
             document.getElementById('totalAttending').textContent = totalAttending;
-            document.getElementById('responseRate').textContent = responseRate + '%';
-            document.getElementById('overallProgress').style.width = responseRate + '%';
+            document.getElementById('responseRate').textContent = '100%';
+            document.getElementById('overallProgress').style.width = '100%';
             
             // Wedding-specific stats
             document.getElementById('englishAttending').textContent = englishData.attending;
             document.getElementById('englishDeclined').textContent = englishData.declined;
-            document.getElementById('englishPending').textContent = englishData.pending;
-            document.getElementById('englishProgress').style.width = 
-                (englishData.responses.length / (englishData.responses.length + englishData.pending)) * 100 + '%';
+            document.getElementById('englishTotal').textContent = englishData.responses.length;
+            document.getElementById('englishProgress').style.width = '100%';
             
             document.getElementById('indianAttending').textContent = indianData.attending;
             document.getElementById('indianDeclined').textContent = indianData.declined;
-            document.getElementById('indianPending').textContent = indianData.pending;
-            document.getElementById('indianProgress').style.width = 
-                (indianData.responses.length / (indianData.responses.length + indianData.pending)) * 100 + '%';
+            document.getElementById('indianTotal').textContent = indianData.responses.length;
+            document.getElementById('indianProgress').style.width = '100%';
             
             // Meal planning
             const totalMeals = englishData.meals.starter1 + englishData.meals.starter2;
@@ -2984,6 +2668,7 @@
             }
         }
 
+        // Simplified RSVP Functions
         function englishNextStep(step) {
             if (step === 1) {
                 const name = document.getElementById('englishSubmitterName').value.trim();
@@ -2994,16 +2679,10 @@
                     return;
                 }
                 
-                groupMembers = findGuestGroup(name, 'english');
-                if (!groupMembers) {
-                    alert('We couldn\'t find you in our guest list. Please check the spelling of your name or contact us directly.');
-                    return;
-                }
-                
-                rsvpResponses = [];
+                // Start with first person
                 currentPersonIndex = 0;
-                createPersonSteps('english');
-                showPersonStep('english', 0);
+                allRsvpResponses = [];
+                startPersonRSVP('english', name, email);
             }
         }
 
@@ -3017,157 +2696,158 @@
                     return;
                 }
                 
-                groupMembers = findGuestGroup(name, 'indian');
-                if (!groupMembers) {
-                    alert('We couldn\'t find you in our guest list. Please check the spelling of your name or contact us directly.');
-                    return;
-                }
-                
-                rsvpResponses = [];
+                // Start with first person
                 currentPersonIndex = 0;
-                createPersonSteps('indian');
-                showPersonStep('indian', 0);
+                allRsvpResponses = [];
+                startPersonRSVP('indian', name, email);
             }
         }
 
-        function createPersonSteps(wedding) {
-            const container = document.getElementById(wedding + 'PersonSteps');
-            container.innerHTML = '';
+        function startPersonRSVP(wedding, name, email) {
+            // Initialize current person response
+            currentPersonResponse = {
+                name: name,
+                email: email,
+                attending: null,
+                starter: null,
+                main: null,
+                dessert: null,
+                dietary: '',
+                drinks: [],
+                declineNote: ''
+            };
             
-            groupMembers.forEach((person, index) => {
-                const stepDiv = document.createElement('div');
-                stepDiv.className = 'wizard-step';
-                stepDiv.id = `${wedding}PersonStep${index}`;
-                
-                if (wedding === 'english') {
-                    stepDiv.innerHTML = `
-                        <div class="person-indicator">You are responding for: <strong>${person}</strong></div>
-                        <div class="step-title">Will ${person} be attending?</div>
-                        <div class="attendance-buttons">
-                            <div class="attendance-btn accept" onclick="selectAttendance('${wedding}', ${index}, 'accept')">
-                                Joyfully Accept
-                            </div>
-                            <div class="attendance-btn decline" onclick="selectAttendance('${wedding}', ${index}, 'decline')">
-                                Regretfully Decline
-                            </div>
-                        </div>
-                        <div id="${wedding}AcceptQuestions${index}" class="hidden">
-                            <div class="form-group">
-                                <label>Please pick a starter:</label>
-                                <div class="menu-options">
-                                    <div class="menu-option" onclick="selectMenuOption('${wedding}', ${index}, 'starter', 'Option 1')">Option 1</div>
-                                    <div class="menu-option" onclick="selectMenuOption('${wedding}', ${index}, 'starter', 'Option 2')">Option 2</div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label>Please pick a main:</label>
-                                <div class="menu-options">
-                                    <div class="menu-option" onclick="selectMenuOption('${wedding}', ${index}, 'main', 'Option 3')">Option 3</div>
-                                    <div class="menu-option" onclick="selectMenuOption('${wedding}', ${index}, 'main', 'Option 4')">Option 4</div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label>Please pick a dessert:</label>
-                                <div class="menu-options">
-                                    <div class="menu-option" onclick="selectMenuOption('${wedding}', ${index}, 'dessert', 'Option 4')">Option 4</div>
-                                    <div class="menu-option" onclick="selectMenuOption('${wedding}', ${index}, 'dessert', 'Option 5')">Option 5</div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="${wedding}Dietary${index}">Any dietary requirements?</label>
-                                <textarea id="${wedding}Dietary${index}" rows="2" placeholder="Please let us know about any allergies or dietary requirements..."></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label>What are your drink preferences for the reception?</label>
-                                <div class="drink-options">
-                                    <div class="drink-option" onclick="toggleDrinkOption('${wedding}', ${index}, 'Red Wine')">Red Wine</div>
-                                    <div class="drink-option" onclick="toggleDrinkOption('${wedding}', ${index}, 'White Wine')">White Wine</div>
-                                    <div class="drink-option" onclick="toggleDrinkOption('${wedding}', ${index}, 'Beer')">Beer</div>
-                                    <div class="drink-option" onclick="toggleDrinkOption('${wedding}', ${index}, 'Non-alcoholic beverages only')">Non-alcoholic beverages only</div>
-                                    <div class="drink-option" onclick="toggleDrinkOption('${wedding}', ${index}, 'No preference')">No preference</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="${wedding}DeclineQuestions${index}" class="hidden">
-                            <div class="form-group">
-                                <label for="${wedding}DeclineNote${index}">Would you like to include a note to the couple?</label>
-                                <textarea id="${wedding}DeclineNote${index}" rows="3" placeholder="We'll miss you but understand..."></textarea>
-                            </div>
-                        </div>
-                        <div class="wizard-buttons">
-                            <button class="btn btn-secondary" onclick="prevPersonStep('${wedding}', ${index})">Previous</button>
-                            <button class="btn" onclick="nextPersonStep('${wedding}', ${index})">Next</button>
-                        </div>
-                    `;
-                } else {
-                    stepDiv.innerHTML = `
-                        <div class="person-indicator">You are responding for: <strong>${person}</strong></div>
-                        <div class="step-title">Will ${person} be attending?</div>
-                        <div class="attendance-buttons">
-                            <div class="attendance-btn accept" onclick="selectAttendance('${wedding}', ${index}, 'accept')">
-                                Joyfully Accept
-                            </div>
-                            <div class="attendance-btn decline" onclick="selectAttendance('${wedding}', ${index}, 'decline')">
-                                Regretfully Decline
-                            </div>
-                        </div>
-                        <div id="${wedding}AcceptQuestions${index}" class="hidden">
-                            <div class="buffet-notice">
-                                <h4>Wedding Breakfast</h4>
-                                <p>The wedding breakfast will be served as a buffet allowing you to help yourself to the dishes we have chosen. All dishes will be vegetarian.</p>
-                            </div>
-                            <div class="form-group">
-                                <label for="${wedding}Dietary${index}">Any dietary requirements?</label>
-                                <textarea id="${wedding}Dietary${index}" rows="2" placeholder="Please let us know about any allergies or dietary requirements..."></textarea>
-                            </div>
-                        </div>
-                        <div id="${wedding}DeclineQuestions${index}" class="hidden">
-                            <div class="form-group">
-                                <label for="${wedding}DeclineNote${index}">Would you like to include a note to the couple?</label>
-                                <textarea id="${wedding}DeclineNote${index}" rows="3" placeholder="We'll miss you but understand..."></textarea>
-                            </div>
-                        </div>
-                        <div class="wizard-buttons">
-                            <button class="btn btn-secondary" onclick="prevPersonStep('${wedding}', ${index})">Previous</button>
-                            <button class="btn" onclick="nextPersonStep('${wedding}', ${index})">Next</button>
-                        </div>
-                    `;
-                }
-                
-                container.appendChild(stepDiv);
-                
-                // Initialize response object
-                rsvpResponses[index] = {
-                    name: person,
-                    attending: null,
-                    starter: null,
-                    main: null,
-                    dessert: null,
-                    dietary: '',
-                    drinks: [],
-                    declineNote: ''
-                };
-            });
+            // Create and show person step
+            createCurrentPersonStep(wedding);
+            showCurrentPersonStep(wedding);
         }
 
-        function showPersonStep(wedding, index) {
-            // Hide all steps
+        function createCurrentPersonStep(wedding) {
+            const container = document.getElementById(wedding + 'PersonSteps');
+            container.innerHTML = ''; // Clear previous steps
+            
+            const stepDiv = document.createElement('div');
+            stepDiv.className = 'wizard-step active';
+            stepDiv.id = `${wedding}CurrentPersonStep`;
+            
+            if (wedding === 'english') {
+                stepDiv.innerHTML = `
+                    <div class="person-indicator">RSVP for: <strong>${currentPersonResponse.name}</strong></div>
+                    <div class="step-title">Will you be attending?</div>
+                    <div class="attendance-buttons">
+                        <div class="attendance-btn accept" onclick="selectCurrentAttendance('${wedding}', 'accept')">
+                            Joyfully Accept
+                        </div>
+                        <div class="attendance-btn decline" onclick="selectCurrentAttendance('${wedding}', 'decline')">
+                            Regretfully Decline
+                        </div>
+                    </div>
+                    <div id="${wedding}CurrentAcceptQuestions" class="hidden">
+                        <div class="form-group">
+                            <label>Please pick a starter:</label>
+                            <div class="menu-options">
+                                <div class="menu-option" onclick="selectCurrentMenuOption('${wedding}', 'starter', 'Option 1')">Option 1</div>
+                                <div class="menu-option" onclick="selectCurrentMenuOption('${wedding}', 'starter', 'Option 2')">Option 2</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Please pick a main:</label>
+                            <div class="menu-options">
+                                <div class="menu-option" onclick="selectCurrentMenuOption('${wedding}', 'main', 'Option 3')">Option 3</div>
+                                <div class="menu-option" onclick="selectCurrentMenuOption('${wedding}', 'main', 'Option 4')">Option 4</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Please pick a dessert:</label>
+                            <div class="menu-options">
+                                <div class="menu-option" onclick="selectCurrentMenuOption('${wedding}', 'dessert', 'Option 4')">Option 4</div>
+                                <div class="menu-option" onclick="selectCurrentMenuOption('${wedding}', 'dessert', 'Option 5')">Option 5</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="${wedding}CurrentDietary">Any dietary requirements?</label>
+                            <textarea id="${wedding}CurrentDietary" rows="2" placeholder="Please let us know about any allergies or dietary requirements..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>What are your drink preferences for the reception?</label>
+                            <div class="drink-options">
+                                <div class="drink-option" onclick="toggleCurrentDrinkOption('${wedding}', 'Red Wine')">Red Wine</div>
+                                <div class="drink-option" onclick="toggleCurrentDrinkOption('${wedding}', 'White Wine')">White Wine</div>
+                                <div class="drink-option" onclick="toggleCurrentDrinkOption('${wedding}', 'Beer')">Beer</div>
+                                <div class="drink-option" onclick="toggleCurrentDrinkOption('${wedding}', 'Non-alcoholic beverages only')">Non-alcoholic beverages only</div>
+                                <div class="drink-option" onclick="toggleCurrentDrinkOption('${wedding}', 'No preference')">No preference</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="${wedding}CurrentDeclineQuestions" class="hidden">
+                        <div class="form-group">
+                            <label for="${wedding}CurrentDeclineNote">Would you like to include a note to the couple?</label>
+                            <textarea id="${wedding}CurrentDeclineNote" rows="3" placeholder="We'll miss you but understand..."></textarea>
+                        </div>
+                    </div>
+                    <div class="wizard-buttons">
+                        <button class="btn btn-secondary" onclick="goBackToInitial('${wedding}')">Previous</button>
+                        <button class="btn" onclick="finishCurrentPerson('${wedding}')">Next</button>
+                    </div>
+                `;
+            } else {
+                stepDiv.innerHTML = `
+                    <div class="person-indicator">RSVP for: <strong>${currentPersonResponse.name}</strong></div>
+                    <div class="step-title">Will you be attending?</div>
+                    <div class="attendance-buttons">
+                        <div class="attendance-btn accept" onclick="selectCurrentAttendance('${wedding}', 'accept')">
+                            Joyfully Accept
+                        </div>
+                        <div class="attendance-btn decline" onclick="selectCurrentAttendance('${wedding}', 'decline')">
+                            Regretfully Decline
+                        </div>
+                    </div>
+                    <div id="${wedding}CurrentAcceptQuestions" class="hidden">
+                        <div class="buffet-notice">
+                            <h4>Wedding Breakfast</h4>
+                            <p>The wedding breakfast will be served as a buffet allowing you to help yourself to the dishes we have chosen. All dishes will be vegetarian.</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="${wedding}CurrentDietary">Any dietary requirements?</label>
+                            <textarea id="${wedding}CurrentDietary" rows="2" placeholder="Please let us know about any allergies or dietary requirements..."></textarea>
+                        </div>
+                    </div>
+                    <div id="${wedding}CurrentDeclineQuestions" class="hidden">
+                        <div class="form-group">
+                            <label for="${wedding}CurrentDeclineNote">Would you like to include a note to the couple?</label>
+                            <textarea id="${wedding}CurrentDeclineNote" rows="3" placeholder="We'll miss you but understand..."></textarea>
+                        </div>
+                    </div>
+                    <div class="wizard-buttons">
+                        <button class="btn btn-secondary" onclick="goBackToInitial('${wedding}')">Previous</button>
+                        <button class="btn" onclick="finishCurrentPerson('${wedding}')">Next</button>
+                    </div>
+                `;
+            }
+            
+            container.appendChild(stepDiv);
+        }
+
+        function showCurrentPersonStep(wedding) {
+            // Hide initial step and final step
             document.getElementById(wedding + 'Step1').classList.remove('active');
             document.getElementById(wedding + 'FinalStep').classList.remove('active');
             
-            const personSteps = document.querySelectorAll(`#${wedding}PersonSteps .wizard-step`);
-            personSteps.forEach(step => step.classList.remove('active'));
+            // Hide add another step if it exists
+            const addAnotherStep = document.getElementById(wedding + 'AddAnotherStep');
+            if (addAnotherStep) {
+                addAnotherStep.classList.remove('active');
+            }
             
-            // Show current step
-            document.getElementById(`${wedding}PersonStep${index}`).classList.add('active');
-            currentPersonIndex = index;
+            // Show current person step
+            document.getElementById(`${wedding}CurrentPersonStep`).classList.add('active');
         }
 
-        function selectAttendance(wedding, index, type) {
-            const acceptBtn = document.querySelector(`#${wedding}PersonStep${index} .attendance-btn.accept`);
-            const declineBtn = document.querySelector(`#${wedding}PersonStep${index} .attendance-btn.decline`);
-            const acceptQuestions = document.getElementById(`${wedding}AcceptQuestions${index}`);
-            const declineQuestions = document.getElementById(`${wedding}DeclineQuestions${index}`);
+        function selectCurrentAttendance(wedding, type) {
+            const acceptBtn = document.querySelector(`#${wedding}CurrentPersonStep .attendance-btn.accept`);
+            const declineBtn = document.querySelector(`#${wedding}CurrentPersonStep .attendance-btn.decline`);
+            const acceptQuestions = document.getElementById(`${wedding}CurrentAcceptQuestions`);
+            const declineQuestions = document.getElementById(`${wedding}CurrentDeclineQuestions`);
             
             // Reset buttons
             acceptBtn.classList.remove('selected');
@@ -3178,16 +2858,16 @@
             if (type === 'accept') {
                 acceptBtn.classList.add('selected');
                 acceptQuestions.classList.remove('hidden');
-                rsvpResponses[index].attending = 'Joyfully Accept';
+                currentPersonResponse.attending = 'Joyfully Accept';
             } else {
                 declineBtn.classList.add('selected');
                 declineQuestions.classList.remove('hidden');
-                rsvpResponses[index].attending = 'Regretfully Decline';
+                currentPersonResponse.attending = 'Regretfully Decline';
             }
         }
 
-        function selectMenuOption(wedding, personIndex, category, option) {
-            const options = document.querySelectorAll(`#${wedding}PersonStep${personIndex} .menu-options .menu-option`);
+        function selectCurrentMenuOption(wedding, category, option) {
+            const options = document.querySelectorAll(`#${wedding}CurrentPersonStep .menu-options .menu-option`);
             const categoryOptions = Array.from(options).filter(opt => 
                 opt.parentElement.previousElementSibling.textContent.toLowerCase().includes(category)
             );
@@ -3195,18 +2875,18 @@
             categoryOptions.forEach(opt => opt.classList.remove('selected'));
             event.target.classList.add('selected');
             
-            rsvpResponses[personIndex][category] = option;
+            currentPersonResponse[category] = option;
         }
 
-        function toggleDrinkOption(wedding, personIndex, drink) {
+        function toggleCurrentDrinkOption(wedding, drink) {
             const option = event.target;
             option.classList.toggle('selected');
             
-            if (!rsvpResponses[personIndex].drinks) {
-                rsvpResponses[personIndex].drinks = [];
+            if (!currentPersonResponse.drinks) {
+                currentPersonResponse.drinks = [];
             }
             
-            const drinks = rsvpResponses[personIndex].drinks;
+            const drinks = currentPersonResponse.drinks;
             const index = drinks.indexOf(drink);
             
             if (index > -1) {
@@ -3216,59 +2896,133 @@
             }
         }
 
-        function nextPersonStep(wedding, index) {
-            // Collect data for current person
-            const response = rsvpResponses[index];
-            
-            if (!response.attending) {
-                alert('Please select whether this person will be attending.');
+        function finishCurrentPerson(wedding) {
+            // Validate current person's response
+            if (!currentPersonResponse.attending) {
+                alert('Please select whether you will be attending.');
                 return;
             }
             
-            if (response.attending === 'Joyfully Accept') {
+            if (currentPersonResponse.attending === 'Joyfully Accept') {
                 if (wedding === 'english') {
-                    if (!response.starter || !response.main || !response.dessert) {
+                    if (!currentPersonResponse.starter || !currentPersonResponse.main || !currentPersonResponse.dessert) {
                         alert('Please make all meal selections.');
                         return;
                     }
                 }
-                response.dietary = document.getElementById(`${wedding}Dietary${index}`).value;
+                currentPersonResponse.dietary = document.getElementById(`${wedding}CurrentDietary`).value;
             } else {
-                response.declineNote = document.getElementById(`${wedding}DeclineNote${index}`).value;
+                currentPersonResponse.declineNote = document.getElementById(`${wedding}CurrentDeclineNote`).value;
             }
             
-            // Move to next person or final step
-            if (index < groupMembers.length - 1) {
-                showPersonStep(wedding, index + 1);
-            } else {
-                showFinalStep(wedding);
-            }
+            // Add current person to responses
+            allRsvpResponses.push({...currentPersonResponse});
+            
+            // Show "Add Another Person" step
+            showAddAnotherStep(wedding);
         }
 
-        function prevPersonStep(wedding, index) {
-            if (index > 0) {
-                showPersonStep(wedding, index - 1);
-            } else {
-                // Go back to step 1
-                document.querySelectorAll(`#${wedding}PersonSteps .wizard-step`).forEach(step => step.classList.remove('active'));
-                document.getElementById(wedding + 'Step1').classList.add('active');
+        function showAddAnotherStep(wedding) {
+            // Hide current person step
+            document.getElementById(`${wedding}CurrentPersonStep`).classList.remove('active');
+            
+            // Create or show add another step
+            let addAnotherStep = document.getElementById(wedding + 'AddAnotherStep');
+            if (!addAnotherStep) {
+                addAnotherStep = document.createElement('div');
+                addAnotherStep.className = 'wizard-step';
+                addAnotherStep.id = wedding + 'AddAnotherStep';
+                addAnotherStep.innerHTML = `
+                    <div class="step-title">Is there anyone else you would like to RSVP for?</div>
+                    <div class="person-indicator">You have completed ${allRsvpResponses.length} RSVP${allRsvpResponses.length > 1 ? 's' : ''}</div>
+                    <div class="attendance-buttons">
+                        <div class="attendance-btn accept" onclick="addAnotherPerson('${wedding}')">
+                            Yes
+                        </div>
+                        <div class="attendance-btn decline" onclick="proceedToFinal('${wedding}')">
+                            No
+                        </div>
+                    </div>
+                    <div class="wizard-buttons">
+                        <div></div>
+                        <div></div>
+                    </div>
+                `;
+                document.getElementById(wedding + 'PersonSteps').appendChild(addAnotherStep);
             }
+            
+            // Update the counter
+            addAnotherStep.querySelector('.person-indicator').innerHTML = 
+                `You have completed ${allRsvpResponses.length} RSVP${allRsvpResponses.length > 1 ? 's' : ''}`;
+            
+            addAnotherStep.classList.add('active');
+        }
+
+        function addAnotherPerson(wedding) {
+            // Get new person details
+            const name = prompt('Please enter the name of the person you want to RSVP for:');
+            if (!name || !name.trim()) {
+                return;
+            }
+            
+            const email = prompt('Please enter their email address (or your email if RSVPing on their behalf):');
+            if (!email || !email.trim()) {
+                return;
+            }
+            
+            // Start RSVP for new person
+            startPersonRSVP(wedding, name.trim(), email.trim());
+        }
+
+        function proceedToFinal(wedding) {
+            showFinalStep(wedding);
+        }
+
+        function goBackToInitial(wedding) {
+            // Go back to initial step
+            document.getElementById(`${wedding}CurrentPersonStep`).classList.remove('active');
+            document.getElementById(wedding + 'Step1').classList.add('active');
+            
+            // Reset data
+            allRsvpResponses = [];
+            currentPersonResponse = {};
+        }
+
+        function startNewRSVP(wedding) {
+            // Reset everything and go back to start
+            allRsvpResponses = [];
+            currentPersonResponse = {};
+            
+            // Clear form fields
+            document.getElementById(wedding + 'SubmitterName').value = '';
+            document.getElementById(wedding + 'SubmitterEmail').value = '';
+            
+            // Hide final step and show initial step
+            document.getElementById(wedding + 'FinalStep').classList.remove('active');
+            document.getElementById(wedding + 'Step1').classList.add('active');
+            
+            // Clear person steps
+            document.getElementById(wedding + 'PersonSteps').innerHTML = '';
         }
 
         function showFinalStep(wedding) {
-            // Hide all person steps
-            document.querySelectorAll(`#${wedding}PersonSteps .wizard-step`).forEach(step => step.classList.remove('active'));
+            // Hide add another step
+            const addAnotherStep = document.getElementById(wedding + 'AddAnotherStep');
+            if (addAnotherStep) {
+                addAnotherStep.classList.remove('active');
+            }
             
             // Show final step
             document.getElementById(wedding + 'FinalStep').classList.add('active');
             
             // Generate summary
             const summaryDiv = document.getElementById(wedding + 'RsvpSummary');
-            let summaryHTML = '<h3>RSVP Summary</h3>';
+            let summaryHTML = `<h3>RSVP Summary (${allRsvpResponses.length} ${allRsvpResponses.length > 1 ? 'people' : 'person'})</h3>`;
             
-            rsvpResponses.forEach(response => {
+            allRsvpResponses.forEach((response, index) => {
                 summaryHTML += `<div style="margin-bottom: 1rem; padding: 1rem; background: var(--section-bg); border-radius: 10px;">`;
                 summaryHTML += `<strong>${response.name}</strong> - ${response.attending}<br>`;
+                summaryHTML += `<em>Email: ${response.email}</em><br>`;
                 
                 if (response.attending === 'Joyfully Accept') {
                     if (wedding === 'english') {
@@ -3292,34 +3046,33 @@
             summaryDiv.innerHTML = summaryHTML;
         }
 
+        // Updated submission functions
         function submitEnglishRSVP() {
-            submitRSVP('english', 'https://formspree.io/f/mqadbbln');
+            submitSimplifiedRSVP('english', 'https://formspree.io/f/mqadbbln');
         }
 
         function submitIndianRSVP() {
-            submitRSVP('indian', 'https://formspree.io/f/mldwnnlv');
+            submitSimplifiedRSVP('indian', 'https://formspree.io/f/mldwnnlv');
         }
 
-        async function submitRSVP(wedding, endpoint) {
+        async function submitSimplifiedRSVP(wedding, endpoint) {
             const submitBtn = event.target;
             submitBtn.disabled = true;
             submitBtn.textContent = 'Submitting...';
             
-            const submitterName = document.getElementById(wedding + 'SubmitterName').value;
-            const submitterEmail = document.getElementById(wedding + 'SubmitterEmail').value;
-            
             try {
                 // Submit individual records for each person
-                for (let i = 0; i < rsvpResponses.length; i++) {
-                    const response = rsvpResponses[i];
+                for (let i = 0; i < allRsvpResponses.length; i++) {
+                    const response = allRsvpResponses[i];
                     const formData = new FormData();
                     
                     // Add custom formatted data for perfect CSV
                     formData.append('submission_date', new Date().toISOString());
-                    formData.append('submitter_name', submitterName);
-                    formData.append('submitter_email', submitterEmail);
+                    formData.append('submitter_name', allRsvpResponses[0].name); // First person is the submitter
+                    formData.append('submitter_email', allRsvpResponses[0].email);
                     formData.append('wedding_type', wedding === 'english' ? 'English Wedding' : 'Indian Wedding');
                     formData.append('guest_name', response.name);
+                    formData.append('guest_email', response.email);
                     formData.append('attendance', response.attending);
                     formData.append('starter', response.starter || '');
                     formData.append('main', response.main || '');
@@ -3327,8 +3080,8 @@
                     formData.append('dietary', response.dietary || '');
                     formData.append('drinks', response.drinks ? response.drinks.join(', ') : '');
                     formData.append('decline_note', response.declineNote || '');
-                    formData.append('group_size', groupMembers.length);
-                    formData.append('_subject', `${wedding === 'english' ? 'English' : 'Indian'} Wedding RSVP - ${submitterName}`);
+                    formData.append('total_in_submission', allRsvpResponses.length);
+                    formData.append('_subject', `${wedding === 'english' ? 'English' : 'Indian'} Wedding RSVP - ${allRsvpResponses[0].name} (${allRsvpResponses.length} ${allRsvpResponses.length > 1 ? 'people' : 'person'})`);
                     formData.append('_captcha', 'false');
                     
                     await fetch(endpoint, {
@@ -3357,7 +3110,6 @@
         document.addEventListener('DOMContentLoaded', function() {
             updateCountdown('english');
             updateCountdown('indian');
-            loadSavedGuestLists(); // Load saved guest lists
             
             // Set up daily countdown updates
             setInterval(() => {
@@ -3375,4 +3127,3 @@
     </script>
 </body>
 </html>
-
