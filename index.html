@@ -2370,19 +2370,19 @@
             const path = window.location.pathname;
             const fullURL = window.location.href;
             
-            console.log('Full URL:', fullURL);
+            console.log('Direct access check - Full URL:', fullURL);
             console.log('Path:', path);
             
             // Check for wedding pages in URL path
             if (fullURL.includes('1stMay2026') || path.includes('1stMay2026') || path === '/1stMay2026') {
-                console.log('Detected English wedding URL');
+                console.log('Detected English wedding URL - bypassing password');
                 sessionStorage.setItem('weddingAccess', 'true');
                 document.getElementById('passwordScreen').style.display = 'none';
                 document.getElementById('mainContent').classList.remove('hidden');
                 showWedding('english');
                 return true;
             } else if (fullURL.includes('10thMay2026') || path.includes('10thMay2026') || path === '/10thMay2026') {
-                console.log('Detected Indian wedding URL');
+                console.log('Detected Indian wedding URL - bypassing password');
                 sessionStorage.setItem('weddingAccess', 'true');
                 document.getElementById('passwordScreen').style.display = 'none';
                 document.getElementById('mainContent').classList.remove('hidden');
@@ -2392,12 +2392,15 @@
             return false;
         }
 
-        // Handle GitHub Pages redirects
+        // Handle GitHub Pages redirects - FIXED VERSION
         function handleRedirectParam() {
             const params = new URLSearchParams(window.location.search);
             const redirect = params.get('redirect');
             
+            console.log('Checking redirect parameter:', redirect);
+            
             if (redirect === '1stMay2026') {
+                console.log('Processing English wedding redirect - bypassing password');
                 sessionStorage.setItem('weddingAccess', 'true');
                 document.getElementById('passwordScreen').style.display = 'none';
                 document.getElementById('mainContent').classList.remove('hidden');
@@ -2406,6 +2409,7 @@
                 window.history.replaceState({}, '', '/1stMay2026');
                 return true;
             } else if (redirect === '10thMay2026') {
+                console.log('Processing Indian wedding redirect - bypassing password');
                 sessionStorage.setItem('weddingAccess', 'true');
                 document.getElementById('passwordScreen').style.display = 'none';
                 document.getElementById('mainContent').classList.remove('hidden');
@@ -2440,27 +2444,39 @@
             return false;
         }
 
-        // Updated window load event
+        // FIXED: Updated window load event with proper priority
         window.addEventListener('load', function() {
-            // Try redirect parameter first
+            console.log('Page loaded, checking access...');
+            console.log('Current URL:', window.location.href);
+            console.log('Current path:', window.location.pathname);
+            console.log('Current search:', window.location.search);
+            
+            // FIRST: Try redirect parameter (GitHub Pages 404 redirect)
             if (handleRedirectParam()) {
+                console.log('Handled via redirect parameter');
                 return;
             }
             
-            // Try direct access first (bypasses password for wedding pages)
+            // SECOND: Try direct access (bypasses password for wedding pages)
             if (handleDirectAccess()) {
+                console.log('Handled via direct access');
                 return;
             }
             
-            // Otherwise check if already authenticated
+            // THIRD: Check if already authenticated
             if (sessionStorage.getItem('weddingAccess') === 'true') {
+                console.log('Already authenticated, showing main content');
                 document.getElementById('passwordScreen').style.display = 'none';
                 document.getElementById('mainContent').classList.remove('hidden');
                 
                 // Try to navigate to direct URL, if no match show selector
                 if (!checkURLForDirectAccess()) {
+                    console.log('Showing wedding selector');
                     document.getElementById('weddingSelector').style.display = 'flex';
                 }
+            } else {
+                console.log('No authentication, showing password screen');
+                // Show password screen (default state)
             }
         });
 
@@ -2483,7 +2499,7 @@
                 document.getElementById('indianWedding').classList.remove('active');
                 updateCountdown('english');
                 // Don't change URL if we're already on the right page
-                if (!window.location.pathname.includes('1stMay2026')) {
+                if (!window.location.pathname.includes('1stMay2026') && !window.location.search.includes('redirect=1stMay2026')) {
                     window.history.pushState({}, '', '/1stMay2026');
                 }
             } else if (type === 'indian') {
@@ -2491,7 +2507,7 @@
                 document.getElementById('englishWedding').classList.remove('active');
                 updateCountdown('indian');
                 // Don't change URL if we're already on the right page
-                if (!window.location.pathname.includes('10thMay2026')) {
+                if (!window.location.pathname.includes('10thMay2026') && !window.location.search.includes('redirect=10thMay2026')) {
                     window.history.pushState({}, '', '/10thMay2026');
                 }
             }
