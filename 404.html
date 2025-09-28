@@ -1,21 +1,76 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <script>
-        // Handle GitHub Pages routing
-        const path = window.location.pathname;
-        console.log('404 redirect for path:', path);
-        
-        if (path.includes('1stMay2026')) {
-            window.location.href = '/index.html?redirect=1stMay2026';
-        } else if (path.includes('10thMay2026')) {
-            window.location.href = '/index.html?redirect=10thMay2026';
-        } else {
-            window.location.href = '/index.html';
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting...</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f5e6d3 0%, #f8f4f2 50%, #fdeee6 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
         }
-    </script>
+        .redirect-message {
+            text-align: center;
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            max-width: 400px;
+        }
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #e8a87c;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
 </head>
 <body>
-    <p>Redirecting...</p>
+    <div class="redirect-message">
+        <div class="spinner"></div>
+        <h2>Redirecting to Wedding Page...</h2>
+        <p>Please wait while we redirect you to the correct page.</p>
+    </div>
+
+    <script>
+        // GitHub Pages 404 redirect handler
+        (function() {
+            const path = window.location.pathname;
+            const fullURL = window.location.href;
+            
+            console.log('404 page - Current path:', path);
+            console.log('404 page - Full URL:', fullURL);
+            
+            // Handle direct wedding page access
+            if (path === '/1stMay2026' || path.includes('1stMay2026')) {
+                console.log('Redirecting to English wedding');
+                window.location.replace('/index.html?redirect=1stMay2026');
+            } else if (path === '/10thMay2026' || path.includes('10thMay2026')) {
+                console.log('Redirecting to Indian wedding');
+                window.location.replace('/index.html?redirect=10thMay2026');
+            } else if (path === '/dashboard' || path.includes('dashboard')) {
+                console.log('Redirecting to dashboard');
+                window.location.replace('/index.html?redirect=dashboard');
+            } else {
+                console.log('Unknown path, redirecting to home');
+                // For any other path, redirect to home page after 2 seconds
+                setTimeout(() => {
+                    window.location.replace('/index.html');
+                }, 2000);
+            }
+        })();
+    </script>
 </body>
 </html>
