@@ -2364,6 +2364,54 @@ function handleDirectAccess() {
     }
     return false;
 }
+// Handle GitHub Pages redirects
+function handleRedirectParam() {
+    const params = new URLSearchParams(window.location.search);
+    const redirect = params.get('redirect');
+    
+    if (redirect === '1stMay2026') {
+        sessionStorage.setItem('weddingAccess', 'true');
+        document.getElementById('passwordScreen').style.display = 'none';
+        document.getElementById('mainContent').classList.remove('hidden');
+        showWedding('english');
+        // Clean up URL
+        window.history.replaceState({}, '', '/1stMay2026');
+        return true;
+    } else if (redirect === '10thMay2026') {
+        sessionStorage.setItem('weddingAccess', 'true');
+        document.getElementById('passwordScreen').style.display = 'none';
+        document.getElementById('mainContent').classList.remove('hidden');
+        showWedding('indian');
+        // Clean up URL
+        window.history.replaceState({}, '', '/10thMay2026');
+        return true;
+    }
+    return false;
+}
+
+// Update the window load event to include redirect handling
+window.addEventListener('load', function() {
+    // Try redirect parameter first
+    if (handleRedirectParam()) {
+        return;
+    }
+    
+    // Try direct access first (bypasses password for wedding pages)
+    if (handleDirectAccess()) {
+        return;
+    }
+    
+    // Otherwise check if already authenticated
+    if (sessionStorage.getItem('weddingAccess') === 'true') {
+        document.getElementById('passwordScreen').style.display = 'none';
+        document.getElementById('mainContent').classList.remove('hidden');
+        
+        // Try to navigate to direct URL, if no match show selector
+        if (!checkURLForDirectAccess()) {
+            document.getElementById('weddingSelector').style.display = 'flex';
+        }
+    }
+});
         // Enhanced URL handling for direct access
 function checkURLForDirectAccess() {
     const path = window.location.pathname;
@@ -3139,4 +3187,5 @@ function showWedding(type) {
     </script>
 </body>
 </html>
+
 
