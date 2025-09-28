@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Darshna & Michael - Wedding Celebrations 2026</title>
-    <link href="https://fonts.googleapis.com/css2?family=playfair+display:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=style+script:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=dancing+script:wght@400;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -14,14 +14,14 @@
         }
 
         body {
-            font-family: 'playfair+display', serif;
+            font-family: 'Lora', serif;
             line-height: 1.6;
             color: #000000;
             background-color: #fefcfb;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 0 20px;
         }
@@ -119,14 +119,14 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="fplayfair+displayl" patternUnits="userSpaceOnUse" width="20" height="20"><circle cx="10" cy="10" r="1" fill="%23f4d4ba" opacity="0.3"/></pattern></defs><rect width="100" height="100" fill="url(%23fplayfair+displayl)"/></svg>');
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="floral" patternUnits="userSpaceOnUse" width="20" height="20"><circle cx="10" cy="10" r="1" fill="%23f4d4ba" opacity="0.3"/></pattern></defs><rect width="100" height="100" fill="url(%23floral)"/></svg>');
             opacity: 0.4;
         }
 
         .selector-content {
             position: relative;
             z-index: 2;
-            max-width: 900px;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
@@ -166,7 +166,7 @@
 
         .wedding-buttons {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 3rem;
             margin-top: 2rem;
         }
@@ -289,8 +289,8 @@
         .indian-wedding {
             --primary-color: #c41e3a;
             --secondary-color: #d4af37;
-            --accent-color: #E72A5C;
-            --purple-color: #704AAF;
+            --accent-color: #E4517C;
+            --purple-color: #B691D6;
             --teal-color: #008B8B;
             --bronze-color: #CD7F32;
             --bg-gradient: linear-gradient(135deg, #8B0000 0%, #c41e3a 50%, #d4af37 100%);
@@ -321,27 +321,37 @@
             z-index: 1;
         }
 
-        /* Home page heading colors */
-        .english-wedding #englishHome h1 {
-            color: #000000 !important;
-        }
-
+        /* Home page heading colors - BLACK for both */
+        .english-wedding #englishHome h1,
         .indian-wedding #indianHome h1 {
             color: #000000 !important;
         }
 
-        /* Menu page heading - Indian should be purple */
-        .indian-wedding #indianHome {
-            background: #704AAF !important;
+        /* Main headings - BLACK for both */
+        .english-wedding .content-section h2,
+        .indian-wedding .content-section h2 {
+            color: #000000 !important;
         }
 
-        /* Alternating heading colors for Indian wedding */
-        .indian-wedding #indianStory h2 { color: #E72A5C !important; }
-        .indian-wedding #indianOrderofday h2 { color: #704AAF !important; }
-        .indian-wedding #indianAccommodations h2 { color: #E72A5C !important; }
-        .indian-wedding #indianRegistry h2 { color: #704AAF !important; }
-        .indian-wedding #indianRsvp h2 { color: #E72A5C !important; }
-        .indian-wedding #indianQa h2 { color: #704AAF !important; }
+        /* Sub-headings (questions, etc.) */
+        .english-wedding .qa-question,
+        .english-wedding .content-card h3,
+        .english-wedding .accommodation-card h4,
+        .english-wedding .timeline-content h4 {
+            color: #F47A43 !important;
+        }
+
+        .indian-wedding .qa-question,
+        .indian-wedding .content-card h3,
+        .indian-wedding .accommodation-card h4,
+        .indian-wedding .timeline-content h4 {
+            color: #E4517C !important;
+        }
+
+        /* Remove purple background from Indian home page */
+        .indian-wedding #indianHome {
+            background: transparent !important;
+        }
 
         /* Hanging Lanterns Animation */
         .indian-lanterns {
@@ -358,11 +368,11 @@
             position: absolute;
             width: 40px;
             height: 60px;
-            background: linear-gradient(45deg, #E72A5C, #704AAF);
+            background: linear-gradient(45deg, #E4517C, #B691D6);
             border-radius: 50% 50% 20% 20%;
             box-shadow: 
-                0 0 20px rgba(231, 42, 92, 0.4),
-                inset 0 0 10px rgba(112, 74, 175, 0.6);
+                0 0 20px rgba(228, 81, 124, 0.4),
+                inset 0 0 10px rgba(182, 145, 214, 0.6);
             animation: sway 4s ease-in-out infinite;
             transform-origin: top center;
         }
@@ -413,82 +423,139 @@
             z-index: 3;
         }
 
-        /* Updated box borders - solid purple only for Indian */
+        /* Updated box borders - solid colors only */
+        .english-wedding .content-card,
+        .english-wedding .timeline-item,
+        .english-wedding .accommodation-card,
+        .english-wedding .registry-content,
+        .english-wedding .rsvp-wizard,
+        .english-wedding .qa-item {
+            border: 2px solid var(--secondary-color) !important;
+            background: white !important;
+        }
+
         .indian-wedding .content-card,
         .indian-wedding .timeline-item,
         .indian-wedding .accommodation-card,
         .indian-wedding .registry-content,
         .indian-wedding .rsvp-wizard,
         .indian-wedding .qa-item {
-            border: 2px solid #704AAF !important;
+            border: 2px solid #B691D6 !important;
             background: white !important;
         }
 
-        /* Indian Navigation Styling */
+        /* Navigation Styling */
+        header {
+            background: rgba(248, 244, 242, 0.95);
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        /* English Navigation */
+        .english-wedding header {
+            background: rgba(248, 244, 242, 0.95);
+        }
+
+        .english-wedding .menu-toggle {
+            background: #F47A43 !important;
+            color: white !important;
+        }
+
+        .english-wedding nav {
+            background: rgba(248, 244, 242, 0.98);
+        }
+
+        .english-wedding nav a,
+        .english-wedding nav button {
+            color: #000000 !important;
+            font-weight: 400;
+        }
+
+        /* Indian Navigation */
         .indian-wedding header {
-            background: linear-gradient(135deg, rgba(231, 42, 92, 0.95) 0%, rgba(112, 74, 175, 0.95) 100%);
-            border-bottom: 3px solid #d4af37;
+            background: rgba(248, 244, 242, 0.95);
+            border-bottom: none !important;
+        }
+
+        .indian-wedding .menu-toggle {
+            background: #E4517C !important;
+            color: white !important;
         }
 
         .indian-wedding nav {
-            background: linear-gradient(135deg, rgba(231, 42, 92, 0.98) 0%, rgba(112, 74, 175, 0.98) 100%);
-            border-top: 2px solid #d4af37;
+            background: rgba(248, 244, 242, 0.98);
+            border-top: none !important;
         }
 
         .indian-wedding nav a,
         .indian-wedding nav button {
-            color: #FFD700 !important;
+            color: #000000 !important;
+            font-weight: 400;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .menu-toggle {
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
             font-weight: 600;
         }
 
-        .indian-wedding nav a:hover,
-        .indian-wedding nav button:hover {
-            color: white !important;
-            text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+        .menu-toggle:hover {
+            opacity: 0.9;
         }
 
-        .indian-wedding .menu-toggle {
-            background: linear-gradient(135deg, #E72A5C, #704AAF) !important;
-            color: white !important;
-            border: 2px solid #d4af37;
+        nav {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            display: none;
         }
 
-        /* Indian Q&A Styles - Updated */
-        .indian-wedding .qa-item {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            border: 2px solid #704AAF;
-            margin-bottom: 2rem;
+        nav.active {
+            display: block;
         }
 
-        .indian-wedding .qa-question {
-            font-family: 'La Luxes Serif', serif;
-            font-size: 1.4rem;
-            color: #E72A5C;
-            margin-bottom: 1rem;
-            font-weight: 600;
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            align-items: center;
+            padding: 1rem 0;
         }
 
-        .indian-wedding .qa-answer {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            color: #000000;
+        nav li {
+            margin: 0 0.8rem;
         }
 
-        .indian-wedding .qa-answer em {
-            font-style: italic;
-            color: #666;
+        nav a, nav button {
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 1rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-family: 'Lora', serif;
         }
 
-        .indian-wedding .qa-answer a {
-            color: #E72A5C;
-            text-decoration: underline;
-        }
-
-        .indian-wedding .qa-answer a:hover {
-            color: #704AAF;
+        nav a:hover, nav button:hover {
+            opacity: 0.8;
         }
 
         /* Dashboard Styles */
@@ -673,127 +740,6 @@
             transform: translateY(-2px);
         }
 
-        /* Guest List Management - Only show on dashboard */
-        .guest-management {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            border: 2px solid #f4d4ba;
-            margin-top: 2rem;
-        }
-
-        .guest-management h3 {
-            font-family: 'La Luxes Serif', serif;
-            font-size: 2rem;
-            color: #8b7355;
-            margin-bottom: 2rem;
-            text-align: center;
-        }
-
-        .upload-section {
-            padding: 1.5rem;
-            border-radius: 10px;
-            text-align: center;
-        }
-
-        .upload-section h4 {
-            margin-bottom: 1rem;
-        }
-
-        .upload-section input {
-            margin-bottom: 1rem;
-            width: 100%;
-            padding: 0.5rem;
-        }
-
-        .upload-section button {
-            padding: 0.5rem 1rem;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin: 0 0.25rem;
-        }
-
-        /* Header & Navigation */
-        header {
-            background: rgba(248, 244, 242, 0.95);
-            padding: 1rem 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            backdrop-filter: blur(10px);
-        }
-
-        .nav-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .menu-toggle {
-            background: var(--accent-color, #F47A43);
-            color: white;
-            border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1rem;
-            font-weight: 600;
-        }
-
-        .menu-toggle:hover {
-            background: var(--accent-color, #F47A43);
-            opacity: 0.9;
-        }
-
-        nav {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            right: 0;
-            background: rgba(248, 244, 242, 0.98);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            display: none;
-        }
-
-        nav.active {
-            display: block;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            align-items: center;
-            padding: 1rem 0;
-        }
-
-        nav li {
-            margin: 0 0.8rem;
-        }
-
-        nav a, nav button {
-            text-decoration: none;
-            color: var(--accent-color, #F47A43);
-            font-weight: 400;
-            transition: color 0.3s ease;
-            font-size: 1rem;
-            background: none;
-            border: none;
-            cursor: pointer;
-            font-family: 'playfair+display', serif;
-        }
-
-        nav a:hover, nav button:hover {
-            color: var(--accent-color, #F47A43);
-            opacity: 0.8;
-        }
-
         /* Flowing Layout System */
         .flowing-layout {
             display: grid;
@@ -842,7 +788,6 @@
         .content-section h2 {
             font-family: 'La Luxes Serif', serif;
             font-size: 2.5rem;
-            color: var(--accent-color);
             margin-bottom: 2rem;
         }
 
@@ -901,6 +846,17 @@
             border: 2px solid rgba(255,255,255,0.3);
         }
 
+        /* Updated countdown box styling */
+        .english-wedding .menu-hero-content .countdown {
+            border: 2px solid #F47A43;
+            background: rgba(244, 122, 67, 0.1);
+        }
+
+        .indian-wedding .menu-hero-content .countdown {
+            border: 2px solid #E4517C;
+            background: rgba(228, 81, 124, 0.1);
+        }
+
         .menu-hero-content .countdown-text {
             font-size: 1.2rem;
             margin-bottom: 0.5rem;
@@ -952,7 +908,6 @@
             padding: 3rem;
             border-radius: 20px;
             box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-            border: 2px solid var(--secondary-color);
             margin-bottom: 3rem;
             line-height: 1.8;
         }
@@ -960,7 +915,6 @@
         .content-card h3 {
             font-family: 'La Luxes Serif', serif;
             font-size: 2rem;
-            color: var(--accent-color);
             margin-bottom: 1.5rem;
         }
 
@@ -991,14 +945,12 @@
             padding: 2rem;
             border-radius: 15px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            border: 2px solid var(--secondary-color);
             text-align: center;
         }
 
         .accommodation-card h4 {
             font-family: 'La Luxes Serif', serif;
             font-size: 1.5rem;
-            color: var(--accent-color);
             margin-bottom: 1rem;
         }
 
@@ -1035,7 +987,6 @@
             background: white;
             border-radius: 20px;
             box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-            border: 2px solid var(--secondary-color);
         }
 
         .registry-content p {
@@ -1069,14 +1020,12 @@
             padding: 2rem;
             border-radius: 15px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            border: 2px solid var(--accent-color);
             margin-bottom: 2rem;
         }
 
         .qa-question {
             font-family: 'La Luxes Serif', serif;
             font-size: 1.4rem;
-            color: var(--accent-color);
             margin-bottom: 1rem;
             font-weight: 600;
         }
@@ -1108,7 +1057,6 @@
             padding: 2rem;
             border-radius: 15px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            border: 2px solid var(--secondary-color);
             margin-bottom: 2rem;
             display: flex;
             align-items: flex-start;
@@ -1123,7 +1071,6 @@
         .timeline-content h4 {
             font-family: 'La Luxes Serif', serif;
             font-size: 1.4rem;
-            color: var(--accent-color);
             margin-bottom: 0.5rem;
             font-weight: 700;
         }
@@ -1178,7 +1125,6 @@
             padding: 3rem;
             max-width: 600px;
             margin: 0 auto;
-            border: 2px solid var(--secondary-color);
         }
 
         .wizard-step {
@@ -1218,7 +1164,7 @@
             border-radius: 8px;
             font-size: 1rem;
             transition: border-color 0.3s ease;
-            font-family: 'playfair+display', serif;
+            font-family: 'Lora', serif;
         }
 
         .form-group input:focus,
@@ -1334,7 +1280,7 @@
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
-            font-family: 'playfair+display', serif;
+            font-family: 'Lora', serif;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
@@ -1408,10 +1354,18 @@
 
         /* Footer */
         footer {
-            background: var(--accent-color);
             color: white;
             text-align: center;
             padding: 3rem 0;
+        }
+
+        /* Updated footer colors */
+        .english-wedding footer {
+            background: #F47A43;
+        }
+
+        .indian-wedding footer {
+            background: #B691D6;
         }
 
         .footer-content {
@@ -1425,6 +1379,16 @@
         }
 
         /* Mobile Responsive */
+        @media (max-width: 1200px) {
+            .flowing-layout {
+                grid-template-columns: 55% 45%;
+            }
+
+            .content-section {
+                padding: 3rem 2rem;
+            }
+        }
+
         @media (max-width: 768px) {
             /* Mobile: Stack vertically with photo on top */
             .flowing-layout {
@@ -1537,10 +1501,6 @@
             .indian-wedding .content-section {
                 margin: 0.5rem;
             }
-
-            .guest-management {
-                grid-template-columns: 1fr;
-            }
         }
 
         @media (max-width: 480px) {
@@ -1633,13 +1593,13 @@
                     <p><strong>Welcome!</strong> Please select the wedding celebration you've been invited to. If you're invited to both, you can RSVP to each separately.</p>
                 </div>
                 <div class="wedding-buttons">
-                    <a href="#" class="wedding-btn english" onclick="showWedding('english')">
+                    <a href="#english" class="wedding-btn english" onclick="showWedding('english')">
                         <h3>English Wedding</h3>
                         <div class="date">May 1st, 2026</div>
                         <div class="location">Elmore Court, Gloucester</div>
                         <div class="details">Ceremony & Reception</div>
                     </a>
-                    <a href="#" class="wedding-btn indian" onclick="showWedding('indian')">
+                    <a href="#indian" class="wedding-btn indian" onclick="showWedding('indian')">
                         <h3>Indian Wedding</h3>
                         <div class="date">May 10th, 2026</div>
                         <div class="location">Oshwal Centre, Potters Bar</div>
@@ -1647,7 +1607,7 @@
                     </a>
                     
                     <!-- Dashboard Access Button -->
-                    <a href="#" class="wedding-btn dashboard" onclick="showDashboard()">
+                    <a href="#dashboard" class="wedding-btn dashboard" onclick="showDashboard()">
                         <h3>📊 Dashboard</h3>
                         <div class="date">Admin Access</div>
                         <div class="location">RSVP Tracking & Planning</div>
@@ -1872,7 +1832,7 @@
                             <div class="timeline-emoji">🚕</div>
                             <div class="timeline-content">
                                 <h4>11:59 PM - Farewell & Carriages</h4>
-                                <p>The bar closes at XXX. Please arrange transport by XXX, we recommend pre-booking a taxi from our <a href="#englishTravel" onclick="scrollToSection('englishTravel')">Travel</a> page</p>
+                                <p>The bar closes at midnight. Please arrange transport, we recommend pre-booking a taxi from our <a href="#englishTravel" onclick="scrollToSection('englishTravel')">Travel</a> page</p>
                             </div>
                         </div>
                     </div>
@@ -1880,7 +1840,7 @@
                     <!-- Travel Section -->
                     <div id="englishTravel" class="content-section" data-photo="images/english-travel.jpg">
                         <h2>Travel</h2>
-                        <p>We recommend pre-booking your taxi for the end of the evening:</p>
+                        <p>There aren't any public transport links to the venue so would recommend booking a taxi ahead of time. There is also a car park available and cars will need to be collected by 10:30am the next day.</p>
                         
                         <div class="content-card">
                             <h3>Andy Cars</h3>
@@ -2098,8 +2058,8 @@
 
                 <!-- Content Flow -->
                 <div class="content-flow">
-                    <!-- Home Section with Purple Background -->
-                    <div id="indianHome" class="content-section" data-photo="images/indian-home.jpg" style="background: #704AAF !important;">
+                    <!-- Home Section - No Purple Background -->
+                    <div id="indianHome" class="content-section" data-photo="images/indian-home.jpg">
                         <div class="menu-hero-content">
                             <h1>Darshna & Michael</h1>
                             <div class="date">10th May 2026</div>
@@ -2377,66 +2337,77 @@
                 document.getElementById('passwordInput').value = '';
             }
         }
-// Enhanced URL handling for direct access
-function checkURLForDirectAccess() {
-    const path = window.location.pathname;
-    const hash = window.location.hash;
-    
-    console.log('Checking URL access:', path, hash);
-    
-    // Handle direct URL access
-    if (path === '/1stMay2026' || path.includes('1stMay2026') || hash === '#english') {
-        showWedding('english');
-        return true;
-    } else if (path === '/10thMay2026' || path.includes('10thMay2026') || hash === '#indian') {
-        showWedding('indian');
-        return true;
-    } else if (path.includes('/dashboard') || hash === '#dashboard') {
-        showDashboard();
-        return true;
-    }
-    
-    return false;
-}
 
-// Handle direct access without password for wedding pages
-function handleDirectAccess() {
-    const path = window.location.pathname;
-    
-    // Skip password for direct wedding access
-    if (path.includes('1stMay2026') || path.includes('10thMay2026')) {
-        sessionStorage.setItem('weddingAccess', 'true');
-        document.getElementById('passwordScreen').style.display = 'none';
-        document.getElementById('mainContent').classList.remove('hidden');
-        
-        if (path.includes('1stMay2026')) {
-            showWedding('english');
-        } else if (path.includes('10thMay2026')) {
-            showWedding('indian');
+        // Handle direct access without password for wedding pages
+        function handleDirectAccess() {
+            const path = window.location.pathname;
+            const fullURL = window.location.href;
+            const hash = window.location.hash;
+            
+            console.log('Full URL:', fullURL);
+            console.log('Hash:', hash);
+            console.log('Path:', path);
+            
+            // Check for wedding pages
+            if (hash === '#english' || fullURL.includes('1stMay2026') || path.includes('1stMay2026')) {
+                sessionStorage.setItem('weddingAccess', 'true');
+                document.getElementById('passwordScreen').style.display = 'none';
+                document.getElementById('mainContent').classList.remove('hidden');
+                showWedding('english');
+                return true;
+            } else if (hash === '#indian' || fullURL.includes('10thMay2026') || path.includes('10thMay2026')) {
+                sessionStorage.setItem('weddingAccess', 'true');
+                document.getElementById('passwordScreen').style.display = 'none';
+                document.getElementById('mainContent').classList.remove('hidden');
+                showWedding('indian');
+                return true;
+            }
+            return false;
         }
-        return true;
-    }
-    return false;
-}
 
-// Updated window load event
-window.addEventListener('load', function() {
-    // Try direct access first (bypasses password for wedding pages)
-    if (handleDirectAccess()) {
-        return;
-    }
-    
-    // Otherwise check if already authenticated
-    if (sessionStorage.getItem('weddingAccess') === 'true') {
-        document.getElementById('passwordScreen').style.display = 'none';
-        document.getElementById('mainContent').classList.remove('hidden');
-        
-        // Try to navigate to direct URL, if no match show selector
-        if (!checkURLForDirectAccess()) {
-            document.getElementById('weddingSelector').style.display = 'flex';
+        // Enhanced URL handling for direct access
+        function checkURLForDirectAccess() {
+            const path = window.location.pathname;
+            const fullURL = window.location.href;
+            const hash = window.location.hash;
+            
+            console.log('Checking URL access - Full URL:', fullURL);
+            console.log('Path:', path);
+            console.log('Hash:', hash);
+            
+            // Check URL for direct access
+            if (hash === '#english' || fullURL.includes('1stMay2026') || path.includes('1stMay2026')) {
+                showWedding('english');
+                return true;
+            } else if (hash === '#indian' || fullURL.includes('10thMay2026') || path.includes('10thMay2026')) {
+                showWedding('indian');
+                return true;
+            } else if (hash === '#dashboard' || fullURL.includes('/dashboard') || path.includes('/dashboard')) {
+                showDashboard();
+                return true;
+            }
+            
+            return false;
         }
-    }
-});
+
+        // Updated window load event
+        window.addEventListener('load', function() {
+            // Try direct access first (bypasses password for wedding pages)
+            if (handleDirectAccess()) {
+                return;
+            }
+            
+            // Otherwise check if already authenticated
+            if (sessionStorage.getItem('weddingAccess') === 'true') {
+                document.getElementById('passwordScreen').style.display = 'none';
+                document.getElementById('mainContent').classList.remove('hidden');
+                
+                // Try to navigate to direct URL, if no match show selector
+                if (!checkURLForDirectAccess()) {
+                    document.getElementById('weddingSelector').style.display = 'flex';
+                }
+            }
+        });
 
         // Allow Enter key for password
         document.getElementById('passwordInput').addEventListener('keypress', function(e) {
@@ -2445,88 +2416,30 @@ window.addEventListener('load', function() {
             }
         });
 
-// Enhanced URL handling for direct access
-function checkURLForDirectAccess() {
-    const path = window.location.pathname;
-    const hash = window.location.hash;
-    
-    console.log('Checking URL access:', path, hash);
-    
-    // Handle direct URL access
-    if (path === '/1stMay2026' || path.includes('1stMay2026') || hash === '#english') {
-        showWedding('english');
-        return true;
-    } else if (path === '/10thMay2026' || path.includes('10thMay2026') || hash === '#indian') {
-        showWedding('indian');
-        return true;
-    } else if (path.includes('/dashboard') || hash === '#dashboard') {
-        showDashboard();
-        return true;
-    }
-    
-    return false;
-}
-
-// Handle direct access without password for wedding pages
-function handleDirectAccess() {
-    const path = window.location.pathname;
-    
-    // Skip password for direct wedding access
-    if (path.includes('1stMay2026') || path.includes('10thMay2026')) {
-        sessionStorage.setItem('weddingAccess', 'true');
-        document.getElementById('passwordScreen').style.display = 'none';
-        document.getElementById('mainContent').classList.remove('hidden');
-        
-        if (path.includes('1stMay2026')) {
-            showWedding('english');
-        } else if (path.includes('10thMay2026')) {
-            showWedding('indian');
+        // Updated showWedding for hash URLs
+        function showWedding(type) {
+            console.log('Showing wedding:', type);
+            
+            document.getElementById('weddingSelector').style.display = 'none';
+            document.getElementById('dashboardPage').classList.remove('active');
+            
+            if (type === 'english') {
+                document.getElementById('englishWedding').classList.add('active');
+                document.getElementById('indianWedding').classList.remove('active');
+                updateCountdown('english');
+                window.location.hash = '#english';
+            } else if (type === 'indian') {
+                document.getElementById('indianWedding').classList.add('active');
+                document.getElementById('englishWedding').classList.remove('active');
+                updateCountdown('indian');
+                window.location.hash = '#indian';
+            }
+            currentWedding = type;
+            
+            setTimeout(() => {
+                setupPhotoChanging(type);
+            }, 100);
         }
-        return true;
-    }
-    return false;
-}
-
-// Updated window load event
-window.addEventListener('load', function() {
-    // Try direct access first (bypasses password for wedding pages)
-    if (handleDirectAccess()) {
-        return;
-    }
-    
-    // Otherwise check if already authenticated
-    if (sessionStorage.getItem('weddingAccess') === 'true') {
-        document.getElementById('passwordScreen').style.display = 'none';
-        document.getElementById('mainContent').classList.remove('hidden');
-        
-        // Try to navigate to direct URL, if no match show selector
-        if (!checkURLForDirectAccess()) {
-            document.getElementById('weddingSelector').style.display = 'flex';
-        }
-    }
-});
-        // Wedding selection functionality with updated URLs
-function showWedding(type) {
-    document.getElementById('weddingSelector').style.display = 'none';
-    document.getElementById('dashboardPage').classList.remove('active');
-    
-    if (type === 'english') {
-        document.getElementById('englishWedding').classList.add('active');
-        document.getElementById('indianWedding').classList.remove('active');
-        updateCountdown('english');
-        window.history.replaceState({}, '', '/1stMay2026');
-    } else if (type === 'indian') {
-        document.getElementById('indianWedding').classList.add('active');
-        document.getElementById('englishWedding').classList.remove('active');
-        updateCountdown('indian');
-        window.history.replaceState({}, '', '/10thMay2026');
-    }
-    currentWedding = type;
-    
-    setTimeout(() => {
-        setupPhotoChanging(type);
-    }, 100);
-}
 
         // Dashboard functionality
         function showDashboard() {
@@ -2534,7 +2447,7 @@ function showWedding(type) {
             document.getElementById('englishWedding').classList.remove('active');
             document.getElementById('indianWedding').classList.remove('active');
             document.getElementById('dashboardPage').classList.add('active');
-            window.history.pushState({}, '', '?path=dashboard');
+            window.location.hash = '#dashboard';
             refreshDashboard();
         }
 
@@ -3223,6 +3136,3 @@ function showWedding(type) {
     </script>
 </body>
 </html>
-
-
-
