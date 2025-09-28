@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Darshna & Michael - Wedding Celebrations 2026</title>
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=dancing+script:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=La+Luxes+Serif:wght@400;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -805,6 +805,18 @@
             color: #000000;
         }
 
+        /* Mobile-specific photo styling */
+        .mobile-section-photo {
+            display: none;
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
         /* Menu Hero Section */
         .menu-hero-content {
             text-align: center;
@@ -1390,33 +1402,28 @@
         }
 
         @media (max-width: 768px) {
-            /* Mobile: Stack vertically with photo on top */
+            /* Mobile: Show individual photos for each section */
             .flowing-layout {
                 grid-template-columns: 1fr;
-                grid-template-rows: 50vh auto;
+                grid-template-rows: auto;
             }
 
             .photo-section {
-                position: relative;
-                height: 50vh;
-                min-height: 300px;
-                display: block !important;
+                display: none !important;
             }
 
-            .photo-section img {
+            .mobile-section-photo {
                 display: block !important;
-                width: 100% !important;
-                height: 100% !important;
-                object-fit: cover !important;
             }
 
             .content-flow {
-                padding-top: 0;
+                padding-top: 80px;
             }
 
             .content-section {
                 padding: 2rem 1.5rem;
                 min-height: auto;
+                border-bottom: 1px solid #eee;
             }
 
             .content-section h2 {
@@ -1537,6 +1544,11 @@
             .menu-hero-content h1 {
                 font-size: 2.5rem;
             }
+
+            .mobile-section-photo {
+                height: 250px;
+                margin-bottom: 1.5rem;
+            }
         }
 
         /* Smooth scrolling */
@@ -1607,7 +1619,7 @@
                     </a>
                     
                     <!-- Dashboard Access Button -->
-                    <a href="#dashboard" class="wedding-btn dashboard" onclick="showDashboard()">
+                    <a href="/dashboard" class="wedding-btn dashboard" onclick="showDashboard(); return false;">
                         <h3>📊 Dashboard</h3>
                         <div class="date">Admin Access</div>
                         <div class="location">RSVP Tracking & Planning</div>
@@ -1754,6 +1766,7 @@
                 <div class="content-flow">
                     <!-- Home Section -->
                     <div id="englishHome" class="content-section" data-photo="images/english-home.jpg">
+                        <img class="mobile-section-photo" src="images/english-home.jpg" alt="English Wedding Home" onerror="this.src='images/engagement-photo.jpg'">
                         <div class="menu-hero-content">
                             <h1>Darshna & Michael</h1>
                             <div class="date">1st May 2026</div>
@@ -1767,6 +1780,7 @@
 
                     <!-- Story Section -->
                     <div id="englishStory" class="content-section" data-photo="images/english-story.jpg">
+                        <img class="mobile-section-photo" src="images/english-story.jpg" alt="English Wedding Story" onerror="this.src='images/engagement-photo.jpg'">
                         <h2>Our Story</h2>
                         <h3>How We Met</h3>
                         <p>Michael spotted Darshna at a summer house party and did... absolutely nothing. Lucky for them, fast forward four months to a NYE house party (that neither of them planned to attend), their paths crossed again and they spent hours talking away.</p>
@@ -1781,6 +1795,7 @@
 
                     <!-- Order of the Day Section -->
                     <div id="englishOrderofday" class="content-section" data-photo="images/english-orderofday.jpg">
+                        <img class="mobile-section-photo" src="images/english-orderofday.jpg" alt="English Wedding Order" onerror="this.src='images/engagement-photo.jpg'">
                         <h2>Order of the Day</h2>
                         
                         <div class="timeline-item">
@@ -1839,6 +1854,7 @@
 
                     <!-- Travel Section -->
                     <div id="englishTravel" class="content-section" data-photo="images/english-travel.jpg">
+                        <img class="mobile-section-photo" src="images/english-travel.jpg" alt="English Wedding Travel" onerror="this.src='images/engagement-photo.jpg'">
                         <h2>Travel</h2>
                         <p>There aren't any public transport links to the venue so would recommend booking a taxi ahead of time. There is also a car park available and cars will need to be collected by 10:30am the next day.</p>
                         
@@ -1851,6 +1867,7 @@
 
                     <!-- Accommodations Section -->
                     <div id="englishAccommodations" class="content-section" data-photo="images/english-accommodations.jpg">
+                        <img class="mobile-section-photo" src="images/english-accommodations.jpg" alt="English Wedding Accommodations" onerror="this.src='images/engagement-photo.jpg'">
                         <h2>Accommodations</h2>
                         <p>Here are some nearby hotel options for our wedding guests:</p>
                         
@@ -1890,6 +1907,7 @@
 
                     <!-- Registry Section -->
                     <div id="englishRegistry" class="content-section" data-photo="images/english-registry.jpg">
+                        <img class="mobile-section-photo" src="images/english-registry.jpg" alt="English Wedding Registry" onerror="this.src='images/engagement-photo.jpg'">
                         <h2>Registry</h2>
                         <div class="registry-content">
                             <p>Your presence at our wedding is the greatest gift of all 🧡</p>
@@ -1900,6 +1918,7 @@
 
                     <!-- RSVP Section -->
                     <div id="englishRsvp" class="content-section" data-photo="images/english-rsvp.jpg">
+                        <img class="mobile-section-photo" src="images/english-rsvp.jpg" alt="English Wedding RSVP" onerror="this.src='images/engagement-photo.jpg'">
                         <h2>RSVP</h2>
                         <div class="rsvp-deadline">Please RSVP by 1st February</div>
                         <div class="rsvp-wizard" id="englishRsvpWizard">
@@ -1944,6 +1963,7 @@
 
                     <!-- Q&A Section -->
                     <div id="englishQa" class="content-section" data-photo="images/english-qa.jpg">
+                        <img class="mobile-section-photo" src="images/english-qa.jpg" alt="English Wedding Q&A" onerror="this.src='images/engagement-photo.jpg'">
                         <h2>Q & A</h2>
                         
                         <div class="qa-item">
@@ -2060,6 +2080,7 @@
                 <div class="content-flow">
                     <!-- Home Section - No Purple Background -->
                     <div id="indianHome" class="content-section" data-photo="images/indian-home.jpg">
+                        <img class="mobile-section-photo" src="images/indian-home.jpg" alt="Indian Wedding Home" onerror="this.src='images/engagement-photo.jpg'">
                         <div class="menu-hero-content">
                             <h1>Darshna & Michael</h1>
                             <div class="date">10th May 2026</div>
@@ -2073,6 +2094,7 @@
 
                     <!-- Story Section -->
                     <div id="indianStory" class="content-section" data-photo="images/indian-story.jpg">
+                        <img class="mobile-section-photo" src="images/indian-story.jpg" alt="Indian Wedding Story" onerror="this.src='images/engagement-photo.jpg'">
                         <h2>Our Story</h2>
                         <h3>How We Met</h3>
                         <p>Michael spotted Darshna at a summer house party and did... absolutely nothing. Lucky for them, fast forward four months to a NYE house party (that neither of them planned to attend), their paths crossed again and they spent hours talking away.</p>
@@ -2087,6 +2109,7 @@
 
                     <!-- Order of the Day Section -->
                     <div id="indianOrderofday" class="content-section" data-photo="images/indian-orderofday.jpg">
+                        <img class="mobile-section-photo" src="images/indian-orderofday.jpg" alt="Indian Wedding Order" onerror="this.src='images/engagement-photo.jpg'">
                         <div class="coming-soon">
                             <h2>Coming Soon ❤️</h2>
                         </div>
@@ -2094,6 +2117,7 @@
 
                     <!-- Accommodations Section -->
                     <div id="indianAccommodations" class="content-section" data-photo="images/indian-accommodations.jpg">
+                        <img class="mobile-section-photo" src="images/indian-accommodations.jpg" alt="Indian Wedding Accommodations" onerror="this.src='images/engagement-photo.jpg'">
                         <h2>Accommodations</h2>
                         <p>Here are some nearby hotel options for our wedding guests:</p>
                         
@@ -2133,6 +2157,7 @@
 
                     <!-- Registry Section -->
                     <div id="indianRegistry" class="content-section" data-photo="images/indian-registry.jpg">
+                        <img class="mobile-section-photo" src="images/indian-registry.jpg" alt="Indian Wedding Registry" onerror="this.src='images/engagement-photo.jpg'">
                         <h2>Registry</h2>
                         <div class="registry-content">
                             <p>Your presence at our wedding is the greatest gift of all 🧡</p>
@@ -2144,6 +2169,7 @@
 
                     <!-- RSVP Section -->
                     <div id="indianRsvp" class="content-section" data-photo="images/indian-rsvp.jpg">
+                        <img class="mobile-section-photo" src="images/indian-rsvp.jpg" alt="Indian Wedding RSVP" onerror="this.src='images/engagement-photo.jpg'">
                         <h2>RSVP</h2>
                         <div class="rsvp-deadline">Please RSVP by 1st February</div>
                         
@@ -2189,6 +2215,7 @@
 
                     <!-- Q&A Section -->
                     <div id="indianQa" class="content-section" data-photo="images/indian-qa.jpg">
+                        <img class="mobile-section-photo" src="images/indian-qa.jpg" alt="Indian Wedding Q&A" onerror="this.src='images/engagement-photo.jpg'">
                         <h2>Q & A</h2>
                         
                         <div class="qa-item">
@@ -2339,104 +2366,87 @@
         }
 
         // Handle direct access without password for wedding pages
-function handleDirectAccess() {
-    const path = window.location.pathname;
-    const fullURL = window.location.href;
-    
-    console.log('Full URL:', fullURL);
-    console.log('Path:', path);
-    
-    // Check for wedding pages in URL path
-    if (fullURL.includes('1stMay2026') || path.includes('1stMay2026') || path === '/1stMay2026') {
-        console.log('Detected English wedding URL');
-        sessionStorage.setItem('weddingAccess', 'true');
-        document.getElementById('passwordScreen').style.display = 'none';
-        document.getElementById('mainContent').classList.remove('hidden');
-        showWedding('english');
-        return true;
-    } else if (fullURL.includes('10thMay2026') || path.includes('10thMay2026') || path === '/10thMay2026') {
-        console.log('Detected Indian wedding URL');
-        sessionStorage.setItem('weddingAccess', 'true');
-        document.getElementById('passwordScreen').style.display = 'none';
-        document.getElementById('mainContent').classList.remove('hidden');
-        showWedding('indian');
-        return true;
-    }
-    return false;
-}
-// Handle GitHub Pages redirects
-function handleRedirectParam() {
-    const params = new URLSearchParams(window.location.search);
-    const redirect = params.get('redirect');
-    
-    if (redirect === '1stMay2026') {
-        sessionStorage.setItem('weddingAccess', 'true');
-        document.getElementById('passwordScreen').style.display = 'none';
-        document.getElementById('mainContent').classList.remove('hidden');
-        showWedding('english');
-        // Clean up URL
-        window.history.replaceState({}, '', '/1stMay2026');
-        return true;
-    } else if (redirect === '10thMay2026') {
-        sessionStorage.setItem('weddingAccess', 'true');
-        document.getElementById('passwordScreen').style.display = 'none';
-        document.getElementById('mainContent').classList.remove('hidden');
-        showWedding('indian');
-        // Clean up URL
-        window.history.replaceState({}, '', '/10thMay2026');
-        return true;
-    }
-    return false;
-}
-
-// Update the window load event to include redirect handling
-window.addEventListener('load', function() {
-    // Try redirect parameter first
-    if (handleRedirectParam()) {
-        return;
-    }
-    
-    // Try direct access first (bypasses password for wedding pages)
-    if (handleDirectAccess()) {
-        return;
-    }
-    
-    // Otherwise check if already authenticated
-    if (sessionStorage.getItem('weddingAccess') === 'true') {
-        document.getElementById('passwordScreen').style.display = 'none';
-        document.getElementById('mainContent').classList.remove('hidden');
-        
-        // Try to navigate to direct URL, if no match show selector
-        if (!checkURLForDirectAccess()) {
-            document.getElementById('weddingSelector').style.display = 'flex';
+        function handleDirectAccess() {
+            const path = window.location.pathname;
+            const fullURL = window.location.href;
+            
+            console.log('Full URL:', fullURL);
+            console.log('Path:', path);
+            
+            // Check for wedding pages in URL path
+            if (fullURL.includes('1stMay2026') || path.includes('1stMay2026') || path === '/1stMay2026') {
+                console.log('Detected English wedding URL');
+                sessionStorage.setItem('weddingAccess', 'true');
+                document.getElementById('passwordScreen').style.display = 'none';
+                document.getElementById('mainContent').classList.remove('hidden');
+                showWedding('english');
+                return true;
+            } else if (fullURL.includes('10thMay2026') || path.includes('10thMay2026') || path === '/10thMay2026') {
+                console.log('Detected Indian wedding URL');
+                sessionStorage.setItem('weddingAccess', 'true');
+                document.getElementById('passwordScreen').style.display = 'none';
+                document.getElementById('mainContent').classList.remove('hidden');
+                showWedding('indian');
+                return true;
+            }
+            return false;
         }
-    }
-});
+
+        // Handle GitHub Pages redirects
+        function handleRedirectParam() {
+            const params = new URLSearchParams(window.location.search);
+            const redirect = params.get('redirect');
+            
+            if (redirect === '1stMay2026') {
+                sessionStorage.setItem('weddingAccess', 'true');
+                document.getElementById('passwordScreen').style.display = 'none';
+                document.getElementById('mainContent').classList.remove('hidden');
+                showWedding('english');
+                // Clean up URL
+                window.history.replaceState({}, '', '/1stMay2026');
+                return true;
+            } else if (redirect === '10thMay2026') {
+                sessionStorage.setItem('weddingAccess', 'true');
+                document.getElementById('passwordScreen').style.display = 'none';
+                document.getElementById('mainContent').classList.remove('hidden');
+                showWedding('indian');
+                // Clean up URL
+                window.history.replaceState({}, '', '/10thMay2026');
+                return true;
+            }
+            return false;
+        }
+
         // Enhanced URL handling for direct access
-function checkURLForDirectAccess() {
-    const path = window.location.pathname;
-    const fullURL = window.location.href;
-    
-    console.log('Checking URL access - Full URL:', fullURL);
-    console.log('Path:', path);
-    
-    // Check URL for direct access
-    if (fullURL.includes('1stMay2026') || path.includes('1stMay2026') || path === '/1stMay2026') {
-        showWedding('english');
-        return true;
-    } else if (fullURL.includes('10thMay2026') || path.includes('10thMay2026') || path === '/10thMay2026') {
-        showWedding('indian');
-        return true;
-    } else if (fullURL.includes('/dashboard') || path.includes('/dashboard')) {
-        showDashboard();
-        return true;
-    }
-    
-    return false;
-}
+        function checkURLForDirectAccess() {
+            const path = window.location.pathname;
+            const fullURL = window.location.href;
+            
+            console.log('Checking URL access - Full URL:', fullURL);
+            console.log('Path:', path);
+            
+            // Check URL for direct access
+            if (fullURL.includes('1stMay2026') || path.includes('1stMay2026') || path === '/1stMay2026') {
+                showWedding('english');
+                return true;
+            } else if (fullURL.includes('10thMay2026') || path.includes('10thMay2026') || path === '/10thMay2026') {
+                showWedding('indian');
+                return true;
+            } else if (fullURL.includes('/dashboard') || path.includes('/dashboard')) {
+                showDashboard();
+                return true;
+            }
+            
+            return false;
+        }
 
         // Updated window load event
         window.addEventListener('load', function() {
+            // Try redirect parameter first
+            if (handleRedirectParam()) {
+                return;
+            }
+            
             // Try direct access first (bypasses password for wedding pages)
             if (handleDirectAccess()) {
                 return;
@@ -2461,36 +2471,36 @@ function checkURLForDirectAccess() {
             }
         });
 
-        // Updated showWedding for hash URLs
-function showWedding(type) {
-    console.log('Showing wedding:', type);
-    
-    document.getElementById('weddingSelector').style.display = 'none';
-    document.getElementById('dashboardPage').classList.remove('active');
-    
-    if (type === 'english') {
-        document.getElementById('englishWedding').classList.add('active');
-        document.getElementById('indianWedding').classList.remove('active');
-        updateCountdown('english');
-        // Don't change URL if we're already on the right page
-        if (!window.location.pathname.includes('1stMay2026')) {
-            window.history.pushState({}, '', '/1stMay2026');
+        // Updated showWedding function
+        function showWedding(type) {
+            console.log('Showing wedding:', type);
+            
+            document.getElementById('weddingSelector').style.display = 'none';
+            document.getElementById('dashboardPage').classList.remove('active');
+            
+            if (type === 'english') {
+                document.getElementById('englishWedding').classList.add('active');
+                document.getElementById('indianWedding').classList.remove('active');
+                updateCountdown('english');
+                // Don't change URL if we're already on the right page
+                if (!window.location.pathname.includes('1stMay2026')) {
+                    window.history.pushState({}, '', '/1stMay2026');
+                }
+            } else if (type === 'indian') {
+                document.getElementById('indianWedding').classList.add('active');
+                document.getElementById('englishWedding').classList.remove('active');
+                updateCountdown('indian');
+                // Don't change URL if we're already on the right page
+                if (!window.location.pathname.includes('10thMay2026')) {
+                    window.history.pushState({}, '', '/10thMay2026');
+                }
+            }
+            currentWedding = type;
+            
+            setTimeout(() => {
+                setupPhotoChanging(type);
+            }, 100);
         }
-    } else if (type === 'indian') {
-        document.getElementById('indianWedding').classList.add('active');
-        document.getElementById('englishWedding').classList.remove('active');
-        updateCountdown('indian');
-        // Don't change URL if we're already on the right page
-        if (!window.location.pathname.includes('10thMay2026')) {
-            window.history.pushState({}, '', '/10thMay2026');
-        }
-    }
-    currentWedding = type;
-    
-    setTimeout(() => {
-        setupPhotoChanging(type);
-    }, 100);
-}
 
         // Dashboard functionality
         function showDashboard() {
@@ -2498,7 +2508,7 @@ function showWedding(type) {
             document.getElementById('englishWedding').classList.remove('active');
             document.getElementById('indianWedding').classList.remove('active');
             document.getElementById('dashboardPage').classList.add('active');
-            window.location.hash = '#dashboard';
+            window.history.pushState({}, '', '/dashboard');
             refreshDashboard();
         }
 
@@ -3187,6 +3197,3 @@ function showWedding(type) {
     </script>
 </body>
 </html>
-
-
-
