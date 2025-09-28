@@ -1593,13 +1593,13 @@
                     <p><strong>Welcome!</strong> Please select the wedding celebration you've been invited to. If you're invited to both, you can RSVP to each separately.</p>
                 </div>
                 <div class="wedding-buttons">
-                    <a href="#english" class="wedding-btn english" onclick="showWedding('english')">
+                    <a href="/1stMay2026" class="wedding-btn english" onclick="showWedding('english'); return false;">
                         <h3>English Wedding</h3>
                         <div class="date">May 1st, 2026</div>
                         <div class="location">Elmore Court, Gloucester</div>
                         <div class="details">Ceremony & Reception</div>
                     </a>
-                    <a href="#indian" class="wedding-btn indian" onclick="showWedding('indian')">
+                    <a href="/10thMay2026" class="wedding-btn indian" onclick="showWedding('indian'); return false;">
                         <h3>Indian Wedding</h3>
                         <div class="date">May 10th, 2026</div>
                         <div class="location">Oshwal Centre, Potters Bar</div>
@@ -2339,56 +2339,53 @@
         }
 
         // Handle direct access without password for wedding pages
-        function handleDirectAccess() {
-            const path = window.location.pathname;
-            const fullURL = window.location.href;
-            const hash = window.location.hash;
-            
-            console.log('Full URL:', fullURL);
-            console.log('Hash:', hash);
-            console.log('Path:', path);
-            
-            // Check for wedding pages
-            if (hash === '#english' || fullURL.includes('1stMay2026') || path.includes('1stMay2026')) {
-                sessionStorage.setItem('weddingAccess', 'true');
-                document.getElementById('passwordScreen').style.display = 'none';
-                document.getElementById('mainContent').classList.remove('hidden');
-                showWedding('english');
-                return true;
-            } else if (hash === '#indian' || fullURL.includes('10thMay2026') || path.includes('10thMay2026')) {
-                sessionStorage.setItem('weddingAccess', 'true');
-                document.getElementById('passwordScreen').style.display = 'none';
-                document.getElementById('mainContent').classList.remove('hidden');
-                showWedding('indian');
-                return true;
-            }
-            return false;
-        }
-
+function handleDirectAccess() {
+    const path = window.location.pathname;
+    const fullURL = window.location.href;
+    
+    console.log('Full URL:', fullURL);
+    console.log('Path:', path);
+    
+    // Check for wedding pages in URL path
+    if (fullURL.includes('1stMay2026') || path.includes('1stMay2026') || path === '/1stMay2026') {
+        console.log('Detected English wedding URL');
+        sessionStorage.setItem('weddingAccess', 'true');
+        document.getElementById('passwordScreen').style.display = 'none';
+        document.getElementById('mainContent').classList.remove('hidden');
+        showWedding('english');
+        return true;
+    } else if (fullURL.includes('10thMay2026') || path.includes('10thMay2026') || path === '/10thMay2026') {
+        console.log('Detected Indian wedding URL');
+        sessionStorage.setItem('weddingAccess', 'true');
+        document.getElementById('passwordScreen').style.display = 'none';
+        document.getElementById('mainContent').classList.remove('hidden');
+        showWedding('indian');
+        return true;
+    }
+    return false;
+}
         // Enhanced URL handling for direct access
-        function checkURLForDirectAccess() {
-            const path = window.location.pathname;
-            const fullURL = window.location.href;
-            const hash = window.location.hash;
-            
-            console.log('Checking URL access - Full URL:', fullURL);
-            console.log('Path:', path);
-            console.log('Hash:', hash);
-            
-            // Check URL for direct access
-            if (hash === '#english' || fullURL.includes('1stMay2026') || path.includes('1stMay2026')) {
-                showWedding('english');
-                return true;
-            } else if (hash === '#indian' || fullURL.includes('10thMay2026') || path.includes('10thMay2026')) {
-                showWedding('indian');
-                return true;
-            } else if (hash === '#dashboard' || fullURL.includes('/dashboard') || path.includes('/dashboard')) {
-                showDashboard();
-                return true;
-            }
-            
-            return false;
-        }
+function checkURLForDirectAccess() {
+    const path = window.location.pathname;
+    const fullURL = window.location.href;
+    
+    console.log('Checking URL access - Full URL:', fullURL);
+    console.log('Path:', path);
+    
+    // Check URL for direct access
+    if (fullURL.includes('1stMay2026') || path.includes('1stMay2026') || path === '/1stMay2026') {
+        showWedding('english');
+        return true;
+    } else if (fullURL.includes('10thMay2026') || path.includes('10thMay2026') || path === '/10thMay2026') {
+        showWedding('indian');
+        return true;
+    } else if (fullURL.includes('/dashboard') || path.includes('/dashboard')) {
+        showDashboard();
+        return true;
+    }
+    
+    return false;
+}
 
         // Updated window load event
         window.addEventListener('load', function() {
@@ -2417,29 +2414,35 @@
         });
 
         // Updated showWedding for hash URLs
-        function showWedding(type) {
-            console.log('Showing wedding:', type);
-            
-            document.getElementById('weddingSelector').style.display = 'none';
-            document.getElementById('dashboardPage').classList.remove('active');
-            
-            if (type === 'english') {
-                document.getElementById('englishWedding').classList.add('active');
-                document.getElementById('indianWedding').classList.remove('active');
-                updateCountdown('english');
-                window.location.hash = '#english';
-            } else if (type === 'indian') {
-                document.getElementById('indianWedding').classList.add('active');
-                document.getElementById('englishWedding').classList.remove('active');
-                updateCountdown('indian');
-                window.location.hash = '#indian';
-            }
-            currentWedding = type;
-            
-            setTimeout(() => {
-                setupPhotoChanging(type);
-            }, 100);
+function showWedding(type) {
+    console.log('Showing wedding:', type);
+    
+    document.getElementById('weddingSelector').style.display = 'none';
+    document.getElementById('dashboardPage').classList.remove('active');
+    
+    if (type === 'english') {
+        document.getElementById('englishWedding').classList.add('active');
+        document.getElementById('indianWedding').classList.remove('active');
+        updateCountdown('english');
+        // Don't change URL if we're already on the right page
+        if (!window.location.pathname.includes('1stMay2026')) {
+            window.history.pushState({}, '', '/1stMay2026');
         }
+    } else if (type === 'indian') {
+        document.getElementById('indianWedding').classList.add('active');
+        document.getElementById('englishWedding').classList.remove('active');
+        updateCountdown('indian');
+        // Don't change URL if we're already on the right page
+        if (!window.location.pathname.includes('10thMay2026')) {
+            window.history.pushState({}, '', '/10thMay2026');
+        }
+    }
+    currentWedding = type;
+    
+    setTimeout(() => {
+        setupPhotoChanging(type);
+    }, 100);
+}
 
         // Dashboard functionality
         function showDashboard() {
@@ -3136,3 +3139,4 @@
     </script>
 </body>
 </html>
+
