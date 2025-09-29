@@ -3,283 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Darshna & Michael - Wedding Celebrations 2026</title>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@300;400;500;600;700&family=Style+Script&display=swap" rel="stylesheet">
+    <title>Darshna & Michael - Wedding 2026</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Lora', serif;
-            background: linear-gradient(135deg, #f5e6d3 0%, #f8f4f2 50%, #fdeee6 100%);
-            min-height: 100vh;
-        }
-
-        /* Password Protection Screen */
-        .password-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #f5e6d3 0%, #f8f4f2 50%, #fdeee6 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 10000;
-        }
-        .password-form {
-            background: white;
-            padding: 3rem;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            text-align: center;
-            max-width: 400px;
-            width: 90%;
-        }
-        .password-form h2 {
-            font-family: 'Style Script', cursive;
-            color: #8b7355;
-            margin-bottom: 1rem;
-            font-size: 2rem;
-        }
-        .password-form input {
-            width: 100%;
-            padding: 1rem;
-            border: 2px solid #f4d4ba;
-            border-radius: 10px;
-            font-size: 1rem;
-            margin: 1rem 0;
-        }
-        .password-form button {
-            background: linear-gradient(135deg, #e8a87c 0%, #8b7355 100%);
-            color: white;
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 25px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        .password-form button:hover {
-            transform: translateY(-2px);
-        }
-        .password-error {
-            color: #c41e3a;
-            margin-top: 0.5rem;
-            display: none;
-        }
-
-        /* Main Content (Hidden until password entered) */
-        .main-content {
-            display: none;
-            min-height: 100vh;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        .main-content::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="floral" patternUnits="userSpaceOnUse" width="20" height="20"><circle cx="10" cy="10" r="1" fill="%23f4d4ba" opacity="0.3"/></pattern></defs><rect width="100" height="100" fill="url(%23floral)"/></svg>');
-            opacity: 0.4;
-        }
-        .selector-content {
-            position: relative;
-            z-index: 2;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-        .selector-content h1 {
-            font-family: 'Style Script', cursive;
-            font-size: 4.5rem;
-            font-weight: 700;
-            color: #8b7355;
-            margin-bottom: 1rem;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        .selector-content .ampersand {
-            font-size: 3rem;
-            color: #e8a87c;
-            margin: 0 1rem;
-            font-style: italic;
-        }
-        .selector-content .subtitle {
-            font-size: 1.6rem;
-            color: #a0896b;
-            margin-bottom: 3rem;
-            font-weight: 300;
-        }
-        .selector-content .instructions {
-            font-size: 1.2rem;
-            color: #8b7355;
-            margin-bottom: 3rem;
-            background: rgba(255,255,255,0.9);
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            border: 2px solid #f4d4ba;
-        }
-        .wedding-buttons {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 3rem;
-            margin-top: 2rem;
-        }
-        .wedding-btn {
-            background: white;
-            border: 3px solid #e8a87c;
-            border-radius: 20px;
-            padding: 3rem 2rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            color: #8b7355;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-            position: relative;
-            overflow: hidden;
-        }
-        .wedding-btn:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
-            border-color: #d4956f;
-        }
-        .wedding-btn.english {
-            border-color: #e8a87c;
-        }
-        .wedding-btn.english:hover {
-            border-color: #d4956f;
-            background: linear-gradient(135deg, #faf7f5 0%, #f8f4f2 100%);
-        }
-        .wedding-btn.indian {
-            border-color: #c41e3a;
-        }
-        .wedding-btn.indian:hover {
-            border-color: #a01729;
-            background: linear-gradient(135deg, #fef7f7 0%, #fffbf0 100%);
-        }
-        .wedding-btn h3 {
-            font-family: 'Style Script', cursive;
-            font-size: 2.2rem;
-            margin-bottom: 1rem;
-            color: #8b7355;
-        }
-        .wedding-btn.indian h3 {
-            color: #c41e3a;
-        }
-        .wedding-btn .date {
-            font-size: 1.4rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-        .wedding-btn.english .date {
-            color: #e8a87c;
-        }
-        .wedding-btn.indian .date {
-            color: #d4af37;
-        }
-        .wedding-btn .location {
-            font-size: 1.1rem;
-            color: #a0896b;
-            margin-bottom: 1rem;
-        }
-        .wedding-btn .details {
-            font-size: 0.95rem;
-            color: #8b7355;
-            font-style: italic;
-        }
-
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
-            .selector-content h1 {
-                font-size: 3rem;
-            }
-            .wedding-buttons {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            .wedding-btn {
-                padding: 2rem 1.5rem;
-            }
-        }
+        body { font-family: Arial, sans-serif; background: linear-gradient(135deg, #f5e6d3, #fdeee6); margin: 0; padding: 50px; text-align: center; }
+        .container { max-width: 600px; margin: 0 auto; background: white; padding: 50px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        h1 { color: #8b7355; font-size: 3rem; margin-bottom: 20px; }
+        .wedding-btn { display: block; background: white; border: 3px solid #e8a87c; padding: 30px; margin: 20px 0; border-radius: 15px; text-decoration: none; color: #8b7355; transition: all 0.3s ease; }
+        .wedding-btn:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
+        .wedding-btn.indian { border-color: #c41e3a; }
+        .wedding-btn h3 { margin: 0 0 10px 0; font-size: 1.5rem; }
+        .date { font-size: 1.2rem; color: #e8a87c; font-weight: bold; }
+        .indian .date { color: #d4af37; }
     </style>
 </head>
 <body>
-    <!-- Password Protection Screen -->
-    <div id="passwordScreen" class="password-screen">
-        <div class="password-form">
-            <h2>Darshna & Michael</h2>
-            <p>Please enter the password to access our wedding website</p>
-            <input type="password" id="passwordInput" placeholder="Enter password">
-            <button onclick="checkPassword()">Enter</button>
-            <div id="passwordError" class="password-error">Incorrect password. Please try again.</div>
-        </div>
+    <div class="container">
+        <h1>Darshna & Michael</h1>
+        <p>Two Celebrations, One Love Story</p>
+        
+        <a href="english.html" class="wedding-btn english">
+            <h3>English Wedding</h3>
+            <div class="date">May 1st, 2026</div>
+            <p>Elmore Court, Gloucester</p>
+        </a>
+        
+        <a href="indian.html" class="wedding-btn indian">
+            <h3>Indian Wedding</h3>
+            <div class="date">May 10th, 2026</div>
+            <p>Oshwal Centre, Hertfordshire</p>
+        </a>
     </div>
-
-    <!-- Main Website Content (hidden until password entered) -->
-    <div id="mainContent" class="main-content">
-        <div class="selector-content">
-            <h1>
-                Darshna 
-                <span class="ampersand">&</span> 
-                Michael
-            </h1>
-            <div class="subtitle">Two Celebrations, One Love Story</div>
-            <div class="instructions">
-                <p><strong>Admin Access:</strong> Choose which wedding to manage or view the dashboard for RSVP tracking.</p>
-            </div>
-            <div class="wedding-buttons">
-                <a href="english.html" class="wedding-btn english">
-                    <h3>English Wedding</h3>
-                    <div class="date">May 1st, 2026</div>
-                    <div class="location">Elmore Court, Gloucester</div>
-                    <div class="details">Ceremony & Reception</div>
-                </a>
-                <a href="indian.html" class="wedding-btn indian">
-                    <h3>Indian Wedding</h3>
-                    <div class="date">May 10th, 2026</div>
-                    <div class="location">Oshwal Centre, Potters Bar</div>
-                    <div class="details">Traditional Ceremony</div>
-                </a>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        // Password Protection
-        function checkPassword() {
-            const password = document.getElementById('passwordInput').value;
-            const correctPassword = 'ElmoreCourt04!';
-            
-            if (password === correctPassword) {
-                document.getElementById('passwordScreen').style.display = 'none';
-                document.getElementById('mainContent').style.display = 'flex';
-                sessionStorage.setItem('adminAccess', 'true');
-            } else {
-                document.getElementById('passwordError').style.display = 'block';
-                document.getElementById('passwordInput').value = '';
-            }
-        }
-
-        // Allow Enter key for password
-        document.getElementById('passwordInput').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                checkPassword();
-            }
-        });
-
-        // Check if already authenticated
-        window.addEventListener('load', function() {
-            if (sessionStorage.getItem('adminAccess') === 'true') {
-                document.getElementById('passwordScreen').style.display = 'none';
-                document.getElementById('mainContent').style.display = 'flex';
-            }
-        });
-    </script>
 </body>
 </html>
