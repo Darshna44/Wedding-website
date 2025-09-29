@@ -45,27 +45,16 @@
     </div>
 
     <script>
-        // GitHub Pages 404 redirect handler
         (function() {
             const path = window.location.pathname;
-            const fullURL = window.location.href;
             
-            console.log('404 page - Current path:', path);
-            console.log('404 page - Full URL:', fullURL);
-            
-            // Handle direct wedding page access
             if (path === '/1stMay2026' || path.includes('1stMay2026')) {
-                console.log('Redirecting to English wedding');
                 window.location.replace('/?redirect=1stMay2026');
             } else if (path === '/10thMay2026' || path.includes('10thMay2026')) {
-                console.log('Redirecting to Indian wedding');
                 window.location.replace('/?redirect=10thMay2026');
             } else if (path === '/dashboard' || path.includes('dashboard')) {
-                console.log('Redirecting to dashboard');
                 window.location.replace('/?redirect=dashboard');
             } else {
-                console.log('Unknown path, redirecting to home');
-                // For any other path, redirect to home page after 2 seconds
                 setTimeout(() => {
                     window.location.replace('/');
                 }, 2000);
