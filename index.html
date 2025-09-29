@@ -41,6 +41,67 @@
             font-family: 'Style Script', cursive;
         }
 
+        /* Dashboard Password Protection Screen */
+        .dashboard-password-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #f5e6d3 0%, #f8f4f2 50%, #fdeee6 100%);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+        }
+
+        .dashboard-password-form {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+        }
+
+        .dashboard-password-form h2 {
+            font-family: 'Style Script', cursive;
+            color: #8b7355;
+            margin-bottom: 1rem;
+            font-size: 2rem;
+        }
+
+        .dashboard-password-form input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #f4d4ba;
+            border-radius: 10px;
+            font-size: 1rem;
+            margin: 1rem 0;
+        }
+
+        .dashboard-password-form button {
+            background: linear-gradient(135deg, #e8a87c 0%, #8b7355 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dashboard-password-form button:hover {
+            transform: translateY(-2px);
+        }
+
+        .dashboard-password-error {
+            color: #c41e3a;
+            margin-top: 0.5rem;
+            display: none;
+        }
+
         /* Wedding Selection Screen */
         .wedding-selector {
             min-height: 100vh;
@@ -1520,7 +1581,18 @@
     </style>
 </head>
 <body>
-    <!-- Main Website Content (No Password Protection) -->
+    <!-- Dashboard Password Protection Screen -->
+    <div id="dashboardPasswordScreen" class="dashboard-password-screen">
+        <div class="dashboard-password-form">
+            <h2>Dashboard Access</h2>
+            <p>Please enter the password to access the wedding dashboard</p>
+            <input type="password" id="dashboardPasswordInput" placeholder="Enter password">
+            <button onclick="checkDashboardPassword()">Enter</button>
+            <div id="dashboardPasswordError" class="dashboard-password-error">Incorrect password. Please try again.</div>
+        </div>
+    </div>
+
+    <!-- Main Website Content -->
     <div id="mainContent">
         <!-- Wedding Selection Screen -->
         <div id="weddingSelector" class="wedding-selector">
@@ -2280,25 +2352,74 @@
             }
         };
 
-        // SIMPLIFIED: Updated window load event - NO PASSWORD
+        // Dashboard Password Protection
+        function checkDashboardPassword() {
+            const password = document.getElementById('dashboardPasswordInput').value;
+            const correctPassword = 'ElmoreCourt04!';
+            
+            if (password === correctPassword) {
+                document.getElementById('dashboardPasswordScreen').style.display = 'none';
+                document.getElementById('dashboardPage').classList.add('active');
+                document.getElementById('weddingSelector').style.display = 'none';
+                sessionStorage.setItem('dashboardAccess', 'true');
+                refreshDashboard();
+            } else {
+                document.getElementById('dashboardPasswordError').style.display = 'block';
+                document.getElementById('dashboardPasswordInput').value = '';
+            }
+        }
+
+        // Allow Enter key for dashboard password
+        document.getElementById('dashboardPasswordInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                checkDashboardPassword();
+            }
+        });
+
+        // FIXED: Updated window load event with proper URL handling
         window.addEventListener('load', function() {
             console.log('Page loaded - checking access...');
             
             const params = new URLSearchParams(window.location.search);
             const redirect = params.get('redirect');
+            const path = window.location.pathname;
+            const fullURL = window.location.href;
             
             console.log('Redirect param:', redirect);
+            console.log('Path:', path);
+            console.log('Full URL:', fullURL);
             
-            // Show the appropriate page based on direct access
+            // Handle direct wedding page access via 404 redirect
             if (redirect === '1stMay2026') {
-                console.log('Showing English wedding directly');
+                console.log('Showing English wedding directly via redirect');
                 showWedding('english');
+                // Clean up URL
+                window.history.replaceState({}, '', '/1stMay2026');
             } else if (redirect === '10thMay2026') {
-                console.log('Showing Indian wedding directly');
+                console.log('Showing Indian wedding directly via redirect');
                 showWedding('indian');
+                // Clean up URL
+                window.history.replaceState({}, '', '/10thMay2026');
             } else if (redirect === 'dashboard') {
-                console.log('Showing dashboard directly');
-                showDashboard();
+                console.log('Showing dashboard password screen');
+                document.getElementById('dashboardPasswordScreen').style.display = 'flex';
+                document.getElementById('weddingSelector').style.display = 'none';
+                // Clean up URL
+                window.history.replaceState({}, '', '/dashboard');
+            } else if (path === '/1stMay2026' || fullURL.includes('1stMay2026')) {
+                console.log('Showing English wedding directly via path');
+                showWedding('english');
+            } else if (path === '/10thMay2026' || fullURL.includes('10thMay2026')) {
+                console.log('Showing Indian wedding directly via path');
+                showWedding('indian');
+            } else if (path === '/dashboard' || fullURL.includes('/dashboard')) {
+                console.log('Showing dashboard password screen via path');
+                if (sessionStorage.getItem('dashboardAccess') === 'true') {
+                    showDashboard();
+                } else {
+                    document.getElementById('dashboardPasswordScreen').style.display = 'flex';
+                    document.getElementById('weddingSelector').style.display = 'none';
+                }
             } else {
                 console.log('Showing wedding selector');
                 document.getElementById('weddingSelector').style.display = 'flex';
@@ -2311,13 +2432,14 @@
             
             document.getElementById('weddingSelector').style.display = 'none';
             document.getElementById('dashboardPage').classList.remove('active');
+            document.getElementById('dashboardPasswordScreen').style.display = 'none';
             
             if (type === 'english') {
                 document.getElementById('englishWedding').classList.add('active');
                 document.getElementById('indianWedding').classList.remove('active');
                 updateCountdown('english');
                 // Update URL without breaking direct access
-                if (!window.location.search.includes('redirect=1stMay2026')) {
+                if (!window.location.search.includes('redirect=1stMay2026') && !window.location.pathname.includes('1stMay2026')) {
                     window.history.pushState({}, '', '/1stMay2026');
                 }
             } else if (type === 'indian') {
@@ -2325,7 +2447,7 @@
                 document.getElementById('englishWedding').classList.remove('active');
                 updateCountdown('indian');
                 // Update URL without breaking direct access
-                if (!window.location.search.includes('redirect=10thMay2026')) {
+                if (!window.location.search.includes('redirect=10thMay2026') && !window.location.pathname.includes('10thMay2026')) {
                     window.history.pushState({}, '', '/10thMay2026');
                 }
             }
@@ -2336,14 +2458,21 @@
             }, 100);
         }
 
-        // Dashboard functionality
+        // Dashboard functionality with password protection
         function showDashboard() {
-            document.getElementById('weddingSelector').style.display = 'none';
-            document.getElementById('englishWedding').classList.remove('active');
-            document.getElementById('indianWedding').classList.remove('active');
-            document.getElementById('dashboardPage').classList.add('active');
-            window.history.pushState({}, '', '/dashboard');
-            refreshDashboard();
+            if (sessionStorage.getItem('dashboardAccess') === 'true') {
+                document.getElementById('weddingSelector').style.display = 'none';
+                document.getElementById('englishWedding').classList.remove('active');
+                document.getElementById('indianWedding').classList.remove('active');
+                document.getElementById('dashboardPasswordScreen').style.display = 'none';
+                document.getElementById('dashboardPage').classList.add('active');
+                window.history.pushState({}, '', '/dashboard');
+                refreshDashboard();
+            } else {
+                document.getElementById('weddingSelector').style.display = 'none';
+                document.getElementById('dashboardPasswordScreen').style.display = 'flex';
+                window.history.pushState({}, '', '/dashboard');
+            }
         }
 
         // Photo changing functionality
@@ -3020,6 +3149,28 @@
                 updateCountdown('english');
                 updateCountdown('indian');
             }, 86400000); // Update daily
+        });
+
+        // Handle browser back/forward buttons
+        window.addEventListener('popstate', function() {
+            // Re-check URL on back/forward navigation
+            const params = new URLSearchParams(window.location.search);
+            const redirect = params.get('redirect');
+            const path = window.location.pathname;
+            
+            if (redirect === '1stMay2026' || path.includes('1stMay2026')) {
+                showWedding('english');
+            } else if (redirect === '10thMay2026' || path.includes('10thMay2026')) {
+                showWedding('indian');
+            } else if (redirect === 'dashboard' || path.includes('/dashboard')) {
+                showDashboard();
+            } else {
+                document.getElementById('weddingSelector').style.display = 'flex';
+                document.getElementById('englishWedding').classList.remove('active');
+                document.getElementById('indianWedding').classList.remove('active');
+                document.getElementById('dashboardPage').classList.remove('active');
+                document.getElementById('dashboardPasswordScreen').style.display = 'none';
+            }
         });
     </script>
 </body>
