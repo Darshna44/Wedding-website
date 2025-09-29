@@ -56,18 +56,18 @@
             // Handle direct wedding page access
             if (path === '/1stMay2026' || path.includes('1stMay2026')) {
                 console.log('Redirecting to English wedding');
-                window.location.replace('/index.html?redirect=1stMay2026');
+                window.location.replace('/?redirect=1stMay2026');
             } else if (path === '/10thMay2026' || path.includes('10thMay2026')) {
                 console.log('Redirecting to Indian wedding');
-                window.location.replace('/index.html?redirect=10thMay2026');
+                window.location.replace('/?redirect=10thMay2026');
             } else if (path === '/dashboard' || path.includes('dashboard')) {
                 console.log('Redirecting to dashboard');
-                window.location.replace('/index.html?redirect=dashboard');
+                window.location.replace('/?redirect=dashboard');
             } else {
                 console.log('Unknown path, redirecting to home');
                 // For any other path, redirect to home page after 2 seconds
                 setTimeout(() => {
-                    window.location.replace('/index.html');
+                    window.location.replace('/');
                 }, 2000);
             }
         })();
