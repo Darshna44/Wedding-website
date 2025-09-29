@@ -6,6 +6,15 @@
     <title>Darshna & Michael - Wedding Celebrations 2026</title>
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=La+Luxes+Serif:wght@400;700&display=swap" rel="stylesheet">
+
+    /* Hide password screen for direct access */
+body.direct-access .password-screen {
+    display: none !important;
+}
+
+body.direct-access #mainContent {
+    display: block !important;
+}
     <style>
         * {
             margin: 0;
@@ -1579,48 +1588,22 @@
     </style>
 </head>
 <body>
-    <!-- IMMEDIATE CHECK SCRIPT - Runs before anything else -->
-    <script>
-        // CRITICAL: Check for direct access IMMEDIATELY when page loads
-        (function() {
-            const params = new URLSearchParams(window.location.search);
-            const redirect = params.get('redirect');
-            const path = window.location.pathname;
-            const fullURL = window.location.href;
-            
-            console.log('IMMEDIATE CHECK - Full URL:', fullURL);
-            console.log('IMMEDIATE CHECK - Path:', path);
-            console.log('IMMEDIATE CHECK - Redirect param:', redirect);
-            
-            // Check for direct wedding page access
-            if (redirect === '1stMay2026' || 
-                fullURL.includes('1stMay2026') || 
-                path.includes('1stMay2026') || 
-                path === '/1stMay2026') {
-                
-                console.log('IMMEDIATE CHECK - English wedding detected, bypassing password');
-                sessionStorage.setItem('weddingAccess', 'true');
-                sessionStorage.setItem('directWedding', 'english');
-                
-            } else if (redirect === '10thMay2026' || 
-                       fullURL.includes('10thMay2026') || 
-                       path.includes('10thMay2026') || 
-                       path === '/10thMay2026') {
-                
-                console.log('IMMEDIATE CHECK - Indian wedding detected, bypassing password');
-                sessionStorage.setItem('weddingAccess', 'true');
-                sessionStorage.setItem('directWedding', 'indian');
-                
-            } else if (redirect === 'dashboard' || 
-                       fullURL.includes('/dashboard') || 
-                       path.includes('/dashboard')) {
-                
-                console.log('IMMEDIATE CHECK - Dashboard detected, bypassing password');
-                sessionStorage.setItem('weddingAccess', 'true');
-                sessionStorage.setItem('directWedding', 'dashboard');
-            }
-        })();
-    </script>
+<script>
+    // IMMEDIATE CHECK - Add class to body for direct access
+    (function() {
+        const params = new URLSearchParams(window.location.search);
+        const redirect = params.get('redirect');
+        
+        if (redirect === '1stMay2026' || redirect === '10thMay2026' || redirect === 'dashboard') {
+            document.documentElement.classList.add('direct-access');
+            sessionStorage.setItem('weddingAccess', 'true');
+            sessionStorage.setItem('directWedding', 
+                redirect === '1stMay2026' ? 'english' : 
+                redirect === '10thMay2026' ? 'indian' : 'dashboard'
+            );
+        }
+    })();
+</script>
 
     <!-- Password Protection Screen -->
     <div id="passwordScreen" class="password-screen">
@@ -2698,3 +2681,4 @@
                 dietaryList.innerHTML = allDietary.map(item => 
                     `<div class="dietary-item"><span><strong>${item.name}:</strong> ${item.dietary}</span></div>`
                 ).join
+
