@@ -3,240 +3,782 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>English Wedding - Darshna & Michael</title>
+    <title>English Wedding - Darshna & Michael - May 1st, 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@300;400;500;600;700&family=Style+Script&display=swap" rel="stylesheet">
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f5f5f5; }
-        .header { background: #F47A43; color: white; padding: 20px; text-align: center; }
-        .container { max-width: 800px; margin: 0 auto; background: white; padding: 40px; }
-        h1 { color: #8b7355; text-align: center; margin-bottom: 30px; font-size: 2.5rem; }
-        h2 { color: #F47A43; margin-top: 40px; border-bottom: 2px solid #F47A43; padding-bottom: 10px; }
-        .hero { text-align: center; background: linear-gradient(135deg, #f5e6d3, #fdeee6); padding: 50px; border-radius: 15px; margin-bottom: 40px; }
-        .section { margin-bottom: 40px; padding: 30px; border: 2px solid #f4d4ba; border-radius: 15px; }
-        nav { background: #F47A43; padding: 15px; margin-bottom: 30px; text-align: center; }
-        nav a { color: white; text-decoration: none; margin: 0 20px; font-weight: bold; }
-        nav a:hover { text-decoration: underline; }
-        .timeline { list-style: none; padding: 0; }
-        .timeline li { background: #faf7f5; padding: 15px; margin: 10px 0; border-left: 4px solid #F47A43; border-radius: 5px; }
-        .timeline strong { color: #F47A43; }
-        .form-group { margin-bottom: 20px; }
-        .form-group label { display: block; margin-bottom: 5px; font-weight: bold; color: #F47A43; }
-        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 10px; border: 2px solid #f4d4ba; border-radius: 5px; }
-        .btn { background: #F47A43; color: white; padding: 15px 30px; border: none; border-radius: 25px; cursor: pointer; font-size: 16px; }
-        .btn:hover { background: #e8a87c; }
-        .qa-item { background: #faf7f5; padding: 20px; margin: 15px 0; border-radius: 10px; border: 2px solid #f4d4ba; }
-        .qa-question { font-weight: bold; color: #F47A43; margin-bottom: 10px; font-size: 1.1rem; }
-        .footer { background: #F47A43; color: white; text-align: center; padding: 30px; margin-top: 50px; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Lora', serif;
+            line-height: 1.6;
+            color: #000000;
+            background: linear-gradient(135deg, #f5e6d3 0%, #f8f4f2 50%, #fdeee6 100%);
+            min-height: 100vh;
+        }
+        
+        /* Typography - Style Script for headings */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Style Script', cursive;
+        }
+        
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        
+        /* Header */
+        .header {
+            background: #F47A43;
+            color: white;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .menu-toggle {
+            background: #F47A43;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+        
+        nav {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: rgba(248, 244, 242, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            display: none;
+        }
+        
+        nav.active { display: block; }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 15px 0;
+        }
+        
+        nav li { margin: 0 15px; }
+        
+        nav a {
+            color: #F47A43;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+        }
+        
+        nav a:hover { opacity: 0.8; }
+        
+        /* Main Content */
+        .main-content {
+            display: grid;
+            grid-template-columns: 60% 40%;
+            min-height: calc(100vh - 80px);
+        }
+        
+        .photo-section {
+            position: sticky;
+            top: 80px;
+            height: calc(100vh - 80px);
+            overflow: hidden;
+            background: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .photo-section img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.5s ease;
+        }
+        
+        .content-flow { background: white; }
+        
+        .content-section {
+            min-height: 100vh;
+            padding: 4rem 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .content-section:last-child { border-bottom: none; }
+        
+        .content-section h2 {
+            font-family: 'Style Script', cursive;
+            font-size: 2.5rem;
+            color: #F47A43;
+            margin-bottom: 2rem;
+        }
+        
+        .content-section h3 {
+            font-family: 'Style Script', cursive;
+            font-size: 1.8rem;
+            color: #F47A43;
+            margin: 2rem 0 1rem 0;
+        }
+        
+        .content-section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: #000000;
+        }
+        
+        /* Mobile photos */
+        .mobile-section-photo {
+            display: none;
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        /* Hero Section */
+        .hero-content {
+            text-align: center;
+            background: rgba(255,255,255,0.9);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+        
+        .hero-content h1 {
+            font-family: 'Style Script', cursive;
+            font-size: 4rem;
+            color: #000000;
+            margin-bottom: 1rem;
+        }
+        
+        .hero-content .date {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            color: #000000;
+            font-weight: 500;
+        }
+        
+        .hero-content .venue {
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+            color: #000000;
+        }
+        
+        .countdown-box {
+            background: rgba(244, 122, 67, 0.1);
+            border: 2px solid #F47A43;
+            padding: 1.5rem 2rem;
+            border-radius: 15px;
+            display: inline-block;
+        }
+        
+        .countdown-text {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: white;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+        
+        .countdown-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: white;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+        
+        /* Story Section */
+        .story-ending {
+            font-size: 1.2rem;
+            color: #F47A43;
+            font-weight: 600;
+            text-align: center;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, #faf7f5 0%, #f8f4f2 100%);
+            border-radius: 10px;
+            border-left: 4px solid #F47A43;
+            margin-top: 2rem;
+        }
+        
+        /* Timeline */
+        .timeline-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            border: 2px solid #f4d4ba;
+        }
+        
+        .timeline-emoji { font-size: 2rem; margin-top: 0.2rem; }
+        
+        .timeline-content h4 {
+            font-family: 'Style Script', cursive;
+            font-size: 1.4rem;
+            color: #F47A43;
+            margin-bottom: 0.5rem;
+        }
+        
+        .timeline-content p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #000000;
+            margin: 0;
+        }
+        
+        .timeline-content a { color: #F47A43; text-decoration: underline; }
+        
+        /* Content Cards */
+        .content-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            border: 2px solid #f4d4ba;
+        }
+        
+        .content-card h3 {
+            font-family: 'Style Script', cursive;
+            font-size: 1.8rem;
+            color: #F47A43;
+            margin-bottom: 1rem;
+        }
+        
+        /* Accommodations Grid */
+        .accommodation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .accommodation-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            text-align: center;
+            border: 2px solid #f4d4ba;
+        }
+        
+        .accommodation-card h4 {
+            font-family: 'Style Script', cursive;
+            font-size: 1.5rem;
+            color: #F47A43;
+            margin-bottom: 1rem;
+        }
+        
+        .accommodation-card .price {
+            font-size: 1.2rem;
+            color: #F47A43;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .accommodation-card .contact a { color: #F47A43; }
+        
+        /* Registry */
+        .registry-content {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            border: 2px solid #f4d4ba;
+        }
+        
+        .registry-link {
+            background: #F47A43;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .registry-link:hover {
+            background: #e8a87c;
+            transform: translateY(-2px);
+        }
+        
+        /* RSVP */
+        .rsvp-deadline {
+            text-align: center;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            font-weight: 500;
+            color: #000000;
+        }
+        
+        .rsvp-form {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            max-width: 600px;
+            margin: 0 auto;
+            border: 2px solid #f4d4ba;
+        }
+        
+        .form-title {
+            font-family: 'Style Script', cursive;
+            font-size: 2rem;
+            color: #F47A43;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #F47A43;
+            font-weight: 600;
+        }
+        
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #f4d4ba;
+            border-radius: 8px;
+            font-family: 'Lora', serif;
+        }
+        
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: #F47A43;
+        }
+        
+        .submit-btn {
+            background: #F47A43;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: block;
+            margin: 2rem auto 0;
+        }
+        
+        .submit-btn:hover {
+            background: #e8a87c;
+            transform: translateY(-2px);
+        }
+        
+        /* Q&A */
+        .qa-item {
+            background: transparent;
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            border: 2px solid #F47A43;
+        }
+        
+        .qa-question {
+            font-family: 'Style Script', cursive;
+            font-size: 1.4rem;
+            color: #F47A43;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .qa-answer {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #000000;
+        }
+        
+        .qa-answer a { color: #F47A43; text-decoration: underline; }
+        .qa-answer em { font-style: italic; color: #666; }
+        
+        /* Footer */
+        .footer {
+            background: #F47A43;
+            color: white;
+            text-align: center;
+            padding: 3rem 0;
+            margin-top: 3rem;
+        }
+        
+        .footer-content {
+            font-size: 1.2rem;
+            font-weight: 500;
+            line-height: 2;
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .photo-section { display: none !important; }
+            .mobile-section-photo { display: block !important; }
+            
+            .content-section {
+                padding: 2rem 1.5rem;
+                min-height: auto;
+            }
+            
+            .hero-content h1 { font-size: 2.8rem; }
+            .content-section h2 { font-size: 2rem; }
+            .content-section h3 { font-size: 1.5rem; }
+            
+            nav ul {
+                flex-direction: column;
+                text-align: center;
+                gap: 0.5rem;
+            }
+            
+            .accommodation-grid { grid-template-columns: 1fr; }
+            
+            .timeline-item {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+            
+            .rsvp-form { padding: 2rem; margin: 0 1rem; }
+        }
+        
+        /* Smooth scrolling */
+        html { scroll-behavior: smooth; }
     </style>
 </head>
 <body>
     <div class="header">
-        <h1>English Wedding</h1>
+        <div class="container nav-container">
+            <button class="menu-toggle" onclick="toggleMenu()">Menu</button>
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="#home" onclick="scrollToSection('home')">Home</a></li>
+                    <li><a href="#story" onclick="scrollToSection('story')">Story</a></li>
+                    <li><a href="#order" onclick="scrollToSection('order')">Order of the Day</a></li>
+                    <li><a href="#travel" onclick="scrollToSection('travel')">Travel</a></li>
+                    <li><a href="#accommodations" onclick="scrollToSection('accommodations')">Accommodations</a></li>
+                    <li><a href="#registry" onclick="scrollToSection('registry')">Registry</a></li>
+                    <li><a href="#rsvp" onclick="scrollToSection('rsvp')">RSVP</a></li>
+                    <li><a href="#qa" onclick="scrollToSection('qa')">Q & A</a></li>
+                </ul>
+            </nav>
+        </div>
     </div>
 
-    <nav>
-        <a href="#home">Home</a>
-        <a href="#story">Story</a>
-        <a href="#order">Order of Day</a>
-        <a href="#travel">Travel</a>
-        <a href="#accommodation">Hotels</a>
-        <a href="#registry">Registry</a>
-        <a href="#rsvp">RSVP</a>
-        <a href="#qa">Q&A</a>
-    </nav>
-
-    <div class="container">
-        <div id="home" class="hero">
-            <h1>Darshna & Michael</h1>
-            <p style="font-size: 1.5rem; margin: 10px 0;"><strong>1st May 2026</strong></p>
-            <p style="font-size: 1.2rem;">Elmore Court, Cotswolds</p>
-            <div style="background: rgba(244, 122, 67, 0.1); padding: 20px; border-radius: 10px; margin-top: 30px; border: 2px solid #F47A43;">
-                <p style="margin: 0; font-size: 1.1rem;"><strong>Days until our wedding: <span id="countdown">Loading...</span></strong></p>
-            </div>
+    <div class="main-content">
+        <div class="photo-section">
+            <img id="mainPhoto" src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="English Wedding">
         </div>
 
-        <div id="story" class="section">
-            <h2>Our Story</h2>
-            <h3 style="color: #F47A43;">How We Met</h3>
-            <p>Michael spotted Darshna at a summer house party and did... absolutely nothing. Lucky for them, fast forward four months to a NYE house party (that neither of them planned to attend), their paths crossed again and they spent hours talking away.</p>
-            
-            <p>Like a true gentleman, he walked her to the station. And like a true millennial, he didn't ask for her number but slid into her Instagram DMs the next day.</p>
-            
-            <h3 style="color: #F47A43;">The First Date</h3>
-            <p>Michael chose the elegant Bluebird Chelsea for their first date, clearly pulling out all the stops! Still recovering from the flu, Darshna kept disappearing to the ladies' room—apparently blowing your nose on a first date isn't very romantic. After the 10th time, Michael, with his signature dry humor, told her she may as well take her bag with her if she was planning to make a run for it.</p>
-            
-            <p style="text-align: center; background: #faf7f5; padding: 20px; border-radius: 10px; border-left: 4px solid #F47A43; font-style: italic; color: #F47A43; font-weight: bold;"><em>That has since changed and now he holds the tissue box for her ❤️</em></p>
-        </div>
-
-        <div id="order" class="section">
-            <h2>Order of the Day</h2>
-            <ul class="timeline">
-                <li><strong>12:30 PM - Guests Arrive</strong><br>The bar will be open from 12:30pm. Please take your seats by 1pm.</li>
-                <li><strong>1:30 PM - Ceremony</strong><br>Join us for an unplugged ceremony; kindly keep phones on silent and tucked away</li>
-                <li><strong>2:00 PM - Reception Drinks & Canapes</strong></li>
-                <li><strong>4:00 PM - Wedding Breakfast & Speeches</strong></li>
-                <li><strong>7:30 PM - The Party Begins!</strong><br>After our first dance, meet us under the disco ball to celebrate!</li>
-                <li><strong>9:00 PM - Evening Food</strong></li>
-                <li><strong>11:59 PM - Farewell & Carriages</strong><br>The bar closes at midnight. Please arrange transport in advance.</li>
-            </ul>
-        </div>
-
-        <div id="travel" class="section">
-            <h2>Travel</h2>
-            <p>There aren't any public transport links to the venue so would recommend booking a taxi ahead of time. There is also a car park available and cars will need to be collected by 10:30am the next day.</p>
-            
-            <div style="background: #faf7f5; padding: 20px; border-radius: 10px; border: 2px solid #f4d4ba; margin-top: 20px;">
-                <h3 style="color: #F47A43; margin-top: 0;">Andy Cars</h3>
-                <p><strong>Phone:</strong> 01452 523000</p>
-                <p><strong>Website:</strong> <a href="https://www.andycarsgloucester.co.uk/" target="_blank" style="color: #F47A43;">andycarsgloucester.co.uk</a></p>
-            </div>
-        </div>
-
-        <div id="accommodation" class="section">
-            <h2>Accommodations</h2>
-            <p>Here are some nearby hotel options for our wedding guests:</p>
-            
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 30px;">
-                <div style="background: #faf7f5; padding: 20px; border-radius: 10px; border: 2px solid #f4d4ba; text-align: center;">
-                    <h3 style="color: #F47A43; margin-top: 0;">Premier Inn Gloucester</h3>
-                    <p style="color: #F47A43; font-weight: bold; font-size: 1.2rem;">£89/night</p>
-                    <p>15 minutes from venue<br>Includes breakfast<br>Free parking</p>
-                    <p style="font-size: 0.9rem;"><strong>Book:</strong> <a href="https://www.premierinn.com/" target="_blank" style="color: #F47A43;">premierinn.com</a> | 0333 003 8101</p>
+        <div class="content-flow">
+            <!-- Home Section -->
+            <div id="home" class="content-section" data-photo="https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80">
+                <img class="mobile-section-photo" src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="English Wedding Home">
+                <div class="hero-content">
+                    <h1>Darshna & Michael</h1>
+                    <div class="date">1st May 2026</div>
+                    <div class="venue">Elmore Court, Cotswolds</div>
+                    <div class="countdown-box">
+                        <div class="countdown-text">Days until our wedding</div>
+                        <div class="countdown-number" id="countdown">Loading...</div>
+                    </div>
                 </div>
+            </div>
+
+            <!-- Story Section -->
+            <div id="story" class="content-section" data-photo="https://images.unsplash.com/photo-1583939003579-730e3918a45a?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80">
+                <img class="mobile-section-photo" src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Our Story">
+                <h2>Our Story</h2>
+                <h3>How We Met</h3>
+                <p>Michael spotted Darshna at a summer house party and did... absolutely nothing. Lucky for them, fast forward four months to a NYE house party (that neither of them planned to attend), their paths crossed again and they spent hours talking away.</p>
                 
-                <div style="background: #faf7f5; padding: 20px; border-radius: 10px; border: 2px solid #f4d4ba; text-align: center;">
-                    <h3 style="color: #F47A43; margin-top: 0;">Travelodge Gloucester</h3>
-                    <p style="color: #F47A43; font-weight: bold; font-size: 1.2rem;">£65/night</p>
-                    <p>20 minutes from venue<br>Budget-friendly option<br>Free WiFi</p>
-                    <p style="font-size: 0.9rem;"><strong>Book:</strong> <a href="https://www.travelodge.co.uk/" target="_blank" style="color: #F47A43;">travelodge.co.uk</a></p>
-                </div>
+                <p>Like a true gentleman, he walked her to the station. And like a true millennial, he didn't ask for her number but slid into her Instagram DMs the next day.</p>
                 
-                <div style="background: #faf7f5; padding: 20px; border-radius: 10px; border: 2px solid #f4d4ba; text-align: center;">
-                    <h3 style="color: #F47A43; margin-top: 0;">The Bell Hotel</h3>
-                    <p style="color: #F47A43; font-weight: bold; font-size: 1.2rem;">£120/night</p>
-                    <p>Historic coaching inn<br>10 minutes from venue<br>Full English breakfast</p>
-                    <p style="font-size: 0.9rem;"><strong>Book:</strong> 01452 700 000</p>
-                </div>
-            </div>
-        </div>
-
-        <div id="registry" class="section">
-            <h2>Registry</h2>
-            <div style="text-align: center; max-width: 600px; margin: 0 auto;">
-                <p style="font-size: 1.2rem;">Your presence at our wedding is the greatest gift of all 🧡</p>
-                <p>If you would like to give us a gift, we are saving for our honeymoon and would be delighted with a contribution. Please use the following link to join us in creating these memories:</p>
-                <a href="#" style="background: #F47A43; color: white; padding: 15px 30px; border-radius: 25px; text-decoration: none; display: inline-block; margin-top: 20px; font-weight: bold;">Contribute to Our Honeymoon</a>
-            </div>
-        </div>
-
-        <div id="rsvp" class="section">
-            <h2>RSVP</h2>
-            <p style="text-align: center; font-size: 1.1rem; margin-bottom: 30px;"><strong>Please RSVP by 1st February</strong></p>
-            
-            <form action="https://formspree.io/f/mqadbbln" method="POST" style="max-width: 600px; margin: 0 auto;">
-                <input type="hidden" name="wedding_type" value="English Wedding">
+                <h3>The First Date</h3>
+                <p>Michael chose the elegant Bluebird Chelsea for their first date, clearly pulling out all the stops! Still recovering from the flu, Darshna kept disappearing to the ladies' room—apparently blowing your nose on a first date isn't very romantic. After the 10th time, Michael, with his signature dry humor, told her she may as well take her bag with her if she was planning to make a run for it.</p>
                 
-                <div class="form-group">
-                    <label for="name">Your Name *</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
+                <div class="story-ending">That has since changed and now he holds the tissue box for her ❤️</div>
+            </div>
+
+            <!-- Order of the Day Section -->
+            <div id="order" class="content-section" data-photo="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80">
+                <img class="mobile-section-photo" src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80" alt="Order of the Day">
+                <h2>Order of the Day</h2>
                 
-                <div class="form-group">
-                    <label for="email">Your Email Address *</label>
-                    <input type="email" id="email" name="email" required>
+                <div class="timeline-item">
+                    <div class="timeline-emoji">✨</div>
+                    <div class="timeline-content">
+                        <h4>12:30 PM - Guests Arrive</h4>
+                        <p>The bar will be open from 12:30pm. Please take your seats by 1pm.</p>
+                    </div>
                 </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-emoji">💍</div>
+                    <div class="timeline-content">
+                        <h4>1:30 PM - Ceremony</h4>
+                        <p>Join us for an unplugged ceremony; kindly keep phones on silent and tucked away</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-emoji">🥂</div>
+                    <div class="timeline-content">
+                        <h4>2:00 PM - Reception Drinks & Canapes</h4>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-emoji">🍽️🎤</div>
+                    <div class="timeline-content">
+                        <h4>4:00 PM - Wedding Breakfast & Speeches</h4>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-emoji">🎉</div>
+                    <div class="timeline-content">
+                        <h4>7:30 PM onwards - The Party Begins!</h4>
+                        <p>After our first dance, meet us under the disco ball to celebrate!</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-emoji">🍔</div>
+                    <div class="timeline-content">
+                        <h4>9:00 PM - Evening Food</h4>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-emoji">🚕</div>
+                    <div class="timeline-content">
+                        <h4>11:59 PM - Farewell & Carriages</h4>
+                        <p>The bar closes at midnight. Please arrange transport, we recommend pre-booking a taxi from our Travel section</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Travel Section -->
+            <div id="travel" class="content-section" data-photo="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80">
+                <img class="mobile-section-photo" src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Travel">
+                <h2>Travel</h2>
+                <p>There aren't any public transport links to the venue so would recommend booking a taxi ahead of time. There is also a car park available and cars will need to be collected by 10:30am the next day.</p>
                 
-                <div class="form-group">
-                    <label for="attending">Will you be attending? *</label>
-                    <select id="attending" name="attending" required>
-                        <option value="">Please choose...</option>
-                        <option value="Joyfully Accept">Joyfully Accept</option>
-                        <option value="Regretfully Decline">Regretfully Decline</option>
-                    </select>
+                <div class="content-card">
+                    <h3>Andy Cars</h3>
+                    <p><strong>Phone:</strong> 01452 523000</p>
+                    <p><strong>Website:</strong> <a href="https://www.andycarsgloucester.co.uk/" target="_blank">https://www.andycarsgloucester.co.uk/</a></p>
                 </div>
+            </div>
+
+            <!-- Accommodations Section -->
+            <div id="accommodations" class="content-section" data-photo="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80">
+                <img class="mobile-section-photo" src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Accommodations">
+                <h2>Accommodations</h2>
+                <p>Here are some nearby hotel options for our wedding guests:</p>
                 
-                <div class="form-group">
-                    <label for="dietary">Any dietary requirements?</label>
-                    <textarea id="dietary" name="dietary" rows="3" placeholder="Please let us know about any allergies or dietary requirements..."></textarea>
+                <div class="accommodation-grid">
+                    <div class="accommodation-card">
+                        <h4>Premier Inn Gloucester</h4>
+                        <div class="price">£89/night</div>
+                        <div class="details">
+                            15 minutes from venue<br>
+                            Includes breakfast<br>
+                            Free parking
+                        </div>
+                        <div class="contact">Book: <a href="https://www.premierinn.com/" target="_blank">premierinn.com</a> | 0333 003 8101</div>
+                    </div>
+                    <div class="accommodation-card">
+                        <h4>Travelodge Gloucester</h4>
+                        <div class="price">£65/night</div>
+                        <div class="details">
+                            20 minutes from venue<br>
+                            Budget-friendly option<br>
+                            Free WiFi
+                        </div>
+                        <div class="contact">Book: <a href="https://www.travelodge.co.uk/" target="_blank">travelodge.co.uk</a></div>
+                    </div>
+                    <div class="accommodation-card">
+                        <h4>The Bell Hotel</h4>
+                        <div class="price">£120/night</div>
+                        <div class="details">
+                            Historic coaching inn<br>
+                            10 minutes from venue<br>
+                            Full English breakfast
+                        </div>
+                        <div class="contact">Book: 01452 700 000</div>
+                    </div>
                 </div>
+            </div>
+
+            <!-- Registry Section -->
+            <div id="registry" class="content-section" data-photo="https://images.unsplash.com/photo-1549417229-aa67cfb533c1?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80">
+                <img class="mobile-section-photo" src="https://images.unsplash.com/photo-1549417229-aa67cfb533c1?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Registry">
+                <h2>Registry</h2>
+                <div class="registry-content">
+                    <p>Your presence at our wedding is the greatest gift of all 🧡</p>
+                    <p>If you would like to give us a gift, we are saving for our honeymoon and would be delighted with a contribution. Please use the following link to join us in creating these memories:</p>
+                    <a href="#" class="registry-link">Contribute to Our Honeymoon</a>
+                </div>
+            </div>
+
+            <!-- RSVP Section -->
+            <div id="rsvp" class="content-section" data-photo="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80">
+                <img class="mobile-section-photo" src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80" alt="RSVP">
+                <h2>RSVP</h2>
+                <div class="rsvp-deadline">Please RSVP by 1st February</div>
                 
-                <div class="form-group">
-                    <label for="message">Message to the couple (optional)</label>
-                    <textarea id="message" name="message" rows="3" placeholder="We'd love to hear from you..."></textarea>
+                <div class="rsvp-form">
+                    <div class="form-title">Enter your details to RSVP</div>
+                    <form action="https://formspree.io/f/mqadbbln" method="POST">
+                        <input type="hidden" name="wedding_type" value="English Wedding">
+                        
+                        <div class="form-group">
+                            <label for="name">Your Name *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Your Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="attending">Will you be attending? *</label>
+                            <select id="attending" name="attending" required>
+                                <option value="">Please choose...</option>
+                                <option value="Joyfully Accept">Joyfully Accept</option>
+                                <option value="Regretfully Decline">Regretfully Decline</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="guests">Number of guests (including yourself)</label>
+                            <select id="guests" name="guests">
+                                <option value="1">1 Guest</option>
+                                <option value="2">2 Guests</option>
+                                <option value="3">3 Guests</option>
+                                <option value="4">4 Guests</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="dietary">Any dietary requirements?</label>
+                            <textarea id="dietary" name="dietary" rows="3" placeholder="Please let us know about any allergies or dietary requirements..."></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message to the couple (optional)</label>
+                            <textarea id="message" name="message" rows="3" placeholder="We'd love to hear from you..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">Submit RSVP</button>
+                    </form>
                 </div>
+            </div>
+
+            <!-- Q&A Section -->
+            <div id="qa" class="content-section" data-photo="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80">
+                <img class="mobile-section-photo" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Q&A">
+                <h2>Q & A</h2>
                 
-                <div style="text-align: center;">
-                    <button type="submit" class="btn">Submit RSVP</button>
+                <div class="qa-item">
+                    <div class="qa-question">What is the RSVP deadline?</div>
+                    <div class="qa-answer">Please RSVP by 1st February 2026</div>
                 </div>
-            </form>
-        </div>
 
-        <div id="qa" class="section">
-            <h2>Q & A</h2>
-            
-            <div class="qa-item">
-                <div class="qa-question">What is the RSVP deadline?</div>
-                <div class="qa-answer">Please RSVP by 1st February 2026</div>
-            </div>
+                <div class="qa-item">
+                    <div class="qa-question">What time should I arrive?</div>
+                    <div class="qa-answer">Please join us from 12:30 PM (the bar will be open!) and be seated for 1:00PM. The ceremony will begin at 1:30 PM.</div>
+                </div>
 
-            <div class="qa-item">
-                <div class="qa-question">What time should I arrive?</div>
-                <div class="qa-answer">Please join us from 12:30 PM (the bar will be open!) and be seated for 1:00PM. The ceremony will begin at 1:30 PM.</div>
-            </div>
+                <div class="qa-item">
+                    <div class="qa-question">Can I bring a plus-one?</div>
+                    <div class="qa-answer">We have tried to include everyone we would love to celebrate with and unfortunately we can't accommodate plus-ones</div>
+                </div>
 
-            <div class="qa-item">
-                <div class="qa-question">Can I bring a plus-one?</div>
-                <div class="qa-answer">We have tried to include everyone we would love to celebrate with and unfortunately we can't accommodate plus-ones</div>
-            </div>
+                <div class="qa-item">
+                    <div class="qa-question">Are children welcome?</div>
+                    <div class="qa-answer">We're only including children who are part of the wedding party. While we adore your little ones, we hope you understand and can enjoy a well-deserved night off!</div>
+                </div>
 
-            <div class="qa-item">
-                <div class="qa-question">Are children welcome?</div>
-                <div class="qa-answer">We're only including children who are part of the wedding party. While we adore your little ones, we hope you understand and can enjoy a well-deserved night off!</div>
-            </div>
+                <div class="qa-item">
+                    <div class="qa-question">What if I have dietary restrictions?</div>
+                    <div class="qa-answer">Please let us know about any dietary requirements when you RSVP, and we'll make sure you're well taken care of!</div>
+                </div>
 
-            <div class="qa-item">
-                <div class="qa-question">What if I have dietary restrictions?</div>
-                <div class="qa-answer">Please let us know about any dietary requirements when you RSVP, and we'll make sure you're well taken care of!</div>
-            </div>
+                <div class="qa-item">
+                    <div class="qa-question">Can we take pictures with our phones and cameras during the wedding?</div>
+                    <div class="qa-answer">We kindly request an unplugged ceremony so please keep phones and cameras tucked away. We will have a professional photographer and videographer throughout the day.<br><br>You are more than welcome to take your own photos and videos before and after the ceremony.<br><br><em>For privacy reasons, some children cannot be shared online. Please refrain from posting any photos of children on social media unless you have parental consent.</em></div>
+                </div>
 
-            <div class="qa-item">
-                <div class="qa-question">Can we take pictures with our phones and cameras during the wedding?</div>
-                <div class="qa-answer">We kindly request an unplugged ceremony so please keep phones and cameras tucked away. We will have a professional photographer and videographer throughout the day.<br><br>You are more than welcome to take your own photos and videos before and after the ceremony.<br><br><em>For privacy reasons, some children cannot be shared online. Please refrain from posting any photos of children on social media unless you have parental consent.</em></div>
-            </div>
+                <div class="qa-item">
+                    <div class="qa-question">What is the dress code?</div>
+                    <div class="qa-answer">Formal wedding attire please; elegant dresses and sharp suits are perfect! Please avoid white, ivory, or cream colours. Heels are very welcome - bring some flats too if you plan to dance the night away!</div>
+                </div>
 
-            <div class="qa-item">
-                <div class="qa-question">What is the dress code?</div>
-                <div class="qa-answer">Formal wedding attire please; elegant dresses and sharp suits are perfect! Please avoid white, ivory, or cream colours. Heels are very welcome - bring some flats too if you plan to dance the night away!</div>
-            </div>
+                <div class="qa-item">
+                    <div class="qa-question">Where should I stay?</div>
+                    <div class="qa-answer">See Accommodations section above for hotel suggestions. There are also plenty of Airbnbs available which we especially recommend if you would like to make a long weekend of it in the Cotswolds</div>
+                </div>
 
-            <div class="qa-item">
-                <div class="qa-question">Where should I stay?</div>
-                <div class="qa-answer">See Accommodations section above for hotel suggestions. There are also plenty of Airbnbs available which we especially recommend if you would like to make a long weekend of it in the Cotswolds</div>
-            </div>
+                <div class="qa-item">
+                    <div class="qa-question">Will there be parking available?</div>
+                    <div class="qa-answer">Yes, there is plenty of free parking available at Elmore Court. Cars can be left overnight in a designated area and collected the following morning by 10:30am.</div>
+                </div>
 
-            <div class="qa-item">
-                <div class="qa-question">Will there be parking available?</div>
-                <div class="qa-answer">Yes, there is plenty of free parking available at Elmore Court. Cars can be left overnight in a designated area and collected the following morning by 10:30am.</div>
-            </div>
+                <div class="qa-item">
+                    <div class="qa-question">Do I need to book a taxi?</div>
+                    <div class="qa-answer">Yes, a taxi should be pre-booked. A list of local taxis can be found in the Travel section above</div>
+                </div>
 
-            <div class="qa-item">
-                <div class="qa-question">Do I need to book a taxi?</div>
-                <div class="qa-answer">Yes, a taxi should be pre-booked. A list of local taxis can be found in the Travel section above</div>
-            </div>
+                <div class="qa-item">
+                    <div class="qa-question">Is the venue wheelchair accessible?</div>
+                    <div class="qa-answer">Yes, Elmore Court is fully wheelchair accessible with ramps and accessible facilities.</div>
+                </div>
 
-            <div class="qa-item">
-                <div class="qa-question">Is the venue wheelchair accessible?</div>
-                <div class="qa-answer">Yes, Elmore Court is fully wheelchair accessible with ramps and accessible facilities.</div>
-            </div>
-
-            <div class="qa-item">
-                <div class="qa-question">Whom should I contact with questions?</div>
-                <div class="qa-answer">If you have any questions that haven't been answered here, please call/text Darshna or Michael or email us at shahrosewedding@gmail.com</div>
+                <div class="qa-item">
+                    <div class="qa-question">Whom should I contact with questions?</div>
+                    <div class="qa-answer">If you have any questions that haven't been answered here, please call/text Darshna or Michael or email us at shahrosewedding@gmail.com</div>
+                </div>
             </div>
         </div>
     </div>
 
     <div class="footer">
-        <div style="font-size: 1.2rem; line-height: 1.6;">
+        <div class="footer-content">
             <div>Darshna & Michael</div>
             <div>1st May 2026</div>
             <div>Elmore Court, Cotswolds</div>
@@ -244,6 +786,66 @@
     </div>
 
     <script>
+        // Menu functionality
+        function toggleMenu() {
+            const nav = document.getElementById('mainNav');
+            nav.classList.toggle('active');
+        }
+
+        // Scroll to section
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                const headerHeight = document.querySelector('.header').offsetHeight;
+                const targetPosition = element.offsetTop - headerHeight;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+                
+                // Update photo
+                const photoElement = element.getAttribute('data-photo');
+                if (photoElement) {
+                    const photoImg = document.getElementById('mainPhoto');
+                    if (photoImg) {
+                        setTimeout(() => {
+                            photoImg.src = photoElement;
+                        }, 300);
+                    }
+                }
+            }
+            
+            // Close menu
+            document.getElementById('mainNav').classList.remove('active');
+        }
+
+        // Photo changing on scroll
+        function setupPhotoChanging() {
+            const photoImg = document.getElementById('mainPhoto');
+            const sections = document.querySelectorAll('.content-section[data-photo]');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && entry.intersectionRatio > 0.3) {
+                        const newPhoto = entry.target.getAttribute('data-photo');
+                        if (newPhoto && photoImg) {
+                            photoImg.src = newPhoto;
+                        }
+                    }
+                });
+            }, {
+                threshold: [0.3, 0.7],
+                rootMargin: '-10% 0px -10% 0px'
+            });
+            
+            sections.forEach(section => {
+                if (section.getAttribute('data-photo')) {
+                    observer.observe(section);
+                }
+            });
+        }
+
         // Countdown timer
         function updateCountdown() {
             const weddingDate = new Date('2026-05-01T00:00:00');
@@ -256,9 +858,20 @@
                 element.textContent = days > 0 ? days : '0';
             }
         }
-        
-        updateCountdown();
-        setInterval(updateCountdown, 86400000); // Update daily
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.header')) {
+                document.getElementById('mainNav').classList.remove('active');
+            }
+        });
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            updateCountdown();
+            setupPhotoChanging();
+            setInterval(updateCountdown, 86400000); // Update daily
+        });
     </script>
 </body>
 </html>
