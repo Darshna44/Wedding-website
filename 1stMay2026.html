@@ -124,7 +124,7 @@
         .content-section h2 {
             font-family: 'Style Script', cursive;
             font-size: 2.5rem;
-            color: #F47A43;
+            color: #000000;
             margin-bottom: 2rem;
         }
         
@@ -133,6 +133,11 @@
             font-size: 1.8rem;
             color: #F47A43;
             margin: 2rem 0 1rem 0;
+        }
+        
+        .content-section h4 {
+            font-family: 'Style Script', cursive;
+            color: #F47A43;
         }
         
         .content-section p {
@@ -193,15 +198,13 @@
         .countdown-text {
             font-size: 1.2rem;
             margin-bottom: 0.5rem;
-            color: white;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            color: #000000;
         }
         
         .countdown-number {
             font-size: 2.5rem;
             font-weight: 700;
-            color: white;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            color: #000000;
         }
         
         /* Story Section */
@@ -229,8 +232,6 @@
             gap: 1.5rem;
             border: 2px solid #f4d4ba;
         }
-        
-        .timeline-emoji { font-size: 2rem; margin-top: 0.2rem; }
         
         .timeline-content h4 {
             font-family: 'Style Script', cursive;
@@ -289,14 +290,19 @@
             margin-bottom: 1rem;
         }
         
-        .accommodation-card .price {
-            font-size: 1.2rem;
+        .accommodation-card .website {
+            font-size: 1rem;
             color: #F47A43;
-            font-weight: 600;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
         }
         
-        .accommodation-card .contact a { color: #F47A43; }
+        .accommodation-card .website a { color: #F47A43; text-decoration: underline; }
+        
+        .accommodation-card .distance {
+            font-size: 1rem;
+            color: #666;
+            font-style: italic;
+        }
         
         /* Registry */
         .registry-content {
@@ -336,7 +342,7 @@
             color: #000000;
         }
         
-        .rsvp-form {
+        .rsvp-wizard {
             background: white;
             padding: 3rem;
             border-radius: 20px;
@@ -346,7 +352,15 @@
             border: 2px solid #f4d4ba;
         }
         
-        .form-title {
+        .wizard-step {
+            display: none;
+        }
+        
+        .wizard-step.active {
+            display: block;
+        }
+        
+        .step-title {
             font-family: 'Style Script', cursive;
             font-size: 2rem;
             color: #F47A43;
@@ -378,8 +392,77 @@
             border-color: #F47A43;
         }
         
-        .submit-btn {
+        .attendance-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .attendance-btn {
+            padding: 1.5rem;
+            border: 2px solid #f4d4ba;
+            border-radius: 15px;
+            background: white;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        
+        .attendance-btn:hover {
+            border-color: #F47A43;
+            background: #faf7f5;
+        }
+        
+        .attendance-btn.selected {
+            border-color: #F47A43;
             background: #F47A43;
+            color: white;
+        }
+        
+        .attendance-btn.accept {
+            color: #2d5a2d;
+        }
+        
+        .attendance-btn.decline {
+            color: #8b4513;
+        }
+        
+        .menu-options {
+            display: grid;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .menu-option {
+            padding: 1rem;
+            border: 2px solid #f4d4ba;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .menu-option:hover {
+            border-color: #F47A43;
+            background: #faf7f5;
+        }
+        
+        .menu-option.selected {
+            border-color: #F47A43;
+            background: #F47A43;
+            color: white;
+        }
+        
+        .wizard-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 3rem;
+        }
+        
+        .btn {
+            background: linear-gradient(135deg, #F47A43 0%, #e8a87c 100%);
             color: white;
             padding: 1rem 2rem;
             border: none;
@@ -388,13 +471,63 @@
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
-            display: block;
-            margin: 2rem auto 0;
+            font-family: 'Lora', serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         
-        .submit-btn:hover {
-            background: #e8a87c;
+        .btn:hover {
             transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+        
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .btn-secondary {
+            background: #ccc;
+            color: #666;
+        }
+        
+        .btn-secondary:hover {
+            background: #bbb;
+        }
+        
+        .person-indicator {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background: #faf7f5;
+            border-radius: 10px;
+            border-left: 4px solid #F47A43;
+        }
+        
+        /* Success/Error Messages */
+        .message {
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        .message.success {
+            background-color: #d4f7d4;
+            color: #2d5a2d;
+            border: 2px solid #90d690;
+        }
+        
+        .message.error {
+            background-color: #f7d4d4;
+            color: #5a2d2d;
+            border: 2px solid #d69090;
+        }
+        
+        .hidden {
+            display: none;
         }
         
         /* Q&A */
@@ -464,13 +597,9 @@
             
             .accommodation-grid { grid-template-columns: 1fr; }
             
-            .timeline-item {
-                flex-direction: column;
-                gap: 1rem;
-                text-align: center;
-            }
+            .rsvp-wizard { padding: 2rem; margin: 0 1rem; }
             
-            .rsvp-form { padding: 2rem; margin: 0 1rem; }
+            .attendance-buttons { grid-template-columns: 1fr; }
         }
         
         /* Smooth scrolling */
@@ -484,7 +613,7 @@
             <nav id="mainNav">
                 <ul>
                     <li><a href="#home" onclick="scrollToSection('home')">Home</a></li>
-                    <li><a href="#story" onclick="scrollToSection('story')">Story</a></li>
+                    <li><a href="#story" onclick="scrollToSection('story')">Our story</a></li>
                     <li><a href="#order" onclick="scrollToSection('order')">Order of the Day</a></li>
                     <li><a href="#travel" onclick="scrollToSection('travel')">Travel</a></li>
                     <li><a href="#accommodations" onclick="scrollToSection('accommodations')">Accommodations</a></li>
@@ -498,13 +627,13 @@
 
     <div class="main-content">
         <div class="photo-section">
-            <img id="mainPhoto" src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="English Wedding">
+            <img id="mainPhoto" src="images/english-home.jpg" alt="English Wedding" onerror="this.src='https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'">
         </div>
 
         <div class="content-flow">
             <!-- Home Section -->
-            <div id="home" class="content-section" data-photo="https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80">
-                <img class="mobile-section-photo" src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="English Wedding Home">
+            <div id="home" class="content-section" data-photo="images/english-home.jpg">
+                <img class="mobile-section-photo" src="images/english-home.jpg" alt="English Wedding Home" onerror="this.src='https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'">
                 <div class="hero-content">
                     <h1>Darshna & Michael</h1>
                     <div class="date">1st May 2026</div>
@@ -517,27 +646,27 @@
             </div>
 
             <!-- Story Section -->
-            <div id="story" class="content-section" data-photo="https://images.unsplash.com/photo-1583939003579-730e3918a45a?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80">
-                <img class="mobile-section-photo" src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Our Story">
-                <h2>Our Story</h2>
+            <div id="story" class="content-section" data-photo="images/english-story.jpg">
+                <img class="mobile-section-photo" src="images/english-story.jpg" alt="Our Story" onerror="this.src='https://images.unsplash.com/photo-1583939003579-730e3918a45a?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'">
+                <h2>Our story</h2>
                 <h3>How We Met</h3>
                 <p>Michael spotted Darshna at a summer house party and did... absolutely nothing. Lucky for them, fast forward four months to a NYE house party (that neither of them planned to attend), their paths crossed again and they spent hours talking away.</p>
                 
                 <p>Like a true gentleman, he walked her to the station. And like a true millennial, he didn't ask for her number but slid into her Instagram DMs the next day.</p>
                 
                 <h3>The First Date</h3>
-                <p>Michael chose the elegant Bluebird Chelsea for their first date, clearly pulling out all the stops! Still recovering from the flu, Darshna kept disappearing to the ladies' room—apparently blowing your nose on a first date isn't very romantic. After the 10th time, Michael, with his signature dry humor, told her she may as well take her bag with her if she was planning to make a run for it.</p>
+                <p>Michael chose the elegant Bluebird Chelsea for their first date, clearly pulling out all the stops! Still recovering from the flu, Darshna kept disappearing to the ladies' room—apparently blowing your nose on a first date isn't very romantic. After the 10th time, Michael, with his signature dry humor, told her she may as well take her bag with her if she was planning to make a run for it. That has since changed and now he holds the tissue box for her ❤️</p>
                 
-                <div class="story-ending">That has since changed and now he holds the tissue box for her ❤️</div>
+                <h3>How he proposed</h3>
+                <p>Everytime they went on holiday, everyone always thought they would get engaged. So Michael arranged a secret holiday and didn't tell anyone - even their families. Given Darshna usually plans their holidays, she had a bit on inkling about what was going to happen, especially when he said they were going to Como. They rented a motor boat, packed a bottle of bubbles and lunch and set off on the lake. Michael knows how much Darshna loves her photos so suggested she go to the bow of the boat for some photos (and they look good!). Whilst she was sat there swishing her hair about, he was getting down on one knee… What followed was a glass of champagne, some very happy video calls and a photoshoot back at their apartment high in the mountain overlooking Lake Como.</p>
             </div>
 
             <!-- Order of the Day Section -->
-            <div id="order" class="content-section" data-photo="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80">
-                <img class="mobile-section-photo" src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80" alt="Order of the Day">
+            <div id="order" class="content-section" data-photo="images/english-orderofday.jpg">
+                <img class="mobile-section-photo" src="images/english-orderofday.jpg" alt="Order of the Day" onerror="this.src='https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80'">
                 <h2>Order of the Day</h2>
                 
                 <div class="timeline-item">
-                    <div class="timeline-emoji">✨</div>
                     <div class="timeline-content">
                         <h4>12:30 PM - Guests Arrive</h4>
                         <p>The bar will be open from 12:30pm. Please take your seats by 1pm.</p>
@@ -545,7 +674,6 @@
                 </div>
 
                 <div class="timeline-item">
-                    <div class="timeline-emoji">💍</div>
                     <div class="timeline-content">
                         <h4>1:30 PM - Ceremony</h4>
                         <p>Join us for an unplugged ceremony; kindly keep phones on silent and tucked away</p>
@@ -553,21 +681,18 @@
                 </div>
 
                 <div class="timeline-item">
-                    <div class="timeline-emoji">🥂</div>
                     <div class="timeline-content">
                         <h4>2:00 PM - Reception Drinks & Canapes</h4>
                     </div>
                 </div>
 
                 <div class="timeline-item">
-                    <div class="timeline-emoji">🍽️🎤</div>
                     <div class="timeline-content">
                         <h4>4:00 PM - Wedding Breakfast & Speeches</h4>
                     </div>
                 </div>
 
                 <div class="timeline-item">
-                    <div class="timeline-emoji">🎉</div>
                     <div class="timeline-content">
                         <h4>7:30 PM onwards - The Party Begins!</h4>
                         <p>After our first dance, meet us under the disco ball to celebrate!</p>
@@ -575,26 +700,24 @@
                 </div>
 
                 <div class="timeline-item">
-                    <div class="timeline-emoji">🍔</div>
                     <div class="timeline-content">
                         <h4>9:00 PM - Evening Food</h4>
                     </div>
                 </div>
 
                 <div class="timeline-item">
-                    <div class="timeline-emoji">🚕</div>
                     <div class="timeline-content">
                         <h4>11:59 PM - Farewell & Carriages</h4>
-                        <p>The bar closes at midnight. Please arrange transport, we recommend pre-booking a taxi from our Travel section</p>
+                        <p>The bar closes at midnight. Please arrange transport, we recommend pre-booking a taxi from our <a href="#travel" onclick="scrollToSection('travel')">Travel</a> page</p>
                     </div>
                 </div>
             </div>
 
             <!-- Travel Section -->
-            <div id="travel" class="content-section" data-photo="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80">
-                <img class="mobile-section-photo" src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Travel">
+            <div id="travel" class="content-section" data-photo="images/english-travel.jpg">
+                <img class="mobile-section-photo" src="images/english-travel.jpg" alt="Travel" onerror="this.src='https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'">
                 <h2>Travel</h2>
-                <p>There aren't any public transport links to the venue so would recommend booking a taxi ahead of time. There is also a car park available and cars will need to be collected by 10:30am the next day.</p>
+                <p>There aren't any public transport links to the venue so would recommend booking a taxi ahead of time. There is also a car park available and cars will need to be collected by 10:30am the next day. There are no electric car charging points unfortunately.</p>
                 
                 <div class="content-card">
                     <h3>Andy Cars</h3>
@@ -604,114 +727,90 @@
             </div>
 
             <!-- Accommodations Section -->
-            <div id="accommodations" class="content-section" data-photo="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80">
-                <img class="mobile-section-photo" src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Accommodations">
+            <div id="accommodations" class="content-section" data-photo="images/english-accommodations.jpg">
+                <img class="mobile-section-photo" src="images/english-accommodations.jpg" alt="Accommodations" onerror="this.src='https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'">
                 <h2>Accommodations</h2>
-                <p>Here are some nearby hotel options for our wedding guests:</p>
+                <p>We've noted a few hotels that are close to the venue and there are also Airbnb options available. We recommend booking in advance!</p>
                 
                 <div class="accommodation-grid">
                     <div class="accommodation-card">
-                        <h4>Premier Inn Gloucester</h4>
-                        <div class="price">£89/night</div>
-                        <div class="details">
-                            15 minutes from venue<br>
-                            Includes breakfast<br>
-                            Free parking
-                        </div>
-                        <div class="contact">Book: <a href="https://www.premierinn.com/" target="_blank">premierinn.com</a> | 0333 003 8101</div>
+                        <h4>Holiday Inn Express</h4>
+                        <div class="website"><a href="https://www.ihg.com" target="_blank">www.ihg.com</a></div>
+                        <div class="distance">3.3 miles from the venue</div>
                     </div>
                     <div class="accommodation-card">
-                        <h4>Travelodge Gloucester</h4>
-                        <div class="price">£65/night</div>
-                        <div class="details">
-                            20 minutes from venue<br>
-                            Budget-friendly option<br>
-                            Free WiFi
-                        </div>
-                        <div class="contact">Book: <a href="https://www.travelodge.co.uk/" target="_blank">travelodge.co.uk</a></div>
+                        <h4>Robinswood Hotel</h4>
+                        <div class="website"><a href="https://www.bestwestern.co.uk" target="_blank">www.bestwestern.co.uk</a></div>
+                        <div class="distance">5.7 miles from the venue</div>
                     </div>
                     <div class="accommodation-card">
-                        <h4>The Bell Hotel</h4>
-                        <div class="price">£120/night</div>
-                        <div class="details">
-                            Historic coaching inn<br>
-                            10 minutes from venue<br>
-                            Full English breakfast
-                        </div>
-                        <div class="contact">Book: 01452 700 000</div>
+                        <h4>Hatherley Manor</h4>
+                        <div class="website"><a href="https://www.hatton-court.co.uk" target="_blank">www.hatton-court.co.uk</a></div>
+                        <div class="distance">6.8 miles from the venue</div>
                     </div>
                 </div>
             </div>
 
             <!-- Registry Section -->
-            <div id="registry" class="content-section" data-photo="https://images.unsplash.com/photo-1549417229-aa67cfb533c1?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80">
-                <img class="mobile-section-photo" src="https://images.unsplash.com/photo-1549417229-aa67cfb533c1?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Registry">
+            <div id="registry" class="content-section" data-photo="images/english-registry.jpg">
+                <img class="mobile-section-photo" src="images/english-registry.jpg" alt="Registry" onerror="this.src='https://images.unsplash.com/photo-1549417229-aa67cfb533c1?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'">
                 <h2>Registry</h2>
                 <div class="registry-content">
                     <p>Your presence at our wedding is the greatest gift of all 🧡</p>
                     <p>If you would like to give us a gift, we are saving for our honeymoon and would be delighted with a contribution. Please use the following link to join us in creating these memories:</p>
-                    <a href="#" class="registry-link">Contribute to Our Honeymoon</a>
+                    <a href="https://monzo.me/michaelrose1?h=8kXIbO" target="_blank" class="registry-link">Contribute to Our Honeymoon</a>
                 </div>
             </div>
 
             <!-- RSVP Section -->
-            <div id="rsvp" class="content-section" data-photo="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80">
-                <img class="mobile-section-photo" src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80" alt="RSVP">
+            <div id="rsvp" class="content-section" data-photo="images/english-rsvp.jpg">
+                <img class="mobile-section-photo" src="images/english-rsvp.jpg" alt="RSVP" onerror="this.src='https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80'">
                 <h2>RSVP</h2>
                 <div class="rsvp-deadline">Please RSVP by 1st February</div>
                 
-                <div class="rsvp-form">
-                    <div class="form-title">Enter your details to RSVP</div>
-                    <form action="https://formspree.io/f/mqadbbln" method="POST">
-                        <input type="hidden" name="wedding_type" value="English Wedding">
-                        
+                <div class="rsvp-wizard" id="rsvpWizard">
+                    <div id="successMessage" class="message success hidden">
+                        <p>🎉 Thank you for your RSVP! We can't wait to celebrate with you at our English wedding!</p>
+                    </div>
+                    <div id="errorMessage" class="message error hidden">
+                        <p>❌ Sorry, there was an error. Please try again or contact us directly.</p>
+                    </div>
+
+                    <!-- Step 1: Name and Email -->
+                    <div class="wizard-step active" id="step1">
+                        <div class="step-title">Enter your details to RSVP</div>
                         <div class="form-group">
-                            <label for="name">Your Name *</label>
-                            <input type="text" id="name" name="name" required>
+                            <label for="submitterName">Your Name *</label>
+                            <input type="text" id="submitterName" required>
                         </div>
-                        
                         <div class="form-group">
-                            <label for="email">Your Email Address *</label>
-                            <input type="email" id="email" name="email" required>
+                            <label for="submitterEmail">Your Email Address *</label>
+                            <input type="email" id="submitterEmail" required>
                         </div>
-                        
-                        <div class="form-group">
-                            <label for="attending">Will you be attending? *</label>
-                            <select id="attending" name="attending" required>
-                                <option value="">Please choose...</option>
-                                <option value="Joyfully Accept">Joyfully Accept</option>
-                                <option value="Regretfully Decline">Regretfully Decline</option>
-                            </select>
+                        <div class="wizard-buttons">
+                            <div></div>
+                            <button class="btn" onclick="nextStep(1)">Next</button>
                         </div>
-                        
-                        <div class="form-group">
-                            <label for="guests">Number of guests (including yourself)</label>
-                            <select id="guests" name="guests">
-                                <option value="1">1 Guest</option>
-                                <option value="2">2 Guests</option>
-                                <option value="3">3 Guests</option>
-                                <option value="4">4 Guests</option>
-                            </select>
+                    </div>
+
+                    <!-- Dynamic person steps will be inserted here -->
+                    <div id="personSteps"></div>
+
+                    <!-- Final step -->
+                    <div class="wizard-step" id="finalStep">
+                        <div class="step-title">Review & Submit</div>
+                        <div id="rsvpSummary"></div>
+                        <div class="wizard-buttons">
+                            <button class="btn btn-secondary" onclick="startNewRSVP()">Start Over</button>
+                            <button class="btn" onclick="submitRSVP()">Submit RSVP</button>
                         </div>
-                        
-                        <div class="form-group">
-                            <label for="dietary">Any dietary requirements?</label>
-                            <textarea id="dietary" name="dietary" rows="3" placeholder="Please let us know about any allergies or dietary requirements..."></textarea>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="message">Message to the couple (optional)</label>
-                            <textarea id="message" name="message" rows="3" placeholder="We'd love to hear from you..."></textarea>
-                        </div>
-                        
-                        <button type="submit" class="submit-btn">Submit RSVP</button>
-                    </form>
+                    </div>
                 </div>
             </div>
 
             <!-- Q&A Section -->
-            <div id="qa" class="content-section" data-photo="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80">
-                <img class="mobile-section-photo" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Q&A">
+            <div id="qa" class="content-section" data-photo="images/english-qa.jpg">
+                <img class="mobile-section-photo" src="images/english-qa.jpg" alt="Q&A" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'">
                 <h2>Q & A</h2>
                 
                 <div class="qa-item">
@@ -746,7 +845,7 @@
 
                 <div class="qa-item">
                     <div class="qa-question">What is the dress code?</div>
-                    <div class="qa-answer">Formal wedding attire please; elegant dresses and sharp suits are perfect! Please avoid white, ivory, or cream colours. Heels are very welcome - bring some flats too if you plan to dance the night away!</div>
+                    <div class="qa-answer">Formal wedding attire please; elegant dresses and sharp suits are perfect! Please avoid white, ivory, cream or orange colours. Heels are very welcome - bring some flats too if you plan to dance the night away!</div>
                 </div>
 
                 <div class="qa-item">
@@ -761,12 +860,7 @@
 
                 <div class="qa-item">
                     <div class="qa-question">Do I need to book a taxi?</div>
-                    <div class="qa-answer">Yes, a taxi should be pre-booked. A list of local taxis can be found in the Travel section above</div>
-                </div>
-
-                <div class="qa-item">
-                    <div class="qa-question">Is the venue wheelchair accessible?</div>
-                    <div class="qa-answer">Yes, Elmore Court is fully wheelchair accessible with ramps and accessible facilities.</div>
+                    <div class="qa-answer">Yes, a taxi should be pre-booked. A list of local taxis can be found on <a href="#travel" onclick="scrollToSection('travel')">Travel</a></div>
                 </div>
 
                 <div class="qa-item">
@@ -786,6 +880,11 @@
     </div>
 
     <script>
+        // RSVP Variables
+        let currentPersonIndex = 0;
+        let allRsvpResponses = []; // Store all people's responses
+        let currentPersonResponse = {}; // Current person being processed
+
         // Menu functionality
         function toggleMenu() {
             const nav = document.getElementById('mainNav');
@@ -856,6 +955,343 @@
             const element = document.getElementById('countdown');
             if (element) {
                 element.textContent = days > 0 ? days : '0';
+            }
+        }
+
+        // RSVP Functions
+        function nextStep(step) {
+            if (step === 1) {
+                const name = document.getElementById('submitterName').value.trim();
+                const email = document.getElementById('submitterEmail').value.trim();
+                
+                if (!name || !email) {
+                    alert('Please enter your name and email address');
+                    return;
+                }
+                
+                // Start with first person
+                currentPersonIndex = 0;
+                allRsvpResponses = [];
+                startPersonRSVP(name, email);
+            }
+        }
+
+        function startPersonRSVP(name, email) {
+            // Initialize current person response
+            currentPersonResponse = {
+                name: name,
+                email: email,
+                attending: null,
+                starter: null,
+                main: null,
+                dessert: 'Option 5', // Fixed dessert
+                dietary: '',
+                declineNote: ''
+            };
+            
+            // Create and show person step
+            createCurrentPersonStep();
+            showCurrentPersonStep();
+        }
+
+        function createCurrentPersonStep() {
+            const container = document.getElementById('personSteps');
+            container.innerHTML = ''; // Clear previous steps
+            
+            const stepDiv = document.createElement('div');
+            stepDiv.className = 'wizard-step active';
+            stepDiv.id = 'currentPersonStep';
+            
+            stepDiv.innerHTML = `
+                <div class="person-indicator">RSVP for: <strong>${currentPersonResponse.name}</strong></div>
+                <div class="step-title">Will you be attending?</div>
+                <div class="attendance-buttons">
+                    <div class="attendance-btn accept" onclick="selectAttendance('accept')">
+                        Yes, I can! 🤗
+                    </div>
+                    <div class="attendance-btn decline" onclick="selectAttendance('decline')">
+                        Sorry I can't make it ☹️
+                    </div>
+                </div>
+                <div id="acceptQuestions" class="hidden">
+                    <div class="form-group">
+                        <label>Please select a starter:</label>
+                        <div class="menu-options">
+                            <div class="menu-option" onclick="selectMenuOption('starter', 'Option 1')">Option 1</div>
+                            <div class="menu-option" onclick="selectMenuOption('starter', 'Option 2')">Option 2</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Please select a main:</label>
+                        <div class="menu-options">
+                            <div class="menu-option" onclick="selectMenuOption('main', 'Option 3')">Option 3</div>
+                            <div class="menu-option" onclick="selectMenuOption('main', 'Option 4')">Option 4</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Dessert:</label>
+                        <p style="padding: 1rem; background: #faf7f5; border-radius: 8px; border-left: 4px solid #F47A43;">Option 5 (included for all guests)</p>
+                    </div>
+                    <div class="form-group">
+                        <label for="currentDietary">Any dietary requirements?</label>
+                        <textarea id="currentDietary" rows="2" placeholder="Please let us know about any allergies or dietary requirements..."></textarea>
+                    </div>
+                </div>
+                <div id="declineQuestions" class="hidden">
+                    <div class="form-group">
+                        <label for="currentDeclineNote">Would you like to include a note to the couple?</label>
+                        <textarea id="currentDeclineNote" rows="3" placeholder="We'll miss you but understand..."></textarea>
+                    </div>
+                </div>
+                <div class="wizard-buttons">
+                    <button class="btn btn-secondary" onclick="goBackToInitial()">Previous</button>
+                    <button class="btn" onclick="finishCurrentPerson()">Next</button>
+                </div>
+            `;
+            
+            container.appendChild(stepDiv);
+        }
+
+        function showCurrentPersonStep() {
+            // Hide initial step and final step
+            document.getElementById('step1').classList.remove('active');
+            document.getElementById('finalStep').classList.remove('active');
+            
+            // Hide add another step if it exists
+            const addAnotherStep = document.getElementById('addAnotherStep');
+            if (addAnotherStep) {
+                addAnotherStep.classList.remove('active');
+            }
+            
+            // Show current person step
+            document.getElementById('currentPersonStep').classList.add('active');
+        }
+
+        function selectAttendance(type) {
+            const acceptBtn = document.querySelector('#currentPersonStep .attendance-btn.accept');
+            const declineBtn = document.querySelector('#currentPersonStep .attendance-btn.decline');
+            const acceptQuestions = document.getElementById('acceptQuestions');
+            const declineQuestions = document.getElementById('declineQuestions');
+            
+            // Reset buttons
+            acceptBtn.classList.remove('selected');
+            declineBtn.classList.remove('selected');
+            acceptQuestions.classList.add('hidden');
+            declineQuestions.classList.add('hidden');
+            
+            if (type === 'accept') {
+                acceptBtn.classList.add('selected');
+                acceptQuestions.classList.remove('hidden');
+                currentPersonResponse.attending = 'Yes, I can!';
+            } else {
+                declineBtn.classList.add('selected');
+                declineQuestions.classList.remove('hidden');
+                currentPersonResponse.attending = 'Sorry I can\'t make it';
+            }
+        }
+
+        function selectMenuOption(category, option) {
+            const options = document.querySelectorAll('#currentPersonStep .menu-options .menu-option');
+            const categoryOptions = Array.from(options).filter(opt => 
+                opt.parentElement.previousElementSibling.textContent.toLowerCase().includes(category)
+            );
+            
+            categoryOptions.forEach(opt => opt.classList.remove('selected'));
+            event.target.classList.add('selected');
+            
+            currentPersonResponse[category] = option;
+        }
+
+        function finishCurrentPerson() {
+            // Validate current person's response
+            if (!currentPersonResponse.attending) {
+                alert('Please select whether you will be attending.');
+                return;
+            }
+            
+            if (currentPersonResponse.attending === 'Yes, I can!') {
+                if (!currentPersonResponse.starter || !currentPersonResponse.main) {
+                    alert('Please make all meal selections.');
+                    return;
+                }
+                currentPersonResponse.dietary = document.getElementById('currentDietary').value;
+            } else {
+                currentPersonResponse.declineNote = document.getElementById('currentDeclineNote').value;
+            }
+            
+            // Add current person to responses
+            allRsvpResponses.push({...currentPersonResponse});
+            
+            // Show "Add Another Person" step
+            showAddAnotherStep();
+        }
+
+        function showAddAnotherStep() {
+            // Hide current person step
+            document.getElementById('currentPersonStep').classList.remove('active');
+            
+            // Create or show add another step
+            let addAnotherStep = document.getElementById('addAnotherStep');
+            if (!addAnotherStep) {
+                addAnotherStep = document.createElement('div');
+                addAnotherStep.className = 'wizard-step';
+                addAnotherStep.id = 'addAnotherStep';
+                addAnotherStep.innerHTML = `
+                    <div class="step-title">Do you need to RSVP for anyone else?</div>
+                    <div class="person-indicator">You have completed ${allRsvpResponses.length} RSVP${allRsvpResponses.length > 1 ? 's' : ''}</div>
+                    <div class="attendance-buttons">
+                        <div class="attendance-btn accept" onclick="addAnotherPerson()">
+                            Yes
+                        </div>
+                        <div class="attendance-btn decline" onclick="proceedToFinal()">
+                            No
+                        </div>
+                    </div>
+                    <div class="wizard-buttons">
+                        <div></div>
+                        <div></div>
+                    </div>
+                `;
+                document.getElementById('personSteps').appendChild(addAnotherStep);
+            }
+            
+            // Update the counter
+            addAnotherStep.querySelector('.person-indicator').innerHTML = 
+                `You have completed ${allRsvpResponses.length} RSVP${allRsvpResponses.length > 1 ? 's' : ''}`;
+            
+            addAnotherStep.classList.add('active');
+        }
+
+        function addAnotherPerson() {
+            // Get new person details
+            const name = prompt('Please enter the name of the person you want to RSVP for:');
+            if (!name || !name.trim()) {
+                return;
+            }
+            
+            const email = prompt('Please enter their email address (or your email if RSVPing on their behalf):');
+            if (!email || !email.trim()) {
+                return;
+            }
+            
+            // Start RSVP for new person
+            startPersonRSVP(name.trim(), email.trim());
+        }
+
+        function proceedToFinal() {
+            showFinalStep();
+        }
+
+        function goBackToInitial() {
+            // Go back to initial step
+            document.getElementById('currentPersonStep').classList.remove('active');
+            document.getElementById('step1').classList.add('active');
+            
+            // Reset data
+            allRsvpResponses = [];
+            currentPersonResponse = {};
+        }
+
+        function startNewRSVP() {
+            // Reset everything and go back to start
+            allRsvpResponses = [];
+            currentPersonResponse = {};
+            
+            // Clear form fields
+            document.getElementById('submitterName').value = '';
+            document.getElementById('submitterEmail').value = '';
+            
+            // Hide final step and show initial step
+            document.getElementById('finalStep').classList.remove('active');
+            document.getElementById('step1').classList.add('active');
+            
+            // Clear person steps
+            document.getElementById('personSteps').innerHTML = '';
+        }
+
+        function showFinalStep() {
+            // Hide add another step
+            const addAnotherStep = document.getElementById('addAnotherStep');
+            if (addAnotherStep) {
+                addAnotherStep.classList.remove('active');
+            }
+            
+            // Show final step
+            document.getElementById('finalStep').classList.add('active');
+            
+            // Generate summary
+            const summaryDiv = document.getElementById('rsvpSummary');
+            let summaryHTML = `<h3>RSVP Summary (${allRsvpResponses.length} ${allRsvpResponses.length > 1 ? 'people' : 'person'})</h3>`;
+            
+            allRsvpResponses.forEach((response, index) => {
+                summaryHTML += `<div style="margin-bottom: 1rem; padding: 1rem; background: #faf7f5; border-radius: 10px;">`;
+                summaryHTML += `<strong>${response.name}</strong> - ${response.attending}<br>`;
+                summaryHTML += `<em>Email: ${response.email}</em><br>`;
+                
+                if (response.attending === 'Yes, I can!') {
+                    summaryHTML += `Starter: ${response.starter}<br>`;
+                    summaryHTML += `Main: ${response.main}<br>`;
+                    summaryHTML += `Dessert: ${response.dessert}<br>`;
+                    if (response.dietary) {
+                        summaryHTML += `Dietary: ${response.dietary}<br>`;
+                    }
+                } else if (response.declineNote) {
+                    summaryHTML += `Note: ${response.declineNote}<br>`;
+                }
+                
+                summaryHTML += `</div>`;
+            });
+            
+            summaryDiv.innerHTML = summaryHTML;
+        }
+
+        async function submitRSVP() {
+            const submitBtn = event.target;
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Submitting...';
+            
+            try {
+                // Submit individual records for each person
+                for (let i = 0; i < allRsvpResponses.length; i++) {
+                    const response = allRsvpResponses[i];
+                    const formData = new FormData();
+                    
+                    // Add form data
+                    formData.append('submission_date', new Date().toISOString());
+                    formData.append('submitter_name', allRsvpResponses[0].name);
+                    formData.append('submitter_email', allRsvpResponses[0].email);
+                    formData.append('wedding_type', 'English Wedding');
+                    formData.append('guest_name', response.name);
+                    formData.append('guest_email', response.email);
+                    formData.append('attending', response.attending);
+                    formData.append('starter', response.starter || '');
+                    formData.append('main', response.main || '');
+                    formData.append('dessert', response.dessert || '');
+                    formData.append('dietary', response.dietary || '');
+                    formData.append('decline_note', response.declineNote || '');
+                    formData.append('total_in_submission', allRsvpResponses.length);
+                    formData.append('_subject', `English Wedding RSVP - ${allRsvpResponses[0].name} (${allRsvpResponses.length} ${allRsvpResponses.length > 1 ? 'people' : 'person'})`);
+                    formData.append('_captcha', 'false');
+                    
+                    await fetch('https://formspree.io/f/mqadbbln', {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+                }
+                
+                // Show success message
+                document.getElementById('successMessage').classList.remove('hidden');
+                document.getElementById('rsvpWizard').style.display = 'none';
+                
+            } catch (error) {
+                console.error('Error:', error);
+                document.getElementById('errorMessage').classList.remove('hidden');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Submit RSVP';
             }
         }
 
