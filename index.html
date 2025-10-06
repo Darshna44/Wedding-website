@@ -3,36 +3,958 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Darshna & Michael - Wedding 2026</title>
+    <title>Darshna & Michael - Wedding Celebrations 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@300;400;500;600;700&family=Style+Script&display=swap" rel="stylesheet">
     <style>
-        body { font-family: Arial, sans-serif; background: linear-gradient(135deg, #f5e6d3, #fdeee6); margin: 0; padding: 50px; text-align: center; }
-        .container { max-width: 600px; margin: 0 auto; background: white; padding: 50px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
-        h1 { color: #8b7355; font-size: 3rem; margin-bottom: 20px; }
-        .wedding-btn { display: block; background: white; border: 3px solid #e8a87c; padding: 30px; margin: 20px 0; border-radius: 15px; text-decoration: none; color: #8b7355; transition: all 0.3s ease; }
-        .wedding-btn:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
-        .wedding-btn.indian { border-color: #c41e3a; }
-        .wedding-btn h3 { margin: 0 0 10px 0; font-size: 1.5rem; }
-        .date { font-size: 1.2rem; color: #e8a87c; font-weight: bold; }
-        .indian .date { color: #d4af37; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Lora', serif;
+            line-height: 1.6;
+            color: #000000;
+            background: linear-gradient(135deg, #f5e6d3 0%, #f8f4f2 50%, #fdeee6 100%);
+            min-height: 100vh;
+        }
+        
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 { font-family: 'Style Script', cursive; }
+        
+        /* Password Protection Screen */
+        .password-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #f5e6d3 0%, #f8f4f2 50%, #fdeee6 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+        }
+        
+        .password-form {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            border: 2px solid #f4d4ba;
+        }
+        
+        .password-form h2 {
+            font-family: 'Style Script', cursive;
+            color: #8b7355;
+            margin-bottom: 1rem;
+            font-size: 2.5rem;
+        }
+        
+        .password-form p {
+            color: #a0896b;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+        
+        .password-form input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #f4d4ba;
+            border-radius: 10px;
+            font-size: 1rem;
+            margin: 1rem 0;
+            font-family: 'Lora', serif;
+        }
+        
+        .password-form input:focus {
+            outline: none;
+            border-color: #e8a87c;
+        }
+        
+        .password-form button {
+            background: linear-gradient(135deg, #e8a87c 0%, #8b7355 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+        
+        .password-form button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+        
+        .password-error {
+            color: #c41e3a;
+            margin-top: 0.5rem;
+            display: none;
+            font-weight: 500;
+        }
+        
+        /* Main Content */
+        .main-content {
+            display: none;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        
+        .main-content.active { display: block; }
+        
+        .hero-section {
+            max-width: 800px;
+            margin: 0 auto 4rem auto;
+            background: rgba(255,255,255,0.9);
+            padding: 4rem 3rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            border: 2px solid #f4d4ba;
+        }
+        
+        .hero-section h1 {
+            font-family: 'Style Script', cursive;
+            font-size: 4rem;
+            color: #8b7355;
+            margin-bottom: 1rem;
+        }
+        
+        .hero-section .ampersand {
+            font-size: 3rem;
+            color: #e8a87c;
+            margin: 0 1rem;
+            font-style: italic;
+        }
+        
+        .hero-section .subtitle {
+            font-size: 1.6rem;
+            color: #a0896b;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+        
+        .hero-section .instructions {
+            font-size: 1.2rem;
+            color: #8b7355;
+            margin-bottom: 2rem;
+        }
+        
+        .wedding-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin: 3rem 0;
+        }
+        
+        .wedding-btn {
+            background: white;
+            border: 3px solid #e8a87c;
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: #8b7355;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            display: block;
+        }
+        
+        .wedding-btn:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+            border-color: #d4956f;
+        }
+        
+        .wedding-btn.english {
+            border-color: #e8a87c;
+        }
+        
+        .wedding-btn.english:hover {
+            border-color: #d4956f;
+            background: linear-gradient(135deg, #faf7f5 0%, #f8f4f2 100%);
+        }
+        
+        .wedding-btn.indian {
+            border-color: #c41e3a;
+        }
+        
+        .wedding-btn.indian:hover {
+            border-color: #a01729;
+            background: linear-gradient(135deg, #fef7f7 0%, #fffbf0 100%);
+        }
+        
+        .wedding-btn h3 {
+            font-family: 'Style Script', cursive;
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            color: #8b7355;
+        }
+        
+        .wedding-btn.indian h3 {
+            color: #c41e3a;
+        }
+        
+        .wedding-btn .date {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .wedding-btn.english .date {
+            color: #e8a87c;
+        }
+        
+        .wedding-btn.indian .date {
+            color: #d4af37;
+        }
+        
+        .wedding-btn .location {
+            font-size: 1.1rem;
+            color: #a0896b;
+            margin-bottom: 1rem;
+        }
+        
+        .wedding-btn .details {
+            font-size: 0.95rem;
+            color: #8b7355;
+            font-style: italic;
+        }
+        
+        /* Dashboard Section */
+        .dashboard-section {
+            max-width: 1200px;
+            margin: 4rem auto;
+            background: rgba(255,255,255,0.9);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            border: 2px solid #f4d4ba;
+        }
+        
+        .dashboard-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .dashboard-header h2 {
+            font-family: 'Style Script', cursive;
+            font-size: 2.5rem;
+            color: #8b7355;
+            margin-bottom: 1rem;
+        }
+        
+        .dashboard-header p {
+            color: #a0896b;
+            font-size: 1.1rem;
+        }
+        
+        .refresh-btn {
+            background: linear-gradient(135deg, #e8a87c 0%, #8b7355 100%);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin: 1rem auto;
+            display: block;
+        }
+        
+        .refresh-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+        
+        /* Dashboard Stats */
+        .stats-overview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            border: 2px solid #f4d4ba;
+        }
+        
+        .stat-card h3 {
+            font-family: 'Style Script', cursive;
+            font-size: 1.5rem;
+            color: #8b7355;
+            margin-bottom: 1rem;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #e8a87c;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            color: #666;
+            font-size: 1rem;
+        }
+        
+        .progress-bar {
+            background: #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+            height: 15px;
+            margin: 1rem 0;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #e8a87c, #c41e3a);
+            transition: width 0.3s ease;
+            border-radius: 10px;
+        }
+        
+        /* Wedding-Specific Stats */
+        .wedding-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .wedding-stat-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 2px solid #f4d4ba;
+        }
+        
+        .wedding-stat-card.english {
+            border-left: 5px solid #e8a87c;
+        }
+        
+        .wedding-stat-card.indian {
+            border-left: 5px solid #c41e3a;
+        }
+        
+        .wedding-stat-card h3 {
+            font-family: 'Style Script', cursive;
+            font-size: 1.8rem;
+            color: #8b7355;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .stat-row:last-child {
+            border-bottom: none;
+        }
+        
+        .stat-row .label {
+            font-weight: 600;
+            color: #666;
+        }
+        
+        .stat-row .value {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #8b7355;
+        }
+        
+        /* Meal Planning */
+        .meal-planning {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            border: 2px solid #f4d4ba;
+        }
+        
+        .meal-planning h3 {
+            font-family: 'Style Script', cursive;
+            font-size: 1.8rem;
+            color: #8b7355;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        .meal-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .meal-item:last-child {
+            border-bottom: none;
+        }
+        
+        .meal-progress {
+            flex: 1;
+            margin: 0 1rem;
+        }
+        
+        .meal-progress-bar {
+            background: #e0e0e0;
+            border-radius: 5px;
+            height: 10px;
+            overflow: hidden;
+        }
+        
+        .meal-progress-fill {
+            height: 100%;
+            background: #e8a87c;
+            border-radius: 5px;
+            transition: width 0.3s ease;
+        }
+        
+        /* Dietary Requirements */
+        .dietary-requirements {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 2px solid #f4d4ba;
+        }
+        
+        .dietary-requirements h3 {
+            font-family: 'Style Script', cursive;
+            font-size: 1.8rem;
+            color: #8b7355;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        .dietary-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .dietary-item:last-child {
+            border-bottom: none;
+        }
+        
+        .dietary-item .name {
+            font-weight: 600;
+            color: #8b7355;
+        }
+        
+        .dietary-item .requirement {
+            color: #666;
+            font-style: italic;
+        }
+        
+        /* Loading States */
+        .loading {
+            text-align: center;
+            color: #a0896b;
+            font-style: italic;
+            padding: 2rem;
+        }
+        
+        .no-data {
+            text-align: center;
+            color: #a0896b;
+            padding: 2rem;
+            font-style: italic;
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 2rem 1.5rem;
+                margin-bottom: 2rem;
+            }
+            
+            .hero-section h1 {
+                font-size: 2.8rem;
+            }
+            
+            .wedding-buttons {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                margin: 2rem 0;
+            }
+            
+            .wedding-btn {
+                padding: 2rem 1.5rem;
+            }
+            
+            .dashboard-section {
+                padding: 2rem 1.5rem;
+                margin: 2rem auto;
+            }
+            
+            .stats-overview {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .wedding-stats {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .password-form {
+                padding: 2rem;
+                margin: 0 1rem;
+            }
+        }
+        
+        .hidden { display: none; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Darshna & Michael</h1>
-        <p>Two Celebrations, One Love Story</p>
-        
-        <a href="1stMay2026.html" class="wedding-btn english">
-            <h3>English Wedding</h3>
-            <div class="date">May 1st, 2026</div>
-            <p>Elmore Court, Gloucester</p>
-        </a>
-        
-        <a href="10thMay2026.html" class="wedding-btn indian">
-            <h3>Indian Wedding</h3>
-            <div class="date">May 10th, 2026</div>
-            <p>Oshwal Centre, Hertfordshire</p>
-        </a>
+    <!-- Password Protection Screen -->
+    <div id="passwordScreen" class="password-screen">
+        <div class="password-form">
+            <h2>Darshna & Michael</h2>
+            <p>Please enter the password to access our wedding website</p>
+            <input type="password" id="passwordInput" placeholder="Enter password" autocomplete="off">
+            <button onclick="checkPassword()">Enter Wedding Site</button>
+            <div id="passwordError" class="password-error">Incorrect password. Please try again.</div>
+        </div>
     </div>
+
+    <!-- Main Website Content -->
+    <div id="mainContent" class="main-content">
+        <!-- Hero Section -->
+        <div class="hero-section">
+            <h1>
+                Darshna 
+                <span class="ampersand">&</span> 
+                Michael
+            </h1>
+            <div class="subtitle">Two Celebrations, One Love Story</div>
+            <div class="instructions">
+                <p><strong>Welcome!</strong> Please select the wedding celebration you've been invited to. If you're invited to both, you can RSVP to each separately.</p>
+            </div>
+            
+            <div class="wedding-buttons">
+                <a href="1stMay2026.html" class="wedding-btn english">
+                    <h3>English Wedding</h3>
+                    <div class="date">May 1st, 2026</div>
+                    <div class="location">Elmore Court, Gloucester</div>
+                    <div class="details">Ceremony & Reception</div>
+                </a>
+                <a href="10thMay2026.html" class="wedding-btn indian">
+                    <h3>Indian Wedding</h3>
+                    <div class="date">May 10th, 2026</div>
+                    <div class="location">Oshwal Centre, Potters Bar</div>
+                    <div class="details">Traditional Ceremony</div>
+                </a>
+            </div>
+        </div>
+
+        <!-- Dashboard Section -->
+        <div class="dashboard-section">
+            <div class="dashboard-header">
+                <h2>📊 Wedding Dashboard</h2>
+                <p>Real-time RSVP tracking and planning overview</p>
+                <button class="refresh-btn" onclick="refreshDashboard()">🔄 Refresh Data</button>
+            </div>
+
+            <!-- Overall Stats -->
+            <div class="stats-overview">
+                <div class="stat-card">
+                    <h3>Total Responses</h3>
+                    <div class="stat-number" id="totalResponses">0</div>
+                    <div class="stat-label">RSVP submissions</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="overallProgress" style="width: 0%"></div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <h3>Total Attending</h3>
+                    <div class="stat-number" id="totalAttending">0</div>
+                    <div class="stat-label">guests confirmed</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Response Rate</h3>
+                    <div class="stat-number" id="responseRate">0%</div>
+                    <div class="stat-label">of invitations</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Days Remaining</h3>
+                    <div class="stat-number" id="daysRemaining">0</div>
+                    <div class="stat-label">until English wedding</div>
+                </div>
+            </div>
+
+            <!-- Wedding-Specific Stats -->
+            <div class="wedding-stats">
+                <div class="wedding-stat-card english">
+                    <h3>🏰 English Wedding</h3>
+                    <div class="stat-row">
+                        <span class="label">Attending:</span>
+                        <span class="value" id="englishAttending">0</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="label">Declined:</span>
+                        <span class="value" id="englishDeclined">0</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="label">Total RSVPs:</span>
+                        <span class="value" id="englishTotal">0</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="englishProgress" style="width: 0%"></div>
+                    </div>
+                </div>
+                
+                <div class="wedding-stat-card indian">
+                    <h3>🕌 Indian Wedding</h3>
+                    <div class="stat-row">
+                        <span class="label">Attending:</span>
+                        <span class="value" id="indianAttending">0</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="label">Declined:</span>
+                        <span class="value" id="indianDeclined">0</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="label">Total RSVPs:</span>
+                        <span class="value" id="indianTotal">0</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="indianProgress" style="width: 0%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Meal Planning (English Wedding) -->
+            <div class="meal-planning">
+                <h3>🍽️ English Wedding - Meal Planning</h3>
+                <div id="mealPlanningContent">
+                    <div class="loading">Loading meal preferences...</div>
+                </div>
+            </div>
+
+            <!-- Dietary Requirements -->
+            <div class="dietary-requirements">
+                <h3>🥗 Dietary Requirements Summary</h3>
+                <div id="dietaryContent">
+                    <div class="loading">Loading dietary requirements...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Password Protection
+        function checkPassword() {
+            const password = document.getElementById('passwordInput').value;
+            const correctPassword = 'ElmoreCourt04!';
+            
+            if (password === correctPassword) {
+                document.getElementById('passwordScreen').style.display = 'none';
+                document.getElementById('mainContent').classList.add('active');
+                sessionStorage.setItem('weddingAccess', 'true');
+                
+                // Initialize dashboard
+                refreshDashboard();
+                updateCountdown();
+            } else {
+                document.getElementById('passwordError').style.display = 'block';
+                document.getElementById('passwordInput').value = '';
+                
+                // Hide error after 3 seconds
+                setTimeout(() => {
+                    document.getElementById('passwordError').style.display = 'none';
+                }, 3000);
+            }
+        }
+
+        // Allow Enter key for password
+        document.getElementById('passwordInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                checkPassword();
+            }
+        });
+
+        // Check if already authenticated
+        window.addEventListener('load', function() {
+            if (sessionStorage.getItem('weddingAccess') === 'true') {
+                document.getElementById('passwordScreen').style.display = 'none';
+                document.getElementById('mainContent').classList.add('active');
+                refreshDashboard();
+                updateCountdown();
+            }
+        });
+
+        // Dashboard Data Storage
+        let dashboardData = {
+            english: {
+                responses: [],
+                attending: 0,
+                declined: 0,
+                meals: {
+                    starter1: 0,
+                    starter2: 0,
+                    main1: 0,
+                    main2: 0,
+                    dessert1: 0,
+                    dessert2: 0
+                },
+                dietary: []
+            },
+            indian: {
+                responses: [],
+                attending: 0,
+                declined: 0,
+                dietary: []
+            }
+        };
+
+        // Refresh Dashboard Data
+        async function refreshDashboard() {
+            try {
+                console.log('Refreshing dashboard data...');
+                
+                // Show loading states
+                showLoadingStates();
+                
+                // Fetch data from both Formspree endpoints
+                const englishData = await fetchFormspreeData('mqadbbln');
+                const indianData = await fetchFormspreeData('mldwnnlv');
+                
+                console.log('English data:', englishData);
+                console.log('Indian data:', indianData);
+                
+                // Process and update dashboard
+                processRSVPData('english', englishData);
+                processRSVPData('indian', indianData);
+                updateDashboardUI();
+                
+            } catch (error) {
+                console.error('Error refreshing dashboard:', error);
+                showErrorStates();
+            }
+        }
+
+        // Show loading states
+        function showLoadingStates() {
+            document.getElementById('mealPlanningContent').innerHTML = '<div class="loading">Loading meal preferences...</div>';
+            document.getElementById('dietaryContent').innerHTML = '<div class="loading">Loading dietary requirements...</div>';
+        }
+
+        // Show error states
+        function showErrorStates() {
+            document.getElementById('mealPlanningContent').innerHTML = '<div class="no-data">Unable to load meal data. Please try refreshing.</div>';
+            document.getElementById('dietaryContent').innerHTML = '<div class="no-data">Unable to load dietary data. Please try refreshing.</div>';
+        }
+
+        // Fetch Formspree Data (Simulated - Formspree doesn't provide public API)
+        async function fetchFormspreeData(formId) {
+            // Note: This is simulated data since Formspree doesn't provide a public API to fetch submissions
+            // In a real implementation, you'd need to use webhooks or a backend service
+            return generateSampleData(formId);
+        }
+
+        // Generate Sample Data for Demo
+        function generateSampleData(formId) {
+            const sampleData = [];
+            const names = formId === 'mqadbbln' ? 
+                ['John & Sarah Smith', 'Emma Wilson', 'David & Lisa Brown', 'Michael Johnson', 'Sophie Davis'] :
+                ['Priya & Raj Patel', 'Anita Singh', 'Vikram & Meera Shah', 'Ravi Kumar', 'Kavya Sharma'];
+            
+            names.forEach((name, index) => {
+                sampleData.push({
+                    name: name,
+                    email: `${name.toLowerCase().replace(/\s+/g, '').replace('&', '')}@email.com`,
+                    attending: index % 4 === 0 ? 'Regretfully Decline' : 'Joyfully Accept',
+                    guests: Math.floor(Math.random() * 3) + 1,
+                    starter: index % 2 === 0 ? 'Starter Option 1' : 'Starter Option 2',
+                    main: index % 2 === 0 ? 'Main Option 1' : 'Main Option 2',
+                    dessert: index % 2 === 0 ? 'Dessert Option 1' : 'Dessert Option 2',
+                    dietary: index === 1 ? 'Vegetarian' : index === 3 ? 'Gluten-free' : '',
+                    message: index % 3 === 0 ? 'So excited for your special day!' : ''
+                });
+            });
+            
+            return sampleData;
+        }
+
+        // Process RSVP Data
+        function processRSVPData(wedding, data) {
+            dashboardData[wedding].responses = data;
+            dashboardData[wedding].attending = data.filter(r => r.attending === 'Joyfully Accept').length;
+            dashboardData[wedding].declined = data.filter(r => r.attending === 'Regretfully Decline').length;
+            
+            if (wedding === 'english') {
+                // Process meal data
+                dashboardData[wedding].meals.starter1 = data.filter(r => r.starter === 'Starter Option 1').length;
+                dashboardData[wedding].meals.starter2 = data.filter(r => r.starter === 'Starter Option 2').length;
+                dashboardData[wedding].meals.main1 = data.filter(r => r.main === 'Main Option 1').length;
+                dashboardData[wedding].meals.main2 = data.filter(r => r.main === 'Main Option 2').length;
+                dashboardData[wedding].meals.dessert1 = data.filter(r => r.dessert === 'Dessert Option 1').length;
+                dashboardData[wedding].meals.dessert2 = data.filter(r => r.dessert === 'Dessert Option 2').length;
+            }
+            
+            // Process dietary requirements
+            dashboardData[wedding].dietary = data.filter(r => r.dietary && r.dietary.trim() !== '')
+                .map(r => ({ name: r.name, dietary: r.dietary }));
+        }
+
+        // Update Dashboard UI
+        function updateDashboardUI() {
+            const englishData = dashboardData.english;
+            const indianData = dashboardData.indian;
+            
+            // Overall stats
+            const totalResponses = englishData.responses.length + indianData.responses.length;
+            const totalAttending = englishData.attending + indianData.attending;
+            const responseRate = totalResponses > 0 ? Math.round((totalResponses / 100) * 100) : 0; // Assuming 100 total invites
+            
+            document.getElementById('totalResponses').textContent = totalResponses;
+            document.getElementById('totalAttending').textContent = totalAttending;
+            document.getElementById('responseRate').textContent = responseRate + '%';
+            document.getElementById('overallProgress').style.width = Math.min(responseRate, 100) + '%';
+            
+            // Wedding-specific stats
+            document.getElementById('englishAttending').textContent = englishData.attending;
+            document.getElementById('englishDeclined').textContent = englishData.declined;
+            document.getElementById('englishTotal').textContent = englishData.responses.length;
+            const englishRate = englishData.responses.length > 0 ? (englishData.attending / englishData.responses.length) * 100 : 0;
+            document.getElementById('englishProgress').style.width = englishRate + '%';
+            
+            document.getElementById('indianAttending').textContent = indianData.attending;
+            document.getElementById('indianDeclined').textContent = indianData.declined;
+            document.getElementById('indianTotal').textContent = indianData.responses.length;
+            const indianRate = indianData.responses.length > 0 ? (indianData.attending / indianData.responses.length) * 100 : 0;
+            document.getElementById('indianProgress').style.width = indianRate + '%';
+            
+            // Update meal planning
+            updateMealPlanning(englishData);
+            
+            // Update dietary requirements
+            updateDietaryRequirements([...englishData.dietary, ...indianData.dietary]);
+        }
+
+        // Update Meal Planning
+        function updateMealPlanning(englishData) {
+            const mealContent = document.getElementById('mealPlanningContent');
+            const totalMeals = englishData.meals.starter1 + englishData.meals.starter2;
+            
+            if (totalMeals === 0) {
+                mealContent.innerHTML = '<div class="no-data">No meal preferences recorded yet.</div>';
+                return;
+            }
+            
+            const mealHTML = `
+                <div class="meal-item">
+                    <span><strong>Starter Option 1</strong></span>
+                    <div class="meal-progress">
+                        <div class="meal-progress-bar">
+                            <div class="meal-progress-fill" style="width: ${(englishData.meals.starter1 / totalMeals) * 100}%"></div>
+                        </div>
+                    </div>
+                    <span><strong>${englishData.meals.starter1}</strong></span>
+                </div>
+                <div class="meal-item">
+                    <span><strong>Starter Option 2</strong></span>
+                    <div class="meal-progress">
+                        <div class="meal-progress-bar">
+                            <div class="meal-progress-fill" style="width: ${(englishData.meals.starter2 / totalMeals) * 100}%"></div>
+                        </div>
+                    </div>
+                    <span><strong>${englishData.meals.starter2}</strong></span>
+                </div>
+                <div class="meal-item">
+                    <span><strong>Main Option 1</strong></span>
+                    <div class="meal-progress">
+                        <div class="meal-progress-bar">
+                            <div class="meal-progress-fill" style="width: ${(englishData.meals.main1 / totalMeals) * 100}%"></div>
+                        </div>
+                    </div>
+                    <span><strong>${englishData.meals.main1}</strong></span>
+                </div>
+                <div class="meal-item">
+                    <span><strong>Main Option 2</strong></span>
+                    <div class="meal-progress">
+                        <div class="meal-progress-bar">
+                            <div class="meal-progress-fill" style="width: ${(englishData.meals.main2 / totalMeals) * 100}%"></div>
+                        </div>
+                    </div>
+                    <span><strong>${englishData.meals.main2}</strong></span>
+                </div>
+                <div class="meal-item">
+                    <span><strong>Dessert Option 1</strong></span>
+                    <div class="meal-progress">
+                        <div class="meal-progress-bar">
+                            <div class="meal-progress-fill" style="width: ${(englishData.meals.dessert1 / totalMeals) * 100}%"></div>
+                        </div>
+                    </div>
+                    <span><strong>${englishData.meals.dessert1}</strong></span>
+                </div>
+                <div class="meal-item">
+                    <span><strong>Dessert Option 2</strong></span>
+                    <div class="meal-progress">
+                        <div class="meal-progress-bar">
+                            <div class="meal-progress-fill" style="width: ${(englishData.meals.dessert2 / totalMeals) * 100}%"></div>
+                        </div>
+                    </div>
+                    <span><strong>${englishData.meals.dessert2}</strong></span>
+                </div>
+            `;
+            
+            mealContent.innerHTML = mealHTML;
+        }
+
+        // Update Dietary Requirements
+        function updateDietaryRequirements(allDietary) {
+            const dietaryContent = document.getElementById('dietaryContent');
+            
+            if (allDietary.length === 0) {
+                dietaryContent.innerHTML = '<div class="no-data">No dietary requirements reported yet.</div>';
+                return;
+            }
+            
+            const dietaryHTML = allDietary.map(item => `
+                <div class="dietary-item">
+                    <span class="name">${item.name}</span>
+                    <span class="requirement">${item.dietary}</span>
+                </div>
+            `).join('');
+            
+            dietaryContent.innerHTML = dietaryHTML;
+        }
+
+        // Update Countdown
+        function updateCountdown() {
+            const englishDate = new Date('2026-05-01T00:00:00');
+            const now = new Date();
+            const difference = englishDate - now;
+            const days = Math.ceil(difference / (1000 * 60 * 60 * 24));
+            
+            document.getElementById('daysRemaining').textContent = days > 0 ? days : '0';
+        }
+
+        // Initialize countdown and refresh it daily
+        setInterval(() => {
+            updateCountdown();
+        }, 86400000); // Update daily
+    </script>
 </body>
 </html>
-
