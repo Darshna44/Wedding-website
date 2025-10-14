@@ -919,31 +919,74 @@
         }
 
         // Photo changing on scroll
-        function setupPhotoChanging() {
-            const photoImg = document.getElementById('mainPhoto');
-            const sections = document.querySelectorAll('.content-section[data-photo]');
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting && entry.intersectionRatio > 0.3) {
-                        const newPhoto = entry.target.getAttribute('data-photo');
-                        if (newPhoto && photoImg) {
-                            photoImg.src = newPhoto;
-                        }
-                    }
-                });
-            }, {
-                threshold: [0.3, 0.7],
-                rootMargin: '-10% 0px -10% 0px'
-            });
-            
-            sections.forEach(section => {
-                if (section.getAttribute('data-photo')) {
-                    observer.observe(section);
-                }
-            });
+function setupPhotoChanging() {
+    const photoImg = document.getElementById('mainPhoto');
+    const sections = document.querySelectorAll('.content-section[data-photo]');
+    
+    if (!photoImg || sections.length === 0) return;
+    
+    // Pre-load all images
+    sections.forEach(section => {
+        const photoSrc = section.getAttribute('data-photo');
+        if (photoSrc) {
+            const img = new Image();
+            img.src = photoSrc;
         }
-
+    });
+    
+    // Function to update photo based on scroll position
+    function updatePhotoOnScroll() {
+        const scrollPosition = window.scrollY + window.innerHeight / 2;
+        
+        let currentSection = null;
+        sections.forEach(section => {
+            const rect = section.getBoundingClientRect();
+            const sectionTop = window.scrollY + rect.top;
+            const sectionBottom = sectionTop + rect.height;
+            
+            if (scrollPosition >= sectionTop && scrollPosition <= sectionBottom) {
+                currentSection = section;
+            }
+        });
+        
+        if (currentSection) {
+            const newPhoto = currentSection.getAttribute('data-photo');
+            if (newPhoto && photoImg.src.indexOf(newPhoto) === -1) {
+                // Test if image exists before changing
+                const testImg = new Image();
+                testImg.onload = function() {
+                    photoImg.style.opacity = '0';
+                    setTimeout(() => {
+                        photoImg.src = newPhoto;
+                        photoImg.style.opacity = '1';
+                    }, 300);
+                };
+                testImg.onerror = function() {
+                    photoImg.src = 'images/indian-home.jpg';  // ← Only change is here!
+                };
+                testImg.src = newPhoto;
+            }
+        }
+    }
+    
+    // Add smooth transition to photo
+    photoImg.style.transition = 'opacity 0.3s ease';
+    
+    // Listen to scroll events with throttling
+    let ticking = false;
+    window.addEventListener('scroll', function() {
+        if (!ticking) {
+            window.requestAnimationFrame(function() {
+                updatePhotoOnScroll();
+                ticking = false;
+            });
+            ticking = true;
+        }
+    });
+    
+    // Initial check
+    updatePhotoOnScroll();
+}
         // Countdown timer
         function updateCountdown() {
             const weddingDate = new Date('2026-05-10T00:00:00');
