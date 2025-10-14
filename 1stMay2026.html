@@ -919,32 +919,54 @@
             document.getElementById('mainNav').classList.remove('active');
         }
 
-        // Photo changing on scroll
-        function setupPhotoChanging() {
-            const photoImg = document.getElementById('mainPhoto');
-            const sections = document.querySelectorAll('.content-section[data-photo]');
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting && entry.intersectionRatio > 0.3) {
-                        const newPhoto = entry.target.getAttribute('data-photo');
-                        if (newPhoto && photoImg) {
-                            photoImg.src = newPhoto;
-                        }
-                    }
-                });
-            }, {
-                threshold: [0.3, 0.7],
-                rootMargin: '-10% 0px -10% 0px'
-            });
-            
-            sections.forEach(section => {
-                if (section.getAttribute('data-photo')) {
-                    observer.observe(section);
-                }
-            });
+// Photo changing on scroll
+function setupPhotoChanging() {
+    const photoImg = document.getElementById('mainPhoto');
+    const sections = document.querySelectorAll('.content-section[data-photo]');
+    
+    // Pre-load all images to avoid 404 errors
+    const imagesToPreload = [];
+    sections.forEach(section => {
+        const photoSrc = section.getAttribute('data-photo');
+        if (photoSrc) {
+            const img = new Image();
+            img.src = photoSrc;
+            img.onerror = function() {
+                // If image fails, use home page image
+                this.src = 'images/english-home.jpg';
+            };
+            imagesToPreload.push(img);
         }
-
+    });
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && entry.intersectionRatio > 0.3) {
+                const newPhoto = entry.target.getAttribute('data-photo');
+                if (newPhoto && photoImg) {
+                    // Create a test image first
+                    const testImg = new Image();
+                    testImg.onload = function() {
+                        photoImg.src = newPhoto;
+                    };
+                    testImg.onerror = function() {
+                        photoImg.src = 'images/english-home.jpg';
+                    };
+                    testImg.src = newPhoto;
+                }
+            }
+        });
+    }, {
+        threshold: [0.3, 0.7],
+        rootMargin: '-10% 0px -10% 0px'
+    });
+    
+    sections.forEach(section => {
+        if (section.getAttribute('data-photo')) {
+            observer.observe(section);
+        }
+    });
+}
         // Countdown timer
         function updateCountdown() {
             const weddingDate = new Date('2026-05-01T00:00:00');
