@@ -923,48 +923,69 @@ function setupPhotoChanging() {
     const photoImg = document.getElementById('mainPhoto');
     const sections = document.querySelectorAll('.content-section[data-photo]');
     
-    // Pre-load all images to avoid 404 errors
-    const imagesToPreload = [];
+    if (!photoImg || sections.length === 0) return;
+    
+    // Pre-load all images
     sections.forEach(section => {
         const photoSrc = section.getAttribute('data-photo');
         if (photoSrc) {
             const img = new Image();
             img.src = photoSrc;
-            img.onerror = function() {
-                // If image fails, use home page image
-                this.src = 'images/english-home.jpg';
-            };
-            imagesToPreload.push(img);
         }
     });
     
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting && entry.intersectionRatio > 0.3) {
-                const newPhoto = entry.target.getAttribute('data-photo');
-                if (newPhoto && photoImg) {
-                    // Create a test image first
-                    const testImg = new Image();
-                    testImg.onload = function() {
-                        photoImg.src = newPhoto;
-                    };
-                    testImg.onerror = function() {
-                        photoImg.src = 'images/english-home.jpg';
-                    };
-                    testImg.src = newPhoto;
-                }
+    // Function to update photo based on scroll position
+    function updatePhotoOnScroll() {
+        const scrollPosition = window.scrollY + window.innerHeight / 2;
+        
+        let currentSection = null;
+        sections.forEach(section => {
+            const rect = section.getBoundingClientRect();
+            const sectionTop = window.scrollY + rect.top;
+            const sectionBottom = sectionTop + rect.height;
+            
+            if (scrollPosition >= sectionTop && scrollPosition <= sectionBottom) {
+                currentSection = section;
             }
         });
-    }, {
-        threshold: [0.3, 0.7],
-        rootMargin: '-10% 0px -10% 0px'
-    });
+        
+        if (currentSection) {
+            const newPhoto = currentSection.getAttribute('data-photo');
+            if (newPhoto && photoImg.src.indexOf(newPhoto) === -1) {
+                // Test if image exists before changing
+                const testImg = new Image();
+                testImg.onload = function() {
+                    photoImg.style.opacity = '0';
+                    setTimeout(() => {
+                        photoImg.src = newPhoto;
+                        photoImg.style.opacity = '1';
+                    }, 300);
+                };
+                testImg.onerror = function() {
+                    photoImg.src = 'images/english-home.jpg';
+                };
+                testImg.src = newPhoto;
+            }
+        }
+    }
     
-    sections.forEach(section => {
-        if (section.getAttribute('data-photo')) {
-            observer.observe(section);
+    // Add smooth transition to photo
+    photoImg.style.transition = 'opacity 0.3s ease';
+    
+    // Listen to scroll events with throttling
+    let ticking = false;
+    window.addEventListener('scroll', function() {
+        if (!ticking) {
+            window.requestAnimationFrame(function() {
+                updatePhotoOnScroll();
+                ticking = false;
+            });
+            ticking = true;
         }
     });
+    
+    // Initial check
+    updatePhotoOnScroll();
 }
         // Countdown timer
         function updateCountdown() {
