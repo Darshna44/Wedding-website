@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>English Wedding - Darshna & Michael - May 1st, 2026</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Style+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@300;400;500;600;700&family=Style+Script&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
-            font-family: 'Poppins', serif;
+            font-family: 'Lora', serif;
             line-height: 1.6;
             color: #000000;
             background: linear-gradient(135deg, #f5e6d3 0%, #f8f4f2 50%, #fdeee6 100%);
@@ -384,12 +384,45 @@
             padding: 0.8rem;
             border: 2px solid #f4d4ba;
             border-radius: 8px;
-            font-family: 'Poppins', serif;
+            font-family: 'Lora', serif;
         }
         
         .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
             outline: none;
             border-color: #F47A43;
+        }
+        
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            margin-top: 0.5rem;
+        }
+        
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .checkbox-item input[type="checkbox"] {
+            width: auto;
+            margin: 0;
+        }
+        
+        .checkbox-item label {
+            margin: 0;
+            font-weight: normal;
+            color: #000;
+        }
+        
+        .other-dietary-field {
+            margin-top: 0.5rem;
+            display: none;
+        }
+        
+        .other-dietary-field.active {
+            display: block;
         }
         
         .attendance-buttons {
@@ -455,6 +488,14 @@
             color: white;
         }
         
+        .dessert-notice {
+            background: #faf7f5;
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid #F47A43;
+            margin-top: 1rem;
+        }
+        
         .wizard-buttons {
             display: flex;
             justify-content: space-between;
@@ -471,7 +512,7 @@
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
-            font-family: 'Poppins', serif;
+            font-family: 'Lora', serif;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
@@ -627,13 +668,13 @@
 
     <div class="main-content">
         <div class="photo-section">
-            <img id="mainPhoto" src="images/english-home.jpg" alt="English Wedding" onerror="this.src='https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'">
+            <img id="mainPhoto" src="images/english-home.jpg" alt="English Wedding" onerror="this.src='images/english-home.jpg'">
         </div>
 
         <div class="content-flow">
             <!-- Home Section -->
             <div id="home" class="content-section" data-photo="images/english-home.jpg">
-                <img class="mobile-section-photo" src="images/english-home.jpg" alt="English Wedding Home" onerror="this.src='https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'">
+                <img class="mobile-section-photo" src="images/english-home.jpg" alt="English Wedding Home" onerror="this.src='images/english-home.jpg'">
                 <div class="hero-content">
                     <h1>Darshna & Michael</h1>
                     <div class="date">1st May 2026</div>
@@ -646,8 +687,8 @@
             </div>
 
             <!-- Story Section -->
-            <div id="story" class="content-section" data-photo="https://github.com/Darshna44/Wedding-website/blob/af7f209dd8674f9184c9f5846154e217e907c962/images/english-story.jpg">
-                <img class="mobile-section-photo" src="images/english-story.jpg" alt="Our Story" onerror="this.src='images/english-story.jpg'">
+            <div id="story" class="content-section" data-photo="images/english-story.jpg">
+                <img class="mobile-section-photo" src="images/english-story.jpg" alt="Our Story" onerror="this.src='images/english-home.jpg'">
                 <h2>Our story</h2>
                 <h3>How We Met</h3>
                 <p>Michael spotted Darshna at a summer house party and did... absolutely nothing. Lucky for them, fast forward four months to a NYE house party (that neither of them planned to attend), their paths crossed again and they spent hours talking away.</p>
@@ -658,12 +699,18 @@
                 <p>Michael chose the elegant Bluebird Chelsea for their first date, clearly pulling out all the stops! Still recovering from the flu, Darshna kept disappearing to the ladies' room—apparently blowing your nose on a first date isn't very romantic. After the 10th time, Michael, with his signature dry humor, told her she may as well take her bag with her if she was planning to make a run for it. That has since changed and now he holds the tissue box for her ❤️</p>
                 
                 <h3>How he proposed</h3>
-                <p>Everytime they went on holiday, everyone always thought they would get engaged. So Michael arranged a secret holiday and didn't tell anyone - even their families. Given Darshna usually plans their holidays, she had a bit on inkling about what was going to happen, especially when he said they were going to Como. They rented a motor boat, packed a bottle of bubbles and lunch and set off on the lake. Michael knows how much Darshna loves her photos so suggested she go to the bow of the boat for some photos (and they look good!). Whilst she was sat there swishing her hair about, he was getting down on one knee… What followed was a glass of champagne, some very happy video calls and a photoshoot back at their apartment high in the mountain overlooking Lake Como.</p>
+                <p>Everytime they went on holiday, everyone was convinced this would be the one where they got engaged. So Michael planned a completely secret getaway, not even their families knew.</p>
+                
+                <p>…But since Darshna is usually the one who plans their trips, she had a sneaking suspicion something was up - especially when Michael mentioned they were going to Lake Como.</p>
+                
+                <p>One sunny afternoon, they rented a motorboat, packed a bottle of bubbles and lunch, and set off across the sparkling lake. Knowing how much Darshna loves her photos, Michael suggested she head to the front of the boat for some pictures (and of course, they turned out amazing). Whilst she was sitting there, hair swishing in the breeze, he got down on one knee behind her…</p>
+                
+                <p>What followed was lots of happy video calls, champagne and an impromptu photoshoot back at their apartment high in the mountains - overlooking the beautiful Lake Como where they got engaged.</p>
             </div>
 
             <!-- Order of the Day Section -->
             <div id="order" class="content-section" data-photo="images/english-orderofday.jpg">
-                <img class="mobile-section-photo" src="images/english-orderofday.jpg" alt="Order of the Day" onerror="this.src='https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80'">
+                <img class="mobile-section-photo" src="images/english-orderofday.jpg" alt="Order of the Day" onerror="this.src='images/english-home.jpg'">
                 <h2>Order of the Day</h2>
                 
                 <div class="timeline-item">
@@ -715,7 +762,7 @@
 
             <!-- Travel Section -->
             <div id="travel" class="content-section" data-photo="images/english-travel.jpg">
-                <img class="mobile-section-photo" src="images/english-travel.jpg" alt="Travel" onerror="this.src='https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'">
+                <img class="mobile-section-photo" src="images/english-travel.jpg" alt="Travel" onerror="this.src='images/english-home.jpg'">
                 <h2>Travel</h2>
                 <p>There aren't any public transport links to the venue so would recommend booking a taxi ahead of time. There is also a car park available and cars will need to be collected by 10:30am the next day. There are no electric car charging points unfortunately.</p>
                 
@@ -728,7 +775,7 @@
 
             <!-- Accommodations Section -->
             <div id="accommodations" class="content-section" data-photo="images/english-accommodations.jpg">
-                <img class="mobile-section-photo" src="images/english-accommodations.jpg" alt="Accommodations" onerror="this.src='https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'">
+                <img class="mobile-section-photo" src="images/english-accommodations.jpg" alt="Accommodations" onerror="this.src='images/english-home.jpg'">
                 <h2>Accommodations</h2>
                 <p>We've noted a few hotels that are close to the venue and there are also Airbnb options available. We recommend booking in advance!</p>
                 
@@ -753,7 +800,7 @@
 
             <!-- Registry Section -->
             <div id="registry" class="content-section" data-photo="images/english-registry.jpg">
-                <img class="mobile-section-photo" src="images/english-registry.jpg" alt="Registry" onerror="this.src='https://images.unsplash.com/photo-1549417229-aa67cfb533c1?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'">
+                <img class="mobile-section-photo" src="images/english-registry.jpg" alt="Registry" onerror="this.src='images/english-home.jpg'">
                 <h2>Registry</h2>
                 <div class="registry-content">
                     <p>Your presence at our wedding is the greatest gift of all 🧡</p>
@@ -765,6 +812,7 @@
             <!-- RSVP Section -->
             <div id="rsvp" class="content-section" data-photo="images/english-rsvp.jpg">
                 <img class="mobile-section-photo" src="images/english-rsvp.jpg" alt="RSVP" onerror="this.src='images/english-home.jpg'">
+                <h2>RSVP</h2>
                 <div class="rsvp-deadline">Please RSVP by 1st February</div>
                 
                 <div class="rsvp-wizard" id="rsvpWizard">
@@ -809,7 +857,7 @@
 
             <!-- Q&A Section -->
             <div id="qa" class="content-section" data-photo="images/english-qa.jpg">
-                <img class="mobile-section-photo" src="images/english-qa.jpg" alt="Q&A" onerror="this.src='images/english-qa.jpg'">
+                <img class="mobile-section-photo" src="images/english-qa.jpg" alt="Q&A" onerror="this.src='images/english-home.jpg'">
                 <h2>Q & A</h2>
                 
                 <div class="qa-item">
@@ -918,75 +966,83 @@
             document.getElementById('mainNav').classList.remove('active');
         }
 
-// Photo changing on scroll
-function setupPhotoChanging() {
-    const photoImg = document.getElementById('mainPhoto');
-    const sections = document.querySelectorAll('.content-section[data-photo]');
-    
-    if (!photoImg || sections.length === 0) return;
-    
-    // Pre-load all images
-    sections.forEach(section => {
-        const photoSrc = section.getAttribute('data-photo');
-        if (photoSrc) {
-            const img = new Image();
-            img.src = photoSrc;
-        }
-    });
-    
-    // Function to update photo based on scroll position
-    function updatePhotoOnScroll() {
-        const scrollPosition = window.scrollY + window.innerHeight / 2;
-        
-        let currentSection = null;
-        sections.forEach(section => {
-            const rect = section.getBoundingClientRect();
-            const sectionTop = window.scrollY + rect.top;
-            const sectionBottom = sectionTop + rect.height;
+        // Photo changing on scroll - IMPROVED VERSION
+        function setupPhotoChanging() {
+            const photoImg = document.getElementById('mainPhoto');
+            const sections = document.querySelectorAll('.content-section[data-photo]');
             
-            if (scrollPosition >= sectionTop && scrollPosition <= sectionBottom) {
-                currentSection = section;
-            }
-        });
-        
-        if (currentSection) {
-            const newPhoto = currentSection.getAttribute('data-photo');
-            if (newPhoto && photoImg.src.indexOf(newPhoto) === -1) {
-                // Test if image exists before changing
-                const testImg = new Image();
-                testImg.onload = function() {
-                    photoImg.style.opacity = '0';
-                    setTimeout(() => {
-                        photoImg.src = newPhoto;
-                        photoImg.style.opacity = '1';
-                    }, 300);
-                };
-                testImg.onerror = function() {
-                    photoImg.src = 'images/english-home.jpg';
-                };
-                testImg.src = newPhoto;
-            }
-        }
-    }
-    
-    // Add smooth transition to photo
-    photoImg.style.transition = 'opacity 0.3s ease';
-    
-    // Listen to scroll events with throttling
-    let ticking = false;
-    window.addEventListener('scroll', function() {
-        if (!ticking) {
-            window.requestAnimationFrame(function() {
-                updatePhotoOnScroll();
-                ticking = false;
+            if (!photoImg || sections.length === 0) return;
+            
+            // Pre-load all images
+            sections.forEach(section => {
+                const photoSrc = section.getAttribute('data-photo');
+                if (photoSrc) {
+                    const img = new Image();
+                    img.src = photoSrc;
+                }
             });
-            ticking = true;
+            
+            // Function to update photo based on scroll position
+            function updatePhotoOnScroll() {
+                let currentSection = null;
+                let maxVisibility = 0;
+                
+                sections.forEach(section => {
+                    const rect = section.getBoundingClientRect();
+                    const viewportHeight = window.innerHeight;
+                    
+                    // Calculate how much of the section is visible
+                    const visibleTop = Math.max(0, rect.top);
+                    const visibleBottom = Math.min(viewportHeight, rect.bottom);
+                    const visibleHeight = Math.max(0, visibleBottom - visibleTop);
+                    const visibilityRatio = visibleHeight / viewportHeight;
+                    
+                    // Use the section with the most visibility
+                    if (visibilityRatio > maxVisibility) {
+                        maxVisibility = visibilityRatio;
+                        currentSection = section;
+                    }
+                });
+                
+                if (currentSection && maxVisibility > 0.2) {  // At least 20% visible
+                    const newPhoto = currentSection.getAttribute('data-photo');
+                    if (newPhoto && photoImg.src.indexOf(newPhoto) === -1) {
+                        // Test if image exists before changing
+                        const testImg = new Image();
+                        testImg.onload = function() {
+                            photoImg.style.opacity = '0';
+                            setTimeout(() => {
+                                photoImg.src = newPhoto;
+                                photoImg.style.opacity = '1';
+                            }, 300);
+                        };
+                        testImg.onerror = function() {
+                            photoImg.src = 'images/english-home.jpg';
+                        };
+                        testImg.src = newPhoto;
+                    }
+                }
+            }
+            
+            // Add smooth transition to photo
+            photoImg.style.transition = 'opacity 0.3s ease';
+            
+            // Listen to scroll events with throttling
+            let ticking = false;
+            window.addEventListener('scroll', function() {
+                if (!ticking) {
+                    window.requestAnimationFrame(function() {
+                        updatePhotoOnScroll();
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            });
+            
+            // Initial check
+            updatePhotoOnScroll();
         }
-    });
-    
-    // Initial check
-    updatePhotoOnScroll();
-}
+
         // Countdown timer
         function updateCountdown() {
             const weddingDate = new Date('2026-05-01T00:00:00');
@@ -1026,8 +1082,9 @@ function setupPhotoChanging() {
                 attending: null,
                 starter: null,
                 main: null,
-                dessert: 'Option 5', // Fixed dessert
-                dietary: '',
+                dessert: 'Sticky toffee pudding, vanilla gelato',
+                dietary: [],
+                dietaryOther: '',
                 declineNote: ''
             };
             
@@ -1059,24 +1116,54 @@ function setupPhotoChanging() {
                     <div class="form-group">
                         <label>Please select a starter:</label>
                         <div class="menu-options">
-                            <div class="menu-option" onclick="selectMenuOption('starter', 'Option 1')">Option 1</div>
-                            <div class="menu-option" onclick="selectMenuOption('starter', 'Option 2')">Option 2</div>
+                            <div class="menu-option" onclick="selectMenuOption('starter', 'Pan fried sea bass fillet, shaved fennel, dill & tomato cream')">
+                                Pan fried sea bass fillet, shaved fennel, dill & tomato cream
+                            </div>
+                            <div class="menu-option" onclick="selectMenuOption('starter', 'Chickpea panisse, courgette, Kalamata olive & mint salad, tarragon mayonnaise')">
+                                Chickpea panisse, courgette, Kalamata olive & mint salad, tarragon mayonnaise
+                            </div>
                         </div>
                     </div>
                     <div class="form-group">
                         <label>Please select a main:</label>
                         <div class="menu-options">
-                            <div class="menu-option" onclick="selectMenuOption('main', 'Option 3')">Option 3</div>
-                            <div class="menu-option" onclick="selectMenuOption('main', 'Option 4')">Option 4</div>
+                            <div class="menu-option" onclick="selectMenuOption('main', 'Overnight lamb shoulder, chorizo & butterbean stew, harissa yoghurt (on the side)')">
+                                Overnight lamb shoulder, chorizo & butterbean stew, harissa yoghurt (on the side)
+                            </div>
+                            <div class="menu-option" onclick="selectMenuOption('main', 'Fried falafel, Cypriot grain & pomegranate salad, yoghurt & honey')">
+                                Fried falafel, Cypriot grain & pomegranate salad, yoghurt & honey
+                            </div>
                         </div>
                     </div>
                     <div class="form-group">
                         <label>Dessert:</label>
-                        <p style="padding: 1rem; background: #faf7f5; border-radius: 8px; border-left: 4px solid #F47A43;">Option 5 (included for all guests)</p>
+                        <div class="dessert-notice">
+                            <strong>Sticky toffee pudding, vanilla gelato</strong> (included for all guests)
+                        </div>
                     </div>
                     <div class="form-group">
-                        <label for="currentDietary">Any dietary requirements?</label>
-                        <textarea id="currentDietary" rows="2" placeholder="Please let us know about any allergies or dietary requirements..."></textarea>
+                        <label>Any dietary requirements?</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="dietary-gluten" value="Gluten free" onchange="updateDietary()">
+                                <label for="dietary-gluten">Gluten free</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="dietary-vegan" value="Vegan" onchange="updateDietary()">
+                                <label for="dietary-vegan">Vegan</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="dietary-dairy" value="Dairy free" onchange="updateDietary()">
+                                <label for="dietary-dairy">Dairy free</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="dietary-other" value="Other" onchange="toggleOtherDietary()">
+                                <label for="dietary-other">Other</label>
+                            </div>
+                        </div>
+                        <div id="otherDietaryField" class="other-dietary-field">
+                            <input type="text" id="dietaryOtherText" placeholder="Please specify..." onchange="updateDietary()">
+                        </div>
                     </div>
                 </div>
                 <div id="declineQuestions" class="hidden">
@@ -1133,15 +1220,45 @@ function setupPhotoChanging() {
         }
 
         function selectMenuOption(category, option) {
-            const options = document.querySelectorAll('#currentPersonStep .menu-options .menu-option');
-            const categoryOptions = Array.from(options).filter(opt => 
-                opt.parentElement.previousElementSibling.textContent.toLowerCase().includes(category)
-            );
+            const allOptions = document.querySelectorAll('#currentPersonStep .menu-option');
             
+            // Find the parent container for this category
+            const clickedOption = event.target;
+            const categoryOptions = Array.from(clickedOption.parentElement.children);
+            
+            // Remove selected from this category only
             categoryOptions.forEach(opt => opt.classList.remove('selected'));
-            event.target.classList.add('selected');
+            clickedOption.classList.add('selected');
             
             currentPersonResponse[category] = option;
+        }
+
+        function toggleOtherDietary() {
+            const otherCheckbox = document.getElementById('dietary-other');
+            const otherField = document.getElementById('otherDietaryField');
+            
+            if (otherCheckbox.checked) {
+                otherField.classList.add('active');
+            } else {
+                otherField.classList.remove('active');
+                document.getElementById('dietaryOtherText').value = '';
+            }
+            updateDietary();
+        }
+
+        function updateDietary() {
+            const dietary = [];
+            
+            if (document.getElementById('dietary-gluten').checked) dietary.push('Gluten free');
+            if (document.getElementById('dietary-vegan').checked) dietary.push('Vegan');
+            if (document.getElementById('dietary-dairy').checked) dietary.push('Dairy free');
+            
+            const otherText = document.getElementById('dietaryOtherText').value.trim();
+            if (document.getElementById('dietary-other').checked && otherText) {
+                dietary.push('Other: ' + otherText);
+            }
+            
+            currentPersonResponse.dietary = dietary;
         }
 
         function finishCurrentPerson() {
@@ -1156,7 +1273,7 @@ function setupPhotoChanging() {
                     alert('Please make all meal selections.');
                     return;
                 }
-                currentPersonResponse.dietary = document.getElementById('currentDietary').value;
+                updateDietary();
             } else {
                 currentPersonResponse.declineNote = document.getElementById('currentDeclineNote').value;
             }
@@ -1243,6 +1360,11 @@ function setupPhotoChanging() {
             document.getElementById('submitterName').value = '';
             document.getElementById('submitterEmail').value = '';
             
+            // Hide messages
+            document.getElementById('successMessage').classList.add('hidden');
+            document.getElementById('errorMessage').classList.add('hidden');
+            document.getElementById('rsvpWizard').style.display = 'block';
+            
             // Hide final step and show initial step
             document.getElementById('finalStep').classList.remove('active');
             document.getElementById('step1').classList.add('active');
@@ -1271,14 +1393,14 @@ function setupPhotoChanging() {
                 summaryHTML += `<em>Email: ${response.email}</em><br>`;
                 
                 if (response.attending === 'Yes, I can!') {
-                    summaryHTML += `Starter: ${response.starter}<br>`;
-                    summaryHTML += `Main: ${response.main}<br>`;
-                    summaryHTML += `Dessert: ${response.dessert}<br>`;
-                    if (response.dietary) {
-                        summaryHTML += `Dietary: ${response.dietary}<br>`;
+                    summaryHTML += `<strong>Starter:</strong> ${response.starter}<br>`;
+                    summaryHTML += `<strong>Main:</strong> ${response.main}<br>`;
+                    summaryHTML += `<strong>Dessert:</strong> ${response.dessert}<br>`;
+                    if (response.dietary && response.dietary.length > 0) {
+                        summaryHTML += `<strong>Dietary:</strong> ${response.dietary.join(', ')}<br>`;
                     }
                 } else if (response.declineNote) {
-                    summaryHTML += `Note: ${response.declineNote}<br>`;
+                    summaryHTML += `<strong>Note:</strong> ${response.declineNote}<br>`;
                 }
                 
                 summaryHTML += `</div>`;
@@ -1309,7 +1431,7 @@ function setupPhotoChanging() {
                     formData.append('starter', response.starter || '');
                     formData.append('main', response.main || '');
                     formData.append('dessert', response.dessert || '');
-                    formData.append('dietary', response.dietary || '');
+                    formData.append('dietary', response.dietary.join(', ') || '');
                     formData.append('decline_note', response.declineNote || '');
                     formData.append('total_in_submission', allRsvpResponses.length);
                     formData.append('_subject', `English Wedding RSVP - ${allRsvpResponses[0].name} (${allRsvpResponses.length} ${allRsvpResponses.length > 1 ? 'people' : 'person'})`);
