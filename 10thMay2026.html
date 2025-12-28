@@ -1100,36 +1100,49 @@
                         Sorry I can't make it ☹️
                     </div>
                 </div>
-                <div id="acceptQuestions" class="hidden">
-                    <div class="buffet-notice">
-                        <h4>Wedding Breakfast</h4>
-                        <p>The wedding breakfast will be served as a buffet allowing you to help yourself to the dishes we have chosen. All dishes will be vegetarian. As Oshwal Centre is religious venue, it is a dry wedding.</p>
-                    </div>
-                    <div class="form-group">
-                        <label>Any dietary requirements?</label>
-                        <div class="checkbox-group">
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="dietary-gluten" value="Gluten free" onchange="updateDietary()">
-                                <label for="dietary-gluten">Gluten free</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="dietary-vegan" value="Vegan" onchange="updateDietary()">
-                                <label for="dietary-vegan">Vegan</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="dietary-dairy" value="Dairy free" onchange="updateDietary()">
-                                <label for="dietary-dairy">Dairy free</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="dietary-other" value="Other" onchange="toggleOtherDietary()">
-                                <label for="dietary-other">Other</label>
-                            </div>
-                        </div>
-                        <div id="otherDietaryField" class="other-dietary-field">
-                            <input type="text" id="dietaryOtherText" placeholder="Please specify..." onchange="updateDietary()">
-                        </div>
-                    </div>
-                </div>
+<div id="acceptQuestions" class="hidden">
+    <div class="form-group">
+        <label>Let us know if you're joining us for breakfast (10am - 11am)?</label>
+        <div class="attendance-buttons" style="margin-top: 1rem;">
+            <div class="attendance-btn accept" onclick="selectBreakfast('yes')" id="breakfastYes">
+                Yes I'll be there
+            </div>
+            <div class="attendance-btn decline" onclick="selectBreakfast('no')" id="breakfastNo">
+                No I can't make breakfast
+            </div>
+        </div>
+    </div>
+    
+    <div class="buffet-notice" style="margin-top: 2rem;">
+        <h4>Wedding Lunch</h4>
+        <p>The wedding lunch will be served as a buffet allowing you to help yourself to the dishes we have chosen. All dishes will be vegetarian. As Oshwal Centre is religious venue, it is a dry wedding.</p>
+    </div>
+    
+    <div class="form-group">
+        <label>Any dietary requirements?</label>
+        <div class="checkbox-group">
+            <div class="checkbox-item">
+                <input type="checkbox" id="dietary-gluten" value="Gluten free" onchange="updateDietary()">
+                <label for="dietary-gluten">Gluten free</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="dietary-vegan" value="Vegan" onchange="updateDietary()">
+                <label for="dietary-vegan">Vegan</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="dietary-dairy" value="Dairy free" onchange="updateDietary()">
+                <label for="dietary-dairy">Dairy free</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="dietary-other" value="Other" onchange="toggleOtherDietary()">
+                <label for="dietary-other">Other</label>
+            </div>
+        </div>
+        <div id="otherDietaryField" class="other-dietary-field">
+            <input type="text" id="dietaryOtherText" placeholder="Please specify..." onchange="updateDietary()">
+        </div>
+    </div>
+</div>
                 <div id="declineQuestions" class="hidden">
                     <div class="form-group">
                         <label for="currentDeclineNote">Would you like to include a note to the couple?</label>
