@@ -69,7 +69,7 @@
             padding: 10px 20px;
             border-radius: 5px;
             cursor: pointer;
-            font-size: 1rem;
+            font-size: 1.125rem;
             font-weight: bold;
         }
         
@@ -481,6 +481,7 @@
             transition: all 0.3s ease;
             font-size: 1.1rem;
             font-weight: 600;
+            color: #000000;
         }
         
         .attendance-btn:hover {
@@ -495,11 +496,19 @@
         }
         
         .attendance-btn.accept {
-            color: #2d5a2d;
+            color: #000000;
+        }
+        
+        .attendance-btn.accept.selected {
+            color: white;
         }
         
         .attendance-btn.decline {
-            color: #8b4513;
+            color: #000000;
+        }
+        
+        .attendance-btn.decline.selected {
+            color: white;
         }
         
         .wizard-buttons {
@@ -1071,6 +1080,7 @@
                 name: name,
                 email: email,
                 attending: null,
+                breakfast: null,
                 dietary: [],
                 dietaryOther: '',
                 declineNote: ''
@@ -1100,49 +1110,49 @@
                         Sorry I can't make it ☹️
                     </div>
                 </div>
-<div id="acceptQuestions" class="hidden">
-    <div class="form-group">
-        <label>Let us know if you're joining us for breakfast (10am - 11am)?</label>
-        <div class="attendance-buttons" style="margin-top: 1rem;">
-            <div class="attendance-btn accept" onclick="selectBreakfast('yes')" id="breakfastYes">
-                Yes I'll be there
-            </div>
-            <div class="attendance-btn decline" onclick="selectBreakfast('no')" id="breakfastNo">
-                No I can't make breakfast
-            </div>
-        </div>
-    </div>
-    
-    <div class="buffet-notice" style="margin-top: 2rem;">
-        <h4>Wedding Lunch</h4>
-        <p>The wedding lunch will be served as a buffet allowing you to help yourself to the dishes we have chosen. All dishes will be vegetarian. As Oshwal Centre is religious venue, it is a dry wedding.</p>
-    </div>
-    
-    <div class="form-group">
-        <label>Any dietary requirements?</label>
-        <div class="checkbox-group">
-            <div class="checkbox-item">
-                <input type="checkbox" id="dietary-gluten" value="Gluten free" onchange="updateDietary()">
-                <label for="dietary-gluten">Gluten free</label>
-            </div>
-            <div class="checkbox-item">
-                <input type="checkbox" id="dietary-vegan" value="Vegan" onchange="updateDietary()">
-                <label for="dietary-vegan">Vegan</label>
-            </div>
-            <div class="checkbox-item">
-                <input type="checkbox" id="dietary-dairy" value="Dairy free" onchange="updateDietary()">
-                <label for="dietary-dairy">Dairy free</label>
-            </div>
-            <div class="checkbox-item">
-                <input type="checkbox" id="dietary-other" value="Other" onchange="toggleOtherDietary()">
-                <label for="dietary-other">Other</label>
-            </div>
-        </div>
-        <div id="otherDietaryField" class="other-dietary-field">
-            <input type="text" id="dietaryOtherText" placeholder="Please specify..." onchange="updateDietary()">
-        </div>
-    </div>
-</div>
+                <div id="acceptQuestions" class="hidden">
+                    <div class="form-group" style="margin-top: 2rem;">
+                        <label>Let us know if you're joining us for breakfast (10am - 11am)?</label>
+                        <div class="attendance-buttons" style="margin-top: 1rem;">
+                            <div class="attendance-btn accept" onclick="selectBreakfast('yes')" id="breakfastYes">
+                                Yes I'll be there
+                            </div>
+                            <div class="attendance-btn decline" onclick="selectBreakfast('no')" id="breakfastNo">
+                                No I can't make breakfast
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="buffet-notice" style="margin-top: 2rem;">
+                        <h4>Wedding Lunch</h4>
+                        <p>The wedding lunch will be served as a buffet allowing you to help yourself to the dishes we have chosen. All dishes will be vegetarian. As Oshwal Centre is religious venue, it is a dry wedding.</p>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Any dietary requirements?</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="dietary-gluten" value="Gluten free" onchange="updateDietary()">
+                                <label for="dietary-gluten">Gluten free</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="dietary-vegan" value="Vegan" onchange="updateDietary()">
+                                <label for="dietary-vegan">Vegan</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="dietary-dairy" value="Dairy free" onchange="updateDietary()">
+                                <label for="dietary-dairy">Dairy free</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="dietary-other" value="Other" onchange="toggleOtherDietary()">
+                                <label for="dietary-other">Other</label>
+                            </div>
+                        </div>
+                        <div id="otherDietaryField" class="other-dietary-field">
+                            <input type="text" id="dietaryOtherText" placeholder="Please specify..." onchange="updateDietary()">
+                        </div>
+                    </div>
+                </div>
                 <div id="declineQuestions" class="hidden">
                     <div class="form-group">
                         <label for="currentDeclineNote">Would you like to include a note to the couple?</label>
@@ -1193,6 +1203,24 @@
                 declineBtn.classList.add('selected');
                 declineQuestions.classList.remove('hidden');
                 currentPersonResponse.attending = 'Sorry I can\'t make it';
+            }
+        }
+
+        function selectBreakfast(choice) {
+            const yesBtn = document.getElementById('breakfastYes');
+            const noBtn = document.getElementById('breakfastNo');
+            
+            // Reset buttons
+            yesBtn.classList.remove('selected');
+            noBtn.classList.remove('selected');
+            
+            // Select the chosen option
+            if (choice === 'yes') {
+                yesBtn.classList.add('selected');
+                currentPersonResponse.breakfast = 'Yes I\'ll be there';
+            } else {
+                noBtn.classList.add('selected');
+                currentPersonResponse.breakfast = 'No I can\'t make breakfast';
             }
         }
 
@@ -1352,13 +1380,12 @@
                 summaryHTML += `<em>Email: ${response.email}</em><br>`;
                 
                 if (response.attending === 'Yes I can!') {
-    if (response.breakfast) {
-        summaryHTML += `<strong>Breakfast:</strong> ${response.breakfast}<br>`;
-    }
-    if (response.dietary && response.dietary.length > 0) {
-        summaryHTML += `<strong>Dietary:</strong> ${response.dietary.join(', ')}<br>`;
-    }
-}
+                    if (response.breakfast) {
+                        summaryHTML += `<strong>Breakfast:</strong> ${response.breakfast}<br>`;
+                    }
+                    if (response.dietary && response.dietary.length > 0) {
+                        summaryHTML += `<strong>Dietary:</strong> ${response.dietary.join(', ')}<br>`;
+                    }
                 } else if (response.declineNote) {
                     summaryHTML += `<strong>Note:</strong> ${response.declineNote}<br>`;
                 }
@@ -1388,7 +1415,7 @@
                     formData.append('guest_name', response.name);
                     formData.append('guest_email', response.email);
                     formData.append('attending', response.attending);
-                    formData.append('breakfast', response.breakfast || '');  
+                    formData.append('breakfast', response.breakfast || '');
                     formData.append('dietary', response.dietary.join(', ') || '');
                     formData.append('decline_note', response.declineNote || '');
                     formData.append('total_in_submission', allRsvpResponses.length);
