@@ -1352,9 +1352,13 @@
                 summaryHTML += `<em>Email: ${response.email}</em><br>`;
                 
                 if (response.attending === 'Yes I can!') {
-                    if (response.dietary && response.dietary.length > 0) {
-                        summaryHTML += `<strong>Dietary:</strong> ${response.dietary.join(', ')}<br>`;
-                    }
+    if (response.breakfast) {
+        summaryHTML += `<strong>Breakfast:</strong> ${response.breakfast}<br>`;
+    }
+    if (response.dietary && response.dietary.length > 0) {
+        summaryHTML += `<strong>Dietary:</strong> ${response.dietary.join(', ')}<br>`;
+    }
+}
                 } else if (response.declineNote) {
                     summaryHTML += `<strong>Note:</strong> ${response.declineNote}<br>`;
                 }
@@ -1384,6 +1388,7 @@
                     formData.append('guest_name', response.name);
                     formData.append('guest_email', response.email);
                     formData.append('attending', response.attending);
+                    formData.append('breakfast', response.breakfast || '');  
                     formData.append('dietary', response.dietary.join(', ') || '');
                     formData.append('decline_note', response.declineNote || '');
                     formData.append('total_in_submission', allRsvpResponses.length);
