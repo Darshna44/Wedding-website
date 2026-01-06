@@ -4,19 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Indian Wedding - Darshna & Michael - May 10th, 2026</title>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@300;400;500;600;700&family=Style+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
-            font-family: 'Lora', serif;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 300;
             line-height: 1.6;
-            color: #000000;
+            color: #36454F;
             background: 
                 radial-gradient(circle at 20% 80%, rgba(255, 192, 203, 0.3) 0%, transparent 50%),
                 radial-gradient(circle at 80% 20%, rgba(255, 223, 186, 0.4) 0%, transparent 50%),
                 radial-gradient(circle at 40% 40%, rgba(255, 248, 220, 0.2) 0%, transparent 50%),
-                linear-gradient(135deg, #fef9f9 0%, #fff8f0 50%, #fffbf0 100%);
+                #FEF4CE;
             min-height: 100vh;
             position: relative;
         }
@@ -37,87 +38,137 @@
             z-index: 1;
         }
         
-        /* Typography - Style Script for headings */
+        /* Typography - Tangerine for headings */
         h1, h2, h3, h4, h5, h6 {
-            font-family: 'Style Script', cursive;
+            font-family: 'Tangerine', cursive;
+            font-weight: 700;
         }
         
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 2; }
         
-        /* Header */
+        /* Header - Minimal Hamburger Menu (TOP LEFT) */
         .header {
-            background: #800000;
-            color: white;
-            padding: 20px 0;
-            position: sticky;
+            position: fixed;
             top: 0;
+            left: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            backdrop-filter: blur(10px);
+            padding: 20px;
         }
         
-        .nav-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .menu-toggle {
-            background: #800000;
-            color: white;
+        .hamburger {
+            background: none;
             border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
             cursor: pointer;
-            font-size: 1.125rem;
-            font-weight: bold;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            transition: all 0.3s ease;
+        }
+        
+        .hamburger span {
+            width: 30px;
+            height: 2px;
+            background: #36454F;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+        
+        .hamburger:hover span {
+            background: #8B2A2A;
+        }
+        
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+        
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(8px, -8px);
         }
         
         nav {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            right: 0;
-            background: #F9D3E2;
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 300px;
+            height: 100vh;
+            background: rgba(254, 244, 206, 0.98);
             backdrop-filter: blur(10px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            display: none;
+            box-shadow: 5px 0 20px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 999;
         }
         
-        nav.active { display: block; }
+        nav.active {
+            left: 0;
+        }
         
         nav ul {
             list-style: none;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            padding: 15px 0;
+            padding: 0;
+            margin: 0;
         }
         
-        nav li { margin: 0 15px; }
+        nav li {
+            margin: 0;
+            padding: 0;
+        }
         
         nav a {
-            color: #800000;
+            display: block;
+            color: #36454F;
             text-decoration: none;
-            font-weight: 500;
-            font-size: 1rem;
+            font-weight: 400;
+            font-size: 1.3rem;
+            padding: 1rem 2rem;
+            transition: all 0.3s ease;
+            text-align: center;
         }
         
-        nav a:hover { opacity: 0.8; }
+        nav a:hover {
+            color: #8B2A2A;
+            transform: translateX(5px);
+        }
+        
+        /* Overlay when menu is open */
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(54, 69, 79, 0.5);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 998;
+        }
+        
+        .menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
         
         /* Main Content */
         .main-content {
             display: grid;
             grid-template-columns: 60% 40%;
-            min-height: calc(100vh - 80px);
+            min-height: 100vh;
             position: relative;
             z-index: 3;
         }
         
         .photo-section {
             position: sticky;
-            top: 80px;
-            height: calc(100vh - 80px);
+            top: 0;
+            height: 100vh;
             overflow: hidden;
             background: #f0f0f0;
             display: flex;
@@ -133,7 +184,7 @@
         }
         
         .content-flow { 
-            background: rgba(255, 255, 255, 0.8);
+            background: #FEF4CE;
             backdrop-filter: blur(10px);
         }
         
@@ -143,8 +194,8 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            border-bottom: 1px solid #eee;
-            background: rgba(255, 255, 255, 0.8);
+            border-bottom: 1px solid #8B2A2A;
+            background: #FEF4CE;
             backdrop-filter: blur(10px);
             border-radius: 20px;
             margin: 1rem;
@@ -154,29 +205,30 @@
         .content-section:last-child { border-bottom: none; }
         
         .content-section h2 {
-            font-family: 'Style Script', cursive;
-            font-size: 2.5rem;
-            color: #000000;
+            font-family: 'Tangerine', cursive;
+            font-size: 4rem;
+            color: #8B2A2A;
             margin-bottom: 2rem;
         }
         
         .content-section h3 {
-            font-family: 'Style Script', cursive;
-            font-size: 1.8rem;
-            color: #800000;
+            font-family: 'Tangerine', cursive;
+            font-size: 1.6rem;
+            color: #8B2A2A;
             margin: 2rem 0 1rem 0;
         }
         
         .content-section h4 {
-            font-family: 'Style Script', cursive;
-            color: #800000;
+            font-family: 'Tangerine', cursive;
+            font-size: 1.6rem;
+            color: #8B2A2A;
         }
         
         .content-section p {
             font-size: 1.1rem;
             line-height: 1.8;
             margin-bottom: 1.5rem;
-            color: #000000;
+            color: #36454F;
         }
         
         /* Mobile photos */
@@ -190,65 +242,64 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
         
-        /* Hero Section */
+        /* Hero Section - NO OUTER BOX */
         .hero-content {
             text-align: center;
-            background: rgba(255,255,255,0.9);
             padding: 3rem;
-            border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
         }
         
         .hero-content h1 {
-            font-family: 'Style Script', cursive;
-            font-size: 4rem;
-            color: #000000;
+            font-family: 'Tangerine', cursive;
+            font-size: 5.5rem;
+            color: #8B2A2A;
             margin-bottom: 1rem;
         }
         
         .hero-content .date {
             font-size: 1.8rem;
             margin-bottom: 0.5rem;
-            color: #000000;
+            color: #36454F;
             font-weight: 500;
         }
         
         .hero-content .venue {
             font-size: 1.4rem;
             margin-bottom: 2rem;
-            color: #000000;
+            color: #36454F;
         }
         
         .countdown-box {
-            background: rgba(128, 0, 0, 0.1);
-            border: 2px solid #800000;
+            background: #FEF4CE;
+            border: 2px solid #8B2A2A;
             padding: 1.5rem 2rem;
             border-radius: 15px;
             display: inline-block;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
         }
         
         .countdown-text {
             font-size: 1.2rem;
             margin-bottom: 0.5rem;
-            color: #000000;
+            color: #36454F;
         }
         
         .countdown-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
             font-size: 2.5rem;
-            font-weight: 700;
-            color: #000000;
+            color: #8B2A2A;
         }
         
         /* Story Section */
         .story-ending {
             font-size: 1.2rem;
-            color: #800000;
+            color: #8B2A2A;
             font-weight: 600;
             text-align: center;
             padding: 1.5rem;
-            background: linear-gradient(135deg, #fef1f1 0%, #fff8dc 100%);
+            background: #FEF4CE;
             border-radius: 10px;
-            border-left: 4px solid #800000;
+            border-left: 4px solid #8B2A2A;
             margin-top: 2rem;
         }
         
@@ -256,39 +307,40 @@
         .coming-soon {
             text-align: center;
             padding: 5rem 2rem;
-            background: linear-gradient(135deg, #fef1f1 0%, #fff8dc 100%);
+            background: #FEF4CE;
             border-radius: 20px;
             margin: 2rem auto;
             max-width: 600px;
+            border: 2px solid #8B2A2A;
         }
         
         .coming-soon h2 {
-            font-family: 'Style Script', cursive;
-            font-size: 3rem;
-            color: #000000;
+            font-family: 'Tangerine', cursive;
+            font-size: 4rem;
+            color: #8B2A2A;
             margin-bottom: 1rem;
         }
         
         .coming-soon p {
-            color: #800000;
+            color: #8B2A2A;
             font-size: 1.2rem;
             font-weight: 600;
         }
         
         /* Content Cards */
         .content-card {
-            background: white;
+            background: #FEF4CE;
             padding: 2rem;
             border-radius: 15px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.1);
             margin-bottom: 2rem;
-            border: 2px solid #F9D3E2;
+            border: 2px solid #8B2A2A;
         }
         
         .content-card h3 {
-            font-family: 'Style Script', cursive;
-            font-size: 1.8rem;
-            color: #800000;
+            font-family: 'Tangerine', cursive;
+            font-size: 2.5rem;
+            color: #8B2A2A;
             margin-bottom: 1rem;
         }
         
@@ -301,32 +353,32 @@
         }
         
         .accommodation-card {
-            background: white;
+            background: #FEF4CE;
             padding: 2rem;
             border-radius: 15px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.1);
             text-align: center;
-            border: 2px solid #F9D3E2;
+            border: 2px solid #8B2A2A;
         }
         
         .accommodation-card h4 {
-            font-family: 'Style Script', cursive;
-            font-size: 1.5rem;
-            color: #800000;
+            font-family: 'Tangerine', cursive;
+            font-size: 2rem;
+            color: #8B2A2A;
             margin-bottom: 1rem;
         }
         
         .accommodation-card .website {
             font-size: 1rem;
-            color: #800000;
+            color: #8B2A2A;
             margin-bottom: 0.5rem;
         }
         
-        .accommodation-card .website a { color: #800000; text-decoration: underline; }
+        .accommodation-card .website a { color: #8B2A2A; text-decoration: underline; }
         
         .accommodation-card .distance {
             font-size: 1rem;
-            color: #666;
+            color: #36454F;
             font-style: italic;
         }
         
@@ -335,15 +387,15 @@
             text-align: center;
             max-width: 600px;
             margin: 0 auto;
-            background: white;
+            background: #FEF4CE;
             padding: 3rem;
             border-radius: 20px;
             box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-            border: 2px solid #F9D3E2;
+            border: 2px solid #8B2A2A;
         }
         
         .registry-link {
-            background: #800000;
+            background: #8B2A2A;
             color: white;
             padding: 1rem 2rem;
             border-radius: 25px;
@@ -355,7 +407,7 @@
         }
         
         .registry-link:hover {
-            background: #a00000;
+            background: #a03636;
             transform: translateY(-2px);
         }
         
@@ -365,17 +417,17 @@
             font-size: 1.1rem;
             margin-bottom: 2rem;
             font-weight: 500;
-            color: #000000;
+            color: #36454F;
         }
         
         .rsvp-wizard {
-            background: white;
+            background: #FEF4CE;
             padding: 3rem;
             border-radius: 20px;
             box-shadow: 0 15px 35px rgba(0,0,0,0.1);
             max-width: 600px;
             margin: 0 auto;
-            border: 2px solid #F9D3E2;
+            border: 2px solid #8B2A2A;
         }
         
         .wizard-step {
@@ -387,23 +439,24 @@
         }
         
         .step-title {
-            font-family: 'Style Script', cursive;
-            font-size: 2rem;
-            color: #800000;
+            font-family: 'Tangerine', cursive;
+            font-size: 3rem;
+            color: #8B2A2A;
             text-align: center;
             margin-bottom: 2rem;
         }
         
         .buffet-notice {
-            background: linear-gradient(135deg, #fef1f1 0%, #fff8dc 100%);
+            background: #FEF4CE;
             padding: 1.5rem;
             border-radius: 10px;
             margin-bottom: 2rem;
-            border-left: 4px solid #800000;
+            border-left: 4px solid #8B2A2A;
+            border: 2px solid #8B2A2A;
         }
         
         .buffet-notice h4 {
-            color: #800000;
+            color: #8B2A2A;
             margin-bottom: 0.5rem;
         }
         
@@ -414,21 +467,22 @@
         .form-group label {
             display: block;
             margin-bottom: 0.5rem;
-            color: #800000;
+            color: #8B2A2A;
             font-weight: 600;
         }
         
         .form-group input, .form-group select, .form-group textarea {
             width: 100%;
             padding: 0.8rem;
-            border: 2px solid #F9D3E2;
+            border: 2px solid #8B2A2A;
             border-radius: 8px;
-            font-family: 'Lora', serif;
+            font-family: 'Cormorant Garamond', serif;
+            background: #FEF4CE;
         }
         
         .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
             outline: none;
-            border-color: #800000;
+            border-color: #8B2A2A;
         }
         
         .checkbox-group {
@@ -452,7 +506,7 @@
         .checkbox-item label {
             margin: 0;
             font-weight: normal;
-            color: #000;
+            color: #36454F;
         }
         
         .other-dietary-field {
@@ -473,41 +527,25 @@
         
         .attendance-btn {
             padding: 1.5rem;
-            border: 2px solid #F9D3E2;
+            border: 2px solid #8B2A2A;
             border-radius: 15px;
-            background: white;
+            background: #FEF4CE;
             cursor: pointer;
             text-align: center;
             transition: all 0.3s ease;
             font-size: 1.1rem;
             font-weight: 600;
-            color: #000000;
+            color: #36454F;
         }
         
         .attendance-btn:hover {
-            border-color: #800000;
-            background: #fff8dc;
+            border-color: #8B2A2A;
+            background: rgba(139, 42, 42, 0.1);
         }
         
         .attendance-btn.selected {
-            border-color: #800000;
-            background: #800000;
-            color: white;
-        }
-        
-        .attendance-btn.accept {
-            color: #000000;
-        }
-        
-        .attendance-btn.accept.selected {
-            color: white;
-        }
-        
-        .attendance-btn.decline {
-            color: #000000;
-        }
-        
-        .attendance-btn.decline.selected {
+            border-color: #8B2A2A;
+            background: #8B2A2A;
             color: white;
         }
         
@@ -518,7 +556,7 @@
         }
         
         .btn {
-            background: linear-gradient(135deg, #800000 0%, #a00000 100%);
+            background: linear-gradient(135deg, #8B2A2A 0%, #a03636 100%);
             color: white;
             padding: 1rem 2rem;
             border: none;
@@ -527,7 +565,7 @@
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
-            font-family: 'Lora', serif;
+            font-family: 'Cormorant Garamond', serif;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
@@ -556,9 +594,9 @@
             text-align: center;
             margin-bottom: 2rem;
             padding: 1rem;
-            background: #fff8dc;
+            background: #FEF4CE;
             border-radius: 10px;
-            border-left: 4px solid #800000;
+            border-left: 4px solid #8B2A2A;
         }
         
         /* Success/Error Messages */
@@ -588,33 +626,33 @@
         
         /* Q&A */
         .qa-item {
-            background: white;
+            background: #FEF4CE;
             padding: 2rem;
             border-radius: 15px;
             margin-bottom: 2rem;
-            border: 2px solid #F9D3E2;
+            border: 2px solid #8B2A2A;
         }
         
         .qa-question {
-            font-family: 'Style Script', cursive;
-            font-size: 1.4rem;
-            color: #800000;
+            font-family: 'Tangerine', cursive;
+            font-size: 1.6rem;
+            color: #8B2A2A;
             margin-bottom: 1rem;
-            font-weight: 600;
+            font-weight: 700;
         }
         
         .qa-answer {
             font-size: 1.1rem;
             line-height: 1.6;
-            color: #000000;
+            color: #36454F;
         }
         
-        .qa-answer a { color: #800000; text-decoration: underline; }
+        .qa-answer a { color: #8B2A2A; text-decoration: underline; }
         .qa-answer em { font-style: italic; color: #666; }
         
         /* Footer */
         .footer {
-            background: #800000;
+            background: #8B2A2A;
             color: white;
             text-align: center;
             padding: 3rem 0;
@@ -631,8 +669,39 @@
         
         /* Mobile Responsive */
         @media (max-width: 768px) {
+            body {
+                padding: 0;
+                margin: 0;
+            }
+            
+            .container {
+                padding: 0;
+            }
+            
+            .header {
+                padding: 15px;
+            }
+            
+            nav {
+                width: 100%;
+                left: -100%;
+            }
+            
+            nav a {
+                font-size: 1.5rem;
+                padding: 1.2rem 2rem;
+            }
+            
             .main-content {
                 grid-template-columns: 1fr;
+                margin: 0;
+                padding: 0;
+            }
+            
+            .content-flow {
+                background: #FEF4CE;
+                margin: 0;
+                padding: 0;
             }
             
             .photo-section { display: none !important; }
@@ -641,24 +710,33 @@
             .content-section {
                 padding: 2rem 1.5rem;
                 min-height: auto;
-                margin: 0.5rem;
+                margin: 0;
+                border-radius: 0;
             }
             
-            .hero-content h1 { font-size: 2.8rem; }
-            .content-section h2 { font-size: 2rem; }
-            .content-section h3 { font-size: 1.5rem; }
-            
-            nav ul {
-                flex-direction: column;
-                text-align: center;
-                gap: 0.5rem;
+            .hero-content {
+                padding: 2rem 1.5rem;
             }
+            
+            .hero-content h1 { font-size: 4rem; }
+            .content-section h2 { font-size: 3rem; }
+            .content-section h3 { font-size: 1.4rem; }
+            .content-section h4 { font-size: 1.4rem; }
+            .qa-question { font-size: 1.4rem; }
             
             .accommodation-grid { grid-template-columns: 1fr; }
             
-            .rsvp-wizard { padding: 2rem; margin: 0 1rem; }
+            .rsvp-wizard { 
+                padding: 2rem; 
+                margin: 0;
+                border-radius: 0;
+            }
             
             .attendance-buttons { grid-template-columns: 1fr; }
+            
+            .footer {
+                margin-top: 0;
+            }
         }
         
         /* Smooth scrolling */
@@ -666,22 +744,28 @@
     </style>
 </head>
 <body>
+    <!-- Menu Overlay -->
+    <div class="menu-overlay" id="menuOverlay" onclick="toggleMenu()"></div>
+
+    <!-- Hamburger Menu (TOP LEFT) -->
     <div class="header">
-        <div class="container nav-container">
-            <button class="menu-toggle" onclick="toggleMenu()">Menu</button>
-            <nav id="mainNav">
-                <ul>
-                    <li><a href="#home" onclick="scrollToSection('home')">Home</a></li>
-                    <li><a href="#story" onclick="scrollToSection('story')">Our story</a></li>
-                    <li><a href="#order" onclick="scrollToSection('order')">Order of the Day</a></li>
-                    <li><a href="#travel" onclick="scrollToSection('travel')">Travel</a></li>
-                    <li><a href="#accommodations" onclick="scrollToSection('accommodations')">Accommodations</a></li>
-                    <li><a href="#registry" onclick="scrollToSection('registry')">Registry</a></li>
-                    <li><a href="#rsvp" onclick="scrollToSection('rsvp')">RSVP</a></li>
-                    <li><a href="#qa" onclick="scrollToSection('qa')">Q & A</a></li>
-                </ul>
-            </nav>
-        </div>
+        <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav id="mainNav">
+            <ul>
+                <li><a href="#home" onclick="scrollToSection('home')">Home</a></li>
+                <li><a href="#story" onclick="scrollToSection('story')">Our story</a></li>
+                <li><a href="#order" onclick="scrollToSection('order')">Order of the Day</a></li>
+                <li><a href="#travel" onclick="scrollToSection('travel')">Travel</a></li>
+                <li><a href="#accommodations" onclick="scrollToSection('accommodations')">Accommodations</a></li>
+                <li><a href="#registry" onclick="scrollToSection('registry')">Registry</a></li>
+                <li><a href="#rsvp" onclick="scrollToSection('rsvp')">RSVP</a></li>
+                <li><a href="#qa" onclick="scrollToSection('qa')">Q & A</a></li>
+            </ul>
+        </nav>
     </div>
 
     <div class="main-content">
@@ -696,7 +780,7 @@
                 <div class="hero-content">
                     <h1>Darshna & Michael</h1>
                     <div class="date">10th May 2026</div>
-                    <div class="venue">Oshwal Centre, Hertfordshire</div>
+                    <div class="venue">- Oshwal Centre, Hertfordshire -</div>
                     <div class="countdown-box">
                         <div class="countdown-text">Days until our wedding</div>
                         <div class="countdown-number" id="countdown">Loading...</div>
@@ -929,21 +1013,28 @@
     <script>
         // RSVP Variables
         let currentPersonIndex = 0;
-        let allRsvpResponses = []; // Store all people's responses
-        let currentPersonResponse = {}; // Current person being processed
+        let allRsvpResponses = [];
+        let currentPersonResponse = {};
 
         // Menu functionality
         function toggleMenu() {
             const nav = document.getElementById('mainNav');
+            const hamburger = document.getElementById('hamburger');
+            const overlay = document.getElementById('menuOverlay');
+            
             nav.classList.toggle('active');
+            hamburger.classList.toggle('active');
+            overlay.classList.toggle('active');
+            
+            // Prevent body scroll when menu is open
+            document.body.style.overflow = nav.classList.contains('active') ? 'hidden' : 'auto';
         }
 
         // Scroll to section
         function scrollToSection(sectionId) {
             const element = document.getElementById(sectionId);
             if (element) {
-                const headerHeight = document.querySelector('.header').offsetHeight;
-                const targetPosition = element.offsetTop - headerHeight;
+                const targetPosition = element.offsetTop;
                 
                 window.scrollTo({
                     top: targetPosition,
@@ -963,17 +1054,16 @@
             }
             
             // Close menu
-            document.getElementById('mainNav').classList.remove('active');
+            toggleMenu();
         }
 
-        // Photo changing on scroll - IMPROVED VERSION
+        // Photo changing on scroll
         function setupPhotoChanging() {
             const photoImg = document.getElementById('mainPhoto');
             const sections = document.querySelectorAll('.content-section[data-photo]');
             
             if (!photoImg || sections.length === 0) return;
             
-            // Pre-load all images
             sections.forEach(section => {
                 const photoSrc = section.getAttribute('data-photo');
                 if (photoSrc) {
@@ -982,7 +1072,6 @@
                 }
             });
             
-            // Function to update photo based on scroll position
             function updatePhotoOnScroll() {
                 let currentSection = null;
                 let maxVisibility = 0;
@@ -991,23 +1080,20 @@
                     const rect = section.getBoundingClientRect();
                     const viewportHeight = window.innerHeight;
                     
-                    // Calculate how much of the section is visible
                     const visibleTop = Math.max(0, rect.top);
                     const visibleBottom = Math.min(viewportHeight, rect.bottom);
                     const visibleHeight = Math.max(0, visibleBottom - visibleTop);
                     const visibilityRatio = visibleHeight / viewportHeight;
                     
-                    // Use the section with the most visibility
                     if (visibilityRatio > maxVisibility) {
                         maxVisibility = visibilityRatio;
                         currentSection = section;
                     }
                 });
                 
-                if (currentSection && maxVisibility > 0.2) {  // At least 20% visible
+                if (currentSection && maxVisibility > 0.2) {
                     const newPhoto = currentSection.getAttribute('data-photo');
                     if (newPhoto && photoImg.src.indexOf(newPhoto) === -1) {
-                        // Test if image exists before changing
                         const testImg = new Image();
                         testImg.onload = function() {
                             photoImg.style.opacity = '0';
@@ -1024,10 +1110,8 @@
                 }
             }
             
-            // Add smooth transition to photo
             photoImg.style.transition = 'opacity 0.3s ease';
             
-            // Listen to scroll events with throttling
             let ticking = false;
             window.addEventListener('scroll', function() {
                 if (!ticking) {
@@ -1039,7 +1123,6 @@
                 }
             });
             
-            // Initial check
             updatePhotoOnScroll();
         }
 
@@ -1067,7 +1150,6 @@
                     return;
                 }
                 
-                // Start with first person
                 currentPersonIndex = 0;
                 allRsvpResponses = [];
                 startPersonRSVP(name, email);
@@ -1075,7 +1157,6 @@
         }
 
         function startPersonRSVP(name, email) {
-            // Initialize current person response
             currentPersonResponse = {
                 name: name,
                 email: email,
@@ -1086,14 +1167,13 @@
                 declineNote: ''
             };
             
-            // Create and show person step
             createCurrentPersonStep();
             showCurrentPersonStep();
         }
 
         function createCurrentPersonStep() {
             const container = document.getElementById('personSteps');
-            container.innerHTML = ''; // Clear previous steps
+            container.innerHTML = '';
             
             const stepDiv = document.createElement('div');
             stepDiv.className = 'wizard-step active';
@@ -1169,27 +1249,23 @@
         }
 
         function showCurrentPersonStep() {
-            // Hide initial step and final step
             document.getElementById('step1').classList.remove('active');
             document.getElementById('finalStep').classList.remove('active');
             
-            // Hide add another step if it exists
             const addAnotherStep = document.getElementById('addAnotherStep');
             if (addAnotherStep) {
                 addAnotherStep.classList.remove('active');
             }
             
-            // Show current person step
             document.getElementById('currentPersonStep').classList.add('active');
         }
 
         function selectAttendance(type) {
-            const acceptBtn = document.querySelector('#currentPersonStep .attendance-btn.accept');
-            const declineBtn = document.querySelector('#currentPersonStep .attendance-btn.decline');
+            const acceptBtn = document.querySelector('#currentPersonStep > .attendance-buttons .attendance-btn.accept');
+            const declineBtn = document.querySelector('#currentPersonStep > .attendance-buttons .attendance-btn.decline');
             const acceptQuestions = document.getElementById('acceptQuestions');
             const declineQuestions = document.getElementById('declineQuestions');
             
-            // Reset buttons
             acceptBtn.classList.remove('selected');
             declineBtn.classList.remove('selected');
             acceptQuestions.classList.add('hidden');
@@ -1210,11 +1286,9 @@
             const yesBtn = document.getElementById('breakfastYes');
             const noBtn = document.getElementById('breakfastNo');
             
-            // Reset buttons
             yesBtn.classList.remove('selected');
             noBtn.classList.remove('selected');
             
-            // Select the chosen option
             if (choice === 'yes') {
                 yesBtn.classList.add('selected');
                 currentPersonResponse.breakfast = 'Yes I\'ll be there';
@@ -1253,7 +1327,6 @@
         }
 
         function finishCurrentPerson() {
-            // Validate current person's response
             if (!currentPersonResponse.attending) {
                 alert('Please select whether you will be attending.');
                 return;
@@ -1265,18 +1338,13 @@
                 currentPersonResponse.declineNote = document.getElementById('currentDeclineNote').value;
             }
             
-            // Add current person to responses
             allRsvpResponses.push({...currentPersonResponse});
-            
-            // Show "Add Another Person" step
             showAddAnotherStep();
         }
 
         function showAddAnotherStep() {
-            // Hide current person step
             document.getElementById('currentPersonStep').classList.remove('active');
             
-            // Create or show add another step
             let addAnotherStep = document.getElementById('addAnotherStep');
             if (!addAnotherStep) {
                 addAnotherStep = document.createElement('div');
@@ -1301,7 +1369,6 @@
                 document.getElementById('personSteps').appendChild(addAnotherStep);
             }
             
-            // Update the counter
             addAnotherStep.querySelector('.person-indicator').innerHTML = 
                 `You have completed ${allRsvpResponses.length} RSVP${allRsvpResponses.length > 1 ? 's' : ''}`;
             
@@ -1309,18 +1376,12 @@
         }
 
         function addAnotherPerson() {
-            // Get new person details
             const name = prompt('Please enter the name of the person you want to RSVP for:');
-            if (!name || !name.trim()) {
-                return;
-            }
+            if (!name || !name.trim()) return;
             
             const email = prompt('Please enter their email address (or your email if RSVPing on their behalf):');
-            if (!email || !email.trim()) {
-                return;
-            }
+            if (!email || !email.trim()) return;
             
-            // Start RSVP for new person
             startPersonRSVP(name.trim(), email.trim());
         }
 
@@ -1329,53 +1390,43 @@
         }
 
         function goBackToInitial() {
-            // Go back to initial step
             document.getElementById('currentPersonStep').classList.remove('active');
             document.getElementById('step1').classList.add('active');
             
-            // Reset data
             allRsvpResponses = [];
             currentPersonResponse = {};
         }
 
         function startNewRSVP() {
-            // Reset everything and go back to start
             allRsvpResponses = [];
             currentPersonResponse = {};
             
-            // Clear form fields
             document.getElementById('submitterName').value = '';
             document.getElementById('submitterEmail').value = '';
             
-            // Hide messages
             document.getElementById('successMessage').classList.add('hidden');
             document.getElementById('errorMessage').classList.add('hidden');
             document.getElementById('rsvpWizard').style.display = 'block';
             
-            // Hide final step and show initial step
             document.getElementById('finalStep').classList.remove('active');
             document.getElementById('step1').classList.add('active');
             
-            // Clear person steps
             document.getElementById('personSteps').innerHTML = '';
         }
 
         function showFinalStep() {
-            // Hide add another step
             const addAnotherStep = document.getElementById('addAnotherStep');
             if (addAnotherStep) {
                 addAnotherStep.classList.remove('active');
             }
             
-            // Show final step
             document.getElementById('finalStep').classList.add('active');
             
-            // Generate summary
             const summaryDiv = document.getElementById('rsvpSummary');
             let summaryHTML = `<h3>RSVP Summary (${allRsvpResponses.length} ${allRsvpResponses.length > 1 ? 'people' : 'person'})</h3>`;
             
             allRsvpResponses.forEach((response, index) => {
-                summaryHTML += `<div style="margin-bottom: 1rem; padding: 1rem; background: #fff8dc; border-radius: 10px;">`;
+                summaryHTML += `<div style="margin-bottom: 1rem; padding: 1rem; background: #FEF4CE; border-radius: 10px; border: 2px solid #8B2A2A;">`;
                 summaryHTML += `<strong>${response.name}</strong> - ${response.attending}<br>`;
                 summaryHTML += `<em>Email: ${response.email}</em><br>`;
                 
@@ -1402,12 +1453,10 @@
             submitBtn.textContent = 'Submitting...';
             
             try {
-                // Submit individual records for each person
                 for (let i = 0; i < allRsvpResponses.length; i++) {
                     const response = allRsvpResponses[i];
                     const formData = new FormData();
                     
-                    // Add form data
                     formData.append('submission_date', new Date().toISOString());
                     formData.append('submitter_name', allRsvpResponses[0].name);
                     formData.append('submitter_email', allRsvpResponses[0].email);
@@ -1431,7 +1480,6 @@
                     });
                 }
                 
-                // Show success message
                 document.getElementById('successMessage').classList.remove('hidden');
                 document.getElementById('rsvpWizard').style.display = 'none';
                 
@@ -1444,18 +1492,11 @@
             }
         }
 
-        // Close menu when clicking outside
-        document.addEventListener('click', function(e) {
-            if (!e.target.closest('.header')) {
-                document.getElementById('mainNav').classList.remove('active');
-            }
-        });
-
         // Initialize
         document.addEventListener('DOMContentLoaded', function() {
             updateCountdown();
             setupPhotoChanging();
-            setInterval(updateCountdown, 86400000); // Update daily
+            setInterval(updateCountdown, 86400000);
         });
     </script>
 </body>
