@@ -9,7 +9,6 @@
     <meta property="og:type" content="website">
     <title>English Wedding - Darshna & Michael - May 1st, 2026</title>
     
-    <!-- Performance: preconnect to Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
@@ -26,12 +25,11 @@
             min-height: 100vh;
         }
         
-        /* Skip to content - Accessibility */
         .skip-link {
             position: absolute;
             top: -40px;
             left: 0;
-            background: #F7B26D;
+            background: #D4952E;
             color: white;
             padding: 8px 16px;
             z-index: 10000;
@@ -40,9 +38,7 @@
             text-decoration: none;
             border-radius: 0 0 8px 0;
         }
-        .skip-link:focus {
-            top: 0;
-        }
+        .skip-link:focus { top: 0; }
         
         h1, h2, h3, h4, h5, h6 {
             font-family: 'Great Vibes', cursive;
@@ -51,7 +47,6 @@
         
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
         
-        /* Header */
         .header {
             position: fixed;
             top: 0;
@@ -71,9 +66,8 @@
             transition: all 0.3s ease;
         }
         
-        /* Focus visible for keyboard users */
         .hamburger:focus-visible {
-            outline: 3px solid #F7B26D;
+            outline: 3px solid #D4952E;
             outline-offset: 4px;
             border-radius: 4px;
         }
@@ -87,15 +81,12 @@
             display: block;
         }
         
-        .hamburger:hover span { background: #F7B26D; }
+        .hamburger:hover span { background: #D4952E; }
         
-        /* FIX: Corrected hamburger X animation */
         .hamburger.active span:nth-child(1) {
             transform: rotate(45deg) translate(5.5px, 5.5px);
         }
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-        }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
         .hamburger.active span:nth-child(3) {
             transform: rotate(-45deg) translate(5.5px, -5.5px);
         }
@@ -132,12 +123,12 @@
         }
         
         nav a:hover, nav a:focus-visible {
-            color: #F7B26D;
+            color: #D4952E;
             transform: translateX(5px);
         }
         
         nav a:focus-visible {
-            outline: 2px solid #F7B26D;
+            outline: 2px solid #D4952E;
             outline-offset: 2px;
             border-radius: 4px;
         }
@@ -155,12 +146,8 @@
             z-index: 998;
         }
         
-        .menu-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
+        .menu-overlay.active { opacity: 1; visibility: visible; }
         
-        /* Main Content */
         .main-content {
             display: grid;
             grid-template-columns: 60% 40%;
@@ -187,7 +174,6 @@
         
         .content-flow { background: #F6EDE7; }
         
-        /* Scroll animations */
         .content-section {
             min-height: 100vh;
             padding: 4rem 3rem;
@@ -200,7 +186,6 @@
         
         .content-section:last-child { border-bottom: none; }
         
-        /* Fade-in on scroll */
         .fade-in-section {
             opacity: 0;
             transform: translateY(30px);
@@ -227,7 +212,7 @@
         
         .content-section h4 {
             font-family: 'Great Vibes', cursive;
-            font-size: 1.6rem;
+            font-size: 1.4rem;
             color: #D4952E;
         }
         
@@ -248,7 +233,6 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
         
-        /* Hero */
         .hero-content {
             text-align: center;
             padding: 3rem;
@@ -289,16 +273,13 @@
             color: #36454F;
         }
         
-        /* Enhanced countdown with days/hours/minutes */
         .countdown-grid {
             display: flex;
             gap: 1.5rem;
             justify-content: center;
             align-items: center;
         }
-        .countdown-unit {
-            text-align: center;
-        }
+        .countdown-unit { text-align: center; }
         .countdown-unit .number {
             font-family: 'Cormorant Garamond', serif;
             font-weight: 500;
@@ -322,13 +303,13 @@
             padding-bottom: 1rem;
         }
         
-        /* Timeline */
+        /* Timeline - reduced h4 size */
         .timeline-item {
             background: rgba(255,255,255,0.6);
-            padding: 2rem;
+            padding: 1.5rem 2rem;
             border-radius: 15px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             display: flex;
             align-items: flex-start;
             gap: 1.5rem;
@@ -337,13 +318,13 @@
         
         .timeline-content h4 {
             font-family: 'Great Vibes', cursive;
-            font-size: 1.6rem;
+            font-size: 1.4rem;
             color: #D4952E;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.3rem;
         }
         
         .timeline-content p {
-            font-size: 1.1rem;
+            font-size: 1rem;
             line-height: 1.6;
             color: #36454F;
             margin: 0;
@@ -351,7 +332,6 @@
         
         .timeline-content a { color: #D4952E; text-decoration: underline; }
         
-        /* Content Cards */
         .content-card {
             background: rgba(255,255,255,0.6);
             padding: 2rem;
@@ -368,7 +348,6 @@
             margin-bottom: 1rem;
         }
         
-        /* Accommodations Grid */
         .accommodation-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -396,7 +375,6 @@
         .accommodation-card .website a { color: #D4952E; text-decoration: underline; }
         .accommodation-card .distance { font-size: 1rem; color: #36454F; font-style: italic; }
         
-        /* Registry */
         .registry-content {
             text-align: center;
             max-width: 600px;
@@ -434,7 +412,6 @@
             color: #36454F;
         }
         
-        /* RSVP Progress Bar */
         .rsvp-progress {
             display: flex;
             justify-content: center;
@@ -449,12 +426,8 @@
             background: #D4B5A8;
             transition: background 0.3s ease;
         }
-        .progress-step.active {
-            background: #D4952E;
-        }
-        .progress-step.completed {
-            background: #D4952E;
-        }
+        .progress-step.active { background: #D4952E; }
+        .progress-step.completed { background: #D4952E; }
         
         .rsvp-wizard {
             background: rgba(255,255,255,0.6);
@@ -469,20 +442,24 @@
         .wizard-step { display: none; }
         .wizard-step.active { display: block; }
         
+        /* Reduced step title size */
         .step-title {
             font-family: 'Great Vibes', cursive;
-            font-size: 2.5rem;
+            font-size: 2rem;
             color: #D4952E;
             text-align: center;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
         
         .form-group { margin-bottom: 1.5rem; }
         
+        /* Body font for form labels — more readable */
         .form-group label {
             display: block;
             margin-bottom: 0.5rem;
             color: #D4952E;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
             font-weight: 600;
         }
         
@@ -503,16 +480,13 @@
             box-shadow: 0 0 0 3px rgba(212, 149, 46, 0.15);
         }
         
-        /* Inline validation errors */
         .field-error {
             color: #c0392b;
             font-size: 0.9rem;
             margin-top: 0.3rem;
             display: none;
         }
-        .field-error.visible {
-            display: block;
-        }
+        .field-error.visible { display: block; }
         .form-group input.error-border,
         .form-group textarea.error-border {
             border-color: #c0392b;
@@ -552,7 +526,7 @@
             cursor: pointer;
             text-align: center;
             transition: all 0.3s ease;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             font-weight: 600;
             color: #36454F;
         }
@@ -570,6 +544,7 @@
         
         .menu-options { display: grid; gap: 1rem; margin-top: 1rem; }
         
+        /* Slightly smaller menu option text */
         .menu-option {
             padding: 1rem;
             border: 2px solid #D4B5A8;
@@ -577,6 +552,7 @@
             cursor: pointer;
             transition: all 0.3s ease;
             background: rgba(255,255,255,0.6);
+            font-size: 0.95rem;
         }
         
         .menu-option:hover {
@@ -596,6 +572,7 @@
             border-radius: 8px;
             border-left: 4px solid #D4952E;
             margin-top: 1rem;
+            font-size: 0.95rem;
         }
         
         .wizard-buttons {
@@ -659,7 +636,7 @@
         .message.error { background-color: #f7d4d4; color: #5a2d2d; border: 2px solid #d69090; }
         .hidden { display: none; }
         
-        /* Q&A - Accordion style */
+        /* Q&A Accordion */
         .qa-item {
             background: rgba(255,255,255,0.6);
             border-radius: 15px;
@@ -681,9 +658,7 @@
             transition: background 0.2s ease;
         }
         
-        .qa-question:hover {
-            background: rgba(212, 149, 46, 0.05);
-        }
+        .qa-question:hover { background: rgba(212, 149, 46, 0.05); }
         
         .qa-question::after {
             content: '+';
@@ -695,9 +670,7 @@
             margin-left: 1rem;
         }
         
-        .qa-item.open .qa-question::after {
-            content: '−';
-        }
+        .qa-item.open .qa-question::after { content: '−'; }
         
         .qa-answer {
             font-size: 1.1rem;
@@ -717,7 +690,6 @@
         .qa-answer a { color: #D4952E; text-decoration: underline; }
         .qa-answer em { font-style: italic; color: #666; }
         
-        /* Footer */
         .footer {
             background: #D4952E;
             color: white;
@@ -737,10 +709,7 @@
             font-size: 1rem;
             opacity: 0.9;
         }
-        .footer-contact a {
-            color: white;
-            text-decoration: underline;
-        }
+        .footer-contact a { color: white; text-decoration: underline; }
         
         /* Mobile */
         @media (max-width: 768px) {
@@ -771,7 +740,9 @@
             .hero-content h1 { font-size: 3.5rem; }
             .content-section h2 { font-size: 2.5rem; }
             .content-section h3 { font-size: 1.4rem; }
-            .content-section h4 { font-size: 1.4rem; }
+            .content-section h4 { font-size: 1.25rem; }
+            .timeline-content h4 { font-size: 1.25rem; }
+            .step-title { font-size: 1.7rem; }
             .qa-question { font-size: 1.4rem; }
             .accommodation-grid { grid-template-columns: 1fr; }
             .rsvp-wizard { padding: 2rem; margin: 0; border-radius: 0; }
@@ -787,7 +758,6 @@
     </style>
 </head>
 <body>
-    <!-- Accessibility: Skip link -->
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
     <div class="menu-overlay" id="menuOverlay" onclick="toggleMenu()"></div>
@@ -990,7 +960,6 @@
                     <h2>RSVP</h2>
                     <div class="rsvp-deadline">Please RSVP by 1st February</div>
                     
-                    <!-- Progress indicator -->
                     <div class="rsvp-progress" id="rsvpProgress" aria-label="RSVP progress">
                         <div class="progress-step active" id="prog1"></div>
                         <div class="progress-step" id="prog2"></div>
@@ -1006,7 +975,7 @@
                             <p>❌ Sorry, there was an error. Please try again or contact us directly.</p>
                         </div>
 
-                        <!-- Step 1: Name and Email -->
+                        <!-- Step 1 -->
                         <div class="wizard-step active" id="step1">
                             <div class="step-title">Enter your details to RSVP</div>
                             <div class="form-group">
@@ -1040,7 +1009,7 @@
                 </div>
             </div>
 
-            <!-- Q&A - Now accordion -->
+            <!-- Q&A -->
             <div id="qa" class="content-section" data-photo="images/english-qa.jpg">
                 <img class="mobile-section-photo" src="images/english-qa.jpg" alt="Q&A" onerror="this.style.display='none'">
                 <div class="fade-in-section">
@@ -1117,12 +1086,10 @@
     </div>
 
     <script>
-        // ==================== RSVP Variables ====================
         let currentPersonIndex = 0;
         let allRsvpResponses = [];
         let currentPersonResponse = {};
 
-        // ==================== Menu ====================
         function toggleMenu() {
             const nav = document.getElementById('mainNav');
             const hamburger = document.getElementById('hamburger');
@@ -1135,14 +1102,12 @@
             hamburger.setAttribute('aria-expanded', isOpen);
             document.body.style.overflow = isOpen ? 'hidden' : 'auto';
             
-            // Trap focus inside nav when open
             if (isOpen) {
                 const firstLink = nav.querySelector('a');
                 if (firstLink) firstLink.focus();
             }
         }
 
-        // Close menu on Escape
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
                 const nav = document.getElementById('mainNav');
@@ -1167,21 +1132,18 @@
                 }
             }
             
-            // Close menu if open
             const nav = document.getElementById('mainNav');
             if (nav.classList.contains('active')) {
                 toggleMenu();
             }
         }
 
-        // ==================== Photo changing ====================
         function setupPhotoChanging() {
             const photoImg = document.getElementById('mainPhoto');
             const sections = document.querySelectorAll('.content-section[data-photo]');
             
             if (!photoImg || sections.length === 0) return;
             
-            // Preload
             sections.forEach(section => {
                 const src = section.getAttribute('data-photo');
                 if (src) { const img = new Image(); img.src = src; }
@@ -1215,7 +1177,6 @@
                             }, 300);
                         };
                         testImg.onerror = function() {
-                            // Don't try to load the same broken image
                             photoImg.style.display = 'none';
                         };
                         testImg.src = newPhoto;
@@ -1239,7 +1200,6 @@
             updatePhotoOnScroll();
         }
 
-        // ==================== Countdown (days + hours + minutes) ====================
         function updateCountdown() {
             const weddingDate = new Date('2026-05-01T12:30:00');
             const now = new Date();
@@ -1261,7 +1221,6 @@
             document.getElementById('countMins').textContent = String(mins).padStart(2, '0');
         }
 
-        // ==================== Scroll Animations ====================
         function setupScrollAnimations() {
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
@@ -1274,25 +1233,21 @@
             document.querySelectorAll('.fade-in-section').forEach(el => observer.observe(el));
         }
 
-        // ==================== Q&A Accordion ====================
         function toggleQA(element) {
             const item = element.parentElement;
             const isOpen = item.classList.contains('open');
             
-            // Close all
             document.querySelectorAll('.qa-item').forEach(q => {
                 q.classList.remove('open');
                 q.querySelector('.qa-question').setAttribute('aria-expanded', 'false');
             });
             
-            // Toggle current
             if (!isOpen) {
                 item.classList.add('open');
                 element.setAttribute('aria-expanded', 'true');
             }
         }
 
-        // Keyboard support for QA
         document.addEventListener('keydown', function(e) {
             if ((e.key === 'Enter' || e.key === ' ') && e.target.classList.contains('qa-question')) {
                 e.preventDefault();
@@ -1300,7 +1255,6 @@
             }
         });
 
-        // ==================== RSVP Progress ====================
         function updateProgress(step) {
             for (let i = 1; i <= 4; i++) {
                 const el = document.getElementById('prog' + i);
@@ -1310,7 +1264,6 @@
             }
         }
 
-        // ==================== RSVP Functions ====================
         function nextStep(step) {
             if (step === 1) {
                 const nameInput = document.getElementById('submitterName');
@@ -1320,7 +1273,6 @@
                 
                 let valid = true;
                 
-                // Clear previous errors
                 nameInput.classList.remove('error-border');
                 emailInput.classList.remove('error-border');
                 document.getElementById('nameError').classList.remove('visible');
@@ -1487,7 +1439,6 @@
             }
         }
 
-        // FIX: Use element reference instead of event.target
         function selectMenuOption(clickedOption) {
             const category = clickedOption.getAttribute('data-category');
             const value = clickedOption.getAttribute('data-value');
@@ -1584,7 +1535,6 @@
             addStep.classList.add('active');
         }
 
-        // FIX: Replaced prompt() with inline form
         function showInlineAddForm() {
             document.getElementById('inlineAddForm').classList.remove('hidden');
             document.getElementById('addPersonName').focus();
@@ -1713,12 +1663,11 @@
             }
         }
 
-        // ==================== Init ====================
         document.addEventListener('DOMContentLoaded', function() {
             updateCountdown();
             setupPhotoChanging();
             setupScrollAnimations();
-            setInterval(updateCountdown, 60000); // Update every minute for hours/minutes
+            setInterval(updateCountdown, 60000);
         });
     </script>
 </body>
