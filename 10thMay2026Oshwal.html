@@ -3,8 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Join Darshna & Michael for their Indian wedding celebration on May 10th, 2026 at Oshwal Centre, Hertfordshire.">
+    <meta property="og:title" content="Darshna & Michael - Indian Wedding">
+    <meta property="og:description" content="Join us for our Indian wedding celebration on May 10th, 2026 at Oshwal Centre, Hertfordshire.">
+    <meta property="og:type" content="website">
     <title>Indian Wedding - Darshna & Michael - May 10th, 2026</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
+    
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
@@ -15,21 +23,17 @@
             color: #36454F;
             background: 
                 radial-gradient(circle at 20% 80%, rgba(251, 247, 229, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(251, 247, 229 0.4) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(251, 247, 229, 0.4) 0%, transparent 50%),
                 radial-gradient(circle at 40% 40%, rgba(251, 247, 229, 0.2) 0%, transparent 50%),
                 #FBF7E5;
             min-height: 100vh;
             position: relative;
         }
         
-        /* Watercolor overlay */
         body::before {
             content: '';
             position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
+            top: 0; left: 0; right: 0; bottom: 0;
             background: 
                 radial-gradient(ellipse at 15% 70%, rgba(251, 247, 229, 0.15) 0%, transparent 60%),
                 radial-gradient(ellipse at 85% 30%, rgba(255, 218, 185, 0.2) 0%, transparent 60%),
@@ -38,19 +42,35 @@
             z-index: 1;
         }
         
-        /* Typography - Tangerine for headings */
-        h1, h2, h3, h4, h5, h6 {
+        .skip-link {
+            position: absolute;
+            top: -40px; left: 0;
+            background: #8B2A2A;
+            color: white;
+            padding: 8px 16px;
+            z-index: 10000;
+            transition: top 0.3s;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 0 0 8px 0;
+        }
+        .skip-link:focus { top: 0; }
+        
+        /* Hybrid font: Tangerine for h1/h2 only */
+        h1, h2 {
             font-family: 'Tangerine', cursive;
             font-weight: 700;
+        }
+        h3, h4, h5, h6 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
         }
         
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 2; }
         
-        /* Header - Minimal Hamburger Menu (TOP LEFT) */
         .header {
             position: fixed;
-            top: 0;
-            left: 0;
+            top: 0; left: 0;
             z-index: 1000;
             padding: 20px;
         }
@@ -66,36 +86,30 @@
             transition: all 0.3s ease;
         }
         
+        .hamburger:focus-visible {
+            outline: 3px solid #8B2A2A;
+            outline-offset: 4px;
+            border-radius: 4px;
+        }
+        
         .hamburger span {
-            width: 30px;
-            height: 2px;
+            width: 30px; height: 2px;
             background: #36454F;
             transition: all 0.3s ease;
             border-radius: 2px;
+            display: block;
         }
         
-        .hamburger:hover span {
-            background: #8B2A2A;
-        }
+        .hamburger:hover span { background: #8B2A2A; }
         
-        .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(8px, 8px);
-        }
-        
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-        }
-        
-        .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(8px, -8px);
-        }
+        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5.5px, 5.5px); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5.5px, -5.5px); }
         
         nav {
             position: fixed;
-            top: 0;
-            left: -100%;
-            width: 300px;
-            height: 100vh;
+            top: 0; left: -100%;
+            width: 300px; height: 100vh;
             background: rgba(254, 244, 206, 0.98);
             backdrop-filter: blur(10px);
             box-shadow: 5px 0 20px rgba(0,0,0,0.1);
@@ -106,20 +120,9 @@
             z-index: 999;
         }
         
-        nav.active {
-            left: 0;
-        }
-        
-        nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        
-        nav li {
-            margin: 0;
-            padding: 0;
-        }
+        nav.active { left: 0; }
+        nav ul { list-style: none; padding: 0; margin: 0; }
+        nav li { margin: 0; padding: 0; }
         
         nav a {
             display: block;
@@ -132,31 +135,20 @@
             text-align: center;
         }
         
-        nav a:hover {
-            color: #8B2A2A;
-            transform: translateX(5px);
-        }
+        nav a:hover, nav a:focus-visible { color: #8B2A2A; transform: translateX(5px); }
+        nav a:focus-visible { outline: 2px solid #8B2A2A; outline-offset: 2px; border-radius: 4px; }
         
-        /* Overlay when menu is open */
         .menu-overlay {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
             background: rgba(54, 69, 79, 0.5);
-            opacity: 0;
-            visibility: hidden;
+            opacity: 0; visibility: hidden;
             transition: all 0.3s ease;
             z-index: 998;
         }
+        .menu-overlay.active { opacity: 1; visibility: visible; }
         
-        .menu-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-        
-        /* Main Content */
         .main-content {
             display: grid;
             grid-template-columns: 60% 40%;
@@ -167,26 +159,21 @@
         
         .photo-section {
             position: sticky;
-            top: 0;
-            height: 100vh;
+            top: 0; height: 100vh;
             overflow: hidden;
-            background: #f0f0f0;
+            background: #ede4dd;
             display: flex;
             align-items: center;
             justify-content: center;
         }
         
         .photo-section img {
-            width: 100%;
-            height: 100%;
+            width: 100%; height: 100%;
             object-fit: cover;
             transition: opacity 0.5s ease;
         }
         
-        .content-flow { 
-            background: #FBF7E5;
-            backdrop-filter: blur(10px);
-        }
+        .content-flow { background: #FBF7E5; }
         
         .content-section {
             min-height: 100vh;
@@ -196,32 +183,60 @@
             justify-content: center;
             border-bottom: 1px solid #8B2A2A;
             background: #FBF7E5;
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            margin: 1rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
         }
-        
         .content-section:last-child { border-bottom: none; }
+        
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in-section.visible { opacity: 1; transform: translateY(0); }
+        
+        /* Heading sizes — exact spec */
+        .hero-content h1 {
+            font-family: 'Tangerine', cursive;
+            font-size: 4.5rem;
+            color: #8B2A2A;
+            margin-bottom: 1rem;
+        }
         
         .content-section h2 {
             font-family: 'Tangerine', cursive;
-            font-size: 4rem;
-            color: #8B2A2A;
+            font-size: 3rem;
+            color: #36454F;
             margin-bottom: 2rem;
         }
         
         .content-section h3 {
-            font-family: 'Tangerine', cursive;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
             font-size: 1.6rem;
-            color: #8B2A2A;
+            color: #36454F;
             margin: 2rem 0 1rem 0;
         }
         
+        .content-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            font-size: 2.2rem;
+            color: #36454F;
+            margin-bottom: 1rem;
+        }
+        
         .content-section h4 {
-            font-family: 'Tangerine', cursive;
-            font-size: 1.6rem;
-            color: #8B2A2A;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            font-size: 1.4rem;
+            color: #36454F;
+        }
+        
+        .accommodation-card h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            font-size: 1.8rem;
+            color: #36454F;
+            margin-bottom: 1rem;
         }
         
         .content-section p {
@@ -231,28 +246,18 @@
             color: #36454F;
         }
         
-        /* Mobile photos */
         .mobile-section-photo {
             display: none;
-            width: 100%;
-            height: 300px;
+            width: 100%; height: 300px;
             object-fit: cover;
             border-radius: 15px;
             margin-bottom: 2rem;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
         
-        /* Hero Section - NO OUTER BOX */
         .hero-content {
             text-align: center;
             padding: 3rem;
-        }
-        
-        .hero-content h1 {
-            font-family: 'Tangerine', cursive;
-            font-size: 5.5rem;
-            color: #8B2A2A;
-            margin-bottom: 1rem;
         }
         
         .hero-content .date {
@@ -283,24 +288,35 @@
             color: #36454F;
         }
         
-        .countdown-number {
+        .countdown-grid {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            align-items: center;
+        }
+        .countdown-unit { text-align: center; }
+        .countdown-unit .number {
             font-family: 'Cormorant Garamond', serif;
             font-weight: 500;
             font-size: 2.5rem;
             color: #8B2A2A;
+            display: block;
+            line-height: 1;
         }
-        
-        /* Story Section */
-        .story-ending {
-            font-size: 1.2rem;
+        .countdown-unit .label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #888;
+            margin-top: 0.25rem;
+        }
+        .countdown-separator {
+            font-size: 2rem;
             color: #8B2A2A;
-            font-weight: 600;
-            text-align: center;
-            padding: 1.5rem;
-            background: #FBF7E5;
-            border-radius: 10px;
-            border-left: 4px solid #8B2A2A;
-            margin-top: 2rem;
+            font-weight: 300;
+            line-height: 1;
+            padding-bottom: 1rem;
+            opacity: 0.5;
         }
         
         /* Coming Soon */
@@ -316,7 +332,7 @@
         
         .coming-soon h2 {
             font-family: 'Tangerine', cursive;
-            font-size: 4rem;
+            font-size: 3rem;
             color: #8B2A2A;
             margin-bottom: 1rem;
         }
@@ -326,6 +342,36 @@
             font-size: 1.2rem;
             font-weight: 600;
         }
+        
+        /* Timeline */
+        .timeline-item {
+            background: #FBF7E5;
+            padding: 1.5rem 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            border: 2px solid #8B2A2A;
+        }
+        
+        .timeline-content h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            font-size: 1.4rem;
+            color: #36454F;
+            margin-bottom: 0.3rem;
+        }
+        
+        .timeline-content p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #36454F;
+            margin: 0;
+        }
+        
+        .timeline-content a { color: #8B2A2A; text-decoration: underline; }
         
         /* Content Cards */
         .content-card {
@@ -337,14 +383,7 @@
             border: 2px solid #8B2A2A;
         }
         
-        .content-card h3 {
-            font-family: 'Tangerine', cursive;
-            font-size: 2.5rem;
-            color: #8B2A2A;
-            margin-bottom: 1rem;
-        }
-        
-        /* Accommodations Grid */
+        /* Accommodations */
         .accommodation-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -361,26 +400,9 @@
             border: 2px solid #8B2A2A;
         }
         
-        .accommodation-card h4 {
-            font-family: 'Tangerine', cursive;
-            font-size: 2rem;
-            color: #8B2A2A;
-            margin-bottom: 1rem;
-        }
-        
-        .accommodation-card .website {
-            font-size: 1rem;
-            color: #8B2A2A;
-            margin-bottom: 0.5rem;
-        }
-        
+        .accommodation-card .website { font-size: 1rem; color: #8B2A2A; margin-bottom: 0.5rem; }
         .accommodation-card .website a { color: #8B2A2A; text-decoration: underline; }
-        
-        .accommodation-card .distance {
-            font-size: 1rem;
-            color: #36454F;
-            font-style: italic;
-        }
+        .accommodation-card .distance { font-size: 1rem; color: #36454F; font-style: italic; }
         
         /* Registry */
         .registry-content {
@@ -405,11 +427,7 @@
             margin-top: 1rem;
             transition: all 0.3s ease;
         }
-        
-        .registry-link:hover {
-            background: #a03636;
-            transform: translateY(-2px);
-        }
+        .registry-link:hover, .registry-link:focus-visible { background: #a03636; transform: translateY(-2px); }
         
         /* RSVP */
         .rsvp-deadline {
@@ -419,6 +437,20 @@
             font-weight: 500;
             color: #36454F;
         }
+        
+        .rsvp-progress {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+        .progress-step {
+            width: 40px; height: 4px;
+            border-radius: 2px;
+            background: rgba(139, 42, 42, 0.2);
+            transition: background 0.3s ease;
+        }
+        .progress-step.active, .progress-step.completed { background: #8B2A2A; }
         
         .rsvp-wizard {
             background: #FBF7E5;
@@ -430,20 +462,16 @@
             border: 2px solid #8B2A2A;
         }
         
-        .wizard-step {
-            display: none;
-        }
-        
-        .wizard-step.active {
-            display: block;
-        }
+        .wizard-step { display: none; }
+        .wizard-step.active { display: block; }
         
         .step-title {
-            font-family: 'Tangerine', cursive;
-            font-size: 3rem;
-            color: #8B2A2A;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            font-size: 2rem;
+            color: #36454F;
             text-align: center;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
         
         .buffet-notice {
@@ -451,23 +479,23 @@
             padding: 1.5rem;
             border-radius: 10px;
             margin-bottom: 2rem;
-            border-left: 4px solid #8B2A2A;
             border: 2px solid #8B2A2A;
         }
         
         .buffet-notice h4 {
-            color: #8B2A2A;
+            color: #36454F;
             margin-bottom: 0.5rem;
+            font-size: 1.4rem;
         }
         
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
+        .form-group { margin-bottom: 1.5rem; }
         
         .form-group label {
             display: block;
             margin-bottom: 0.5rem;
-            color: #8B2A2A;
+            color: #36454F;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
             font-weight: 600;
         }
         
@@ -478,45 +506,27 @@
             border-radius: 8px;
             font-family: 'Cormorant Garamond', serif;
             background: #FBF7E5;
+            font-size: 1rem;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
         
         .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
             outline: none;
-            border-color: #8B2A2A;
+            border-color: #a03636;
+            box-shadow: 0 0 0 3px rgba(139, 42, 42, 0.15);
         }
         
-        .checkbox-group {
-            display: flex;
-            flex-direction: column;
-            gap: 0.8rem;
-            margin-top: 0.5rem;
-        }
+        .field-error { color: #c0392b; font-size: 0.9rem; margin-top: 0.3rem; display: none; }
+        .field-error.visible { display: block; }
+        .form-group input.error-border, .form-group textarea.error-border { border-color: #c0392b; }
         
-        .checkbox-item {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
+        .checkbox-group { display: flex; flex-direction: column; gap: 0.8rem; margin-top: 0.5rem; }
+        .checkbox-item { display: flex; align-items: center; gap: 0.5rem; }
+        .checkbox-item input[type="checkbox"] { width: auto; margin: 0; }
+        .checkbox-item label { margin: 0; font-weight: normal; color: #36454F; }
         
-        .checkbox-item input[type="checkbox"] {
-            width: auto;
-            margin: 0;
-        }
-        
-        .checkbox-item label {
-            margin: 0;
-            font-weight: normal;
-            color: #36454F;
-        }
-        
-        .other-dietary-field {
-            margin-top: 0.5rem;
-            display: none;
-        }
-        
-        .other-dietary-field.active {
-            display: block;
-        }
+        .other-dietary-field { margin-top: 0.5rem; display: none; }
+        .other-dietary-field.active { display: block; }
         
         .attendance-buttons {
             display: grid;
@@ -533,27 +543,18 @@
             cursor: pointer;
             text-align: center;
             transition: all 0.3s ease;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             font-weight: 600;
             color: #36454F;
         }
         
-        .attendance-btn:hover {
+        .attendance-btn:hover, .attendance-btn:focus-visible {
             border-color: #8B2A2A;
             background: rgba(139, 42, 42, 0.1);
         }
+        .attendance-btn.selected { border-color: #8B2A2A; background: #8B2A2A; color: white; }
         
-        .attendance-btn.selected {
-            border-color: #8B2A2A;
-            background: #8B2A2A;
-            color: white;
-        }
-        
-        .wizard-buttons {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 3rem;
-        }
+        .wizard-buttons { display: flex; justify-content: space-between; margin-top: 3rem; }
         
         .btn {
             background: linear-gradient(135deg, #8B2A2A 0%, #a03636 100%);
@@ -569,26 +570,11 @@
             text-transform: uppercase;
             letter-spacing: 1px;
         }
-        
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-        }
-        
-        .btn:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-            transform: none;
-        }
-        
-        .btn-secondary {
-            background: #ccc;
-            color: #666;
-        }
-        
-        .btn-secondary:hover {
-            background: #bbb;
-        }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.2); }
+        .btn:focus-visible { outline: 3px solid #36454F; outline-offset: 3px; }
+        .btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+        .btn-secondary { background: #ccc; color: #666; }
+        .btn-secondary:hover { background: #bbb; }
         
         .person-indicator {
             text-align: center;
@@ -599,54 +585,54 @@
             border-left: 4px solid #8B2A2A;
         }
         
-        /* Success/Error Messages */
-        .message {
-            padding: 1rem;
-            border-radius: 8px;
-            margin-bottom: 2rem;
-            text-align: center;
-            font-weight: 600;
-        }
+        .message { padding: 1rem; border-radius: 8px; margin-bottom: 2rem; text-align: center; font-weight: 600; }
+        .message.success { background-color: #d4f7d4; color: #2d5a2d; border: 2px solid #90d690; }
+        .message.error { background-color: #f7d4d4; color: #5a2d2d; border: 2px solid #d69090; }
+        .hidden { display: none; }
         
-        .message.success {
-            background-color: #d4f7d4;
-            color: #2d5a2d;
-            border: 2px solid #90d690;
-        }
-        
-        .message.error {
-            background-color: #f7d4d4;
-            color: #5a2d2d;
-            border: 2px solid #d69090;
-        }
-        
-        .hidden {
-            display: none;
-        }
-        
-        /* Q&A */
+        /* Q&A Accordion */
         .qa-item {
             background: #FBF7E5;
-            padding: 2rem;
             border-radius: 15px;
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;
             border: 2px solid #8B2A2A;
+            overflow: hidden;
         }
         
         .qa-question {
-            font-family: 'Tangerine', cursive;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
             font-size: 1.6rem;
-            color: #8B2A2A;
-            margin-bottom: 1rem;
-            font-weight: 700;
+            color: #36454F;
+            padding: 1.5rem 2rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.2s ease;
         }
+        .qa-question:hover { background: rgba(139, 42, 42, 0.05); }
+        
+        .qa-question::after {
+            content: '+';
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            color: #8B2A2A;
+            flex-shrink: 0;
+            margin-left: 1rem;
+        }
+        .qa-item.open .qa-question::after { content: '−'; }
         
         .qa-answer {
             font-size: 1.1rem;
             line-height: 1.6;
             color: #36454F;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.3s ease;
+            padding: 0 2rem;
         }
-        
+        .qa-item.open .qa-answer { max-height: 500px; padding: 0 2rem 1.5rem 2rem; }
         .qa-answer a { color: #8B2A2A; text-decoration: underline; }
         .qa-answer em { font-style: italic; color: #666; }
         
@@ -660,101 +646,61 @@
             position: relative;
             z-index: 3;
         }
+        .footer-content { font-size: 1.2rem; font-weight: 500; line-height: 2; }
+        .footer-contact { margin-top: 1rem; font-size: 1rem; opacity: 0.9; }
+        .footer-contact a { color: white; text-decoration: underline; }
         
-        .footer-content {
-            font-size: 1.2rem;
-            font-weight: 500;
-            line-height: 2;
-        }
-        
-        /* Mobile Responsive */
+        /* Mobile */
         @media (max-width: 768px) {
-            body {
-                padding: 0;
-                margin: 0;
-            }
+            body { padding: 0; margin: 0; }
+            .container { padding: 0; }
+            .header { padding: 15px; }
+            nav { width: 100%; left: -100%; }
+            nav a { font-size: 1.5rem; padding: 1.2rem 2rem; }
             
-            .container {
-                padding: 0;
-            }
-            
-            .header {
-                padding: 15px;
-            }
-            
-            nav {
-                width: 100%;
-                left: -100%;
-            }
-            
-            nav a {
-                font-size: 1.5rem;
-                padding: 1.2rem 2rem;
-            }
-            
-            .main-content {
-                grid-template-columns: 1fr;
-                margin: 0;
-                padding: 0;
-            }
-            
-            .content-flow {
-                background: #FBF7E5;
-                margin: 0;
-                padding: 0;
-            }
-            
+            .main-content { grid-template-columns: 1fr; margin: 0; padding: 0; }
+            .content-flow { background: #FBF7E5; margin: 0; padding: 0; }
             .photo-section { display: none !important; }
             .mobile-section-photo { display: block !important; }
             
-            .content-section {
-                padding: 2rem 1.5rem;
-                min-height: auto;
-                margin: 0;
-                border-radius: 0;
-            }
+            .content-section { padding: 2rem 1.5rem; min-height: auto; margin: 0; border-radius: 0; }
+            .hero-content { padding: 2rem 1.5rem; }
             
-            .hero-content {
-                padding: 2rem 1.5rem;
-            }
-            
-            .hero-content h1 { font-size: 4rem; }
-            .content-section h2 { font-size: 3rem; }
+            .hero-content h1 { font-size: 3.5rem; }
+            .content-section h2 { font-size: 2.5rem; }
+            .coming-soon h2 { font-size: 2.5rem; }
             .content-section h3 { font-size: 1.4rem; }
-            .content-section h4 { font-size: 1.4rem; }
+            .content-section h4 { font-size: 1.25rem; }
+            .timeline-content h4 { font-size: 1.25rem; }
+            .accommodation-card h4 { font-size: 1.25rem; }
+            .step-title { font-size: 1.7rem; }
             .qa-question { font-size: 1.4rem; }
             
             .accommodation-grid { grid-template-columns: 1fr; }
-            
-            .rsvp-wizard { 
-                padding: 2rem; 
-                margin: 0;
-                border-radius: 0;
-            }
-            
+            .rsvp-wizard { padding: 2rem; margin: 0; border-radius: 0; }
             .attendance-buttons { grid-template-columns: 1fr; }
+            .footer { margin-top: 0; }
             
-            .footer {
-                margin-top: 0;
-            }
+            .countdown-grid { gap: 1rem; }
+            .countdown-unit .number { font-size: 2rem; }
+            .countdown-separator { font-size: 1.5rem; }
         }
         
-        /* Smooth scrolling */
         html { scroll-behavior: smooth; }
     </style>
 </head>
 <body>
-    <!-- Menu Overlay -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
     <div class="menu-overlay" id="menuOverlay" onclick="toggleMenu()"></div>
 
-    <!-- Hamburger Menu (TOP LEFT) -->
     <div class="header">
-        <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+        <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mainNav">
             <span></span>
             <span></span>
             <span></span>
         </button>
-        <nav id="mainNav">
+        <nav id="mainNav" role="navigation" aria-label="Main navigation">
             <ul>
                 <li><a href="#home" onclick="scrollToSection('home')">Home</a></li>
                 <li><a href="#story" onclick="scrollToSection('story')">Our story</a></li>
@@ -768,267 +714,298 @@
         </nav>
     </div>
 
-    <div class="main-content">
+    <div class="main-content" id="main-content">
         <div class="photo-section">
-            <img id="mainPhoto" src="images/indian-home.jpg" alt="Indian Wedding" onerror="this.src='images/indian-home.jpg'">
+            <img id="mainPhoto" src="images/indian-home.jpg" alt="Darshna and Michael's Indian wedding" onerror="this.style.display='none'">
         </div>
 
         <div class="content-flow">
-            <!-- Home Section -->
+            <!-- Home -->
             <div id="home" class="content-section" data-photo="images/indian-home.jpg">
-                <img class="mobile-section-photo" src="images/indian-home.jpg" alt="Indian Wedding Home" onerror="this.src='images/indian-home.jpg'">
+                <img class="mobile-section-photo" src="images/indian-home.jpg" alt="Darshna and Michael" onerror="this.style.display='none'">
                 <div class="hero-content">
                     <h1>Darshna & Michael</h1>
                     <div class="date">10th May 2026</div>
                     <div class="venue">- Oshwal Centre, Hertfordshire -</div>
                     <div class="countdown-box">
-                        <div class="countdown-text">Days until our wedding</div>
-                        <div class="countdown-number" id="countdown">Loading...</div>
+                        <div class="countdown-text">Counting down to our wedding</div>
+                        <div class="countdown-grid" id="countdown" aria-live="polite">
+                            <div class="countdown-unit">
+                                <span class="number" id="countDays">--</span>
+                                <div class="label">Days</div>
+                            </div>
+                            <div class="countdown-separator">:</div>
+                            <div class="countdown-unit">
+                                <span class="number" id="countHours">--</span>
+                                <div class="label">Hours</div>
+                            </div>
+                            <div class="countdown-separator">:</div>
+                            <div class="countdown-unit">
+                                <span class="number" id="countMins">--</span>
+                                <div class="label">Minutes</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Story Section -->
+            <!-- Story -->
             <div id="story" class="content-section" data-photo="images/indian-story.jpg">
-                <img class="mobile-section-photo" src="images/indian-story.jpg" alt="Our Story" onerror="this.src='images/indian-home.jpg'">
-                <h2>Our story</h2>
-                <h3>How We Met</h3>
-                <p>Michael spotted Darshna at a summer house party and did... absolutely nothing. Lucky for them, fast forward four months to a NYE house party (that neither of them planned to attend), their paths crossed again and they spent hours talking away.</p>
-                
-                <p>Like a true gentleman, he walked her to the station. And like a true millennial, he didn't ask for her number but slid into her Instagram DMs the next day.</p>
-                
-                <h3>The First Date</h3>
-                <p>Michael chose the elegant Bluebird Chelsea for their first date, clearly pulling out all the stops! Still recovering from the flu, Darshna kept disappearing to the ladies' room—apparently blowing your nose on a first date isn't very romantic. After the 10th time, Michael, with his signature dry humor, told her she may as well take her bag with her if she was planning to make a run for it. That has since changed and now he holds the tissue box for her ❤️</p>
-                
-                <h3>How he proposed</h3>
-                <p>Everytime they went on holiday, everyone was convinced this would be the one where they got engaged. So Michael planned a completely secret getaway, not even their families knew.</p>
-                
-                <p>…But since Darshna is usually the one who plans their trips, she had a sneaking suspicion something was up - especially when Michael mentioned they were going to Lake Como.</p>
-                
-                <p>One sunny afternoon, they rented a motorboat, packed a bottle of bubbles and lunch, and set off across the sparkling lake. Knowing how much Darshna loves her photos, Michael suggested she head to the front of the boat for some pictures (and of course, they turned out amazing). Whilst she was sitting there, hair swishing in the breeze, he got down on one knee behind her…</p>
-                
-                <p>What followed was lots of happy video calls, champagne and an impromptu photoshoot back at their apartment high in the mountains - overlooking the beautiful Lake Como where they got engaged.</p>
+                <img class="mobile-section-photo" src="images/indian-story.jpg" alt="Our Story" onerror="this.style.display='none'">
+                <div class="fade-in-section">
+                    <h2>Our story</h2>
+                    <h3>How We Met</h3>
+                    <p>Michael spotted Darshna at a summer house party and did... absolutely nothing. Lucky for them, fast forward four months to a NYE house party (that neither of them planned to attend), their paths crossed again and they spent hours talking away.</p>
+                    <p>Like a true gentleman, he walked her to the station. And like a true millennial, he didn't ask for her number but slid into her Instagram DMs the next day.</p>
+                    
+                    <h3>The First Date</h3>
+                    <p>Michael chose the elegant Bluebird Chelsea for their first date, clearly pulling out all the stops! Still recovering from the flu, Darshna kept disappearing to the ladies' room—apparently blowing your nose on a first date isn't very romantic. After the 10th time, Michael, with his signature dry humor, told her she may as well take her bag with her if she was planning to make a run for it. That has since changed and now he holds the tissue box for her ❤️</p>
+                    
+                    <h3>How he proposed</h3>
+                    <p>Everytime they went on holiday, everyone was convinced this would be the one where they got engaged. So Michael planned a completely secret getaway, not even their families knew.</p>
+                    <p>…But since Darshna is usually the one who plans their trips, she had a sneaking suspicion something was up - especially when Michael mentioned they were going to Lake Como.</p>
+                    <p>One sunny afternoon, they rented a motorboat, packed a bottle of bubbles and lunch, and set off across the sparkling lake. Knowing how much Darshna loves her photos, Michael suggested she head to the front of the boat for some pictures (and of course, they turned out amazing). Whilst she was sitting there, hair swishing in the breeze, he got down on one knee behind her…</p>
+                    <p>What followed was lots of happy video calls, champagne and an impromptu photoshoot back at their apartment high in the mountains - overlooking the beautiful Lake Como where they got engaged.</p>
+                </div>
             </div>
 
-            <!-- Order of the Day Section -->
-<div id="order" class="content-section" data-photo="images/indian-orderofday.jpg">
-    <img class="mobile-section-photo" src="images/indian-orderofday.jpg" alt="Order of the Day" onerror="this.src='images/indian-home.jpg'">
-    <h2>Order of the Day</h2>
-    
-    <div class="timeline-item">
-        <div class="timeline-content">
-            <h4>11:00 - Jaan (Groom) arrival</h4>
-        </div>
-    </div>
+            <!-- Order of the Day -->
+            <div id="order" class="content-section" data-photo="images/indian-orderofday.jpg">
+                <img class="mobile-section-photo" src="images/indian-orderofday.jpg" alt="Order of the Day" onerror="this.style.display='none'">
+                <div class="fade-in-section">
+                    <h2>Order of the Day</h2>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h4>11:00 - Jaan (Groom) arrival</h4>
+                        </div>
+                    </div>
 
-    <div class="timeline-item">
-        <div class="timeline-content">
-            <h4>11:30 - Vidhi (Ceremony)</h4>
-        </div>
-    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h4>11:30 - Vidhi (Ceremony)</h4>
+                        </div>
+                    </div>
 
-    <div class="timeline-item">
-        <div class="timeline-content">
-            <h4>11:45 - Bride arrival</h4>
-        </div>
-    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h4>11:45 - Bride arrival</h4>
+                        </div>
+                    </div>
 
-    <div class="timeline-item">
-        <div class="timeline-content">
-            <h4>13:30 - Lunch</h4>
-        </div>
-    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h4>13:30 - Lunch</h4>
+                        </div>
+                    </div>
 
-    <div class="timeline-item">
-        <div class="timeline-content">
-            <h4>15:00 - Dance & Garba</h4>
-        </div>
-    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h4>15:00 - Dance & Garba</h4>
+                        </div>
+                    </div>
 
-    <div class="timeline-item">
-        <div class="timeline-content">
-            <h4>16:00 - Vidai (Farewell)</h4>
-        </div>
-    </div>
-</div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h4>16:00 - Vidai (Farewell)</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-            <!-- Travel Section -->
+            <!-- Travel -->
             <div id="travel" class="content-section" data-photo="images/indian-travel.jpg">
-                <img class="mobile-section-photo" src="images/indian-travel.jpg" alt="Travel" onerror="this.src='images/indian-home.jpg'">
-                <h2>Travel</h2>
-                <p>The closest station is Potters Bar, however, there is no public transport from here to the venue, please book a taxi/uber ahead of time. We recommend driving to the venue, there is a car park with plenty of parking spaces available.</p>
+                <img class="mobile-section-photo" src="images/indian-travel.jpg" alt="Travel" onerror="this.style.display='none'">
+                <div class="fade-in-section">
+                    <h2>Travel</h2>
+                    <p>The closest station is Potters Bar, however, there is no public transport from here to the venue, please book a taxi/uber ahead of time. We recommend driving to the venue, there is a car park with plenty of parking spaces available.</p>
+                </div>
             </div>
 
-            <!-- Accommodations Section -->
+            <!-- Accommodations -->
             <div id="accommodations" class="content-section" data-photo="images/indian-accommodations.jpg">
-                <img class="mobile-section-photo" src="images/indian-accommodations.jpg" alt="Accommodations" onerror="this.src='images/indian-home.jpg'">
-                <h2>Accommodations</h2>
-                <p>The farewell will be at 5pm so you may not need accommodations. If you would like to stay overnight, here are some nearby hotel options:</p>
-                
-                <div class="accommodation-grid">
-                    <div class="accommodation-card">
-                        <h4>Premier Inn Potters Bar</h4>
-                        <div class="website"><a href="https://www.premierinn.com/" target="_blank">www.premierinn.com</a></div>
-                        <div class="distance">2.1 miles from Oshwal Centre</div>
-                    </div>
-                    <div class="accommodation-card">
-                        <h4>Holiday Inn Express</h4>
-                        <div class="website"><a href="https://www.ihg.com/" target="_blank">www.ihg.com</a></div>
-                        <div class="distance">3.5 miles from Oshwal Centre</div>
-                    </div>
-                    <div class="accommodation-card">
-                        <h4>Travelodge Barnet</h4>
-                        <div class="website"><a href="https://www.travelodge.co.uk/" target="_blank">www.travelodge.co.uk</a></div>
-                        <div class="distance">4.2 miles from Oshwal Centre</div>
+                <img class="mobile-section-photo" src="images/indian-accommodations.jpg" alt="Accommodations" onerror="this.style.display='none'">
+                <div class="fade-in-section">
+                    <h2>Accommodations</h2>
+                    <p>The farewell will be at 5pm so you may not need accommodations. If you would like to stay overnight, here are some nearby hotel options:</p>
+                    
+                    <div class="accommodation-grid">
+                        <div class="accommodation-card">
+                            <h4>Premier Inn Potters Bar</h4>
+                            <div class="website"><a href="https://www.premierinn.com/" target="_blank" rel="noopener noreferrer">www.premierinn.com</a></div>
+                            <div class="distance">2.1 miles from Oshwal Centre</div>
+                        </div>
+                        <div class="accommodation-card">
+                            <h4>Holiday Inn Express</h4>
+                            <div class="website"><a href="https://www.ihg.com/" target="_blank" rel="noopener noreferrer">www.ihg.com</a></div>
+                            <div class="distance">3.5 miles from Oshwal Centre</div>
+                        </div>
+                        <div class="accommodation-card">
+                            <h4>Travelodge Barnet</h4>
+                            <div class="website"><a href="https://www.travelodge.co.uk/" target="_blank" rel="noopener noreferrer">www.travelodge.co.uk</a></div>
+                            <div class="distance">4.2 miles from Oshwal Centre</div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Registry Section -->
+            <!-- Registry -->
             <div id="registry" class="content-section" data-photo="images/indian-registry.jpg">
-                <img class="mobile-section-photo" src="images/indian-registry.jpg" alt="Registry" onerror="this.src='images/indian-home.jpg'">
-                <h2>Registry</h2>
-                <div class="registry-content">
-                    <p>Your presence at our wedding is the greatest gift of all 🧡</p>
-                    <p>If you would like to give us a gift, we are saving for our honeymoon and would be delighted with a contribution. Please use the following link to join us in creating these memories.</p>
-                    <p><strong>No box gifts please.</strong></p>
-                    <a href="https://monzo.me/darshanashah?h=KrrTNv" target="_blank" class="registry-link">Contribute to Our Honeymoon</a>
+                <img class="mobile-section-photo" src="images/indian-registry.jpg" alt="Registry" onerror="this.style.display='none'">
+                <div class="fade-in-section">
+                    <h2>Registry</h2>
+                    <div class="registry-content">
+                        <p>Your presence at our wedding is the greatest gift of all 🧡</p>
+                        <p>If you would like to give us a gift, we are saving for our honeymoon and would be delighted with a contribution. Please use the following link to join us in creating these memories.</p>
+                        <p><strong>No box gifts please.</strong></p>
+                        <a href="https://monzo.me/darshanashah?h=KrrTNv" target="_blank" rel="noopener noreferrer" class="registry-link">Contribute to Our Honeymoon</a>
+                    </div>
                 </div>
             </div>
 
-            <!-- RSVP Section (SIMPLIFIED - NO BREAKFAST, NO DECLINE NOTE) -->
+            <!-- RSVP (Simplified — no breakfast, no decline note) -->
             <div id="rsvp" class="content-section" data-photo="images/indian-rsvp.jpg">
-                <img class="mobile-section-photo" src="images/indian-rsvp.jpg" alt="RSVP" onerror="this.src='images/indian-home.jpg'">
-                <h2>RSVP</h2>
-                <div class="rsvp-deadline">Please RSVP by 1st March</div>
-                
-                <div class="rsvp-wizard" id="rsvpWizard">
-                    <div id="successMessage" class="message success hidden">
-                        <p>🎉 Thank you for your RSVP! We can't wait to celebrate with you at our Indian wedding!</p>
+                <img class="mobile-section-photo" src="images/indian-rsvp.jpg" alt="RSVP" onerror="this.style.display='none'">
+                <div class="fade-in-section">
+                    <h2>RSVP</h2>
+                    <div class="rsvp-deadline">Please RSVP by 1st March</div>
+                    
+                    <div class="rsvp-progress" id="rsvpProgress" aria-label="RSVP progress">
+                        <div class="progress-step active" id="prog1"></div>
+                        <div class="progress-step" id="prog2"></div>
+                        <div class="progress-step" id="prog3"></div>
+                        <div class="progress-step" id="prog4"></div>
                     </div>
-                    <div id="errorMessage" class="message error hidden">
-                        <p>❌ Sorry, there was an error. Please try again or contact us directly.</p>
-                    </div>
-
-                    <!-- Step 1: Name and Email -->
-                    <div class="wizard-step active" id="step1">
-                        <div class="step-title">Enter your details to RSVP</div>
-                        <div class="form-group">
-                            <label for="submitterName">Your Name *</label>
-                            <input type="text" id="submitterName" required>
+                    
+                    <div class="rsvp-wizard" id="rsvpWizard">
+                        <div id="successMessage" class="message success hidden">
+                            <p>🎉 Thank you for your RSVP! We can't wait to celebrate with you at our Indian wedding!</p>
                         </div>
-                        <div class="form-group">
-                            <label for="submitterEmail">Your Email Address *</label>
-                            <input type="email" id="submitterEmail" required>
+                        <div id="errorMessage" class="message error hidden">
+                            <p>❌ Sorry, there was an error. Please try again or contact us directly.</p>
                         </div>
-                        <div class="wizard-buttons">
-                            <div></div>
-                            <button class="btn" onclick="nextStep(1)">Next</button>
+
+                        <div class="wizard-step active" id="step1">
+                            <div class="step-title">Enter your details to RSVP</div>
+                            <div class="form-group">
+                                <label for="submitterName">Your Name *</label>
+                                <input type="text" id="submitterName" required autocomplete="name" aria-required="true">
+                                <div class="field-error" id="nameError">Please enter your name</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="submitterEmail">Your Email Address *</label>
+                                <input type="email" id="submitterEmail" required autocomplete="email" aria-required="true">
+                                <div class="field-error" id="emailError">Please enter a valid email address</div>
+                            </div>
+                            <div class="wizard-buttons">
+                                <div></div>
+                                <button class="btn" onclick="nextStep(1)">Next</button>
+                            </div>
                         </div>
-                    </div>
 
-                    <!-- Dynamic person steps will be inserted here -->
-                    <div id="personSteps"></div>
+                        <div id="personSteps"></div>
 
-                    <!-- Final step -->
-                    <div class="wizard-step" id="finalStep">
-                        <div class="step-title">Review & Submit</div>
-                        <div id="rsvpSummary"></div>
-                        <div class="wizard-buttons">
-                            <button class="btn btn-secondary" onclick="startNewRSVP()">Start Over</button>
-                            <button class="btn" onclick="submitRSVP()">Submit RSVP</button>
+                        <div class="wizard-step" id="finalStep">
+                            <div class="step-title">Review & Submit</div>
+                            <div id="rsvpSummary"></div>
+                            <div class="wizard-buttons">
+                                <button class="btn btn-secondary" onclick="startNewRSVP()">Start Over</button>
+                                <button class="btn" id="submitBtn" onclick="submitRSVP()">Submit RSVP</button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Q&A Section -->
+            <!-- Q&A -->
             <div id="qa" class="content-section" data-photo="images/indian-qa.jpg">
-                <img class="mobile-section-photo" src="images/indian-qa.jpg" alt="Q&A" onerror="this.src='images/indian-home.jpg'">
-                <h2>Q & A</h2>
-                
-                <div class="qa-item">
-                    <div class="qa-question">What is the RSVP deadline?</div>
-                    <div class="qa-answer">Please RSVP by 1st March 2026</div>
-                </div>
-
-                <div class="qa-item">
-                    <div class="qa-question">What time should I arrive?</div>
-                    <div class="qa-answer">Coming soon! We are confirming the auspicious time to get married with our Maharaj. The farewell will be around 5pm</div>
-                </div>
-
-                <div class="qa-item">
-                    <div class="qa-question">Can I bring a plus-one?</div>
-                    <div class="qa-answer">We have tried to include everyone we would love to celebrate with and unfortunately we can't accommodate plus-ones</div>
-                </div>
-
-                <div class="qa-item">
-                    <div class="qa-question">Are children welcome?</div>
-                    <div class="qa-answer">Yes children are welcome! We kindly ask that if they become a bit noisy during the ceremony, you step outside so everyone can hear and enjoy the moment. There's also a play part on the premises that can be used throughout the day</div>
-                </div>
-
-                <div class="qa-item">
-                    <div class="qa-question">What if I have dietary restrictions?</div>
-                    <div class="qa-answer">Please let us know about any dietary requirements when you RSVP, and we'll make sure you're well taken care of!</div>
-                </div>
-
-                <div class="qa-item">
-                    <div class="qa-question">What is the dress code?</div>
-                    <div class="qa-answer">Traditional Indian attire is preferred and encouraged! Think saris, lehengas, or salwar kameez for women, and kurtas or sherwanis for men. Bright colours are welcome and celebrated (just not red)</div>
-                </div>
-
-                <div class="qa-item">
-                    <div class="qa-question">Where can I buy Indian clothes?</div>
-                    <div class="qa-answer">
-                        Ealing Road, Wembley<br>
-                        <a href="https://www.houseofindya.com/" target="_blank">https://www.houseofindya.com/</a><br><br>
-                        For any clothing-related questions or if you just want a second opinion, please text Darshna
+                <img class="mobile-section-photo" src="images/indian-qa.jpg" alt="Q&A" onerror="this.style.display='none'">
+                <div class="fade-in-section">
+                    <h2>Q & A</h2>
+                    
+                    <div class="qa-item">
+                        <div class="qa-question" onclick="toggleQA(this)" role="button" tabindex="0" aria-expanded="false">What is the RSVP deadline?</div>
+                        <div class="qa-answer">Please RSVP by 1st March 2026</div>
                     </div>
-                </div>
 
-                <div class="qa-item">
-                    <div class="qa-question">How long will the ceremony be?</div>
-                    <div class="qa-answer">Our ceremony will last approximately 1 hour with various rituals and traditions. There will be explanations provided for those unfamiliar with the customs</div>
-                </div>
+                    <div class="qa-item">
+                        <div class="qa-question" onclick="toggleQA(this)" role="button" tabindex="0" aria-expanded="false">What time should I arrive?</div>
+                        <div class="qa-answer">Please arrive by 10:45am. The Jaan (groom's arrival) begins at 11:00am and the ceremony starts at 11:30am. The farewell will be around 4pm.</div>
+                    </div>
 
-                <div class="qa-item">
-                    <div class="qa-question">What if I don't understand the rituals?</div>
-                    <div class="qa-answer">Don't worry! The Maharaj will be explaining the significance of different rituals throughout the ceremony so everyone can appreciate the beautiful traditions.</div>
-                </div>
+                    <div class="qa-item">
+                        <div class="qa-question" onclick="toggleQA(this)" role="button" tabindex="0" aria-expanded="false">Can I bring a plus-one?</div>
+                        <div class="qa-answer">We have tried to include everyone we would love to celebrate with and unfortunately we can't accommodate plus-ones</div>
+                    </div>
 
-                <div class="qa-item">
-                    <div class="qa-question">Will there be vegetarian food?</div>
-                    <div class="qa-answer">Yes! The entire menu will be vegetarian, following traditional Indian wedding customs. There will be a wide variety of delicious dishes to enjoy.</div>
-                </div>
+                    <div class="qa-item">
+                        <div class="qa-question" onclick="toggleQA(this)" role="button" tabindex="0" aria-expanded="false">Are children welcome?</div>
+                        <div class="qa-answer">Yes children are welcome! We kindly ask that if they become a bit noisy during the ceremony, you step outside so everyone can hear and enjoy the moment. There's also a play part on the premises that can be used throughout the day</div>
+                    </div>
 
-                <div class="qa-item">
-                    <div class="qa-question">Can I take pictures during the wedding?</div>
-                    <div class="qa-answer">We kindly request an unplugged ceremony so please keep phones and cameras tucked away. We will have a professional photographer and videographer throughout the day. You are more than welcome to take your own photos and videos before and after the ceremony. For privacy reasons, some children cannot be shared online. Please refrain from posting any photos of children on social media unless you have parental consent.</div>
-                </div>
+                    <div class="qa-item">
+                        <div class="qa-question" onclick="toggleQA(this)" role="button" tabindex="0" aria-expanded="false">What if I have dietary restrictions?</div>
+                        <div class="qa-answer">Please let us know about any dietary requirements when you RSVP, and we'll make sure you're well taken care of!</div>
+                    </div>
 
-                <div class="qa-item">
-                    <div class="qa-question">Where should I stay?</div>
-                    <div class="qa-answer">The farewell will be at 5pm so you may not need accommodations. If you would like to stay overnight, there are plenty of hotel options listed in our Accommodations section above</div>
-                </div>
+                    <div class="qa-item">
+                        <div class="qa-question" onclick="toggleQA(this)" role="button" tabindex="0" aria-expanded="false">What is the dress code?</div>
+                        <div class="qa-answer">Traditional Indian attire is preferred and encouraged! Think saris, lehengas, or salwar kameez for women, and kurtas or sherwanis for men. Bright colours are welcome and celebrated (just not red)</div>
+                    </div>
 
-                <div class="qa-item">
-                    <div class="qa-question">Will there be parking available?</div>
-                    <div class="qa-answer">Yes, there is plenty of free parking available at Oshwal Centre. There are no electric car charging points unfortunately</div>
-                </div>
+                    <div class="qa-item">
+                        <div class="qa-question" onclick="toggleQA(this)" role="button" tabindex="0" aria-expanded="false">Where can I buy Indian clothes?</div>
+                        <div class="qa-answer">
+                            Ealing Road, Wembley<br>
+                            <a href="https://www.houseofindya.com/" target="_blank" rel="noopener noreferrer">www.houseofindya.com</a><br><br>
+                            For any clothing-related questions or if you just want a second opinion, please text Darshna
+                        </div>
+                    </div>
 
-                <div class="qa-item">
-                    <div class="qa-question">Do I need to book a taxi?</div>
-                    <div class="qa-answer">Yes, a taxi/uber should be pre-booked. A list of local taxis can be found on <a href="#travel" onclick="scrollToSection('travel')">Travel</a></div>
-                </div>
+                    <div class="qa-item">
+                        <div class="qa-question" onclick="toggleQA(this)" role="button" tabindex="0" aria-expanded="false">How long will the ceremony be?</div>
+                        <div class="qa-answer">Our ceremony will last approximately 1 hour with various rituals and traditions. There will be explanations provided for those unfamiliar with the customs</div>
+                    </div>
 
-                <div class="qa-item">
-                    <div class="qa-question">Is the venue wheelchair accessible?</div>
-                    <div class="qa-answer">Yes, Oshwal Centre is fully wheelchair accessible with ramps and accessible facilities.</div>
-                </div>
+                    <div class="qa-item">
+                        <div class="qa-question" onclick="toggleQA(this)" role="button" tabindex="0" aria-expanded="false">What if I don't understand the rituals?</div>
+                        <div class="qa-answer">Don't worry! The Maharaj will be explaining the significance of different rituals throughout the ceremony so everyone can appreciate the beautiful traditions.</div>
+                    </div>
 
-                <div class="qa-item">
-                    <div class="qa-question">Whom should I contact with questions?</div>
-                    <div class="qa-answer">If you have any questions that haven't been answered here, please call/text Darshna or Michael or email us at shahrosewedding@gmail.com</div>
+                    <div class="qa-item">
+                        <div class="qa-question" onclick="toggleQA(this)" role="button" tabindex="0" aria-expanded="false">Will there be vegetarian food?</div>
+                        <div class="qa-answer">Yes! The entire menu will be vegetarian, following traditional Indian wedding customs. There will be a wide variety of delicious dishes to enjoy.</div>
+                    </div>
+
+                    <div class="qa-item">
+                        <div class="qa-question" onclick="toggleQA(this)" role="button" tabindex="0" aria-expanded="false">Can I take pictures during the wedding?</div>
+                        <div class="qa-answer">We kindly request an unplugged ceremony so please keep phones and cameras tucked away. We will have a professional photographer and videographer throughout the day. You are more than welcome to take your own photos and videos before and after the ceremony.<br><br><em>For privacy reasons, some children cannot be shared online. Please refrain from posting any photos of children on social media unless you have parental consent.</em></div>
+                    </div>
+
+                    <div class="qa-item">
+                        <div class="qa-question" onclick="toggleQA(this)" role="button" tabindex="0" aria-expanded="false">Where should I stay?</div>
+                        <div class="qa-answer">The farewell will be at 5pm so you may not need accommodations. If you would like to stay overnight, there are plenty of hotel options listed in our Accommodations section above</div>
+                    </div>
+
+                    <div class="qa-item">
+                        <div class="qa-question" onclick="toggleQA(this)" role="button" tabindex="0" aria-expanded="false">Will there be parking available?</div>
+                        <div class="qa-answer">Yes, there is plenty of free parking available at Oshwal Centre. There are no electric car charging points unfortunately</div>
+                    </div>
+
+                    <div class="qa-item">
+                        <div class="qa-question" onclick="toggleQA(this)" role="button" tabindex="0" aria-expanded="false">Do I need to book a taxi?</div>
+                        <div class="qa-answer">Yes, a taxi/uber should be pre-booked. A list of local taxis can be found on <a href="#travel" onclick="scrollToSection('travel')">Travel</a></div>
+                    </div>
+
+                    <div class="qa-item">
+                        <div class="qa-question" onclick="toggleQA(this)" role="button" tabindex="0" aria-expanded="false">Is the venue wheelchair accessible?</div>
+                        <div class="qa-answer">Yes, Oshwal Centre is fully wheelchair accessible with ramps and accessible facilities.</div>
+                    </div>
+
+                    <div class="qa-item">
+                        <div class="qa-question" onclick="toggleQA(this)" role="button" tabindex="0" aria-expanded="false">Whom should I contact with questions?</div>
+                        <div class="qa-answer">If you have any questions that haven't been answered here, please call/text Darshna or Michael or email us at <a href="mailto:shahrosewedding@gmail.com">shahrosewedding@gmail.com</a></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1039,445 +1016,274 @@
             <div>Darshna & Michael</div>
             <div>10th May 2026</div>
             <div>Oshwal Centre, Hertfordshire</div>
+            <div class="footer-contact">
+                Questions? <a href="mailto:shahrosewedding@gmail.com">shahrosewedding@gmail.com</a>
+            </div>
         </div>
     </div>
 
     <script>
-        // RSVP Variables
         let currentPersonIndex = 0;
         let allRsvpResponses = [];
         let currentPersonResponse = {};
 
-        // Menu functionality
         function toggleMenu() {
             const nav = document.getElementById('mainNav');
             const hamburger = document.getElementById('hamburger');
             const overlay = document.getElementById('menuOverlay');
-            
-            nav.classList.toggle('active');
+            const isOpen = nav.classList.toggle('active');
             hamburger.classList.toggle('active');
             overlay.classList.toggle('active');
-            
-            document.body.style.overflow = nav.classList.contains('active') ? 'hidden' : 'auto';
+            hamburger.setAttribute('aria-expanded', isOpen);
+            document.body.style.overflow = isOpen ? 'hidden' : 'auto';
+            if (isOpen) { const fl = nav.querySelector('a'); if (fl) fl.focus(); }
         }
 
-        // Scroll to section
-        function scrollToSection(sectionId) {
-            const element = document.getElementById(sectionId);
-            if (element) {
-                const targetPosition = element.offsetTop;
-                
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
-                
-                const photoElement = element.getAttribute('data-photo');
-                if (photoElement) {
-                    const photoImg = document.getElementById('mainPhoto');
-                    if (photoImg) {
-                        setTimeout(() => {
-                            photoImg.src = photoElement;
-                        }, 300);
-                    }
-                }
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const nav = document.getElementById('mainNav');
+                if (nav.classList.contains('active')) { toggleMenu(); document.getElementById('hamburger').focus(); }
             }
-            
-            toggleMenu();
+            if ((e.key === 'Enter' || e.key === ' ') && e.target.classList.contains('qa-question')) {
+                e.preventDefault(); toggleQA(e.target);
+            }
+        });
+
+        function scrollToSection(sectionId) {
+            const el = document.getElementById(sectionId);
+            if (el) {
+                el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                const ph = el.getAttribute('data-photo');
+                if (ph) { const pi = document.getElementById('mainPhoto'); if (pi) setTimeout(() => { pi.src = ph; }, 300); }
+            }
+            const nav = document.getElementById('mainNav');
+            if (nav.classList.contains('active')) toggleMenu();
         }
 
-        // Photo changing on scroll
         function setupPhotoChanging() {
             const photoImg = document.getElementById('mainPhoto');
             const sections = document.querySelectorAll('.content-section[data-photo]');
-            
             if (!photoImg || sections.length === 0) return;
+            sections.forEach(s => { const src = s.getAttribute('data-photo'); if (src) { const img = new Image(); img.src = src; } });
             
-            sections.forEach(section => {
-                const photoSrc = section.getAttribute('data-photo');
-                if (photoSrc) {
-                    const img = new Image();
-                    img.src = photoSrc;
-                }
-            });
-            
-            function updatePhotoOnScroll() {
-                let currentSection = null;
-                let maxVisibility = 0;
-                
-                sections.forEach(section => {
-                    const rect = section.getBoundingClientRect();
-                    const viewportHeight = window.innerHeight;
-                    
-                    const visibleTop = Math.max(0, rect.top);
-                    const visibleBottom = Math.min(viewportHeight, rect.bottom);
-                    const visibleHeight = Math.max(0, visibleBottom - visibleTop);
-                    const visibilityRatio = visibleHeight / viewportHeight;
-                    
-                    if (visibilityRatio > maxVisibility) {
-                        maxVisibility = visibilityRatio;
-                        currentSection = section;
-                    }
+            function update() {
+                let cur = null, max = 0;
+                sections.forEach(s => {
+                    const r = s.getBoundingClientRect(), vh = window.innerHeight;
+                    const v = Math.max(0, Math.min(vh, r.bottom) - Math.max(0, r.top)) / vh;
+                    if (v > max) { max = v; cur = s; }
                 });
-                
-                if (currentSection && maxVisibility > 0.2) {
-                    const newPhoto = currentSection.getAttribute('data-photo');
-                    if (newPhoto && photoImg.src.indexOf(newPhoto) === -1) {
-                        const testImg = new Image();
-                        testImg.onload = function() {
-                            photoImg.style.opacity = '0';
-                            setTimeout(() => {
-                                photoImg.src = newPhoto;
-                                photoImg.style.opacity = '1';
-                            }, 300);
-                        };
-                        testImg.onerror = function() {
-                            photoImg.src = 'images/indian-home.jpg';
-                        };
-                        testImg.src = newPhoto;
+                if (cur && max > 0.2) {
+                    const np = cur.getAttribute('data-photo');
+                    if (np && !photoImg.src.endsWith(np)) {
+                        const t = new Image();
+                        t.onload = () => { photoImg.style.opacity = '0'; setTimeout(() => { photoImg.src = np; photoImg.style.opacity = '1'; }, 300); };
+                        t.onerror = () => { photoImg.style.display = 'none'; };
+                        t.src = np;
                     }
                 }
             }
-            
             photoImg.style.transition = 'opacity 0.3s ease';
-            
             let ticking = false;
-            window.addEventListener('scroll', function() {
-                if (!ticking) {
-                    window.requestAnimationFrame(function() {
-                        updatePhotoOnScroll();
-                        ticking = false;
-                    });
-                    ticking = true;
-                }
-            });
-            
-            updatePhotoOnScroll();
+            window.addEventListener('scroll', () => { if (!ticking) { window.requestAnimationFrame(() => { update(); ticking = false; }); ticking = true; } });
+            update();
         }
 
-        // Countdown timer
         function updateCountdown() {
-            const weddingDate = new Date('2026-05-10T00:00:00');
-            const now = new Date();
-            const difference = weddingDate - now;
-            const days = Math.ceil(difference / (1000 * 60 * 60 * 24));
-            
-            const element = document.getElementById('countdown');
-            if (element) {
-                element.textContent = days > 0 ? days : '0';
-            }
+            const diff = new Date('2026-05-10T11:00:00') - new Date();
+            if (diff <= 0) { document.getElementById('countDays').textContent='0'; document.getElementById('countHours').textContent='00'; document.getElementById('countMins').textContent='00'; return; }
+            document.getElementById('countDays').textContent = Math.floor(diff/(1000*60*60*24));
+            document.getElementById('countHours').textContent = String(Math.floor((diff%(1000*60*60*24))/(1000*60*60))).padStart(2,'0');
+            document.getElementById('countMins').textContent = String(Math.floor((diff%(1000*60*60))/(1000*60))).padStart(2,'0');
         }
 
-        // RSVP Functions (SIMPLIFIED - NO BREAKFAST, NO DECLINE NOTE)
+        function setupScrollAnimations() {
+            const obs = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.1 });
+            document.querySelectorAll('.fade-in-section').forEach(el => obs.observe(el));
+        }
+
+        function toggleQA(element) {
+            const item = element.parentElement, isOpen = item.classList.contains('open');
+            document.querySelectorAll('.qa-item').forEach(q => { q.classList.remove('open'); q.querySelector('.qa-question').setAttribute('aria-expanded','false'); });
+            if (!isOpen) { item.classList.add('open'); element.setAttribute('aria-expanded','true'); }
+        }
+
+        function updateProgress(step) {
+            for (let i=1;i<=4;i++) { const el=document.getElementById('prog'+i); el.classList.remove('active','completed'); if(i<step) el.classList.add('completed'); if(i===step) el.classList.add('active'); }
+        }
+
         function nextStep(step) {
             if (step === 1) {
-                const name = document.getElementById('submitterName').value.trim();
-                const email = document.getElementById('submitterEmail').value.trim();
-                
-                if (!name || !email) {
-                    alert('Please enter your name and email address');
-                    return;
-                }
-                
-                currentPersonIndex = 0;
-                allRsvpResponses = [];
-                startPersonRSVP(name, email);
+                const ni=document.getElementById('submitterName'), ei=document.getElementById('submitterEmail');
+                const name=ni.value.trim(), email=ei.value.trim();
+                let valid=true;
+                ni.classList.remove('error-border'); ei.classList.remove('error-border');
+                document.getElementById('nameError').classList.remove('visible'); document.getElementById('emailError').classList.remove('visible');
+                if (!name) { ni.classList.add('error-border'); document.getElementById('nameError').classList.add('visible'); ni.focus(); valid=false; }
+                if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { ei.classList.add('error-border'); document.getElementById('emailError').classList.add('visible'); if(valid) ei.focus(); valid=false; }
+                if (!valid) return;
+                currentPersonIndex=0; allRsvpResponses=[]; startPersonRSVP(name,email); updateProgress(2);
             }
         }
 
         function startPersonRSVP(name, email) {
-            currentPersonResponse = {
-                name: name,
-                email: email,
-                attending: null,
-                dietary: [],
-                dietaryOther: ''
-            };
-            
-            createCurrentPersonStep();
-            showCurrentPersonStep();
+            currentPersonResponse = { name, email, attending:null, dietary:[], dietaryOther:'' };
+            createCurrentPersonStep(); showCurrentPersonStep();
         }
 
         function createCurrentPersonStep() {
-            const container = document.getElementById('personSteps');
-            container.innerHTML = '';
-            
-            const stepDiv = document.createElement('div');
-            stepDiv.className = 'wizard-step active';
-            stepDiv.id = 'currentPersonStep';
-            
-            stepDiv.innerHTML = `
+            const c = document.getElementById('personSteps'); c.innerHTML = '';
+            const d = document.createElement('div'); d.className='wizard-step active'; d.id='currentPersonStep';
+            d.innerHTML = `
                 <div class="person-indicator">RSVP for: <strong>${currentPersonResponse.name}</strong></div>
                 <div class="step-title">Will you be attending?</div>
                 <div class="attendance-buttons">
-                    <div class="attendance-btn accept" onclick="selectAttendance('accept')">
-                        Yes I can! 🤗
-                    </div>
-                    <div class="attendance-btn decline" onclick="selectAttendance('decline')">
-                        Sorry I can't make it ☹️
-                    </div>
+                    <div class="attendance-btn accept" onclick="selectAttendance('accept')" role="button" tabindex="0">Yes I can! 🤗</div>
+                    <div class="attendance-btn decline" onclick="selectAttendance('decline')" role="button" tabindex="0">Sorry I can't make it ☹️</div>
                 </div>
                 <div id="acceptQuestions" class="hidden">
-                    <div class="buffet-notice" style="margin-top: 2rem;">
+                    <div class="buffet-notice" style="margin-top:2rem;">
                         <h4>Wedding Lunch</h4>
-                        <p>The wedding lunch will be served as a buffet allowing you to help yourself to the dishes we have chosen. All dishes will be vegetarian. As Oshwal Centre is religious venue, it is a dry wedding.</p>
+                        <p style="margin:0;">The wedding lunch will be served as a buffet allowing you to help yourself to the dishes we have chosen. All dishes will be vegetarian. As Oshwal Centre is a religious venue, it is a dry wedding.</p>
                     </div>
-                    
                     <div class="form-group">
                         <label>Any dietary requirements?</label>
                         <div class="checkbox-group">
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="dietary-gluten" value="Gluten free" onchange="updateDietary()">
-                                <label for="dietary-gluten">Gluten free</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="dietary-vegan" value="Vegan" onchange="updateDietary()">
-                                <label for="dietary-vegan">Vegan</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="dietary-dairy" value="Dairy free" onchange="updateDietary()">
-                                <label for="dietary-dairy">Dairy free</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="dietary-other" value="Other" onchange="toggleOtherDietary()">
-                                <label for="dietary-other">Other</label>
-                            </div>
+                            <div class="checkbox-item"><input type="checkbox" id="dietary-gluten" value="Gluten free" onchange="updateDietary()"><label for="dietary-gluten">Gluten free</label></div>
+                            <div class="checkbox-item"><input type="checkbox" id="dietary-vegan" value="Vegan" onchange="updateDietary()"><label for="dietary-vegan">Vegan</label></div>
+                            <div class="checkbox-item"><input type="checkbox" id="dietary-dairy" value="Dairy free" onchange="updateDietary()"><label for="dietary-dairy">Dairy free</label></div>
+                            <div class="checkbox-item"><input type="checkbox" id="dietary-other" value="Other" onchange="toggleOtherDietary()"><label for="dietary-other">Other</label></div>
                         </div>
-                        <div id="otherDietaryField" class="other-dietary-field">
-                            <input type="text" id="dietaryOtherText" placeholder="Please specify..." onchange="updateDietary()">
-                        </div>
+                        <div id="otherDietaryField" class="other-dietary-field"><input type="text" id="dietaryOtherText" placeholder="Please specify..." onchange="updateDietary()"></div>
                     </div>
                 </div>
                 <div class="wizard-buttons">
                     <button class="btn btn-secondary" onclick="goBackToInitial()">Previous</button>
                     <button class="btn" onclick="finishCurrentPerson()">Next</button>
-                </div>
-            `;
-            
-            container.appendChild(stepDiv);
+                </div>`;
+            c.appendChild(d);
         }
 
         function showCurrentPersonStep() {
             document.getElementById('step1').classList.remove('active');
             document.getElementById('finalStep').classList.remove('active');
-            
-            const addAnotherStep = document.getElementById('addAnotherStep');
-            if (addAnotherStep) {
-                addAnotherStep.classList.remove('active');
-            }
-            
+            const a=document.getElementById('addAnotherStep'); if(a) a.classList.remove('active');
             document.getElementById('currentPersonStep').classList.add('active');
         }
 
         function selectAttendance(type) {
-            const acceptBtn = document.querySelector('#currentPersonStep > .attendance-buttons .attendance-btn.accept');
-            const declineBtn = document.querySelector('#currentPersonStep > .attendance-buttons .attendance-btn.decline');
-            const acceptQuestions = document.getElementById('acceptQuestions');
-            
-            acceptBtn.classList.remove('selected');
-            declineBtn.classList.remove('selected');
-            acceptQuestions.classList.add('hidden');
-            
-            if (type === 'accept') {
-                acceptBtn.classList.add('selected');
-                acceptQuestions.classList.remove('hidden');
-                currentPersonResponse.attending = 'Yes I can!';
-            } else {
-                declineBtn.classList.add('selected');
-                currentPersonResponse.attending = 'Sorry I can\'t make it';
-            }
+            const ab=document.querySelector('#currentPersonStep > .attendance-buttons .attendance-btn.accept');
+            const db=document.querySelector('#currentPersonStep > .attendance-buttons .attendance-btn.decline');
+            const aq=document.getElementById('acceptQuestions');
+            ab.classList.remove('selected'); db.classList.remove('selected'); aq.classList.add('hidden');
+            if(type==='accept') { ab.classList.add('selected'); aq.classList.remove('hidden'); currentPersonResponse.attending='Yes I can!'; }
+            else { db.classList.add('selected'); currentPersonResponse.attending='Sorry I can\'t make it'; }
         }
 
         function toggleOtherDietary() {
-            const otherCheckbox = document.getElementById('dietary-other');
-            const otherField = document.getElementById('otherDietaryField');
-            
-            if (otherCheckbox.checked) {
-                otherField.classList.add('active');
-            } else {
-                otherField.classList.remove('active');
-                document.getElementById('dietaryOtherText').value = '';
-            }
+            const cb=document.getElementById('dietary-other'), f=document.getElementById('otherDietaryField');
+            if(cb.checked) f.classList.add('active'); else { f.classList.remove('active'); document.getElementById('dietaryOtherText').value=''; }
             updateDietary();
         }
 
         function updateDietary() {
-            const dietary = [];
-            
-            if (document.getElementById('dietary-gluten').checked) dietary.push('Gluten free');
-            if (document.getElementById('dietary-vegan').checked) dietary.push('Vegan');
-            if (document.getElementById('dietary-dairy').checked) dietary.push('Dairy free');
-            
-            const otherText = document.getElementById('dietaryOtherText').value.trim();
-            if (document.getElementById('dietary-other').checked && otherText) {
-                dietary.push('Other: ' + otherText);
-            }
-            
-            currentPersonResponse.dietary = dietary;
+            const d=[];
+            if(document.getElementById('dietary-gluten').checked) d.push('Gluten free');
+            if(document.getElementById('dietary-vegan').checked) d.push('Vegan');
+            if(document.getElementById('dietary-dairy').checked) d.push('Dairy free');
+            const ot=document.getElementById('dietaryOtherText').value.trim();
+            if(document.getElementById('dietary-other').checked && ot) d.push('Other: '+ot);
+            currentPersonResponse.dietary=d;
         }
 
         function finishCurrentPerson() {
-            if (!currentPersonResponse.attending) {
-                alert('Please select whether you will be attending.');
-                return;
-            }
-            
-            if (currentPersonResponse.attending === 'Yes I can!') {
-                updateDietary();
-            }
-            
-            allRsvpResponses.push({...currentPersonResponse});
-            showAddAnotherStep();
+            if(!currentPersonResponse.attending) { alert('Please select whether you will be attending.'); return; }
+            if(currentPersonResponse.attending==='Yes I can!') updateDietary();
+            allRsvpResponses.push({...currentPersonResponse}); showAddAnotherStep(); updateProgress(3);
         }
 
         function showAddAnotherStep() {
             document.getElementById('currentPersonStep').classList.remove('active');
-            
-            let addAnotherStep = document.getElementById('addAnotherStep');
-            if (!addAnotherStep) {
-                addAnotherStep = document.createElement('div');
-                addAnotherStep.className = 'wizard-step';
-                addAnotherStep.id = 'addAnotherStep';
-                addAnotherStep.innerHTML = `
-                    <div class="step-title">Do you need to RSVP for anyone else?</div>
-                    <div class="person-indicator">You have completed ${allRsvpResponses.length} RSVP${allRsvpResponses.length > 1 ? 's' : ''}</div>
-                    <div class="attendance-buttons">
-                        <div class="attendance-btn accept" onclick="addAnotherPerson()">
-                            Yes
-                        </div>
-                        <div class="attendance-btn decline" onclick="proceedToFinal()">
-                            No
-                        </div>
-                    </div>
-                    <div class="wizard-buttons">
-                        <div></div>
-                        <div></div>
-                    </div>
-                `;
-                document.getElementById('personSteps').appendChild(addAnotherStep);
-            }
-            
-            addAnotherStep.querySelector('.person-indicator').innerHTML = 
-                `You have completed ${allRsvpResponses.length} RSVP${allRsvpResponses.length > 1 ? 's' : ''}`;
-            
-            addAnotherStep.classList.add('active');
+            let s=document.getElementById('addAnotherStep');
+            if(!s) { s=document.createElement('div'); s.className='wizard-step'; s.id='addAnotherStep'; document.getElementById('personSteps').appendChild(s); }
+            s.innerHTML = `
+                <div class="step-title">RSVP for anyone else?</div>
+                <div class="person-indicator">You have completed ${allRsvpResponses.length} RSVP${allRsvpResponses.length>1?'s':''}</div>
+                <div class="attendance-buttons">
+                    <div class="attendance-btn accept" onclick="showInlineAddForm()" role="button" tabindex="0">Yes</div>
+                    <div class="attendance-btn decline" onclick="proceedToFinal()" role="button" tabindex="0">No</div>
+                </div>
+                <div id="inlineAddForm" class="hidden" style="margin-top:2rem;">
+                    <div class="form-group"><label for="addPersonName">Their Name *</label><input type="text" id="addPersonName"></div>
+                    <div class="form-group"><label for="addPersonEmail">Their Email *</label><input type="email" id="addPersonEmail"></div>
+                    <div class="wizard-buttons"><div></div><button class="btn" onclick="addInlinePerson()">Continue</button></div>
+                </div>`;
+            s.classList.add('active');
         }
 
-        function addAnotherPerson() {
-            const name = prompt('Please enter the name of the person you want to RSVP for:');
-            if (!name || !name.trim()) return;
-            
-            const email = prompt('Please enter their email address (or your email if RSVPing on their behalf):');
-            if (!email || !email.trim()) return;
-            
-            startPersonRSVP(name.trim(), email.trim());
+        function showInlineAddForm() { document.getElementById('inlineAddForm').classList.remove('hidden'); document.getElementById('addPersonName').focus(); }
+
+        function addInlinePerson() {
+            const n=document.getElementById('addPersonName').value.trim(), e=document.getElementById('addPersonEmail').value.trim();
+            if(!n||!e) { alert('Please enter both name and email.'); return; }
+            startPersonRSVP(n,e);
         }
 
-        function proceedToFinal() {
-            showFinalStep();
-        }
+        function proceedToFinal() { showFinalStep(); updateProgress(4); }
 
         function goBackToInitial() {
             document.getElementById('currentPersonStep').classList.remove('active');
             document.getElementById('step1').classList.add('active');
-            
-            allRsvpResponses = [];
-            currentPersonResponse = {};
+            allRsvpResponses=[]; currentPersonResponse={}; updateProgress(1);
         }
 
         function startNewRSVP() {
-            allRsvpResponses = [];
-            currentPersonResponse = {};
-            
-            document.getElementById('submitterName').value = '';
-            document.getElementById('submitterEmail').value = '';
-            
-            document.getElementById('successMessage').classList.add('hidden');
-            document.getElementById('errorMessage').classList.add('hidden');
-            document.getElementById('rsvpWizard').style.display = 'block';
-            
-            document.getElementById('finalStep').classList.remove('active');
-            document.getElementById('step1').classList.add('active');
-            
-            document.getElementById('personSteps').innerHTML = '';
+            allRsvpResponses=[]; currentPersonResponse={};
+            document.getElementById('submitterName').value=''; document.getElementById('submitterEmail').value='';
+            document.getElementById('successMessage').classList.add('hidden'); document.getElementById('errorMessage').classList.add('hidden');
+            document.getElementById('rsvpWizard').style.display='block';
+            document.getElementById('finalStep').classList.remove('active'); document.getElementById('step1').classList.add('active');
+            document.getElementById('personSteps').innerHTML=''; updateProgress(1);
         }
 
         function showFinalStep() {
-            const addAnotherStep = document.getElementById('addAnotherStep');
-            if (addAnotherStep) {
-                addAnotherStep.classList.remove('active');
-            }
-            
+            const a=document.getElementById('addAnotherStep'); if(a) a.classList.remove('active');
             document.getElementById('finalStep').classList.add('active');
-            
-            const summaryDiv = document.getElementById('rsvpSummary');
-            let summaryHTML = `<h3>RSVP Summary (${allRsvpResponses.length} ${allRsvpResponses.length > 1 ? 'people' : 'person'})</h3>`;
-            
-            allRsvpResponses.forEach((response, index) => {
-                summaryHTML += `<div style="margin-bottom: 1rem; padding: 1rem; background: #FBF7E5; border-radius: 10px; border: 2px solid #8B2A2A;">`;
-                summaryHTML += `<strong>${response.name}</strong> - ${response.attending}<br>`;
-                summaryHTML += `<em>Email: ${response.email}</em><br>`;
-                
-                if (response.attending === 'Yes I can!') {
-                    if (response.dietary && response.dietary.length > 0) {
-                        summaryHTML += `<strong>Dietary:</strong> ${response.dietary.join(', ')}<br>`;
-                    }
-                }
-                
-                summaryHTML += `</div>`;
+            const sd=document.getElementById('rsvpSummary');
+            let h=`<h3>RSVP Summary (${allRsvpResponses.length} ${allRsvpResponses.length>1?'people':'person'})</h3>`;
+            allRsvpResponses.forEach(r => {
+                h+=`<div style="margin-bottom:1rem;padding:1rem;background:#FBF7E5;border-radius:10px;border:2px solid #8B2A2A;">`;
+                h+=`<strong>${r.name}</strong> - ${r.attending}<br><em>Email: ${r.email}</em><br>`;
+                if(r.attending==='Yes I can!' && r.dietary && r.dietary.length>0) h+=`<strong>Dietary:</strong> ${r.dietary.join(', ')}<br>`;
+                h+=`</div>`;
             });
-            
-            summaryDiv.innerHTML = summaryHTML;
+            sd.innerHTML=h;
         }
 
         async function submitRSVP() {
-            const submitBtn = event.target;
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Submitting...';
-            
+            const btn=document.getElementById('submitBtn'); btn.disabled=true; btn.textContent='Submitting...';
             try {
-                for (let i = 0; i < allRsvpResponses.length; i++) {
-                    const response = allRsvpResponses[i];
-                    const formData = new FormData();
-                    
-                    formData.append('submission_date', new Date().toISOString());
-                    formData.append('submitter_name', allRsvpResponses[0].name);
-                    formData.append('submitter_email', allRsvpResponses[0].email);
-                    formData.append('wedding_type', 'Indian Wedding - Oshwal');
-                    formData.append('guest_name', response.name);
-                    formData.append('guest_email', response.email);
-                    formData.append('attending', response.attending);
-                    formData.append('dietary', response.dietary.join(', ') || '');
-                    formData.append('total_in_submission', allRsvpResponses.length);
-                    formData.append('_subject', `Indian Wedding RSVP (Oshwal) - ${allRsvpResponses[0].name} (${allRsvpResponses.length} ${allRsvpResponses.length > 1 ? 'people' : 'person'})`);
-                    formData.append('_captcha', 'false');
-                    
-                    await fetch('https://formspree.io/f/mqebdrpz', {
-                        method: 'POST',
-                        body: formData,
-                        headers: {
-                            'Accept': 'application/json'
-                        }
-                    });
+                let ok=true;
+                for(let i=0;i<allRsvpResponses.length;i++) {
+                    const r=allRsvpResponses[i], fd=new FormData();
+                    fd.append('submission_date',new Date().toISOString());
+                    fd.append('submitter_name',allRsvpResponses[0].name); fd.append('submitter_email',allRsvpResponses[0].email);
+                    fd.append('wedding_type','Indian Wedding - Oshwal'); fd.append('guest_name',r.name); fd.append('guest_email',r.email);
+                    fd.append('attending',r.attending); fd.append('dietary',r.dietary.join(', ')||'');
+                    fd.append('total_in_submission',allRsvpResponses.length);
+                    fd.append('_subject',`Indian Wedding RSVP (Oshwal) - ${allRsvpResponses[0].name} (${allRsvpResponses.length} ${allRsvpResponses.length>1?'people':'person'})`);
+                    fd.append('_captcha','false');
+                    const res=await fetch('https://formspree.io/f/mqebdrpz',{method:'POST',body:fd,headers:{'Accept':'application/json'}});
+                    if(!res.ok) ok=false;
                 }
-                
-                document.getElementById('successMessage').classList.remove('hidden');
-                document.getElementById('rsvpWizard').style.display = 'none';
-                
-            } catch (error) {
-                console.error('Error:', error);
-                document.getElementById('errorMessage').classList.remove('hidden');
-            } finally {
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Submit RSVP';
-            }
+                if(ok) { document.getElementById('successMessage').classList.remove('hidden'); document.getElementById('rsvpWizard').style.display='none'; }
+                else document.getElementById('errorMessage').classList.remove('hidden');
+            } catch(e) { console.error(e); document.getElementById('errorMessage').classList.remove('hidden'); }
+            finally { btn.disabled=false; btn.textContent='Submit RSVP'; }
         }
 
-        // Initialize
         document.addEventListener('DOMContentLoaded', function() {
-            updateCountdown();
-            setupPhotoChanging();
-            setInterval(updateCountdown, 86400000);
+            updateCountdown(); setupPhotoChanging(); setupScrollAnimations(); setInterval(updateCountdown, 60000);
         });
     </script>
 </body>
