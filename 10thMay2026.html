@@ -33,10 +33,7 @@
         body::before {
             content: '';
             position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
+            top: 0; left: 0; right: 0; bottom: 0;
             background: 
                 radial-gradient(ellipse at 15% 70%, rgba(255, 182, 193, 0.15) 0%, transparent 60%),
                 radial-gradient(ellipse at 85% 30%, rgba(255, 218, 185, 0.2) 0%, transparent 60%),
@@ -47,8 +44,7 @@
         
         .skip-link {
             position: absolute;
-            top: -40px;
-            left: 0;
+            top: -40px; left: 0;
             background: #8B2A2A;
             color: white;
             padding: 8px 16px;
@@ -60,15 +56,13 @@
         }
         .skip-link:focus { top: 0; }
         
-        /* FONT STRATEGY:
-           Tangerine → h1, h2 only (big decorative titles)
-           Cormorant Garamond 600 → h3, h4, .step-title, .qa-question, etc. (functional headings) */
-        
+        /* ===== HYBRID FONT APPROACH ===== */
+        /* Tangerine: h1 and h2 ONLY */
         h1, h2 {
             font-family: 'Tangerine', cursive;
             font-weight: 700;
         }
-        
+        /* Cormorant Garamond 600: h3, h4, h5, h6 */
         h3, h4, h5, h6 {
             font-family: 'Cormorant Garamond', serif;
             font-weight: 600;
@@ -76,10 +70,10 @@
         
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 2; }
         
+        /* Header */
         .header {
             position: fixed;
-            top: 0;
-            left: 0;
+            top: 0; left: 0;
             z-index: 1000;
             padding: 20px;
         }
@@ -102,8 +96,7 @@
         }
         
         .hamburger span {
-            width: 30px;
-            height: 2px;
+            width: 30px; height: 2px;
             background: #36454F;
             transition: all 0.3s ease;
             border-radius: 2px;
@@ -112,20 +105,14 @@
         
         .hamburger:hover span { background: #8B2A2A; }
         
-        .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(5.5px, 5.5px);
-        }
+        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5.5px, 5.5px); }
         .hamburger.active span:nth-child(2) { opacity: 0; }
-        .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(5.5px, -5.5px);
-        }
+        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5.5px, -5.5px); }
         
         nav {
             position: fixed;
-            top: 0;
-            left: -100%;
-            width: 300px;
-            height: 100vh;
+            top: 0; left: -100%;
+            width: 300px; height: 100vh;
             background: rgba(246, 237, 231, 0.98);
             backdrop-filter: blur(10px);
             box-shadow: 5px 0 20px rgba(0,0,0,0.1);
@@ -151,32 +138,21 @@
             text-align: center;
         }
         
-        nav a:hover, nav a:focus-visible {
-            color: #8B2A2A;
-            transform: translateX(5px);
-        }
-        
-        nav a:focus-visible {
-            outline: 2px solid #8B2A2A;
-            outline-offset: 2px;
-            border-radius: 4px;
-        }
+        nav a:hover, nav a:focus-visible { color: #8B2A2A; transform: translateX(5px); }
+        nav a:focus-visible { outline: 2px solid #8B2A2A; outline-offset: 2px; border-radius: 4px; }
         
         .menu-overlay {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
             background: rgba(54, 69, 79, 0.5);
-            opacity: 0;
-            visibility: hidden;
+            opacity: 0; visibility: hidden;
             transition: all 0.3s ease;
             z-index: 998;
         }
-        
         .menu-overlay.active { opacity: 1; visibility: visible; }
         
+        /* Main Content */
         .main-content {
             display: grid;
             grid-template-columns: 60% 40%;
@@ -187,8 +163,7 @@
         
         .photo-section {
             position: sticky;
-            top: 0;
-            height: 100vh;
+            top: 0; height: 100vh;
             overflow: hidden;
             background: #ede4dd;
             display: flex;
@@ -197,8 +172,7 @@
         }
         
         .photo-section img {
-            width: 100%;
-            height: 100%;
+            width: 100%; height: 100%;
             object-fit: cover;
             transition: opacity 0.5s ease;
         }
@@ -214,7 +188,6 @@
             border-bottom: 1px solid #8B2A2A;
             background: #F6EDE7;
         }
-        
         .content-section:last-child { border-bottom: none; }
         
         .fade-in-section {
@@ -222,12 +195,11 @@
             transform: translateY(30px);
             transition: opacity 0.8s ease-out, transform 0.8s ease-out;
         }
-        .fade-in-section.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        .fade-in-section.visible { opacity: 1; transform: translateY(0); }
         
-        /* h1: Tangerine 4.5rem → 3.5rem mobile */
+        /* ===== HEADING SIZES (exact spec) ===== */
+        
+        /* h1 — Tangerine, decorative hero */
         .hero-content h1 {
             font-family: 'Tangerine', cursive;
             font-size: 4.5rem;
@@ -235,15 +207,15 @@
             margin-bottom: 1rem;
         }
         
-        /* h2: Tangerine 3rem → 2.5rem mobile */
+        /* h2 — Tangerine, section titles */
         .content-section h2 {
             font-family: 'Tangerine', cursive;
             font-size: 3rem;
-            color: #8B2A2A;
+            color: #36454F;
             margin-bottom: 2rem;
         }
         
-        /* h3: Cormorant 1.6rem → 1.4rem mobile, BLACK */
+        /* h3 — Cormorant Garamond 600, subsections */
         .content-section h3 {
             font-family: 'Cormorant Garamond', serif;
             font-weight: 600;
@@ -252,12 +224,30 @@
             margin: 2rem 0 1rem 0;
         }
         
-        /* h4: Cormorant 1.4rem → 1.25rem mobile, BLACK */
+        /* h3 inside .content-card — slightly larger */
+        .content-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            font-size: 2.2rem;
+            color: #36454F;
+            margin-bottom: 1rem;
+        }
+        
+        /* h4 general */
         .content-section h4 {
             font-family: 'Cormorant Garamond', serif;
             font-weight: 600;
             font-size: 1.4rem;
             color: #36454F;
+        }
+        
+        /* h4 accommodation cards — larger */
+        .accommodation-card h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            font-size: 1.8rem;
+            color: #36454F;
+            margin-bottom: 1rem;
         }
         
         .content-section p {
@@ -269,14 +259,14 @@
         
         .mobile-section-photo {
             display: none;
-            width: 100%;
-            height: 300px;
+            width: 100%; height: 300px;
             object-fit: cover;
             border-radius: 15px;
             margin-bottom: 2rem;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
         
+        /* Hero */
         .hero-content {
             text-align: center;
             padding: 3rem;
@@ -365,7 +355,7 @@
             font-weight: 600;
         }
         
-        /* Content Cards — h3 inside: Cormorant 2.2rem, BLACK */
+        /* Content Cards */
         .content-card {
             background: #F6EDE7;
             padding: 2rem;
@@ -375,15 +365,7 @@
             border: 2px solid #8B2A2A;
         }
         
-        .content-card h3 {
-            font-family: 'Cormorant Garamond', serif;
-            font-weight: 600;
-            font-size: 2.2rem;
-            color: #36454F;
-            margin-bottom: 1rem;
-        }
-        
-        /* Accommodations — h4: Cormorant 1.8rem, BLACK */
+        /* Accommodations */
         .accommodation-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -398,14 +380,6 @@
             box-shadow: 0 10px 25px rgba(0,0,0,0.1);
             text-align: center;
             border: 2px solid #8B2A2A;
-        }
-        
-        .accommodation-card h4 {
-            font-family: 'Cormorant Garamond', serif;
-            font-weight: 600;
-            font-size: 1.8rem;
-            color: #36454F;
-            margin-bottom: 1rem;
         }
         
         .accommodation-card .website { font-size: 1rem; color: #8B2A2A; margin-bottom: 0.5rem; }
@@ -435,11 +409,7 @@
             margin-top: 1rem;
             transition: all 0.3s ease;
         }
-        
-        .registry-link:hover, .registry-link:focus-visible {
-            background: #a03636;
-            transform: translateY(-2px);
-        }
+        .registry-link:hover, .registry-link:focus-visible { background: #a03636; transform: translateY(-2px); }
         
         /* RSVP */
         .rsvp-deadline {
@@ -455,17 +425,14 @@
             justify-content: center;
             gap: 0.5rem;
             margin-bottom: 2rem;
-            align-items: center;
         }
         .progress-step {
-            width: 40px;
-            height: 4px;
+            width: 40px; height: 4px;
             border-radius: 2px;
             background: rgba(139, 42, 42, 0.2);
             transition: background 0.3s ease;
         }
-        .progress-step.active { background: #8B2A2A; }
-        .progress-step.completed { background: #8B2A2A; }
+        .progress-step.active, .progress-step.completed { background: #8B2A2A; }
         
         .rsvp-wizard {
             background: #F6EDE7;
@@ -480,7 +447,7 @@
         .wizard-step { display: none; }
         .wizard-step.active { display: block; }
         
-        /* .step-title: Cormorant 2rem → 1.7rem mobile, BLACK */
+        /* step-title — Cormorant Garamond, not Tangerine */
         .step-title {
             font-family: 'Cormorant Garamond', serif;
             font-weight: 600;
@@ -499,8 +466,6 @@
         }
         
         .buffet-notice h4 {
-            font-family: 'Cormorant Garamond', serif;
-            font-weight: 600;
             color: #36454F;
             margin-bottom: 0.5rem;
             font-size: 1.4rem;
@@ -534,31 +499,12 @@
             box-shadow: 0 0 0 3px rgba(139, 42, 42, 0.15);
         }
         
-        .field-error {
-            color: #c0392b;
-            font-size: 0.9rem;
-            margin-top: 0.3rem;
-            display: none;
-        }
+        .field-error { color: #c0392b; font-size: 0.9rem; margin-top: 0.3rem; display: none; }
         .field-error.visible { display: block; }
-        .form-group input.error-border,
-        .form-group textarea.error-border {
-            border-color: #c0392b;
-        }
+        .form-group input.error-border, .form-group textarea.error-border { border-color: #c0392b; }
         
-        .checkbox-group {
-            display: flex;
-            flex-direction: column;
-            gap: 0.8rem;
-            margin-top: 0.5rem;
-        }
-        
-        .checkbox-item {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
+        .checkbox-group { display: flex; flex-direction: column; gap: 0.8rem; margin-top: 0.5rem; }
+        .checkbox-item { display: flex; align-items: center; gap: 0.5rem; }
         .checkbox-item input[type="checkbox"] { width: auto; margin: 0; }
         .checkbox-item label { margin: 0; font-weight: normal; color: #36454F; }
         
@@ -589,18 +535,9 @@
             border-color: #8B2A2A;
             background: rgba(139, 42, 42, 0.1);
         }
+        .attendance-btn.selected { border-color: #8B2A2A; background: #8B2A2A; color: white; }
         
-        .attendance-btn.selected {
-            border-color: #8B2A2A;
-            background: #8B2A2A;
-            color: white;
-        }
-        
-        .wizard-buttons {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 3rem;
-        }
+        .wizard-buttons { display: flex; justify-content: space-between; margin-top: 3rem; }
         
         .btn {
             background: linear-gradient(135deg, #8B2A2A 0%, #a03636 100%);
@@ -616,23 +553,9 @@
             text-transform: uppercase;
             letter-spacing: 1px;
         }
-        
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-        }
-        
-        .btn:focus-visible {
-            outline: 3px solid #36454F;
-            outline-offset: 3px;
-        }
-        
-        .btn:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-            transform: none;
-        }
-        
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.2); }
+        .btn:focus-visible { outline: 3px solid #36454F; outline-offset: 3px; }
+        .btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
         .btn-secondary { background: #ccc; color: #666; }
         .btn-secondary:hover { background: #bbb; }
         
@@ -645,19 +568,12 @@
             border-left: 4px solid #8B2A2A;
         }
         
-        .message {
-            padding: 1rem;
-            border-radius: 8px;
-            margin-bottom: 2rem;
-            text-align: center;
-            font-weight: 600;
-        }
-        
+        .message { padding: 1rem; border-radius: 8px; margin-bottom: 2rem; text-align: center; font-weight: 600; }
         .message.success { background-color: #d4f7d4; color: #2d5a2d; border: 2px solid #90d690; }
         .message.error { background-color: #f7d4d4; color: #5a2d2d; border: 2px solid #d69090; }
         .hidden { display: none; }
         
-        /* Q&A Accordion — Cormorant 1.6rem → 1.4rem mobile, BLACK */
+        /* Q&A Accordion — Cormorant Garamond for questions */
         .qa-item {
             background: #F6EDE7;
             border-radius: 15px;
@@ -678,7 +594,6 @@
             align-items: center;
             transition: background 0.2s ease;
         }
-        
         .qa-question:hover { background: rgba(139, 42, 42, 0.05); }
         
         .qa-question::after {
@@ -686,11 +601,9 @@
             font-family: 'Cormorant Garamond', serif;
             font-size: 1.5rem;
             color: #8B2A2A;
-            transition: transform 0.3s ease;
             flex-shrink: 0;
             margin-left: 1rem;
         }
-        
         .qa-item.open .qa-question::after { content: '−'; }
         
         .qa-answer {
@@ -702,44 +615,9 @@
             transition: max-height 0.4s ease, padding 0.3s ease;
             padding: 0 2rem;
         }
-        
-        .qa-item.open .qa-answer {
-            max-height: 500px;
-            padding: 0 2rem 1.5rem 2rem;
-        }
-        
+        .qa-item.open .qa-answer { max-height: 500px; padding: 0 2rem 1.5rem 2rem; }
         .qa-answer a { color: #8B2A2A; text-decoration: underline; }
         .qa-answer em { font-style: italic; color: #666; }
-        
-        /* Timeline items — h4: Cormorant 1.4rem → 1.25rem mobile */
-        .timeline-item {
-            background: #F6EDE7;
-            padding: 1.5rem 2rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: flex-start;
-            gap: 1.5rem;
-            border: 2px solid #8B2A2A;
-        }
-        
-        .timeline-content h4 {
-            font-family: 'Cormorant Garamond', serif;
-            font-weight: 600;
-            font-size: 1.4rem;
-            color: #36454F;
-            margin-bottom: 0.3rem;
-        }
-        
-        .timeline-content p {
-            font-size: 1rem;
-            line-height: 1.6;
-            color: #36454F;
-            margin: 0;
-        }
-        
-        .timeline-content a { color: #8B2A2A; text-decoration: underline; }
         
         /* Footer */
         .footer {
@@ -751,18 +629,8 @@
             position: relative;
             z-index: 3;
         }
-        
-        .footer-content {
-            font-size: 1.2rem;
-            font-weight: 500;
-            line-height: 2;
-        }
-        
-        .footer-contact {
-            margin-top: 1rem;
-            font-size: 1rem;
-            opacity: 0.9;
-        }
+        .footer-content { font-size: 1.2rem; font-weight: 500; line-height: 2; }
+        .footer-contact { margin-top: 1rem; font-size: 1rem; opacity: 0.9; }
         .footer-contact a { color: white; text-decoration: underline; }
         
         /* ===== MOBILE ===== */
@@ -773,32 +641,21 @@
             nav { width: 100%; left: -100%; }
             nav a { font-size: 1.5rem; padding: 1.2rem 2rem; }
             
-            .main-content {
-                grid-template-columns: 1fr;
-                margin: 0;
-                padding: 0;
-            }
-            
+            .main-content { grid-template-columns: 1fr; margin: 0; padding: 0; }
             .content-flow { background: #F6EDE7; margin: 0; padding: 0; }
             .photo-section { display: none !important; }
             .mobile-section-photo { display: block !important; }
             
-            .content-section {
-                padding: 2rem 1.5rem;
-                min-height: auto;
-                margin: 0;
-                border-radius: 0;
-            }
-            
+            .content-section { padding: 2rem 1.5rem; min-height: auto; margin: 0; border-radius: 0; }
             .hero-content { padding: 2rem 1.5rem; }
             
-            /* Exact mobile sizes from the table */
+            /* Mobile heading sizes — exact spec */
             .hero-content h1 { font-size: 3.5rem; }
             .content-section h2 { font-size: 2.5rem; }
             .coming-soon h2 { font-size: 2.5rem; }
             .content-section h3 { font-size: 1.4rem; }
             .content-section h4 { font-size: 1.25rem; }
-            .timeline-content h4 { font-size: 1.25rem; }
+            .accommodation-card h4 { font-size: 1.25rem; }
             .step-title { font-size: 1.7rem; }
             .qa-question { font-size: 1.4rem; }
             
@@ -821,14 +678,7 @@
     <div class="menu-overlay" id="menuOverlay" onclick="toggleMenu()"></div>
 
     <div class="header">
-        <button 
-            class="hamburger" 
-            id="hamburger" 
-            onclick="toggleMenu()" 
-            aria-label="Toggle navigation menu"
-            aria-expanded="false"
-            aria-controls="mainNav"
-        >
+        <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mainNav">
             <span></span>
             <span></span>
             <span></span>
@@ -986,7 +836,6 @@
                             <p>❌ Sorry, there was an error. Please try again or contact us directly.</p>
                         </div>
 
-                        <!-- Step 1 -->
                         <div class="wizard-step active" id="step1">
                             <div class="step-title">Enter your details to RSVP</div>
                             <div class="form-group">
@@ -1007,7 +856,6 @@
 
                         <div id="personSteps"></div>
 
-                        <!-- Final step -->
                         <div class="wizard-step" id="finalStep">
                             <div class="step-title">Review & Submit</div>
                             <div id="rsvpSummary"></div>
@@ -1134,563 +982,279 @@
             const nav = document.getElementById('mainNav');
             const hamburger = document.getElementById('hamburger');
             const overlay = document.getElementById('menuOverlay');
-            
             const isOpen = nav.classList.toggle('active');
             hamburger.classList.toggle('active');
             overlay.classList.toggle('active');
-            
             hamburger.setAttribute('aria-expanded', isOpen);
             document.body.style.overflow = isOpen ? 'hidden' : 'auto';
-            
-            if (isOpen) {
-                const firstLink = nav.querySelector('a');
-                if (firstLink) firstLink.focus();
-            }
+            if (isOpen) { const fl = nav.querySelector('a'); if (fl) fl.focus(); }
         }
 
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
                 const nav = document.getElementById('mainNav');
-                if (nav.classList.contains('active')) {
-                    toggleMenu();
-                    document.getElementById('hamburger').focus();
-                }
+                if (nav.classList.contains('active')) { toggleMenu(); document.getElementById('hamburger').focus(); }
             }
             if ((e.key === 'Enter' || e.key === ' ') && e.target.classList.contains('qa-question')) {
-                e.preventDefault();
-                toggleQA(e.target);
+                e.preventDefault(); toggleQA(e.target);
             }
         });
 
         function scrollToSection(sectionId) {
-            const element = document.getElementById(sectionId);
-            if (element) {
-                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                
-                const photoElement = element.getAttribute('data-photo');
-                if (photoElement) {
-                    const photoImg = document.getElementById('mainPhoto');
-                    if (photoImg) {
-                        setTimeout(() => { photoImg.src = photoElement; }, 300);
-                    }
-                }
+            const el = document.getElementById(sectionId);
+            if (el) {
+                el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                const ph = el.getAttribute('data-photo');
+                if (ph) { const pi = document.getElementById('mainPhoto'); if (pi) setTimeout(() => { pi.src = ph; }, 300); }
             }
-            
             const nav = document.getElementById('mainNav');
-            if (nav.classList.contains('active')) {
-                toggleMenu();
-            }
+            if (nav.classList.contains('active')) toggleMenu();
         }
 
         function setupPhotoChanging() {
             const photoImg = document.getElementById('mainPhoto');
             const sections = document.querySelectorAll('.content-section[data-photo]');
-            
             if (!photoImg || sections.length === 0) return;
+            sections.forEach(s => { const src = s.getAttribute('data-photo'); if (src) { const img = new Image(); img.src = src; } });
             
-            sections.forEach(section => {
-                const src = section.getAttribute('data-photo');
-                if (src) { const img = new Image(); img.src = src; }
-            });
-            
-            function updatePhotoOnScroll() {
-                let currentSection = null;
-                let maxVisibility = 0;
-                
-                sections.forEach(section => {
-                    const rect = section.getBoundingClientRect();
-                    const vh = window.innerHeight;
-                    const visibleHeight = Math.max(0, Math.min(vh, rect.bottom) - Math.max(0, rect.top));
-                    const ratio = visibleHeight / vh;
-                    
-                    if (ratio > maxVisibility) {
-                        maxVisibility = ratio;
-                        currentSection = section;
-                    }
+            function update() {
+                let cur = null, max = 0;
+                sections.forEach(s => {
+                    const r = s.getBoundingClientRect(), vh = window.innerHeight;
+                    const v = Math.max(0, Math.min(vh, r.bottom) - Math.max(0, r.top)) / vh;
+                    if (v > max) { max = v; cur = s; }
                 });
-                
-                if (currentSection && maxVisibility > 0.2) {
-                    const newPhoto = currentSection.getAttribute('data-photo');
-                    if (newPhoto && !photoImg.src.endsWith(newPhoto)) {
-                        const testImg = new Image();
-                        testImg.onload = function() {
-                            photoImg.style.opacity = '0';
-                            setTimeout(() => {
-                                photoImg.src = newPhoto;
-                                photoImg.style.opacity = '1';
-                            }, 300);
-                        };
-                        testImg.onerror = function() {
-                            photoImg.style.display = 'none';
-                        };
-                        testImg.src = newPhoto;
+                if (cur && max > 0.2) {
+                    const np = cur.getAttribute('data-photo');
+                    if (np && !photoImg.src.endsWith(np)) {
+                        const t = new Image();
+                        t.onload = () => { photoImg.style.opacity = '0'; setTimeout(() => { photoImg.src = np; photoImg.style.opacity = '1'; }, 300); };
+                        t.onerror = () => { photoImg.style.display = 'none'; };
+                        t.src = np;
                     }
                 }
             }
-            
             photoImg.style.transition = 'opacity 0.3s ease';
-            
             let ticking = false;
-            window.addEventListener('scroll', function() {
-                if (!ticking) {
-                    window.requestAnimationFrame(function() {
-                        updatePhotoOnScroll();
-                        ticking = false;
-                    });
-                    ticking = true;
-                }
-            });
-            
-            updatePhotoOnScroll();
+            window.addEventListener('scroll', () => { if (!ticking) { window.requestAnimationFrame(() => { update(); ticking = false; }); ticking = true; } });
+            update();
         }
 
         function updateCountdown() {
-            const weddingDate = new Date('2026-05-10T10:00:00');
-            const now = new Date();
-            const diff = weddingDate - now;
-            
-            if (diff <= 0) {
-                document.getElementById('countDays').textContent = '0';
-                document.getElementById('countHours').textContent = '0';
-                document.getElementById('countMins').textContent = '0';
-                return;
-            }
-            
-            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-            
-            document.getElementById('countDays').textContent = days;
-            document.getElementById('countHours').textContent = String(hours).padStart(2, '0');
-            document.getElementById('countMins').textContent = String(mins).padStart(2, '0');
+            const diff = new Date('2026-05-10T10:00:00') - new Date();
+            if (diff <= 0) { document.getElementById('countDays').textContent='0'; document.getElementById('countHours').textContent='0'; document.getElementById('countMins').textContent='0'; return; }
+            document.getElementById('countDays').textContent = Math.floor(diff/(1000*60*60*24));
+            document.getElementById('countHours').textContent = String(Math.floor((diff%(1000*60*60*24))/(1000*60*60))).padStart(2,'0');
+            document.getElementById('countMins').textContent = String(Math.floor((diff%(1000*60*60))/(1000*60))).padStart(2,'0');
         }
 
         function setupScrollAnimations() {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            }, { threshold: 0.1 });
-            
-            document.querySelectorAll('.fade-in-section').forEach(el => observer.observe(el));
+            const obs = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.1 });
+            document.querySelectorAll('.fade-in-section').forEach(el => obs.observe(el));
         }
 
         function toggleQA(element) {
-            const item = element.parentElement;
-            const isOpen = item.classList.contains('open');
-            
-            document.querySelectorAll('.qa-item').forEach(q => {
-                q.classList.remove('open');
-                q.querySelector('.qa-question').setAttribute('aria-expanded', 'false');
-            });
-            
-            if (!isOpen) {
-                item.classList.add('open');
-                element.setAttribute('aria-expanded', 'true');
-            }
+            const item = element.parentElement, isOpen = item.classList.contains('open');
+            document.querySelectorAll('.qa-item').forEach(q => { q.classList.remove('open'); q.querySelector('.qa-question').setAttribute('aria-expanded','false'); });
+            if (!isOpen) { item.classList.add('open'); element.setAttribute('aria-expanded','true'); }
         }
 
         function updateProgress(step) {
-            for (let i = 1; i <= 4; i++) {
-                const el = document.getElementById('prog' + i);
-                el.classList.remove('active', 'completed');
-                if (i < step) el.classList.add('completed');
-                if (i === step) el.classList.add('active');
-            }
+            for (let i=1;i<=4;i++) { const el=document.getElementById('prog'+i); el.classList.remove('active','completed'); if(i<step) el.classList.add('completed'); if(i===step) el.classList.add('active'); }
         }
 
         function nextStep(step) {
             if (step === 1) {
-                const nameInput = document.getElementById('submitterName');
-                const emailInput = document.getElementById('submitterEmail');
-                const name = nameInput.value.trim();
-                const email = emailInput.value.trim();
-                
-                let valid = true;
-                
-                nameInput.classList.remove('error-border');
-                emailInput.classList.remove('error-border');
-                document.getElementById('nameError').classList.remove('visible');
-                document.getElementById('emailError').classList.remove('visible');
-                
-                if (!name) {
-                    nameInput.classList.add('error-border');
-                    document.getElementById('nameError').classList.add('visible');
-                    nameInput.focus();
-                    valid = false;
-                }
-                
-                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                if (!email || !emailRegex.test(email)) {
-                    emailInput.classList.add('error-border');
-                    document.getElementById('emailError').classList.add('visible');
-                    if (valid) emailInput.focus();
-                    valid = false;
-                }
-                
+                const ni=document.getElementById('submitterName'), ei=document.getElementById('submitterEmail');
+                const name=ni.value.trim(), email=ei.value.trim();
+                let valid=true;
+                ni.classList.remove('error-border'); ei.classList.remove('error-border');
+                document.getElementById('nameError').classList.remove('visible'); document.getElementById('emailError').classList.remove('visible');
+                if (!name) { ni.classList.add('error-border'); document.getElementById('nameError').classList.add('visible'); ni.focus(); valid=false; }
+                if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { ei.classList.add('error-border'); document.getElementById('emailError').classList.add('visible'); if(valid) ei.focus(); valid=false; }
                 if (!valid) return;
-                
-                currentPersonIndex = 0;
-                allRsvpResponses = [];
-                startPersonRSVP(name, email);
-                updateProgress(2);
+                currentPersonIndex=0; allRsvpResponses=[]; startPersonRSVP(name,email); updateProgress(2);
             }
         }
 
         function startPersonRSVP(name, email) {
-            currentPersonResponse = {
-                name: name,
-                email: email,
-                attending: null,
-                breakfast: null,
-                dietary: [],
-                dietaryOther: '',
-                declineNote: ''
-            };
-            
-            createCurrentPersonStep();
-            showCurrentPersonStep();
+            currentPersonResponse = { name, email, attending:null, breakfast:null, dietary:[], dietaryOther:'', declineNote:'' };
+            createCurrentPersonStep(); showCurrentPersonStep();
         }
 
         function createCurrentPersonStep() {
-            const container = document.getElementById('personSteps');
-            container.innerHTML = '';
-            
-            const stepDiv = document.createElement('div');
-            stepDiv.className = 'wizard-step active';
-            stepDiv.id = 'currentPersonStep';
-            
-            stepDiv.innerHTML = `
+            const c = document.getElementById('personSteps'); c.innerHTML = '';
+            const d = document.createElement('div'); d.className='wizard-step active'; d.id='currentPersonStep';
+            d.innerHTML = `
                 <div class="person-indicator">RSVP for: <strong>${currentPersonResponse.name}</strong></div>
                 <div class="step-title">Will you be attending?</div>
                 <div class="attendance-buttons">
-                    <div class="attendance-btn accept" onclick="selectAttendance('accept')" role="button" tabindex="0">
-                        Yes I can! 🤗
-                    </div>
-                    <div class="attendance-btn decline" onclick="selectAttendance('decline')" role="button" tabindex="0">
-                        Sorry I can't make it ☹️
-                    </div>
+                    <div class="attendance-btn accept" onclick="selectAttendance('accept')" role="button" tabindex="0">Yes I can! 🤗</div>
+                    <div class="attendance-btn decline" onclick="selectAttendance('decline')" role="button" tabindex="0">Sorry I can't make it ☹️</div>
                 </div>
                 <div id="acceptQuestions" class="hidden">
-                    <div class="form-group" style="margin-top: 2rem;">
+                    <div class="form-group" style="margin-top:2rem;">
                         <label>Let us know if you're joining us for breakfast (10am - 11am)?</label>
-                        <div class="attendance-buttons" style="margin-top: 1rem;">
-                            <div class="attendance-btn accept" onclick="selectBreakfast('yes')" id="breakfastYes" role="button" tabindex="0">
-                                Yes I'll be there
-                            </div>
-                            <div class="attendance-btn decline" onclick="selectBreakfast('no')" id="breakfastNo" role="button" tabindex="0">
-                                No I can't make breakfast
-                            </div>
+                        <div class="attendance-buttons" style="margin-top:1rem;">
+                            <div class="attendance-btn accept" onclick="selectBreakfast('yes')" id="breakfastYes" role="button" tabindex="0">Yes I'll be there</div>
+                            <div class="attendance-btn decline" onclick="selectBreakfast('no')" id="breakfastNo" role="button" tabindex="0">No I can't make breakfast</div>
                         </div>
                     </div>
-                    
-                    <div class="buffet-notice" style="margin-top: 2rem;">
+                    <div class="buffet-notice" style="margin-top:2rem;">
                         <h4>Wedding Lunch</h4>
-                        <p style="margin: 0;">The wedding lunch will be served as a buffet allowing you to help yourself to the dishes we have chosen. All dishes will be vegetarian. As Oshwal Centre is a religious venue, it is a dry wedding.</p>
+                        <p style="margin:0;">The wedding lunch will be served as a buffet allowing you to help yourself to the dishes we have chosen. All dishes will be vegetarian. As Oshwal Centre is a religious venue, it is a dry wedding.</p>
                     </div>
-                    
                     <div class="form-group">
                         <label>Any dietary requirements?</label>
                         <div class="checkbox-group">
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="dietary-gluten" value="Gluten free" onchange="updateDietary()">
-                                <label for="dietary-gluten">Gluten free</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="dietary-vegan" value="Vegan" onchange="updateDietary()">
-                                <label for="dietary-vegan">Vegan</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="dietary-dairy" value="Dairy free" onchange="updateDietary()">
-                                <label for="dietary-dairy">Dairy free</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="dietary-other" value="Other" onchange="toggleOtherDietary()">
-                                <label for="dietary-other">Other</label>
-                            </div>
+                            <div class="checkbox-item"><input type="checkbox" id="dietary-gluten" value="Gluten free" onchange="updateDietary()"><label for="dietary-gluten">Gluten free</label></div>
+                            <div class="checkbox-item"><input type="checkbox" id="dietary-vegan" value="Vegan" onchange="updateDietary()"><label for="dietary-vegan">Vegan</label></div>
+                            <div class="checkbox-item"><input type="checkbox" id="dietary-dairy" value="Dairy free" onchange="updateDietary()"><label for="dietary-dairy">Dairy free</label></div>
+                            <div class="checkbox-item"><input type="checkbox" id="dietary-other" value="Other" onchange="toggleOtherDietary()"><label for="dietary-other">Other</label></div>
                         </div>
-                        <div id="otherDietaryField" class="other-dietary-field">
-                            <input type="text" id="dietaryOtherText" placeholder="Please specify..." onchange="updateDietary()">
-                        </div>
+                        <div id="otherDietaryField" class="other-dietary-field"><input type="text" id="dietaryOtherText" placeholder="Please specify..." onchange="updateDietary()"></div>
                     </div>
                 </div>
                 <div id="declineQuestions" class="hidden">
-                    <div class="form-group">
-                        <label for="currentDeclineNote">Would you like to include a note to the couple?</label>
-                        <textarea id="currentDeclineNote" rows="3" placeholder="We'll miss you but understand..."></textarea>
-                    </div>
+                    <div class="form-group"><label for="currentDeclineNote">Would you like to include a note to the couple?</label><textarea id="currentDeclineNote" rows="3" placeholder="We'll miss you but understand..."></textarea></div>
                 </div>
                 <div class="wizard-buttons">
                     <button class="btn btn-secondary" onclick="goBackToInitial()">Previous</button>
                     <button class="btn" onclick="finishCurrentPerson()">Next</button>
-                </div>
-            `;
-            
-            container.appendChild(stepDiv);
+                </div>`;
+            c.appendChild(d);
         }
 
         function showCurrentPersonStep() {
             document.getElementById('step1').classList.remove('active');
             document.getElementById('finalStep').classList.remove('active');
-            
-            const addStep = document.getElementById('addAnotherStep');
-            if (addStep) addStep.classList.remove('active');
-            
+            const a=document.getElementById('addAnotherStep'); if(a) a.classList.remove('active');
             document.getElementById('currentPersonStep').classList.add('active');
         }
 
         function selectAttendance(type) {
-            const acceptBtn = document.querySelector('#currentPersonStep > .attendance-buttons .attendance-btn.accept');
-            const declineBtn = document.querySelector('#currentPersonStep > .attendance-buttons .attendance-btn.decline');
-            const acceptQ = document.getElementById('acceptQuestions');
-            const declineQ = document.getElementById('declineQuestions');
-            
-            acceptBtn.classList.remove('selected');
-            declineBtn.classList.remove('selected');
-            acceptQ.classList.add('hidden');
-            declineQ.classList.add('hidden');
-            
-            if (type === 'accept') {
-                acceptBtn.classList.add('selected');
-                acceptQ.classList.remove('hidden');
-                currentPersonResponse.attending = 'Yes I can!';
-            } else {
-                declineBtn.classList.add('selected');
-                declineQ.classList.remove('hidden');
-                currentPersonResponse.attending = 'Sorry I can\'t make it';
-            }
+            const ab=document.querySelector('#currentPersonStep > .attendance-buttons .attendance-btn.accept');
+            const db=document.querySelector('#currentPersonStep > .attendance-buttons .attendance-btn.decline');
+            const aq=document.getElementById('acceptQuestions'), dq=document.getElementById('declineQuestions');
+            ab.classList.remove('selected'); db.classList.remove('selected'); aq.classList.add('hidden'); dq.classList.add('hidden');
+            if(type==='accept') { ab.classList.add('selected'); aq.classList.remove('hidden'); currentPersonResponse.attending='Yes I can!'; }
+            else { db.classList.add('selected'); dq.classList.remove('hidden'); currentPersonResponse.attending='Sorry I can\'t make it'; }
         }
 
         function selectBreakfast(choice) {
-            const yesBtn = document.getElementById('breakfastYes');
-            const noBtn = document.getElementById('breakfastNo');
-            
-            yesBtn.classList.remove('selected');
-            noBtn.classList.remove('selected');
-            
-            if (choice === 'yes') {
-                yesBtn.classList.add('selected');
-                currentPersonResponse.breakfast = 'Yes I\'ll be there';
-            } else {
-                noBtn.classList.add('selected');
-                currentPersonResponse.breakfast = 'No I can\'t make breakfast';
-            }
+            const y=document.getElementById('breakfastYes'), n=document.getElementById('breakfastNo');
+            y.classList.remove('selected'); n.classList.remove('selected');
+            if(choice==='yes') { y.classList.add('selected'); currentPersonResponse.breakfast='Yes I\'ll be there'; }
+            else { n.classList.add('selected'); currentPersonResponse.breakfast='No I can\'t make breakfast'; }
         }
 
         function toggleOtherDietary() {
-            const otherCheckbox = document.getElementById('dietary-other');
-            const otherField = document.getElementById('otherDietaryField');
-            
-            if (otherCheckbox.checked) {
-                otherField.classList.add('active');
-            } else {
-                otherField.classList.remove('active');
-                document.getElementById('dietaryOtherText').value = '';
-            }
+            const cb=document.getElementById('dietary-other'), f=document.getElementById('otherDietaryField');
+            if(cb.checked) f.classList.add('active'); else { f.classList.remove('active'); document.getElementById('dietaryOtherText').value=''; }
             updateDietary();
         }
 
         function updateDietary() {
-            const dietary = [];
-            if (document.getElementById('dietary-gluten').checked) dietary.push('Gluten free');
-            if (document.getElementById('dietary-vegan').checked) dietary.push('Vegan');
-            if (document.getElementById('dietary-dairy').checked) dietary.push('Dairy free');
-            
-            const otherText = document.getElementById('dietaryOtherText').value.trim();
-            if (document.getElementById('dietary-other').checked && otherText) {
-                dietary.push('Other: ' + otherText);
-            }
-            
-            currentPersonResponse.dietary = dietary;
+            const d=[];
+            if(document.getElementById('dietary-gluten').checked) d.push('Gluten free');
+            if(document.getElementById('dietary-vegan').checked) d.push('Vegan');
+            if(document.getElementById('dietary-dairy').checked) d.push('Dairy free');
+            const ot=document.getElementById('dietaryOtherText').value.trim();
+            if(document.getElementById('dietary-other').checked && ot) d.push('Other: '+ot);
+            currentPersonResponse.dietary=d;
         }
 
         function finishCurrentPerson() {
-            if (!currentPersonResponse.attending) {
-                alert('Please select whether you will be attending.');
-                return;
-            }
-            
-            if (currentPersonResponse.attending === 'Yes I can!') {
-                updateDietary();
-            } else {
-                currentPersonResponse.declineNote = document.getElementById('currentDeclineNote').value;
-            }
-            
-            allRsvpResponses.push({...currentPersonResponse});
-            showAddAnotherStep();
-            updateProgress(3);
+            if(!currentPersonResponse.attending) { alert('Please select whether you will be attending.'); return; }
+            if(currentPersonResponse.attending==='Yes I can!') updateDietary();
+            else currentPersonResponse.declineNote=document.getElementById('currentDeclineNote').value;
+            allRsvpResponses.push({...currentPersonResponse}); showAddAnotherStep(); updateProgress(3);
         }
 
         function showAddAnotherStep() {
             document.getElementById('currentPersonStep').classList.remove('active');
-            
-            let addStep = document.getElementById('addAnotherStep');
-            if (!addStep) {
-                addStep = document.createElement('div');
-                addStep.className = 'wizard-step';
-                addStep.id = 'addAnotherStep';
-                document.getElementById('personSteps').appendChild(addStep);
-            }
-            
-            addStep.innerHTML = `
+            let s=document.getElementById('addAnotherStep');
+            if(!s) { s=document.createElement('div'); s.className='wizard-step'; s.id='addAnotherStep'; document.getElementById('personSteps').appendChild(s); }
+            s.innerHTML = `
                 <div class="step-title">RSVP for anyone else?</div>
-                <div class="person-indicator">You have completed ${allRsvpResponses.length} RSVP${allRsvpResponses.length > 1 ? 's' : ''}</div>
+                <div class="person-indicator">You have completed ${allRsvpResponses.length} RSVP${allRsvpResponses.length>1?'s':''}</div>
                 <div class="attendance-buttons">
                     <div class="attendance-btn accept" onclick="showInlineAddForm()" role="button" tabindex="0">Yes</div>
                     <div class="attendance-btn decline" onclick="proceedToFinal()" role="button" tabindex="0">No</div>
                 </div>
-                <div id="inlineAddForm" class="hidden" style="margin-top: 2rem;">
-                    <div class="form-group">
-                        <label for="addPersonName">Their Name *</label>
-                        <input type="text" id="addPersonName">
-                    </div>
-                    <div class="form-group">
-                        <label for="addPersonEmail">Their Email *</label>
-                        <input type="email" id="addPersonEmail">
-                    </div>
-                    <div class="wizard-buttons">
-                        <div></div>
-                        <button class="btn" onclick="addInlinePerson()">Continue</button>
-                    </div>
-                </div>
-            `;
-            
-            addStep.classList.add('active');
+                <div id="inlineAddForm" class="hidden" style="margin-top:2rem;">
+                    <div class="form-group"><label for="addPersonName">Their Name *</label><input type="text" id="addPersonName"></div>
+                    <div class="form-group"><label for="addPersonEmail">Their Email *</label><input type="email" id="addPersonEmail"></div>
+                    <div class="wizard-buttons"><div></div><button class="btn" onclick="addInlinePerson()">Continue</button></div>
+                </div>`;
+            s.classList.add('active');
         }
 
-        function showInlineAddForm() {
-            document.getElementById('inlineAddForm').classList.remove('hidden');
-            document.getElementById('addPersonName').focus();
-        }
+        function showInlineAddForm() { document.getElementById('inlineAddForm').classList.remove('hidden'); document.getElementById('addPersonName').focus(); }
 
         function addInlinePerson() {
-            const name = document.getElementById('addPersonName').value.trim();
-            const email = document.getElementById('addPersonEmail').value.trim();
-            
-            if (!name || !email) {
-                alert('Please enter both name and email.');
-                return;
-            }
-            
-            startPersonRSVP(name, email);
+            const n=document.getElementById('addPersonName').value.trim(), e=document.getElementById('addPersonEmail').value.trim();
+            if(!n||!e) { alert('Please enter both name and email.'); return; }
+            startPersonRSVP(n,e);
         }
 
-        function proceedToFinal() {
-            showFinalStep();
-            updateProgress(4);
-        }
+        function proceedToFinal() { showFinalStep(); updateProgress(4); }
 
         function goBackToInitial() {
             document.getElementById('currentPersonStep').classList.remove('active');
             document.getElementById('step1').classList.add('active');
-            allRsvpResponses = [];
-            currentPersonResponse = {};
-            updateProgress(1);
+            allRsvpResponses=[]; currentPersonResponse={}; updateProgress(1);
         }
 
         function startNewRSVP() {
-            allRsvpResponses = [];
-            currentPersonResponse = {};
-            document.getElementById('submitterName').value = '';
-            document.getElementById('submitterEmail').value = '';
-            document.getElementById('successMessage').classList.add('hidden');
-            document.getElementById('errorMessage').classList.add('hidden');
-            document.getElementById('rsvpWizard').style.display = 'block';
-            document.getElementById('finalStep').classList.remove('active');
-            document.getElementById('step1').classList.add('active');
-            document.getElementById('personSteps').innerHTML = '';
-            updateProgress(1);
+            allRsvpResponses=[]; currentPersonResponse={};
+            document.getElementById('submitterName').value=''; document.getElementById('submitterEmail').value='';
+            document.getElementById('successMessage').classList.add('hidden'); document.getElementById('errorMessage').classList.add('hidden');
+            document.getElementById('rsvpWizard').style.display='block';
+            document.getElementById('finalStep').classList.remove('active'); document.getElementById('step1').classList.add('active');
+            document.getElementById('personSteps').innerHTML=''; updateProgress(1);
         }
 
         function showFinalStep() {
-            const addStep = document.getElementById('addAnotherStep');
-            if (addStep) addStep.classList.remove('active');
-            
+            const a=document.getElementById('addAnotherStep'); if(a) a.classList.remove('active');
             document.getElementById('finalStep').classList.add('active');
-            
-            const summaryDiv = document.getElementById('rsvpSummary');
-            let html = `<h3 style="font-size: 1.6rem; margin-bottom: 1rem;">RSVP Summary (${allRsvpResponses.length} ${allRsvpResponses.length > 1 ? 'people' : 'person'})</h3>`;
-            
-            allRsvpResponses.forEach((r) => {
-                html += `<div style="margin-bottom: 1rem; padding: 1rem; background: #F6EDE7; border-radius: 10px; border: 2px solid #8B2A2A;">`;
-                html += `<strong>${r.name}</strong> - ${r.attending}<br>`;
-                html += `<em>Email: ${r.email}</em><br>`;
-                
-                if (r.attending === 'Yes I can!') {
-                    if (r.breakfast) {
-                        html += `<strong>Breakfast:</strong> ${r.breakfast}<br>`;
-                    }
-                    if (r.dietary && r.dietary.length > 0) {
-                        html += `<strong>Dietary:</strong> ${r.dietary.join(', ')}<br>`;
-                    }
-                } else if (r.declineNote) {
-                    html += `<strong>Note:</strong> ${r.declineNote}<br>`;
-                }
-                
-                html += `</div>`;
+            const sd=document.getElementById('rsvpSummary');
+            let h=`<h3>RSVP Summary (${allRsvpResponses.length} ${allRsvpResponses.length>1?'people':'person'})</h3>`;
+            allRsvpResponses.forEach(r => {
+                h+=`<div style="margin-bottom:1rem;padding:1rem;background:#F6EDE7;border-radius:10px;border:2px solid #8B2A2A;">`;
+                h+=`<strong>${r.name}</strong> - ${r.attending}<br><em>Email: ${r.email}</em><br>`;
+                if(r.attending==='Yes I can!') { if(r.breakfast) h+=`<strong>Breakfast:</strong> ${r.breakfast}<br>`; if(r.dietary&&r.dietary.length>0) h+=`<strong>Dietary:</strong> ${r.dietary.join(', ')}<br>`; }
+                else if(r.declineNote) h+=`<strong>Note:</strong> ${r.declineNote}<br>`;
+                h+=`</div>`;
             });
-            
-            summaryDiv.innerHTML = html;
+            sd.innerHTML=h;
         }
 
         async function submitRSVP() {
-            const submitBtn = document.getElementById('submitBtn');
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Submitting...';
-            
+            const btn=document.getElementById('submitBtn'); btn.disabled=true; btn.textContent='Submitting...';
             try {
-                let allSucceeded = true;
-                
-                for (let i = 0; i < allRsvpResponses.length; i++) {
-                    const response = allRsvpResponses[i];
-                    const formData = new FormData();
-                    
-                    formData.append('submission_date', new Date().toISOString());
-                    formData.append('submitter_name', allRsvpResponses[0].name);
-                    formData.append('submitter_email', allRsvpResponses[0].email);
-                    formData.append('wedding_type', 'Indian Wedding');
-                    formData.append('guest_name', response.name);
-                    formData.append('guest_email', response.email);
-                    formData.append('attending', response.attending);
-                    formData.append('breakfast', response.breakfast || '');
-                    formData.append('dietary', response.dietary.join(', ') || '');
-                    formData.append('decline_note', response.declineNote || '');
-                    formData.append('total_in_submission', allRsvpResponses.length);
-                    formData.append('_subject', `Indian Wedding RSVP - ${allRsvpResponses[0].name} (${allRsvpResponses.length} ${allRsvpResponses.length > 1 ? 'people' : 'person'})`);
-                    formData.append('_captcha', 'false');
-                    
-                    const res = await fetch('https://formspree.io/f/mldwnnlv', {
-                        method: 'POST',
-                        body: formData,
-                        headers: { 'Accept': 'application/json' }
-                    });
-                    
-                    if (!res.ok) allSucceeded = false;
+                let ok=true;
+                for(let i=0;i<allRsvpResponses.length;i++) {
+                    const r=allRsvpResponses[i], fd=new FormData();
+                    fd.append('submission_date',new Date().toISOString());
+                    fd.append('submitter_name',allRsvpResponses[0].name); fd.append('submitter_email',allRsvpResponses[0].email);
+                    fd.append('wedding_type','Indian Wedding'); fd.append('guest_name',r.name); fd.append('guest_email',r.email);
+                    fd.append('attending',r.attending); fd.append('breakfast',r.breakfast||'');
+                    fd.append('dietary',r.dietary.join(', ')||''); fd.append('decline_note',r.declineNote||'');
+                    fd.append('total_in_submission',allRsvpResponses.length);
+                    fd.append('_subject',`Indian Wedding RSVP - ${allRsvpResponses[0].name} (${allRsvpResponses.length} ${allRsvpResponses.length>1?'people':'person'})`);
+                    fd.append('_captcha','false');
+                    const res=await fetch('https://formspree.io/f/mldwnnlv',{method:'POST',body:fd,headers:{'Accept':'application/json'}});
+                    if(!res.ok) ok=false;
                 }
-                
-                if (allSucceeded) {
-                    document.getElementById('successMessage').classList.remove('hidden');
-                    document.getElementById('rsvpWizard').style.display = 'none';
-                } else {
-                    document.getElementById('errorMessage').classList.remove('hidden');
-                }
-                
-            } catch (error) {
-                console.error('Error:', error);
-                document.getElementById('errorMessage').classList.remove('hidden');
-            } finally {
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Submit RSVP';
-            }
+                if(ok) { document.getElementById('successMessage').classList.remove('hidden'); document.getElementById('rsvpWizard').style.display='none'; }
+                else document.getElementById('errorMessage').classList.remove('hidden');
+            } catch(e) { console.error(e); document.getElementById('errorMessage').classList.remove('hidden'); }
+            finally { btn.disabled=false; btn.textContent='Submit RSVP'; }
         }
 
         document.addEventListener('DOMContentLoaded', function() {
-            updateCountdown();
-            setupPhotoChanging();
-            setupScrollAnimations();
-            setInterval(updateCountdown, 60000);
+            updateCountdown(); setupPhotoChanging(); setupScrollAnimations(); setInterval(updateCountdown, 60000);
         });
     </script>
 </body>
