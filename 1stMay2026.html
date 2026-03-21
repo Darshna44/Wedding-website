@@ -11,7 +11,7 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Great+Vibes&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
     
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -40,9 +40,17 @@
         }
         .skip-link:focus { top: 0; }
         
-        h1, h2, h3, h4, h5, h6 {
+        /* Great Vibes for h1 and h2 only */
+        h1, h2 {
             font-family: 'Great Vibes', cursive;
             font-weight: 400;
+            color: #36454F;
+        }
+        
+        /* Playfair Display for h3, h4, h5, h6 */
+        h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 500;
             color: #36454F;
         }
         
@@ -205,15 +213,15 @@
         }
         
         .content-section h3 {
-            font-family: 'Great Vibes', cursive;
-            font-size: 1.6rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
             color: #36454F;
             margin: 2rem 0 1rem 0;
         }
         
         .content-section h4 {
-            font-family: 'Great Vibes', cursive;
-            font-size: 1.4rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
             color: #36454F;
         }
         
@@ -318,8 +326,8 @@
         }
         
         .timeline-content h4 {
-            font-family: 'Great Vibes', cursive;
-            font-size: 1.4rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
             color: #36454F;
             margin-bottom: 0.3rem;
         }
@@ -343,8 +351,8 @@
         }
         
         .content-card h3 {
-            font-family: 'Great Vibes', cursive;
-            font-size: 2.2rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
             color: #36454F;
             margin-bottom: 1rem;
         }
@@ -366,8 +374,8 @@
         }
         
         .accommodation-card h4 {
-            font-family: 'Great Vibes', cursive;
-            font-size: 1.8rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
             color: #36454F;
             margin-bottom: 1rem;
         }
@@ -444,8 +452,9 @@
         .wizard-step.active { display: block; }
         
         .step-title {
-            font-family: 'Great Vibes', cursive;
-            font-size: 2rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 500;
             color: #36454F;
             text-align: center;
             margin-bottom: 1.5rem;
@@ -644,10 +653,10 @@
         }
         
         .qa-question {
-            font-family: 'Great Vibes', cursive;
-            font-size: 1.6rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
             color: #36454F;
-            font-weight: 400;
+            font-weight: 500;
             padding: 1.5rem 2rem;
             cursor: pointer;
             display: flex;
@@ -737,11 +746,12 @@
             .hero-content { padding: 2rem 1.5rem; }
             .hero-content h1 { font-size: 3.5rem; }
             .content-section h2 { font-size: 2.5rem; }
-            .content-section h3 { font-size: 1.4rem; }
-            .content-section h4 { font-size: 1.25rem; }
-            .timeline-content h4 { font-size: 1.25rem; }
-            .step-title { font-size: 1.7rem; }
-            .qa-question { font-size: 1.4rem; }
+            .content-section h3 { font-size: 1.2rem; }
+            .content-section h4 { font-size: 1.1rem; }
+            .timeline-content h4 { font-size: 1.1rem; }
+            .step-title { font-size: 1.4rem; }
+            .qa-question { font-size: 1.15rem; }
+            .accommodation-card h4 { font-size: 1.15rem; }
             .accommodation-grid { grid-template-columns: 1fr; }
             .rsvp-wizard { padding: 2rem; margin: 0; border-radius: 0; }
             .attendance-buttons { grid-template-columns: 1fr; }
@@ -944,7 +954,7 @@
                 <div class="fade-in-section">
                     <h2>Registry</h2>
                     <div class="registry-content">
-                        <p>Your presence at our wedding is the greatest gift 🧡</p>
+                        <p>Your presence at our wedding is the greatest gift of all 🧡</p>
                         <p>If you would like to give us a gift, we are saving for our honeymoon and would be delighted with a contribution. Please use the following link to join us in creating these memories:</p>
                         <a href="https://monzo.me/michaelrose1?h=8kXIbO" target="_blank" rel="noopener noreferrer" class="registry-link">Contribute to Our Honeymoon</a>
                     </div>
