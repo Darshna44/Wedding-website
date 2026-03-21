@@ -30,7 +30,6 @@
             position: relative;
         }
         
-        /* Watercolor overlay — simplified, no blur cost */
         body::before {
             content: '';
             position: fixed;
@@ -46,7 +45,6 @@
             z-index: 1;
         }
         
-        /* Skip to content */
         .skip-link {
             position: absolute;
             top: -40px;
@@ -62,14 +60,22 @@
         }
         .skip-link:focus { top: 0; }
         
-        h1, h2, h3, h4, h5, h6 {
+        /* FONT STRATEGY:
+           Tangerine → h1, h2 only (big decorative titles)
+           Cormorant Garamond 600 → h3, h4, .step-title, .qa-question, etc. (functional headings) */
+        
+        h1, h2 {
             font-family: 'Tangerine', cursive;
             font-weight: 700;
         }
         
+        h3, h4, h5, h6 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+        }
+        
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 2; }
         
-        /* Header */
         .header {
             position: fixed;
             top: 0;
@@ -106,7 +112,6 @@
         
         .hamburger:hover span { background: #8B2A2A; }
         
-        /* Fixed hamburger X */
         .hamburger.active span:nth-child(1) {
             transform: rotate(45deg) translate(5.5px, 5.5px);
         }
@@ -172,7 +177,6 @@
         
         .menu-overlay.active { opacity: 1; visibility: visible; }
         
-        /* Main Content */
         .main-content {
             display: grid;
             grid-template-columns: 60% 40%;
@@ -201,8 +205,6 @@
         
         .content-flow { background: #F6EDE7; }
         
-        /* Removed: backdrop-filter on content sections (no effect on opaque bg) */
-        /* Removed: margin/border-radius on content-section (caused layout gaps) */
         .content-section {
             min-height: 100vh;
             padding: 4rem 3rem;
@@ -215,7 +217,6 @@
         
         .content-section:last-child { border-bottom: none; }
         
-        /* Fade-in on scroll */
         .fade-in-section {
             opacity: 0;
             transform: translateY(30px);
@@ -226,24 +227,37 @@
             transform: translateY(0);
         }
         
+        /* h1: Tangerine 4.5rem → 3.5rem mobile */
+        .hero-content h1 {
+            font-family: 'Tangerine', cursive;
+            font-size: 4.5rem;
+            color: #8B2A2A;
+            margin-bottom: 1rem;
+        }
+        
+        /* h2: Tangerine 3rem → 2.5rem mobile */
         .content-section h2 {
             font-family: 'Tangerine', cursive;
-            font-size: 4rem;
+            font-size: 3rem;
             color: #8B2A2A;
             margin-bottom: 2rem;
         }
         
+        /* h3: Cormorant 1.6rem → 1.4rem mobile, BLACK */
         .content-section h3 {
-            font-family: 'Tangerine', cursive;
-            font-size: 2rem;
-            color: #8B2A2A;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            font-size: 1.6rem;
+            color: #36454F;
             margin: 2rem 0 1rem 0;
         }
         
+        /* h4: Cormorant 1.4rem → 1.25rem mobile, BLACK */
         .content-section h4 {
-            font-family: 'Tangerine', cursive;
-            font-size: 1.8rem;
-            color: #8B2A2A;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            font-size: 1.4rem;
+            color: #36454F;
         }
         
         .content-section p {
@@ -263,17 +277,9 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
         
-        /* Hero */
         .hero-content {
             text-align: center;
             padding: 3rem;
-        }
-        
-        .hero-content h1 {
-            font-family: 'Tangerine', cursive;
-            font-size: 5.5rem;
-            color: #8B2A2A;
-            margin-bottom: 1rem;
         }
         
         .hero-content .date {
@@ -304,7 +310,6 @@
             color: #36454F;
         }
         
-        /* Enhanced countdown */
         .countdown-grid {
             display: flex;
             gap: 1.5rem;
@@ -349,7 +354,7 @@
         
         .coming-soon h2 {
             font-family: 'Tangerine', cursive;
-            font-size: 4rem;
+            font-size: 3rem;
             color: #8B2A2A;
             margin-bottom: 1rem;
         }
@@ -360,7 +365,7 @@
             font-weight: 600;
         }
         
-        /* Content Cards */
+        /* Content Cards — h3 inside: Cormorant 2.2rem, BLACK */
         .content-card {
             background: #F6EDE7;
             padding: 2rem;
@@ -371,13 +376,14 @@
         }
         
         .content-card h3 {
-            font-family: 'Tangerine', cursive;
-            font-size: 2.5rem;
-            color: #8B2A2A;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            font-size: 2.2rem;
+            color: #36454F;
             margin-bottom: 1rem;
         }
         
-        /* Accommodations */
+        /* Accommodations — h4: Cormorant 1.8rem, BLACK */
         .accommodation-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -395,9 +401,10 @@
         }
         
         .accommodation-card h4 {
-            font-family: 'Tangerine', cursive;
-            font-size: 2rem;
-            color: #8B2A2A;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            font-size: 1.8rem;
+            color: #36454F;
             margin-bottom: 1rem;
         }
         
@@ -443,7 +450,6 @@
             color: #36454F;
         }
         
-        /* Progress bar */
         .rsvp-progress {
             display: flex;
             justify-content: center;
@@ -474,11 +480,12 @@
         .wizard-step { display: none; }
         .wizard-step.active { display: block; }
         
-        /* Reduced step title */
+        /* .step-title: Cormorant 2rem → 1.7rem mobile, BLACK */
         .step-title {
-            font-family: 'Tangerine', cursive;
-            font-size: 2.4rem;
-            color: #8B2A2A;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            font-size: 2rem;
+            color: #36454F;
             text-align: center;
             margin-bottom: 1.5rem;
         }
@@ -492,18 +499,19 @@
         }
         
         .buffet-notice h4 {
-            color: #8B2A2A;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            color: #36454F;
             margin-bottom: 0.5rem;
-            font-size: 1.8rem;
+            font-size: 1.4rem;
         }
         
         .form-group { margin-bottom: 1.5rem; }
         
-        /* Body font for form labels */
         .form-group label {
             display: block;
             margin-bottom: 0.5rem;
-            color: #8B2A2A;
+            color: #36454F;
             font-family: 'Cormorant Garamond', serif;
             font-size: 1rem;
             font-weight: 600;
@@ -526,7 +534,6 @@
             box-shadow: 0 0 0 3px rgba(139, 42, 42, 0.15);
         }
         
-        /* Inline validation */
         .field-error {
             color: #c0392b;
             font-size: 0.9rem;
@@ -650,7 +657,7 @@
         .message.error { background-color: #f7d4d4; color: #5a2d2d; border: 2px solid #d69090; }
         .hidden { display: none; }
         
-        /* Q&A Accordion */
+        /* Q&A Accordion — Cormorant 1.6rem → 1.4rem mobile, BLACK */
         .qa-item {
             background: #F6EDE7;
             border-radius: 15px;
@@ -660,10 +667,10 @@
         }
         
         .qa-question {
-            font-family: 'Tangerine', cursive;
-            font-size: 2rem;
-            color: #8B2A2A;
-            font-weight: 700;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            font-size: 1.6rem;
+            color: #36454F;
             padding: 1.5rem 2rem;
             cursor: pointer;
             display: flex;
@@ -704,6 +711,36 @@
         .qa-answer a { color: #8B2A2A; text-decoration: underline; }
         .qa-answer em { font-style: italic; color: #666; }
         
+        /* Timeline items — h4: Cormorant 1.4rem → 1.25rem mobile */
+        .timeline-item {
+            background: #F6EDE7;
+            padding: 1.5rem 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            border: 2px solid #8B2A2A;
+        }
+        
+        .timeline-content h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            font-size: 1.4rem;
+            color: #36454F;
+            margin-bottom: 0.3rem;
+        }
+        
+        .timeline-content p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #36454F;
+            margin: 0;
+        }
+        
+        .timeline-content a { color: #8B2A2A; text-decoration: underline; }
+        
         /* Footer */
         .footer {
             background: #8B2A2A;
@@ -728,7 +765,7 @@
         }
         .footer-contact a { color: white; text-decoration: underline; }
         
-        /* Mobile */
+        /* ===== MOBILE ===== */
         @media (max-width: 768px) {
             body { padding: 0; margin: 0; }
             .container { padding: 0; }
@@ -754,12 +791,17 @@
             }
             
             .hero-content { padding: 2rem 1.5rem; }
-            .hero-content h1 { font-size: 4rem; }
-            .content-section h2 { font-size: 3rem; }
-            .content-section h3 { font-size: 1.7rem; }
-            .content-section h4 { font-size: 1.6rem; }
-            .step-title { font-size: 2rem; }
-            .qa-question { font-size: 1.7rem; }
+            
+            /* Exact mobile sizes from the table */
+            .hero-content h1 { font-size: 3.5rem; }
+            .content-section h2 { font-size: 2.5rem; }
+            .coming-soon h2 { font-size: 2.5rem; }
+            .content-section h3 { font-size: 1.4rem; }
+            .content-section h4 { font-size: 1.25rem; }
+            .timeline-content h4 { font-size: 1.25rem; }
+            .step-title { font-size: 1.7rem; }
+            .qa-question { font-size: 1.4rem; }
+            
             .accommodation-grid { grid-template-columns: 1fr; }
             .rsvp-wizard { padding: 2rem; margin: 0; border-radius: 0; }
             .attendance-buttons { grid-template-columns: 1fr; }
@@ -1569,7 +1611,7 @@
             document.getElementById('finalStep').classList.add('active');
             
             const summaryDiv = document.getElementById('rsvpSummary');
-            let html = `<h3>RSVP Summary (${allRsvpResponses.length} ${allRsvpResponses.length > 1 ? 'people' : 'person'})</h3>`;
+            let html = `<h3 style="font-size: 1.6rem; margin-bottom: 1rem;">RSVP Summary (${allRsvpResponses.length} ${allRsvpResponses.length > 1 ? 'people' : 'person'})</h3>`;
             
             allRsvpResponses.forEach((r) => {
                 html += `<div style="margin-bottom: 1rem; padding: 1rem; background: #F6EDE7; border-radius: 10px; border: 2px solid #8B2A2A;">`;
